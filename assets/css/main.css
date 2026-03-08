@@ -890,7 +890,7 @@ section,
 }
 
 .hero .hero-image .floating-elements .floating-card.code {
-  bottom: 30%;
+  bottom: 10%;
   left: -15%;
   animation-delay: 1s;
 }
@@ -900,6 +900,13 @@ section,
   right: -5%;
   animation-delay: 2s;
 }
+
+.hero .hero-image .floating-elements .floating-card.sql {
+  bottom: 55%;
+  left: -10%;
+  animation-delay: 1.5s;
+}
+
 
 @media (max-width: 992px) {
   .hero .hero-image .floating-elements .floating-card {
