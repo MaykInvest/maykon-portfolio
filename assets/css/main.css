@@ -2769,6 +2769,23 @@ section,
   background-color: var(--accent-color);
 }
 
+/* Interactive Contact Items */
+.info-item a {
+  color: inherit; /* Keeps the text color the same as before */
+  transition: 0.3s;
+}
+
+.info-item a:hover .icon-box {
+  background-color: var(--accent-color); /* Changes icon background on hover */
+  color: #fff;
+}
+
+.info-item a:hover .content h4 {
+  color: var(--accent-color); /* Changes title color on hover */
+}
+
+
+
 .contact .info-item .content h4 {
   color: var(--contrast-color);
   font-size: 1.25rem;
