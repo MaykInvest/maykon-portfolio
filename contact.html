@@ -77,108 +77,112 @@
     <!-- Contact Section -->
     <section id="contact" class="contact section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>If you would like to discuss data projects, collaborations, or job opportunities, feel free to contact me. I'm always open to connecting with professionals in data science and analytics.</p>
-      </div><!-- End Section Title -->
+      <div class="container" data-aos="fade-up">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <!-- Section Title -->
+        <div class="section-title text-center mb-5">
+          <h2>Contact</h2>
+          <p>If you would like to discuss data projects, collaborations, or job opportunities, feel free to contact me. I'm always open to connecting with professionals in data science and analytics.</p>
+        </div>
 
         <div class="row g-4 g-lg-5">
+
+          <!-- Contact Info Column -->
           <div class="col-lg-5">
-            <div class="info-box" data-aos="fade-up" data-aos-delay="200">
+            <div class="info-box p-4" data-aos="fade-up" data-aos-delay="200">
               <h3>Contact Info</h3>
               <p>If you are interested in collaborating on data projects, analytics work, or discussing opportunities in data science, feel free to send me a message.</p>
 
-              <div class="info-item" data-aos="fade-up" data-aos-delay="300">
-                <a href="https://www.google.com/maps/search/?api=1&query=Mossoró,+Rio+Grande+do+Norte,+Brazil" target="_blank" class="d-flex align-items-start text-decoration-none">
+              <!-- Location -->
+              <a href="https://www.google.com/maps/search/?api=1&query=Mossoró,+Rio+Grande+do+Norte,+Brazil" target="_blank" class="text-decoration-none">
+                <div class="info-item d-flex align-items-start mt-4" data-aos="fade-up" data-aos-delay="300">
                   <div class="icon-box me-3">
                     <i class="bi bi-geo-alt"></i>
                   </div>
-                  
                   <div class="content">
                     <h4>Location</h4>
                     <p>Mossoró, Rio Grande do Norte</p>
                     <p>Brazil</p>
                   </div>
-                </a>
-              </div>
+                </div>
+              </a>
 
-             
-              <div class="info-item" data-aos="fade-up" data-aos-delay="500">
-                <div class="icon-box">
+              <!-- Email -->
+              <div class="info-item d-flex align-items-start mt-3" data-aos="fade-up" data-aos-delay="400">
+                <div class="icon-box me-3">
                   <a href="mailto:maykinvest@outlook.com">
                     <i class="bi bi-envelope-fill"></i> </a>
-                  </div>
+                </div>
                 <div class="content">
                   <h4>Email</h4>
-                  <p>maykinves@outlook.com</p>
+                  <p><a href="mailto:maykinves@outlook.com" class="text-decoration-none">maykinves@outlook.com</a></p>
                 </div>
               </div>
 
-              <div class="info-item" data-aos="fade-up" data-aos-delay="500">
-                <div class="icon-box">
+              <!-- Business Hours -->
+              <div class="info-item d-flex align-items-start mt-3" data-aos="fade-up" data-aos-delay="500">
+                <div class="icon-box me-3">
                   <i class="bi bi-clock-fill"></i>
                 </div>
                 <div class="content">
                   <h4>Business Hours</h4>
-                  <p>Monday – Friday: 7:00 – 19:00</p>
-                  <p>Saturday: 9:00 – 13:00</p>
+                  <p class="mb-0">Monday – Friday: 07:00 – 19:00</p>
+                  <p class="mb-0">Saturday: 09:00 – 13:00</p>
+                  <p class="mb-0">Sunday: Closed</p>
                 </div>
               </div>
 
             </div>
           </div>
 
+          <!-- Contact Form Column -->
           <div class="col-lg-7">
-            <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
+            <div class="contact-form p-4" data-aos="fade-up" data-aos-delay="300">
               <h3>Get In Touch</h3>
               <p>Have a data project, collaboration idea, or job opportunity? Send me a message and let's connect. I'm always open to discussing data science and analytics.</p>
 
               <form action="https://formspree.io/f/xreypzpl" method="POST">
-                <!-- Email subject when message arrives -->
+                <!-- Email subject -->
                 <input type="hidden" name="_subject" value="New Portfolio Message">
-                 
-                <div class="row gy-4"> 
-                  
-                  <!-- Name --> 
+
+                <div class="row gy-4">
+
+                  <!-- Name -->
                   <div class="col-md-6">
                     <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                   </div>
-                  
-                  <!-- Email --> 
-                  <div class="col-md-6"> 
+
+                  <!-- Email -->
+                  <div class="col-md-6">
                     <input type="email" name="email" class="form-control" placeholder="Your Email" required>
                   </div>
-                  
-                  <!-- Subject --> 
+
+                  <!-- Subject -->
                   <div class="col-12">
                     <input type="text" name="subject" class="form-control" placeholder="Subject">
                   </div>
 
                   <!-- Message -->
-                  <div class="col-12"> 
+                  <div class="col-12">
                     <textarea name="message" class="form-control" rows="6" placeholder="Message" required></textarea>
                   </div>
 
-                  <!-- Button -->
+                  <!-- Submit Button -->
                   <div class="col-12 text-center">
                     <button type="submit" class="btn btn-primary">Send Message</button>
                   </div>
 
                 </div>
-
               </form>
 
             </div>
           </div>
 
-        </div>
+        </div> <!-- End Row -->
 
-      </div>
+      </div> <!-- End Container -->
 
-    </section><!-- /Contact Section -->
+    </section>
 
   </main>
 
