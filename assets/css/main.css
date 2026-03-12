@@ -884,26 +884,26 @@ section,
 }
 
 .hero .hero-image .floating-elements .floating-card.design {
-  top: 10%;
-  right: -10%;
-  animation-delay: 0s;
+  top: 80%;
+  right: -20%;
+  animation-delay: 0.5s;
 }
 
 .hero .hero-image .floating-elements .floating-card.code {
-  bottom: 10%;
-  left: -15%;
+  bottom: 70%;
+  left: -13%;
   animation-delay: 1s;
 }
 
 .hero .hero-image .floating-elements .floating-card.creativity {
-  top: 60%;
-  right: -5%;
-  animation-delay: 2s;
+  top: 35%;
+  right: -18%;
+  animation-delay: 1.5s;
 }
 
 .hero .hero-image .floating-elements .floating-card.sql {
-  bottom: 55%;
-  left: -10%;
+  bottom: 20%;
+  left: -12%;
   animation-delay: 1.5s;
 }
 
