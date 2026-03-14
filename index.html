@@ -52,6 +52,52 @@
         transform: translate(-50%, -50%) scale(1.15) rotate(5deg);
       }
     }
+
+    /* Modern Button Styling */
+    .hero .hero-actions .btn {
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      font-size: 0.95rem;
+    }
+
+    .hero .hero-actions .btn-primary {
+      background: linear-gradient(135deg, #4f46e5 0%, #db2777 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+    }
+
+    .hero .hero-actions .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(79, 70, 229, 0.5);
+      filter: brightness(1.1);
+    }
+
+    .hero .hero-actions .btn-outline-light {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      color: #fff;
+    }
+
+    .hero .hero-actions .btn-outline-light:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.3) !important;
+      transform: translateY(-3px);
+    }
+
+    .hero .hero-actions .btn i {
+      transition: transform 0.3s ease;
+    }
+
+    .hero .hero-actions .btn:hover i {
+      transform: translateX(4px);
+    }
   </style>
   <!-- =======================================================
   * Template Name: FolioOne
@@ -104,9 +150,11 @@
             </p>
             
             <div class="hero-actions" data-aos="fade-up" data-aos-delay="600">
-              <a href="portfolio.html" class="btn btn-primary">View My Projects</a>
-              <a href="contact.html" class="btn btn-outline-light">Contact Me</a>
+              <a href="portfolio.html" class="btn btn-primary">View My Projects <i class="bi bi-arrow-right"></i></a>
+              <a href="contact.html" class="btn btn-outline-light">Contact Me <i class="bi bi-envelope"></i></a>
+              <a href="resume.html" class="btn btn-outline-light">Resume <i class="bi bi-file-earmark-person"></i></a>
             </div>
+            
           </div>
         </div>
 
