@@ -30,12 +30,14 @@
   <style>
     /* Single Window Optimization */
     .contact.section {
-      padding: 30px 0 !important;
+      padding: 15px 0 !important;
+      min-height: calc(100vh - 160px); /* Adjust based on header/footer height */
+      display: flex;
+      align-items: center;
     }
 
     .contact .section-title {
-      padding-bottom: 10px !important;
-      margin-bottom: 1.5rem !important;
+      margin-bottom: 1rem !important;
     }
 
     .contact .info-box {
@@ -43,6 +45,7 @@
       border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 15px;
       transition: transform 0.3s ease, border-color 0.3s ease;
+      padding: 1.25rem !important;
     }
 
     .contact .info-box:hover {
@@ -53,9 +56,9 @@
     .contact .info-item .icon-box {
       background: linear-gradient(135deg, #4f46e5 0%, #db2777 100%);
       color: white !important;
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -68,11 +71,15 @@
     }
 
     .contact .info-item {
-      margin-bottom: 1rem !important;
+      margin-bottom: 0.75rem !important;
+    }
+
+    .contact .contact-form {
+      padding: 1.25rem !important;
     }
 
     .contact .contact-form .form-control {
-      padding: 0.65rem 1rem;
+      padding: 0.5rem 0.85rem;
       font-size: 0.95rem;
     }
 
@@ -90,6 +97,11 @@
       transform: translateY(-3px);
       box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
       filter: brightness(1.1);
+    }
+
+    .contact .contact-form .btn-submit:disabled {
+      opacity: 0.8;
+      cursor: not-allowed;
     }
   </style>
 
@@ -151,11 +163,11 @@
           <p>If you would like to discuss data projects, collaborations, or job opportunities, feel free to contact me. I'm always open to connecting with professionals in data science and analytics.</p>
         </div>
 
-        <div class="row g-4 g-lg-5">
+        <div class="row g-3 g-lg-4 align-items-stretch">
 
           <!-- Contact Info Column -->
           <div class="col-lg-5">
-            <div class="info-box p-3" data-aos="fade-up" data-aos-delay="200">
+            <div class="info-box" data-aos="fade-up" data-aos-delay="200">
               <h3>Contact Info</h3>
               <p>If you are interested in collaborating on data projects, analytics work, or discussing opportunities in data science, feel free to send me a message.</p>
 
@@ -201,7 +213,7 @@
 
           <!-- Contact Form Column -->
           <div class="col-lg-7">
-            <div class="contact-form p-3" data-aos="fade-up" data-aos-delay="300">
+            <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
               <h3>Get In Touch</h3>
               <p>Have a data project, collaboration idea, or job opportunity? Send me a message and let's connect. I'm always open to discussing data science and analytics.</p>
 
@@ -209,7 +221,7 @@
                 <!-- Email subject -->
                 <input type="hidden" name="_subject" value="New Portfolio Message">
 
-                <div class="row gy-4">
+                <div class="row gy-3">
 
                   <!-- Name -->
                   <div class="col-md-6">
@@ -228,7 +240,7 @@
 
                   <!-- Message -->
                   <div class="col-12">
-                    <textarea name="message" class="form-control" rows="4" placeholder="Message" required></textarea>
+                    <textarea name="message" class="form-control" rows="3" placeholder="Message" required></textarea>
                   </div>
 
                   <!-- Submit Button -->
@@ -249,6 +261,22 @@
     </section>
 
   </main>
+
+  <!-- Success Modal -->
+  <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg" style="background: var(--surface-color); border-radius: 20px;">
+        <div class="modal-body text-center p-5">
+          <div class="mb-4">
+            <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+          </div>
+          <h3 class="fw-bold mb-2">Message Sent!</h3>
+          <p class="opacity-75">Thank you, <span id="userName" class="fw-bold" style="color: var(--accent-color);"></span>! Your message has been received. I'll get back to you shortly.</p>
+          <button type="button" class="btn btn-primary w-100 mt-3" data-bs-dismiss="modal" style="border-radius: 12px; background: linear-gradient(135deg, #4f46e5 0%, #db2777 100%); border: none;">Great!</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <!-- Custom Portfolio Footer -->
 <footer id="footer" class="footer dark-background">
@@ -307,6 +335,46 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    const contactForm = document.querySelector('.contact form');
+    const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+    const userNameSpan = document.getElementById('userName');
+
+    contactForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      
+      const formData = new FormData(contactForm);
+      const name = formData.get('name');
+      const submitBtn = contactForm.querySelector('.btn-submit');
+      const originalText = submitBtn.innerHTML;
+
+      // Show loading state
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Sending...';
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          userNameSpan.textContent = name;
+          successModal.show();
+          contactForm.reset();
+        } else {
+          alert("Oops! There was a problem sending your message.");
+        }
+      } catch (error) {
+        alert("Connection error. Please try again later.");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+      }
+    });
+  </script>
 
 </body>
 
