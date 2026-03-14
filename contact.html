@@ -27,6 +27,72 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <style>
+    /* Single Window Optimization */
+    .contact.section {
+      padding: 30px 0 !important;
+    }
+
+    .contact .section-title {
+      padding-bottom: 10px !important;
+      margin-bottom: 1.5rem !important;
+    }
+
+    .contact .info-box {
+      background: var(--surface-color);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .contact .info-box:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-color);
+    }
+
+    .contact .info-item .icon-box {
+      background: linear-gradient(135deg, #4f46e5 0%, #db2777 100%);
+      color: white !important;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      transition: transform 0.3s ease;
+    }
+
+    .contact .info-item:hover .icon-box {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .contact .info-item {
+      margin-bottom: 1rem !important;
+    }
+
+    .contact .contact-form .form-control {
+      padding: 0.65rem 1rem;
+      font-size: 0.95rem;
+    }
+
+    .contact .contact-form .btn-submit {
+      background: linear-gradient(135deg, #4f46e5 0%, #db2777 100%);
+      border: none;
+      padding: 10px 30px;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      color: white;
+    }
+
+    .contact .contact-form .btn-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
+      filter: brightness(1.1);
+    }
+  </style>
+
   <!-- =======================================================
   * Template Name: FolioOne
   * Template URL: https://bootstrapmade.com/folioone-bootstrap-portfolio-website-template/
@@ -80,7 +146,7 @@
       <div class="container" data-aos="fade-up">
 
         <!-- Section Title -->
-        <div class="section-title text-center mb-5">
+        <div class="section-title text-center">
           <h2>Contact</h2>
           <p>If you would like to discuss data projects, collaborations, or job opportunities, feel free to contact me. I'm always open to connecting with professionals in data science and analytics.</p>
         </div>
@@ -89,38 +155,36 @@
 
           <!-- Contact Info Column -->
           <div class="col-lg-5">
-            <div class="info-box p-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="info-box p-3" data-aos="fade-up" data-aos-delay="200">
               <h3>Contact Info</h3>
               <p>If you are interested in collaborating on data projects, analytics work, or discussing opportunities in data science, feel free to send me a message.</p>
 
               <!-- Location -->
               <a href="https://www.google.com/maps/search/?api=1&query=Mossoró,+Rio+Grande+do+Norte,+Brazil" target="_blank" class="text-decoration-none">
-                <div class="info-item d-flex align-items-start mt-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="info-item d-flex align-items-start" data-aos="fade-up" data-aos-delay="300">
                   <div class="icon-box me-3">
                     <i class="bi bi-geo-alt"></i>
                   </div>
                   <div class="content">
                     <h4>Location</h4>
-                    <p>Mossoró, Rio Grande do Norte</p>
-                    <p>Brazil</p>
+                    <p>Mossoró / RN - Brazil</p>                    
                   </div>
                 </div>
               </a>
 
               <!-- Email -->
-              <div class="info-item d-flex align-items-start mt-3" data-aos="fade-up" data-aos-delay="400">
-                <div class="icon-box me-3">
-                  <a href="mailto:maykinvest@outlook.com">
-                    <i class="bi bi-envelope-fill"></i> </a>
+              <div class="info-item d-flex align-items-start" data-aos="fade-up" data-aos-delay="400">
+                <div class="icon-box me-3"> 
+                  <i class="bi bi-envelope-fill"></i>
                 </div>
                 <div class="content">
                   <h4>Email</h4>
-                  <p><a href="mailto:maykinves@outlook.com" class="text-decoration-none">maykinvest@outlook.com</a></p>
+                  <p><a href="mailto:maykinvest@outlook.com" class="text-decoration-none">maykinvest@outlook.com</a></p>
                 </div>
               </div>
 
               <!-- Business Hours -->
-              <div class="info-item d-flex align-items-start mt-3" data-aos="fade-up" data-aos-delay="500">
+              <div class="info-item d-flex align-items-start" data-aos="fade-up" data-aos-delay="500">
                 <div class="icon-box me-3">
                   <i class="bi bi-clock-fill"></i>
                 </div>
@@ -137,7 +201,7 @@
 
           <!-- Contact Form Column -->
           <div class="col-lg-7">
-            <div class="contact-form p-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="contact-form p-3" data-aos="fade-up" data-aos-delay="300">
               <h3>Get In Touch</h3>
               <p>Have a data project, collaboration idea, or job opportunity? Send me a message and let's connect. I'm always open to discussing data science and analytics.</p>
 
@@ -164,12 +228,12 @@
 
                   <!-- Message -->
                   <div class="col-12">
-                    <textarea name="message" class="form-control" rows="6" placeholder="Message" required></textarea>
+                    <textarea name="message" class="form-control" rows="4" placeholder="Message" required></textarea>
                   </div>
 
                   <!-- Submit Button -->
                   <div class="col-12 text-center">
-                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <button type="submit" class="btn btn-primary btn-submit">Send Message</button>
                   </div>
 
                 </div>
@@ -206,7 +270,7 @@
       <i class="bi bi-github"></i> </a>
           
     <!-- Email -->
-     <a href="mailto:maykinves@outlook.com">
+     <a href="mailto:maykinvest@outlook.com">
       <i class="bi bi-envelope-fill"></i> </a>
     </div>
 
