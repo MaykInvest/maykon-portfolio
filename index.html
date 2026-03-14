@@ -6,7 +6,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Maykon Jonattan | Data Scientist Portfolio</title>
   <meta name="description" content="Portfolio of Maykon Jonattan de Oliveira, aspiring Data Scientist specializing in Python, machine learning, and data analysis.">
-  <meta name="keywords" content="">
+  <meta name="keywords" content="Data Scientist, Data Analyst, Machine Learning, Python, SQL, Portfolio, Maykon Jonattan">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -27,6 +27,32 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <style>
+    /* Modern Hero Background Shape */
+    .hero-image .image-wrapper {
+      z-index: 1;
+    }
+    .hero-background-shape {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      transform: translate(-50%, -50%) scale(1.1);
+      background: linear-gradient(45deg, #4f46e5, #db2777);
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      opacity: 0.15;
+      z-index: -1;
+      animation: blob-animation 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes blob-animation {
+      100% {
+        border-radius: 60% 40% 30% 70% / 60% 70% 30% 40%;
+        transform: translate(-50%, -50%) scale(1.15) rotate(5deg);
+      }
+    }
+  </style>
   <!-- =======================================================
   * Template Name: FolioOne
   * Template URL: https://bootstrapmade.com/folioone-bootstrap-portfolio-website-template/
@@ -54,8 +80,8 @@
     </nav>
 
     <div class="header-social-links">
-       <a href="https://www.linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank"><i class="bi bi-linkedin"></i></a>
-       <a href="https://github.com/MaykInvest" target="_blank"><i class="bi bi-github"></i></a>
+       <a href="https://www.linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+       <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
     </div>
 
   </div>
@@ -68,26 +94,26 @@
     <div class="container" data-aos="fade-up" data-aos-delay="100">
 
       <div class="row gy-4 align-items-center">
-        <div class="col-lg-6 order-2 order-lg-1">
+        <div class="col-lg-6 order-2 order-lg-2">
           <div class="hero-content">
-            <h1 data-aos="fade-up" data-aos-delay="200">Hello,</h1>
-            <h1> I'm <span class="highlight">Maykon Jonattan</span></h1>
-            <h2 data-aos="fade-up" data-aos-delay="300">Aspiring <span class="typed" data-typed-items="Data Scientist, Data Analyst, ML Specialist, SQL Expert"></span></h2>
-            <p data-aos="fade-up" data-aos-delay="400">
+            <h1 data-aos="fade-up" data-aos-delay="300">I'm <span class="highlight">Maykon Jonattan</span></h1>
+            <h2 data-aos="fade-up" data-aos-delay="400">An Aspiring <span class="typed" data-typed-items="Data Scientist, Data Analyst, ML Specialist, SQL Expert"></span></h2>
+            <p data-aos="fade-up" data-aos-delay="500">
               I transform raw data into actionable insights. Expert in Python and SQL, 
               passionate about building machine learning models that solve real-world problems.
             </p>
             
-            <div class="hero-actions" data-aos="fade-up" data-aos-delay="500">
+            <div class="hero-actions" data-aos="fade-up" data-aos-delay="600">
               <a href="portfolio.html" class="btn btn-primary">View My Projects</a>
               <a href="contact.html" class="btn btn-outline-light">Contact Me</a>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-6 order-1 order-lg-2 text-center">
-          <div class="hero-image" data-aos="zoom-in" data-aos-delay="300">
+        <div class="col-lg-6 order-1 order-lg-1 text-center">
+          <div class="hero-image" data-aos="zoom-in" data-aos-delay="200">
             <div class="image-wrapper position-relative">
+              <div class="hero-background-shape"></div>
               <img src="assets/img/profile/profile-square-11.webp" alt="Maykon Jonattan" class="img-fluid rounded shadow">
               
               <div class="floating-elements">
@@ -115,7 +141,8 @@
             </div>
           </div>
         </div>
-      </div> </div>
+      </div>
+    </div>
   </section>
 </main>
 
@@ -132,15 +159,15 @@
      <div class="social-links d-flex justify-content-center gap-3 mb-3">
         
     <!-- LinkedIn -->
-     <a href="https://www.linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank">
+     <a href="https://www.linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" rel="noopener" aria-label="LinkedIn">
       <i class="bi bi-linkedin"></i> </a>
     
     <!-- GitHub -->
-     <a href="https://github.com/MaykInvest" target="_blank">
+     <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" aria-label="GitHub">
       <i class="bi bi-github"></i> </a>
           
     <!-- Email -->
-     <a href="mailto:maykinvest@outlook.com">
+     <a href="mailto:maykinvest@outlook.com" aria-label="Email">
       <i class="bi bi-envelope-fill"></i> </a>
     </div>
 
@@ -159,7 +186,7 @@
 </footer>
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Preloader -->
   <div id="preloader"></div>
@@ -181,4 +208,4 @@
 
 </body>
 
-</html>
+</html><!-- End of File -->
