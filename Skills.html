@@ -27,6 +27,25 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <style>
+    .skills .service-item {
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    }
+
+    .skills .service-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
+      border-color: var(--accent-color) !important;
+    }
+
+    .skills .service-item .service-icon i {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .skills .service-item:hover .service-icon i {
+      transform: scale(1.15) rotate(-5deg);
+    }
+  </style>
   <!-- =======================================================
   * Template Name: FolioOne
   * Template URL: https://bootstrapmade.com/folioone-bootstrap-portfolio-website-template/
