@@ -720,6 +720,7 @@ section,
 .hero .hero-content h1 .highlight {
   color: var(--accent-color);
   position: relative;
+  white-space: nowrap;
 }
 
 .hero .hero-content h1 .highlight::after {
