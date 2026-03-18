@@ -312,6 +312,37 @@
 
 </footer>
 
+  <script>
+  /* 🎯 Open project links */
+  function openProject(type) {
+    const links = {
+      python: "https://github.com/your-python-project",
+      data: "https://github.com/your-data-project",
+      ml: "https://github.com/your-ml-project",
+      analytics: "https://github.com/your-analytics-project",
+      sql: "https://github.com/your-sql-project",
+      powerbi: "https://github.com/your-powerbi-project"
+    };
+
+    window.open(links[type], "_blank");
+  }
+
+  /* 🖱 Mouse interaction (parallax effect) */
+  document.addEventListener("mousemove", (e) => {
+    const balls = document.querySelectorAll(".icon-ball");
+
+    balls.forEach(ball => {
+      const speed = 0.02;
+      const x = (window.innerWidth / 2 - e.pageX) * speed;
+      const y = (window.innerHeight / 2 - e.pageY) * speed;
+
+      ball.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  });
+  </script>
+
+
+
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -334,5 +365,6 @@
   <script src="assets/js/main.js"></script>
 
 </body>
+
 
 </html><!-- End of File -->
