@@ -472,47 +472,65 @@ h6 {
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
-.footer {
-  color: var(--default-color);
-  background-color: var(--background-color);
-  font-size: 14px;
-  padding: 40px 0;
-  position: relative;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+
+/* Internal CSS for Footer to ensure specific styling */
+/* Styling for the Name Gradient */
+.footer-brand {
+  background: linear-gradient(45deg, #fff, #a5a5a5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
-.footer .copyright p {
-  margin-bottom: 0;
-}
-
-.footer .social-links {
-  margin-top: 20px;
-}
-
+/* Base style for all social link boxes */
 .footer .social-links a {
+  width: 45px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
-  font-size: 16px;
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
-  margin: 0 5px;
-  transition: 0.3s;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  color: white; /* Makes the icon icon white against the colored background */
+  text-decoration: none;
 }
 
+/* LinkedIn - Permanent Blue */
+.footer .social-links a.linkedin {
+  background: #0077b5;
+  border: 1px solid #0077b5;
+  box-shadow: 0 4px 10px rgba(0, 119, 181, 0.3);
+}
+
+/* GitHub - Permanent Dark Grey/Black */
+.footer .social-links a.github {
+  background: #24292e;
+  border: 1px solid #404448;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Email - Permanent Red */
+.footer .social-links a.email {
+  background: #ea4335;
+  border: 1px solid #ea4335;
+  box-shadow: 0 4px 10px rgba(234, 67, 53, 0.3);
+}
+
+/* Hover Effect: Makes them grow and glow brighter when touched */
 .footer .social-links a:hover {
-  color: var(--accent-color);
-  border-color: var(--accent-color);
+  transform: translateY(-5px);
+  filter: brightness(1.2);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
 }
+    
 
-.footer .credits {
-  margin-top: 10px;
-  font-size: 13px;
-  text-align: center;
-}
+
+
+
+
+
+
 
 /*--------------------------------------------------------------
 # Preloader
