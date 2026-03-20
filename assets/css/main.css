@@ -87,58 +87,6 @@ h6 {
   font-family: var(--heading-font);
 }
 
-/* PHP Email Form Messages
-------------------------------*/
-.php-email-form .error-message {
-  display: none;
-  background: #df1529;
-  color: #ffffff;
-  text-align: left;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
-}
-
-.php-email-form .sent-message {
-  display: none;
-  color: #ffffff;
-  background: #059652;
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
-}
-
-.php-email-form .loading {
-  display: none;
-  background: var(--surface-color);
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
-}
-
-.php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid var(--accent-color);
-  border-top-color: var(--surface-color);
-  animation: php-email-form-loading 1s linear infinite;
-}
-
-@keyframes php-email-form-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 /*--------------------------------------------------------------
 # Global Header
 --------------------------------------------------------------*/
@@ -1070,51 +1018,93 @@ section,
       }
     }
 
-    /* Modern Button Styling */
+    /* --------------------------------------------------------------
+      Hero Buttons – Modern Minimalist
+    -------------------------------------------------------------- */
+    .hero .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0;
+    }
+
     .hero .hero-actions .btn {
-      padding: 14px 28px;
-      border-radius: 12px;
-      font-weight: 600;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
       display: inline-flex;
       align-items: center;
       gap: 10px;
+      text-decoration: none;
       border: none;
-      font-size: 0.95rem;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
     }
 
+    /* Primary button – subtle gradient */
     .hero .hero-actions .btn-primary {
-      background: linear-gradient(135deg, #4f46e5 0%, #db2777 100%);
-      color: white;
-      box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+      background: linear-gradient(135deg, var(--accent-color), #06b6d4);
+      color: var(--contrast-color);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
-
+    .hero .hero-actions .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #06b6d4, var(--accent-color));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+    .hero .hero-actions .btn-primary:hover::before {
+      opacity: 1;
+    }
     .hero .hero-actions .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(79, 70, 229, 0.5);
-      filter: brightness(1.1);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
 
+    /* Outline buttons – glass morphism */
     .hero .hero-actions .btn-outline-light {
       background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       color: #fff;
     }
-
     .hero .hero-actions .btn-outline-light:hover {
       background: rgba(255, 255, 255, 0.15);
-      border-color: rgba(255, 255, 255, 0.3) !important;
-      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+      backdrop-filter: blur(12px);
     }
 
+    /* Icon animation */
     .hero .hero-actions .btn i {
-      transition: transform 0.3s ease;
+      transition: transform 0.25s ease;
     }
-
     .hero .hero-actions .btn:hover i {
       transform: translateX(4px);
     }
+
+    /* Responsive */
+    @media (max-width: 576px) {
+      .hero .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero .hero-actions .btn {
+        text-align: center;
+        justify-content: center;
+      }
+    }
+    /* end Modern Button Styling */
 
 
       /* Remove excessive spacing */
