@@ -28,77 +28,7 @@
   <link href="assets/css/main.css" rel="stylesheet">
 
   <style>
-    /* Modern Hero Background Shape */
-    .hero-image .image-wrapper {
-      z-index: 1;
-      left: -60px;
-    }
-    .hero-background-shape {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 100%;
-      height: 100%;
-      transform: translate(-50%, -50%) scale(1.1);
-      background: linear-gradient(45deg, #4f46e5, #db2777);
-      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-      opacity: 0.15;
-      z-index: -1;
-      animation: blob-animation 10s ease-in-out infinite alternate;
-    }
-
-    @keyframes blob-animation {
-      100% {
-        border-radius: 60% 40% 30% 70% / 60% 70% 30% 40%;
-        transform: translate(-50%, -50%) scale(1.15) rotate(5deg);
-      }
-    }
-
-    /* Modern Button Styling */
-    .hero .hero-actions .btn {
-      padding: 14px 28px;
-      border-radius: 12px;
-      font-weight: 600;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      border: none;
-      font-size: 0.95rem;
-    }
-
-    .hero .hero-actions .btn-primary {
-      background: linear-gradient(135deg, #4f46e5 0%, #db2777 100%);
-      color: white;
-      box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
-    }
-
-    .hero .hero-actions .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(79, 70, 229, 0.5);
-      filter: brightness(1.1);
-    }
-
-    .hero .hero-actions .btn-outline-light {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1) !important;
-      color: #fff;
-    }
-
-    .hero .hero-actions .btn-outline-light:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: rgba(255, 255, 255, 0.3) !important;
-      transform: translateY(-3px);
-    }
-
-    .hero .hero-actions .btn i {
-      transition: transform 0.3s ease;
-    }
-
-    .hero .hero-actions .btn:hover i {
-      transform: translateX(4px);
-    }
+    
   </style>
   <!-- =======================================================
   * Template Name: FolioOne
@@ -196,7 +126,7 @@
 </main>
 
 
-<!-- Custom Portfolio Footer -->
+<!-- Modern Minimalist Footer -->
 <footer id="footer" class="footer dark-background">
   <div class="container text-center py-5">
 
@@ -218,16 +148,19 @@
       </a>
     </div>
 
-    <div class="copyright border-top border-white border-opacity-10 pt-4">
+    <div class="copyright-divider"></div>
+
+    <div class="copyright pt-4">
       <p class="mb-1 text-white-50 small"> © 2026 <strong>Maykon</strong> — All Rights Reserved</p>
     </div>
 
     <div class="credits text-white-50 small"> Template designed by
-      <a href="https://bootstrapmade.com/" class="text-white text-decoration-none">BootstrapMade</a>
+      <a href="https://bootstrapmade.com/" class="credit-link">BootstrapMade</a>
     </div>
 
   </div>
 </footer>
+
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>

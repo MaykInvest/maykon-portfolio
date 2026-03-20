@@ -473,61 +473,111 @@ h6 {
 # Global Footer
 --------------------------------------------------------------*/
 
-/* Internal CSS for Footer to ensure specific styling */
-/* Styling for the Name Gradient */
+.footer {
+  background-color: #101a20; /* slightly richer dark */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Name gradient with subtle glow */
 .footer-brand {
-  background: linear-gradient(45deg, #fff, #a5a5a5);
+  background: linear-gradient(135deg, #ffffff 0%, #c0c0c0 50%, #ffffff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 20px rgba(255,255,255,0.1);
+  font-size: 2.2rem;
 }
 
-/* Base style for all social link boxes */
+/* Social link base style */
 .footer .social-links a {
-  width: 45px;
-  height: 45px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  color: white; /* Makes the icon icon white against the colored background */
+  border-radius: 16px;          /* softer square */
+  transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+  color: white;
   text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255,255,255,0.1);
 }
 
-/* LinkedIn - Permanent Blue */
+/* Brand colors (kept pure) */
 .footer .social-links a.linkedin {
   background: #0077b5;
-  border: 1px solid #0077b5;
-  box-shadow: 0 4px 10px rgba(0, 119, 181, 0.3);
 }
-
-/* GitHub - Permanent Dark Grey/Black */
 .footer .social-links a.github {
   background: #24292e;
-  border: 1px solid #404448;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
-
-/* Email - Permanent Red */
 .footer .social-links a.email {
   background: #ea4335;
-  border: 1px solid #ea4335;
-  box-shadow: 0 4px 10px rgba(234, 67, 53, 0.3);
 }
 
-/* Hover Effect: Makes them grow and glow brighter when touched */
+/* Hover effect: lift, scale, and glow with brand tint */
 .footer .social-links a:hover {
-  transform: translateY(-5px);
-  filter: brightness(1.2);
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+  transform: translateY(-6px) scale(1.05);
+  filter: brightness(1.15);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.4), 0 0 0 2px rgba(255,255,255,0.05);
 }
-    
 
+/* Individual hover glows (optional – adds brand-colored aura) */
+.footer .social-links a.linkedin:hover {
+  box-shadow: 0 12px 24px rgba(0,119,181,0.4);
+}
+.footer .social-links a.github:hover {
+  box-shadow: 0 12px 24px rgba(36,41,46,0.6);
+}
+.footer .social-links a.email:hover {
+  box-shadow: 0 12px 24px rgba(234,67,53,0.4);
+}
 
+/* Divider – minimalist gradient line */
+.copyright-divider {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  margin: 0 auto 1.5rem auto;
+}
 
+/* Credit link style */
+.credit-link {
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(255,255,255,0.3);
+  transition: border-color 0.2s;
+}
+.credit-link:hover {
+  border-bottom-color: #ffffff;
+}
 
+/* Optional fade-in animation */
+.footer {
+  animation: fadeInUp 0.8s ease-out;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive fine-tuning */
+@media (max-width: 576px) {
+  .footer-brand {
+    font-size: 1.8rem;
+  }
+  .footer .social-links a {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+  }
+}
 
 
 
@@ -951,6 +1001,88 @@ section,
     margin-bottom: 3rem;
   }
 }
+
+/* Modern Hero Background Shape */
+    .hero-image .image-wrapper {
+      z-index: 1;
+      left: -60px;
+    }
+    .hero-background-shape {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      transform: translate(-50%, -50%) scale(1.1);
+      background: linear-gradient(45deg, #4f46e5, #db2777);
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      opacity: 0.15;
+      z-index: -1;
+      animation: blob-animation 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes blob-animation {
+      100% {
+        border-radius: 60% 40% 30% 70% / 60% 70% 30% 40%;
+        transform: translate(-50%, -50%) scale(1.15) rotate(5deg);
+      }
+    }
+
+    /* Modern Button Styling */
+    .hero .hero-actions .btn {
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      font-size: 0.95rem;
+    }
+
+    .hero .hero-actions .btn-primary {
+      background: linear-gradient(135deg, #4f46e5 0%, #db2777 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+    }
+
+    .hero .hero-actions .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(79, 70, 229, 0.5);
+      filter: brightness(1.1);
+    }
+
+    .hero .hero-actions .btn-outline-light {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      color: #fff;
+    }
+
+    .hero .hero-actions .btn-outline-light:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.3) !important;
+      transform: translateY(-3px);
+    }
+
+    .hero .hero-actions .btn i {
+      transition: transform 0.3s ease;
+    }
+
+    .hero .hero-actions .btn:hover i {
+      transform: translateX(4px);
+    }
+
+
+
+
+
+
+
+
+
+
 
 /*--------------------------------------------------------------
 # About Section
