@@ -33,8 +33,167 @@
   <link href="assets/css/main.css" rel="stylesheet">
 
 <style>
+    /* ============================================
+        MODERN DATA SCIENCE COLOR PALETTE
+        ============================================ */
+    :root {
+        --card-primary: #00d4ff;           /* Electric Cyan (Data/Tech Accent) */
+        --card-primary-dark: #0099cc;      /* Deeper Cyan for contrast */
+        --card-bg-front: #1a1f2b;          /* Modern Midnight Grey */
+        --card-bg-back: #11141d;           /* Deep Obsidian */
+        --card-text-main: #e2e8f0;         /* Soft White/Grey text */
+        --card-accent-muted: #f8f8f8;      /* Muted slate for borders */
+        --transition-speed: 0.8s;
+    }
+    
+    .flip-card-container {
+        perspective: 1500px;               /* Increased depth for a modern feel */
+        width: 100%;
+        height: 400px;
+        cursor: pointer;
+        margin-bottom: 2rem;
+        outline: none;
+    }
 
-  
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform var(--transition-speed) cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Added a slight "bounce" */
+        transform-style: preserve-3d;
+    }
+
+    /* Flip Effect */
+    .flip-card-container:hover .flip-card-inner,
+    .flip-card-container.flipped .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden; 
+        border-radius: 20px;               /* More rounded, modern corners */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        transition: 0.3s;
+        border: 1px solid var(--card-accent-muted);
+    }
+
+    /* FRONT SIDE: Dark Tech look */
+    .flip-card-front {
+        background: linear-gradient(145deg, var(--card-bg-front), #11141d);
+        color: var(--card-text-main);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        z-index: 2;
+    }
+
+    /* BACK SIDE: Deep Dark with glowing border */
+    .flip-card-back {
+        background: radial-gradient(circle at top left, #1a1f2b, var(--card-bg-back));
+        color: #ffffff;
+        transform: rotateY(180deg);
+        box-shadow: inset 0 0 15px rgba(0, 212, 255, 0.1); /* Subtle inner glow */
+        z-index: 1;
+    }
+
+    /* Icon box with a soft glow */
+    .icon-box {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        color: var(--card-primary);
+        filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.4));
+    }
+
+    /* Progress bar: Glowing Cyan */
+    .skill-box { width: 100%; margin-top: 1.5rem; }
+    .progress {
+        height: 6px !important;
+        background-color: #2d3748;
+        overflow: visible;
+    }
+    .progress-bar {
+        background-color: var(--card-primary);
+        box-shadow: 0 0 10px var(--card-primary); /* Glowing progress bar */
+        border-radius: 10px;
+    }
+
+    /* Back side list styling */
+    .flip-card-back ul li {
+        margin-bottom: 12px;
+        font-size: 0.95rem;
+        color: #cbd5e0;
+    }
+
+    .flip-card-back ul li i {
+        color: var(--card-primary);
+    }
+    
+    .flip-card-back h4 {
+        color: var(--card-primary);
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-size: 1.1rem;
+    }
+
+    /* Hint text color */
+    .small.mt-3 {
+        color: #718096;
+    }
+
+        /* Mouse Movement Illustration */
+    .mouse-instruction {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        opacity: 0.8;
+    }
+
+    .mouse-icon {
+        position: relative;
+        font-size: 1.5rem;
+        color: var(--card-primary);
+        animation: mouseSwipe 2s infinite ease-in-out;
+    }
+
+    /* The small "laser" or cursor dot */
+    .mouse-icon .dot {
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        width: 4px;
+        height: 4px;
+        background-color: var(--card-primary);
+        border-radius: 50%;
+        transform: translateX(-50%);
+        box-shadow: 0 0 5px var(--card-primary);
+    }
+
+    /* Animation: Moves the mouse left and right */
+    @keyframes mouseSwipe {
+        0% {
+            transform: translateX(-15px);
+        }
+        50% {
+            transform: translateX(15px);
+        }
+        100% {
+            transform: translateX(-15px);
+        }
+    }
+
+    /* Optional: Hide the instruction when the card is hovered/flipped */
+    .flip-card-container:hover .mouse-instruction,
+    .flip-card-container.flipped .mouse-instruction {
+        display: none;
+    }
 </style>
   <!-- =======================================================
   * Template Name: FolioOne
@@ -93,7 +252,7 @@
 
       <!-- Section Title and Description -->
       <div class="container section-title" data-aos="fade-up">
-        <h2 class="mb-4">Tools & Technologies that i use!</h2>
+        <h2 class="mb-4">Technologies that i use!</h2>
       </div>
 
       <!-- Tech Stack Section (separate section) -->
@@ -135,170 +294,183 @@
         <!-- Tech Stack Section (separate section) -->
 
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row justify-content-center g-5">
+        <!-- 3D cards -->
+        <div class="container my-5">
+            <div class="row g-4 justify-content-center">
 
-          <!-- Skill Card 1: Python & Data Science -->
-          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item h-100 text-center p-4 shadow-sm rounded border border-secondary-subtle">
-              <!-- Icon -->
-              <div class="service-icon mb-3">
-                <i class="bi bi-terminal-fill fs-1 text-primary"></i>
-              </div>
-              <!-- Content -->
-              <div class="service-content">
-                <h3 class="mb-3">Python & Data Science</h3>
-                <!-- Progress Bar -->
-                <div class="skill-box mb-4">
-                  <div class="d-flex justify-content-between mb-1 small">
-                    <span class="fw-bold">Proficiency</span>
-                    <span>75%</span>
-                  </div>
-                  <div class="progress" style="height: 8px;">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="flip-card-container" role="button" tabindex="0" aria-label="Python Skills">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="icon-box"><i class="bi bi-terminal"></i></div>
+                                <h3>Python</h3>
+                                <p class="text-start">Core Data Science Stack</p>
+                                <div class="skill-box">
+                                    <div class="d-flex justify-content-between mb-1 small"><span>Proficiency</span><span>90%</span></div>
+                                    <div class="progress"><div class="progress-bar bg-primary" style="width: 90%"></div></div>
+                                </div>
+                                <div class="mouse-instruction mt-3"><div class="mouse-icon"><i class="bi bi-mouse"></i><div class="dot"></div></div><p class="small text-muted mb-0">Hover to explore</p></div>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4 class="mb-4">Python Stack</h4>
+                                <ul class="text-start list-unstyled">
+                                    <li><i class="bi bi-check2-circle me-2"></i>Pandas & NumPy</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>Matplotlib & Seaborn</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>Scikit-Learn</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>EDA Workflows</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>Data Cleaning</li>
+                                </ul>
+                                <p class="mt-3 small">Click to flip back</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- Details List -->
-                <ul class="list-unstyled text-start mb-0 small">
-                  <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Data wrangling (<strong>Pandas</strong>)</li>
-                  <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Visualization (<strong>Seaborn</strong>)</li>
-                  <li><i class="bi bi-check2 text-primary me-2"></i>Statistical automation</li>
-                </ul>
-              </div>
-            </div>
-          </div>
 
-          <!-- Skill Card 2: Machine Learning -->
-          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="150">
-            <div class="service-item h-100 text-center p-4 shadow-sm rounded border border-secondary-subtle">
-              <div class="service-icon mb-3">
-                <i class="bi bi-cpu fs-1 text-success"></i>
-              </div>
-              <div class="service-content">
-                <h3 class="mb-3">Machine Learning</h3>
-                <div class="skill-box mb-4">
-                  <div class="d-flex justify-content-between mb-1 small">
-                    <span class="fw-bold">Proficiency</span>
-                    <span>65%</span>
-                  </div>
-                  <div class="progress" style="height: 8px;">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="flip-card-container" role="button" tabindex="0" aria-label="Machine Learning Skills">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="icon-box"><i class="bi bi-cpu"></i></div>
+                                <h3>Machine Learning</h3>
+                                <p class="text-start">Predictive Modeling</p>
+                                <div class="skill-box">
+                                    <div class="d-flex justify-content-between mb-1 small"><span>Proficiency</span><span>85%</span></div>
+                                    <div class="progress"><div class="progress-bar bg-primary" style="width: 85%"></div></div>
+                                </div>
+                                <div class="mouse-instruction mt-3"><div class="mouse-icon"><i class="bi bi-mouse"></i><div class="dot"></div></div><p class="small text-muted mb-0">Hover to explore</p></div>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4 class="mb-4">ML Skills</h4>
+                                <ul class="text-start list-unstyled">
+                                    <li><i class="bi bi-check2-circle me-2"></i>Regression & Classification</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>Clustering (K-Means)</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>XGBoost & Random Forest</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>Hyperparameter Tuning</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>Model Evaluation</li>
+                                </ul>
+                                <p class="mt-3 small">Click to flip back</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <ul class="list-unstyled text-start mb-0 small">
-                  <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i>Predictive (<strong>scikit-learn</strong>)</li>
-                  <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i>Regression & Clustering</li>
-                  <li><i class="bi bi-check2 text-success me-2"></i>Model Evaluation</li>
-                </ul>
-              </div>
-            </div>
-          </div>
 
-          <!-- Skill Card 3: SQL & Engineering -->
-          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item h-100 text-center p-4 shadow-sm rounded border border-secondary-subtle">
-              <div class="service-icon mb-3">
-                <i class="bi bi-database-fill fs-1 text-warning"></i>
-              </div>
-              <div class="service-content">
-                <h3 class="mb-3">SQL & Engineering</h3>
-                <div class="skill-box mb-4">
-                  <div class="d-flex justify-content-between mb-1 small">
-                    <span class="fw-bold">Proficiency</span>
-                    <span>85%</span>
-                  </div>
-                  <div class="progress" style="height: 8px;">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="flip-card-container" role="button" tabindex="0" aria-label="Deep Learning Skills">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="icon-box"><i class="bi bi-diagram-3"></i></div>
+                                <h3>Deep Learning</h3>
+                                <p class="text-start">Neural Networks & AI</p>
+                                <div class="skill-box">
+                                    <div class="d-flex justify-content-between mb-1 small"><span>Proficiency</span><span>75%</span></div>
+                                    <div class="progress"><div class="progress-bar bg-primary" style="width: 75%"></div></div>
+                                </div>
+                                <div class="mouse-instruction mt-3"><div class="mouse-icon"><i class="bi bi-mouse"></i><div class="dot"></div></div><p class="small text-muted mb-0">Hover to explore</p></div>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4 class="mb-4">AI Expertise</h4>
+                                <ul class="text-start list-unstyled">
+                                    <li><i class="bi bi-check2-circle me-2"></i>TensorFlow & Keras</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>Computer Vision</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>NLP (Transformers)</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>PyTorch</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>CNNs & LSTMs</li>
+                                </ul>
+                                <p class="mt-3 small">Click to flip back</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <ul class="list-unstyled text-start mb-0 small">
-                  <li class="mb-2"><i class="bi bi-check2 text-warning me-2"></i>Advanced <strong>SQL</strong> Queries</li>
-                  <li class="mb-2"><i class="bi bi-check2 text-warning me-2"></i>ETL Pipelines</li>
-                  <li><i class="bi bi-check2 text-warning me-2"></i>MySQL & PostgreSQL</li>
-                </ul>
-              </div>
-            </div>
-          </div>
 
-          <!-- Skill Card 4: Power BI & Analytics -->
-          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="250">
-            <div class="service-item h-100 text-center p-4 shadow-sm rounded border border-secondary-subtle">
-              <div class="service-icon mb-3">
-                <i class="bi bi-graph-up-arrow fs-1 text-info"></i>
-              </div>
-              <div class="service-content">
-                <h3 class="mb-3">Power BI & Analytics</h3>
-                <div class="skill-box mb-4">
-                  <div class="d-flex justify-content-between mb-1 small">
-                    <span class="fw-bold">Proficiency</span>
-                    <span>90%</span>
-                  </div>
-                  <div class="progress" style="height: 8px;">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="flip-card-container" role="button" tabindex="0" aria-label="SQL Skills">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="icon-box"><i class="bi bi-database"></i></div>
+                                <h3>SQL & ETL</h3>
+                                <p class="text-start">Database Management</p>
+                                <div class="skill-box">
+                                    <div class="d-flex justify-content-between mb-1 small"><span>Proficiency</span><span>80%</span></div>
+                                    <div class="progress"><div class="progress-bar bg-primary" style="width: 80%"></div></div>
+                                </div>
+                                <div class="mouse-instruction mt-3"><div class="mouse-icon"><i class="bi bi-mouse"></i><div class="dot"></div></div><p class="small text-muted mb-0">Hover to explore</p></div>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4 class="mb-4">Data Management</h4>
+                                <ul class="text-start list-unstyled">
+                                    <li><i class="bi bi-check2-circle me-2"></i>PostgreSQL / MySQL</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>Complex Joins & CTEs</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>NoSQL (MongoDB)</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>ETL Pipelines</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>Query Optimization</li>
+                                </ul>
+                                <p class="mt-3 small">Click to flip back</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <ul class="list-unstyled text-start mb-0 small">
-                  <li class="mb-2"><i class="bi bi-check2 text-info me-2"></i>Interactive Dashboards</li>
-                  <li class="mb-2"><i class="bi bi-check2 text-info me-2"></i>KPI Tracking</li>
-                  <li><i class="bi bi-check2 text-info me-2"></i>Stakeholder Insights</li>
-                </ul>
-              </div>
-            </div>
-          </div>
 
-          <!-- Skill Card 5: Data Visualization -->
-          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item h-100 text-center p-4 shadow-sm rounded border border-secondary-subtle">
-              <div class="service-icon mb-3">
-                <i class="bi bi-bar-chart-line-fill fs-1 text-danger"></i>
-              </div>
-              <div class="service-content">
-                <h3 class="mb-3">Data Visualization</h3>
-                <div class="skill-box mb-4">
-                  <div class="d-flex justify-content-between mb-1 small">
-                    <span class="fw-bold">Proficiency</span>
-                    <span>80%</span>
-                  </div>
-                  <div class="progress" style="height: 8px;">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="flip-card-container" role="button" tabindex="0" aria-label="Cloud Skills">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="icon-box"><i class="bi bi-cloud-arrow-up"></i></div>
+                                <h3>Cloud & Big Data</h3>
+                                <p class="text-start">Scalable Solutions</p>
+                                <div class="skill-box">
+                                    <div class="d-flex justify-content-between mb-1 small"><span>Proficiency</span><span>70%</span></div>
+                                    <div class="progress"><div class="progress-bar bg-primary" style="width: 70%"></div></div>
+                                </div>
+                                <div class="mouse-instruction mt-3"><div class="mouse-icon"><i class="bi bi-mouse"></i><div class="dot"></div></div><p class="small text-muted mb-0">Hover to explore</p></div>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4 class="mb-4">Cloud Stack</h4>
+                                <ul class="text-start list-unstyled">
+                                    <li><i class="bi bi-check2-circle me-2"></i>PySpark (Big Data)</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>AWS (S3 / SageMaker)</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>Docker & Containers</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>Google BigQuery</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>MLOps Workflows</li>
+                                </ul>
+                                <p class="mt-3 small">Click to flip back</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <ul class="list-unstyled text-start mb-0 small">
-                  <li class="mb-2"><i class="bi bi-check2 text-danger me-2"></i>Custom Infographics</li>
-                  <li class="mb-2"><i class="bi bi-check2 text-danger me-2"></i>Data Storytelling</li>
-                  <li><i class="bi bi-check2 text-danger me-2"></i>Tableau & Python</li>
-                </ul>
-              </div>
-            </div>
-          </div>
 
-          <!-- Skill Card 6: Cloud & Automation -->
-          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="350">
-            <div class="service-item h-100 text-center p-4 shadow-sm rounded border border-secondary-subtle">
-              <div class="service-icon mb-3">
-                <i class="bi bi-cloud-arrow-down-fill fs-1 text-secondary"></i>
-              </div>
-              <div class="service-content">
-                <h3 class="mb-3">Cloud & Automation</h3>
-                <div class="skill-box mb-4">
-                  <div class="d-flex justify-content-between mb-1 small">
-                    <span class="fw-bold">Proficiency</span>
-                    <span>70%</span>
-                  </div>
-                  <div class="progress" style="height: 8px;">
-                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="flip-card-container" role="button" tabindex="0" aria-label="Statistics Skills">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="icon-box"><i class="bi bi-bar-chart"></i></div>
+                                <h3>Stats & BI</h3>
+                                <p class="text-start">Analytics & Storytelling</p>
+                                <div class="skill-box">
+                                    <div class="d-flex justify-content-between mb-1 small"><span>Proficiency</span><span>85%</span></div>
+                                    <div class="progress"><div class="progress-bar bg-primary" style="width: 85%"></div></div>
+                                </div>
+                                <div class="mouse-instruction mt-3"><div class="mouse-icon"><i class="bi bi-mouse"></i><div class="dot"></div></div><p class="small text-muted mb-0">Hover to explore</p></div>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4 class="mb-4">Analysis Skills</h4>
+                                <ul class="text-start list-unstyled">
+                                    <li><i class="bi bi-check2-circle me-2"></i>A/B Testing</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>Probability & Stats</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>Tableau / Power BI</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>Data Storytelling</li>
+                                    <li><i class="bi bi-check2-circle me-2"></i>Hypothesis Testing</li>
+                                </ul>
+                                <p class="mt-3 small">Click to flip back</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <ul class="list-unstyled text-start mb-0 small">
-                  <li class="mb-2"><i class="bi bi-check2 text-secondary me-2"></i>Cloud Data Pipelines</li>
-                  <li class="mb-2"><i class="bi bi-check2 text-secondary me-2"></i>Python Scripting</li>
-                  <li><i class="bi bi-check2 text-secondary me-2"></i>APIs & Integration</li>
-                </ul>
-              </div>
-            </div>
-          </div>
 
-        </div>
+            </div>
+            <!-- 3D cards -->
+    </div>
+
+
 
         <!-- Button to Resume Page -->
         <div class="row mt-5" data-aos="fade-up" data-aos-delay="400">
@@ -308,6 +480,7 @@
             </a>
           </div>
         </div>
+
       </div>
     </section>
           
@@ -360,6 +533,31 @@
 
   <!-- Main JS File (Custom scripts) -->
   <script src="assets/js/main.js"></script>
+  <script>
+    /* ============================================
+        JAVASCRIPT INTERACTION
+        ============================================ */
+
+    // Select the card element
+    const card = document.querySelector('.flip-card-container');
+    
+    // Function to toggle the "flipped" state
+    const toggleFlip = () => {
+        card.classList.toggle('flipped');
+    };
+
+    // Flip when clicked (works for mobile too)
+    card.addEventListener('click', toggleFlip);
+    
+    // Keyboard accessibility:
+    // Allows flipping using Enter or Space
+    card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault(); // Prevent page scrolling on space
+            toggleFlip();
+        }
+    });
+  </script>
 
 </body>
 
