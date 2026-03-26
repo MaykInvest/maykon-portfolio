@@ -1976,6 +1976,62 @@ section,
       color: var(--text-muted);
     }
 
+        /* Internal CSS specifically for the Skills page */
+    
+    /* Dark Theme Core Colors */
+    :root {
+      --background-color: #101a20;
+      --surface-color: #1a1a1a;
+      --accent-color: #007bff; /* Primary Blue */
+      --text-main: #ffffff;
+      --text-muted: #a0a0a0;
+    }
+
+    /* Skills Card Hover Effects */
+    .skills .service-item {
+      background-color: var(--surface-color);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+      color: var(--text-main);
+    }
+
+    .skills .service-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5) !important;
+      border-color: var(--accent-color) !important;
+    }
+
+    /* Icon Animation */
+    .skills .service-item .service-icon i {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .skills .service-item:hover .service-icon i {
+      transform: scale(1.15) rotate(-5deg);
+    }
+
+    /* Ensuring progress bars are visible on dark background */
+    .progress {
+      background-color: #333; /* Darker track for the bar */
+    }
+
+    .skills h3 {
+      color: var(--text-main);
+    }
+
+    .skills p, .skills .list-unstyled {
+      color: var(--text-muted);
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 /*--------------------------------------------------------------
 # Resume Section
