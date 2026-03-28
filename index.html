@@ -2,47 +2,58 @@
 <html lang="en">
 
 <head>
+  <!-- Basic Setup: Character encoding and Responsive Viewport -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+  <!-- SEO: Title and descriptions that appear in Google search results -->
   <title>Maykon Jonattan | Data Scientist Portfolio</title>
   <meta name="description" content="Portfolio of Maykon Jonattan de Oliveira, aspiring Data Scientist specializing in Python, machine learning, and data analysis.">
   <meta name="keywords" content="Data Scientist, Data Analyst, Machine Learning, Python, SQL, Portfolio, Maykon Jonattan">
 
-  <!-- Favicons -->
+  <!-- Favicons: The small icons that appear in the browser tab -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
+  <!-- Google Fonts: Loading Roboto, Poppins, and Raleway for typography -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
+  <!-- Vendor CSS: Frameworks like Bootstrap and animation libraries (AOS, Swiper) -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
+  <!-- Main CSS: Your custom styles and the portfolio theme styles -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <style>
-    
-  </style>
-  <!-- =======================================================
-  * Template Name: FolioOne
-  * Template URL: https://bootstrapmade.com/folioone-bootstrap-portfolio-website-template/
-  * Updated: Aug 23 2025 with Bootstrap v5.3.7
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <script>
+  window.addEventListener('load', () => {
+    AOS.init({
+      duration: 600,    // How long the animation lasts (faster is better for alignment)
+      easing: 'ease-in-out',
+      once: true,       // Only animate once
+      mirror: false,
+      offset: 50        // Triggers the animation 50px before it hits the center
+    });
+  });
+  </script>
+
 </head>
 
 <body class="index-page">
 
-<header id="header" class="header d-flex align-items-center dark-background sticky-top">
-  <div class="container position-relative d-flex align-items-center justify-content-between">
+<!-- ======= Header / Navigation Bar ======= -->
+<header id="header" class="header d-flex align-items-center sticky-top">
+  <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+    <!-- icon Navigation Bar -->
+    <a href="index.html" class="logo d-flex align-items-center">
+      <img src="assets/img/favicon.png" alt="Maykon Logo" style="height:40px;">
+    </a>
 
     <nav id="navmenu" class="navmenu">
       <ul>
@@ -57,8 +68,8 @@
     </nav>
 
     <div class="header-social-links">
-       <a href="https://www.linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-       <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+       <a href="https://www.linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" rel="noopener" class="linkedin"><i class="bi bi-linkedin"></i></a>
+       <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="github"><i class="bi bi-github"></i></a>
     </div>
 
   </div>
@@ -66,63 +77,76 @@
 
 <main class="main">
 
+  <!-- ======= Hero Section: The main landing view of the site ======= -->
   <section id="hero" class="hero section dark-background">
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
 
       <div class="row gy-4 align-items-center">
+        
+        <!-- Hero Text Content: Left side on desktop, bottom side on mobile -->
         <div class="col-lg-6 order-2 order-lg-2">
           <div class="hero-content">
+            <!-- Main Title with AOS Animation -->
             <h1 data-aos="fade-up" data-aos-delay="300">I'm <span class="highlight">Maykon Jonattan</span></h1>
+            <!-- Typed.js placeholder: The text here will "type" automatically -->
             <h2 data-aos="fade-up" data-aos-delay="400">An Aspiring <span class="typed" data-typed-items="Data Scientist, Data Analyst, ML Specialist, SQL Expert"></span></h2>
             <p data-aos="fade-up" data-aos-delay="500">
               I transform raw data into actionable insights. Proficient in Python, SQL and Power BI, 
               passionate about building machine learning models that solve real-world problems.
             </p>
             
-        <div class="hero-actions" class="btn btn-outline-light">
-          <a href="portfolio.html" class="btn btn-primary">
-            View My Projects <i class="bi bi-arrow-right"></i>
-          </a>
-          <a href="contact.html" class="btn btn-outline-light">
-            Contact Me <i class="bi bi-envelope"></i>
-          </a>
-          <a href="resume.html" class="btn btn-outline-light">
-            Resume <i class="bi bi-file-earmark-person"></i>
-          </a>
-        </div>
-            
+            <!-- Call to Action (CTA) Buttons -->
+            <div class="hero-actions">
+              <a href="portfolio.html" class="btn btn-primary">
+                View My Projects <i class="bi bi-arrow-right"></i>
+              </a>
+              <a href="contact.html" class="btn btn-outline-light">
+                Contact Me <i class="bi bi-envelope"></i>
+              </a>
+              <a href="resume.html" class="btn btn-outline-light">
+                Resume <i class="bi bi-file-earmark-person"></i>
+              </a>
+            </div>
           </div>
         </div>
 
+        <!-- Hero Image Column: Right side on desktop, top side on mobile -->
         <div class="col-lg-6 order-1 order-lg-1 text-center">
           <div class="hero-image" data-aos="zoom-in" data-aos-delay="200">
             <div class="image-wrapper position-relative">
+              <!-- Decorative background shape behind image -->
               <div class="hero-background-shape"></div>
+              <!-- Main Profile Photo -->
               <img src="assets/img/profile/profile-square-11.webp" alt="Maykon Jonattan" class="img-fluid rounded shadow">
               
+              <!-- Floating Elements: Small badges that hover around the main photo -->
               <div class="floating-elements">
-                <div class="floating-card design" data-aos="fade-left" data-aos-delay="700">
+                <!-- Data Science Badge -->
+                <div class="floating-card design" data-aos="fade-left" data-aos-delay="700" data-aos-anchor=".hero-image">
                   <i class="bi bi-graph-up text-primary"></i>
                   <span>Data Science</span>
                 </div>
                 
-                <div class="floating-card code" data-aos="fade-right" data-aos-delay="800">
+                <!-- Python Badge -->
+                <div class="floating-card code" data-aos="fade-right" data-aos-delay="800" data-aos-anchor=".hero-image">
                   <i class="bi-code-slash"></i>
                   <span>Python</span>
                 </div>
 
-                <div class="floating-card sql" data-aos="fade-down" data-aos-delay="900"> 
+                <!-- SQL Badge -->
+                <div class="floating-card sql" data-aos="fade-down" data-aos-delay="900" data-aos-anchor=".hero-image"> 
                   <i class="bi bi-database text-warning"></i> 
                   <span>SQL</span> 
                 </div>
                 
-                <div class="floating-card creativity" data-aos="fade-up" data-aos-delay="900">
+                <!-- Power BI Badge -->
+                <div class="floating-card creativity" data-aos="fade-up" data-aos-delay="1000" data-aos-anchor=".hero-image">
                   <i class="bi bi-bar-chart text-warning"></i>
                   <span>Power BI</span>
                 </div>
-                
               </div>
+
             </div>
           </div>
         </div>
@@ -132,54 +156,51 @@
 </main>
 
 
-<!-- Ultra‑compact footer -->
+<!-- ======= Footer ======= -->
 <footer id="footer" class="footer dark-background">
   <div class="container text-center py-2">
+    <!-- Brand/Name in Footer -->
     <h3 class="footer-brand" style="font-size: 1.25rem; margin-bottom: 0.1rem;">Maykon Jonattan</h3>
     <p class="text-white-50" style="font-size: 0.7rem; margin-bottom: 0.5rem;">Data Scientist | Data Analyst | Power BI | SQL</p>
 
+    <!-- Footer Social Icons -->
     <div class="social-links d-flex justify-content-center gap-1 mb-1">
-      <a href="https://www.linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" rel="noopener" aria-label="LinkedIn" class="linkedin" style="width: 32px; height: 32px; border-radius: 8px;">
-        <i class="bi bi-linkedin" style="font-size: 1rem;"></i>
-      </a>
-      <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" aria-label="GitHub" class="github" style="width: 32px; height: 32px; border-radius: 8px;">
-        <i class="bi bi-github" style="font-size: 1rem;"></i>
-      </a>
-      <a href="contact.html" aria-label="Email" class="email" style="width: 32px; height: 32px; border-radius: 8px;">
-        <i class="bi bi-envelope-fill" style="font-size: 1rem;"></i>
-      </a>
+      <a href="..." target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      <a href="..." target="_blank" class="github"><i class="bi bi-github"></i></a>
+      <a href="contact.html" class="email"><i class="bi bi-envelope-fill"></i></a>
     </div>
 
+    <!-- Small visual divider line -->
     <div class="copyright-divider" style="width: 40px; height: 1px; margin: 0 auto 0.5rem auto;"></div>
 
+    <!-- Copyright Information -->
     <p class="mb-0 text-white-50" style="font-size: 0.65rem;">© 2026 Maykon — All Rights Reserved</p>
     <p class="text-white-50" style="font-size: 0.6rem;">Template designed by <a href="https://bootstrapmade.com/" class="credit-link">BootstrapMade</a></p>
   </div>
 </footer>
-<!-- End of the compact footer -->
 
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
+<!-- Scroll to Top Button: Becomes visible once the user scrolls down -->
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+<!-- Preloader: Loading screen animation shown before the page finishes loading -->
+<div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<!-- Vendor JS Files: Functional scripts for animations, email forms, and galleries -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/typed.js/typed.umd.js"></script>
+<script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+<!-- Main JS File: Initialization script that connects all the libraries above -->
+<script src="assets/js/main.js"></script>
 
 </body>
 
-</html><!-- End of File -->
+</html>
