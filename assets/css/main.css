@@ -542,6 +542,7 @@ h6 {
   font-size: 2.2rem;
 }
 
+
 .footer {
   padding-top: 2rem !important;          /* reduce footer top padding */
   padding-bottom: 2rem !important;
@@ -550,6 +551,7 @@ h6 {
 .hero .hero-content p {
   margin-bottom: 1.5rem;                 /* keep readable but not excessive */
 }
+
 
 /* Social link base style */
 .footer .social-links a {
@@ -1411,14 +1413,21 @@ justify-content: center;
 
 
 .about-modern .about-text p {
-  text-align: justify;
-  hyphens: auto;              /* optional: improves word breaks */
-  margin-bottom: 1.5rem;
-  line-height: 1.7;
-  color: color-mix(in srgb, var(--default-color), transparent 10%);
+  /* Text Alignment */
+  text-align: justify;           /* 'justify' often creates ugly gaps in short paragraphs */
+  hyphens: none;              /* cleaner look for portfolio text */
+  
+  /* Vertical Spacing */
+  margin-bottom: 1rem;        /* Reduced space between paragraphs */
+  line-height: 1rem;           /* Standard 'normal' readability height */
+  
+  /* Typography */
   font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85); /* Clean contrast for dark themes */
+  
+  /* Refinement */
+  letter-spacing: 0.2px;      /* Slight modern touch */
 }
-
 
 
 
