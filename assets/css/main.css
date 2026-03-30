@@ -542,6 +542,15 @@ h6 {
   font-size: 2.2rem;
 }
 
+.footer {
+  padding-top: 2rem !important;          /* reduce footer top padding */
+  padding-bottom: 2rem !important;
+}
+/* Optional: tighten gaps between elements */
+.hero .hero-content p {
+  margin-bottom: 1.5rem;                 /* keep readable but not excessive */
+}
+
 /* Social link base style */
 .footer .social-links a {
   width: 48px;
@@ -1101,111 +1110,92 @@ section,
 /* --------------------------------------------------------------
   Hero Buttons – Modern Minimalist
 -------------------------------------------------------------- */
-.hero .hero-actions {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 0;
+
+/* Variáveis de Design para consistência */
+:root {
+    --accent-glow: rgba(6, 182, 212, 0.5);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.03);
 }
 
-.hero .hero-actions .btn {
-  padding: 12px 28px;
-  border-radius: 50px;
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
+.hero-actions .btn {
+    padding: 14px 32px;
+    border-radius: 12px; 
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid transparent;
 }
 
-/* Primary button – subtle gradient */
-.hero .hero-actions .btn-primary {
-  background: linear-gradient(135deg, var(--accent-color), #06b6d4);
-  color: var(--contrast-color);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-.hero .hero-actions .btn-primary::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #06b6d4, var(--accent-color));
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: -1;
-}
-.hero .hero-actions .btn-primary:hover::before {
-  opacity: 1;
-}
-.hero .hero-actions .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+/* --- BOTÃO PRIMÁRIO (NEON/GRADIENTE) --- */
+/* --- COMPACT BUTTON BASE --- */
+.hero-actions .btn-compact { 
+padding: 8px 18px; /* Reduced from 14px/32px to 8px/18px */ 
+font-size: 0.85rem; /* Smaller, more elegant font */ 
+border-radius: 8px; /* Closer corners for "tech" air */ 
+font-weight: 500; 
+letter-spacing: 0.3px; 
+background: #0a0a0a; /* Ultra-Dark Background */ 
+border: 1px solid rgba(255, 255, 255, 0.1); /* Almost invisible border */ 
+color: rgba(255, 255, 255, 0.7); /* Discrete text */ 
+transition: all 0.3s ease; 
+display: inline-flex; 
+align-items: center; 
+gap: 8px; 
+text-transform: none; /* We removed the uppercase to be more minimalist */
 }
 
-/* Outline buttons – glass morphism */
-.hero .hero-actions .btn-outline-light {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
-}
-.hero .hero-actions .btn-outline-light:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.4);
-  transform: translateY(-2px);
-  backdrop-filter: blur(12px);
+/* --- HOVER: DIRECT COLOR CHANGE --- */
+
+/* Cyan version */
+.btn-dark-cyan:hover { 
+background: #0891b2 !important; 
+border-color: #0891b2 !important; 
+color: #fff !important; 
+box-shadow: 0 4px 15px rgba(8, 145, 178, 0.4);
 }
 
-/* Icon animation */
-.hero .hero-actions .btn i {
-  transition: transform 0.25s ease;
-}
-.hero .hero-actions .btn:hover i {
-  transform: translateX(4px);
+/* Indigo Version (Deep Purple) */
+.btn-dark-indigo:hover { 
+background: #4f46e5 !important; 
+border-color: #4f46e5 !important; 
+color: #fff !important; 
+box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
 }
 
-/* Responsive */
-@media (max-width: 576px) {
-  .hero .hero-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .hero .hero-actions .btn {
-    text-align: center;
-    justify-content: center;
-  }
+/* White version */
+.btn-dark-white:hover { 
+background: #f8fafc !important; 
+border-color: #f8fafc !important; 
+color: #0f172a !important; 
+box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
 }
-/* end Modern Button Styling */
 
+/* --- ICON MICRO-ANIMATION --- */
+.btn-compact i { 
+font-size: 0.9rem; 
+transition: transform 0.2s ease;
+}
 
-    /* Remove excessive spacing */
-.hero {
-  min-height: auto !important;          /* was 100vh */
-  padding: 80px 0 !important;           /* was 80px 0 */
+.btn-compact:hover i { 
+transform: scale(1.2); /* The icon just grows slightly */
 }
-.hero .hero-content {
-  margin-bottom: 0;                     /* remove extra bottom margin */
+
+/* Adjust for Mobile */
+@media (max-width: 576px) { 
+.hero-actions .btn-compact { 
+width: 100%; 
+justify-content: center; 
 }
-.hero .hero-actions {
-  margin-bottom: 0;                      /* remove extra margin below buttons */
 }
-.footer {
-  padding-top: 2rem !important;          /* reduce footer top padding */
-  padding-bottom: 2rem !important;
-}
-/* Optional: tighten gaps between elements */
-.hero .hero-content p {
-  margin-bottom: 1.5rem;                 /* keep readable but not excessive */
-}
+
 
 
 
