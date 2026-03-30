@@ -417,6 +417,110 @@ h6 {
   }
 }
 
+
+/* icon nav bar */
+/* Container Layout */
+.hud-logo-container-dark {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.logo-text-dark {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.logo-text-dark .highlight-dark {
+  color: #00e6e6; /* Matching the dark mode glow color */
+}
+
+/* Processor Frame Animation */
+.processor-frame-dark {
+  animation: pulseStrokeDark 3s ease-in-out infinite alternate;
+}
+
+@keyframes pulseStrokeDark {
+  0%, 100% { stroke-width: 2; stroke-opacity: 0.8; }
+  50% { stroke-width: 3; stroke-opacity: 1; }
+}
+
+/* Processor Core Pulsing */
+.processor-core-dark {
+  animation: pulseCoreDark 2s ease-in-out infinite;
+}
+
+@keyframes pulseCoreDark {
+  0%, 100% { r: 5px; opacity: 0.6; }
+  50% { r: 7px; opacity: 1; }
+}
+
+/* Data Bars Animation */
+.data-bars-left-dark rect:nth-child(1) {
+  animation: barAnimateDark 2.5s ease-in-out infinite alternate;
+}
+.data-bars-left-dark rect:nth-child(2) {
+  animation: barAnimateDark 2.8s ease-in-out infinite alternate 0.3s;
+}
+.data-bars-left-dark rect:nth-child(3) {
+  animation: barAnimateDark 2.2s ease-in-out infinite alternate 0.6s;
+}
+
+.data-bars-right-dark rect:nth-child(1) {
+  animation: barAnimateDark 2.7s ease-in-out infinite alternate;
+}
+.data-bars-right-dark rect:nth-child(2) {
+  animation: barAnimateDark 2.3s ease-in-out infinite alternate 0.4s;
+}
+.data-bars-right-dark rect:nth-child(3) {
+  animation: barAnimateDark 2.9s ease-in-out infinite alternate 0.8s;
+}
+
+@keyframes barAnimateDark {
+  0%, 100% { height: 10px; transform: translateY(0); }
+  50% { height: 20px; transform: translateY(-10px); }
+}
+
+/* Circular Indicator Rotation */
+.circular-indicator-dark {
+  animation: rotateIndicatorDark 5s linear infinite;
+}
+.indicator-hand-dark {
+  animation: rotateIndicatorDark 5s linear infinite;
+}
+
+.hud-logo-container-dark:hover .hud-logo-dark {
+  transform: scale(1.05);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes rotateIndicatorDark {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Floating Particles */
+.hud-particle-dark {
+  animation: floatParticleHUDDark 4s ease-in-out infinite alternate;
+}
+
+.hud-particle-dark.p1 { animation-delay: 0s; }
+.hud-particle-dark.p2 { animation-delay: 0.5s; }
+
+@keyframes floatParticleHUDDark {
+  0%, 100% { transform: translate(0, 0); opacity: 0.4; }
+  50% { transform: translate(5px, -5px); opacity: 0.8; }
+}
+
+
+
+
+
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
@@ -1997,6 +2101,40 @@ section,
     .skills p, .skills .list-unstyled {
       color: var(--text-muted);
     }
+
+
+    .section-title {
+  text-align: center;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+  position: relative;
+}
+
+.section-title h2:before,
+.section-title h2:after {
+  content: "";
+  width: 50px;
+  height: 2px;
+  background: var(--accent-color);
+  display: inline-block;
+}
+
+.section-title h2:before {
+  margin: 0 15px 10px 0;
+}
+
+.section-title h2:after {
+  margin: 0 0 10px 15px;
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
 
 
 
