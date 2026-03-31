@@ -1412,6 +1412,7 @@ justify-content: center;
 }
 
 
+/* Text of the right side*/
 .about-modern .about-text p {
   /* Text Alignment */
   text-align: justify;           /* 'justify' often creates ugly gaps in short paragraphs */
@@ -1433,7 +1434,7 @@ justify-content: center;
 
 
 
-
+/* Floating icons in the botton */
 /* Prevent particles from blocking clicks */
 .particles-bg {
   position: absolute;
