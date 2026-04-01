@@ -2066,7 +2066,7 @@ justify-content: center;
     /* Dark Theme Core Colors */
     :root {
       --background-color: #101a20;
-      --surface-color: #1a1a1a;
+      --surface-color: #14243f;
       --accent-color: #007bff; /* Primary Blue */
       --text-main: #ffffff;
       --text-muted: #a0a0a0;
@@ -2758,6 +2758,7 @@ justify-content: center;
   border-radius: 1rem;
   height: 100%;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+  justify-content: center;
 }
 
 @media (max-width: 992px) {
