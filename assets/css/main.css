@@ -100,21 +100,99 @@ h6 {
   border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
 }
 
-.header .logo {
-  line-height: 1;
+
+
+
+/*--------------------------------------------------------------
+# Polished Data Science 3D Cube Logo
+--------------------------------------------------------------*/
+.logo-3d-scene {
+  width: 42px;
+  height: 42px;
+  perspective: 300px; /* Increased for a more dramatic 3D feel */
+  margin-left: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.header .logo img {
-  max-height: 36px;
-  margin-right: 8px;
+.logo-3d-cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotateDataCube 15s infinite linear; /* Slower, more professional speed */
+  will-change: transform;
 }
 
-.header .logo h1 {
-  font-size: 32px;
-  margin: 0;
-  font-weight: 400;
-  color: var(--heading-color);
+/* The Core - Adds a volumetric glow inside the cube */
+.cube-core {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 11px;
+  left: 11px;
+  background: #06b6d4;
+  filter: blur(15px);
+  opacity: 0.5;
+  border-radius: 50%;
+  transform: translateZ(0);
 }
+
+.cube-face {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  /* Glassmorphism Effect */
+  background: rgba(10, 25, 47, 0.7); 
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #06b6d4;
+  font-size: 1.2rem;
+  backdrop-filter: blur(2px);
+  /* Ensures the back of faces don't flicker */
+  backface-visibility: visible;
+  transition: all 0.3s ease;
+}
+
+/* Exact positioning for a 42px cube (half is 21px) */
+.face-front  { transform: rotateY(0deg) translateZ(21px); }
+.face-back   { transform: rotateY(180deg) translateZ(21px); }
+.face-right  { transform: rotateY(90deg) translateZ(21px); }
+.face-left   { transform: rotateY(-90deg) translateZ(21px); }
+.face-top    { transform: rotateX(90deg) translateZ(21px); }
+.face-bottom { transform: rotateX(-90deg) translateZ(21px); }
+
+/* Animation: Complex axis rotation */
+@keyframes rotateDataCube {
+  0%   { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  100% { transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg); }
+}
+
+/* Interaction: Pause and Highlight */
+.logo-3d-scene:hover .logo-3d-cube {
+  animation-play-state: paused; /* Better than 'none' because it stops in place */
+}
+
+.logo-3d-scene:hover .cube-face {
+  border-color: #4f46e5;
+  color: #fff;
+  box-shadow: inset 0 0 15px rgba(79, 70, 229, 0.4), 0 0 15px rgba(6, 182, 212, 0.6);
+}
+
+.logo-3d-scene:hover .cube-core {
+  opacity: 0.8;
+  background: #4f46e5;
+  filter: blur(20px);
+}
+/*--------------------------------------------------------------
+# end Data Science 3D Cube Logo
+--------------------------------------------------------------*/
+
+
+
 
 .header .header-social-links {
   padding-right: 15px;
