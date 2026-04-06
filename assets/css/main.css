@@ -64,6 +64,14 @@ body {
   color: var(--default-color);
   background-color: var(--background-color);
   font-family: var(--default-font);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 100% of the Viewport Height */
+  margin: 0;
+}
+
+.main {
+  flex: 1 0 auto; /* This tells the main content to grow and fill all available space */
 }
 
 a {
@@ -960,8 +968,8 @@ section,
 # Hero Section
 --------------------------------------------------------------*/
 .hero {
-  padding: 80px 0;
-  min-height: 100vh;
+  padding: 60px 0;
+  min-height: calc(100vh - 80px);
   display: flex;
   align-items: center;
 }
@@ -993,6 +1001,13 @@ section,
 @media (max-width: 768px) {
   .hero .hero-content h1 {
     font-size: 2.5rem;
+  }
+}
+
+/* 4. Responsive adjustments for very large screens */
+@media (min-height: 1000px) {
+  .hero {
+    padding: 100px 0; /* Adds more breathing room on massive monitors */
   }
 }
 
