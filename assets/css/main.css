@@ -604,6 +604,127 @@ h6 {
 }
 
 
+/* ─── Button that leads to the next page ────────────────────────────────────────────── */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-hover: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-border-hover: rgba(255, 255, 255, 0.25);
+  --shimmer-color: rgba(255, 255, 255, 0.4);
+
+  --transition-smooth: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  --transition-fast: 0.15s ease;
+}
+
+.btn-elite {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+
+  padding: 0.9rem 2.4rem;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+
+  box-shadow: 
+  0 4px 12px -6px rgba(0, 0, 0, 0.4),
+  inset 0 1px 1px rgba(255, 255, 255, 0.03);
+
+  transition:
+    transform var(--transition-smooth),
+    background-color var(--transition-smooth),
+    border-color var(--transition-smooth),
+    box-shadow var(--transition-smooth);
+
+  will-change: transform;
+}
+
+/* Shimmer layer */
+.btn-elite::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    var(--shimmer-color),
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+
+/* Hover */
+.btn-elite:hover {
+  transform: translateY(-4px) scale(1.02);
+  background: var(--glass-hover);
+  border-color: var(--glass-border-hover);
+
+  box-shadow: 
+    0 20px 40px -15px rgba(0, 0, 0, 0.6),
+    inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.btn-elite:hover::before {
+  transform: translateX(100%);
+}
+
+/* Active */
+.btn-elite:active {
+  transform: translateY(-1px) scale(0.98);
+  transition: transform var(--transition-fast);
+}
+
+/* Focus */
+.btn-elite:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+
+/* Icons */
+.btn-elite i {
+  font-size: 1.1em;
+  opacity: 0.6;
+  transition: 
+    transform var(--transition-smooth),
+    opacity var(--transition-smooth);
+}
+
+.btn-elite:hover i {
+  opacity: 1;
+  transform: translateX(3px) rotate(-12deg);
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .btn-elite,
+  .btn-elite::before,
+  .btn-elite i {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* Button in the end of the page that leads to the next page */
 
 
 
@@ -1673,77 +1794,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 
-/* ─── Button to the skill section ────────────────────────────────────────────── */
-:root {
-  --btn-min-bg: rgba(255, 255, 255, 0.05);
-  --btn-min-hover-bg: rgba(255, 255, 255, 0.1);
-  --btn-min-border: rgba(255, 255, 255, 0.1);
-  --btn-min-hover-border: rgba(255, 255, 255, 0.3);
-  --btn-transition: all 0.3s ease-out;
-}
 
-.btn-minimalist {
-  /* Layout & Reset */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 2rem;
-  cursor: pointer;
-  text-decoration: none;
-  position: relative;
-  
-  /* Typography - CLEAN & SHARP */
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: 500; /* Medium weight is more minimalist than Bold */
-  font-size: 0.875rem;
-  letter-spacing: 0.02em;
-  color: #ffffff;
-  
-  /* Styling */
-  background-color: var(--btn-min-bg);
-  border: 1px solid var(--btn-min-border);
-  border-radius: 8px; /* Classic, clean radius */
-  
-  /* Animation */
-  transition: var(--btn-transition);
-  will-change: background-color, border-color, transform;
-}
-
-/* Hover State - SUBTLE & SOPHISTICATED */
-.btn-minimalist:hover {
-  background-color: var(--btn-min-hover-bg);
-  border-color: var(--btn-min-hover-border);
-  transform: translateY(-2px); /* Very subtle lift */
-  
-  /* Minimal shadow for a touch of depth */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Active / Click State */
-.btn-minimalist:active {
-  transform: translateY(0);
-  background-color: rgba(255, 255, 255, 0.15);
-  transition: all 0.1s ease;
-}
-
-/* Accessibility: Keyboard Focus */
-.btn-minimalist:focus-visible {
-  outline: 2px solid #ffffff;
-  outline-offset: 4px;
-}
-
-/* Icon Support (Optional) */
-.btn-minimalist i {
-  margin-left: 8px;
-  font-size: 1.1em;
-  opacity: 0.7; /* Icon is slightly muted */
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.btn-minimalist:hover i {
-  opacity: 1;
-  transform: translateX(2px);
-}
 
 /*--------------------------------------------------------------
 # end about section
