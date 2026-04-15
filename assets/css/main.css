@@ -1673,9 +1673,81 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 
+/* ─── Button to the skill section ────────────────────────────────────────────── */
+:root {
+  --btn-min-bg: rgba(255, 255, 255, 0.05);
+  --btn-min-hover-bg: rgba(255, 255, 255, 0.1);
+  --btn-min-border: rgba(255, 255, 255, 0.1);
+  --btn-min-hover-border: rgba(255, 255, 255, 0.3);
+  --btn-transition: all 0.3s ease-out;
+}
 
+.btn-minimalist {
+  /* Layout & Reset */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  
+  /* Typography - CLEAN & SHARP */
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 500; /* Medium weight is more minimalist than Bold */
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  
+  /* Styling */
+  background-color: var(--btn-min-bg);
+  border: 1px solid var(--btn-min-border);
+  border-radius: 8px; /* Classic, clean radius */
+  
+  /* Animation */
+  transition: var(--btn-transition);
+  will-change: background-color, border-color, transform;
+}
 
+/* Hover State - SUBTLE & SOPHISTICATED */
+.btn-minimalist:hover {
+  background-color: var(--btn-min-hover-bg);
+  border-color: var(--btn-min-hover-border);
+  transform: translateY(-2px); /* Very subtle lift */
+  
+  /* Minimal shadow for a touch of depth */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
 
+/* Active / Click State */
+.btn-minimalist:active {
+  transform: translateY(0);
+  background-color: rgba(255, 255, 255, 0.15);
+  transition: all 0.1s ease;
+}
+
+/* Accessibility: Keyboard Focus */
+.btn-minimalist:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+
+/* Icon Support (Optional) */
+.btn-minimalist i {
+  margin-left: 8px;
+  font-size: 1.1em;
+  opacity: 0.7; /* Icon is slightly muted */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.btn-minimalist:hover i {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+/*--------------------------------------------------------------
+# end about section
+--------------------------------------------------------------*/
 
 
 /*--------------------------------------------------------------
