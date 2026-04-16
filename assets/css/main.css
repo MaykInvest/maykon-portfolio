@@ -1793,6 +1793,30 @@ article.timeline__item:nth-child(even) .timeline__icon {
   }
 }
 
+/* Styling for the Tech Stack Title */
+.tech-stack-title {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #ffffff; /* White text for dark theme */
+    margin-bottom: 0.5rem;
+}
+
+/* Adds a bit of space between letters for a modern, professional look */
+.letter-spacing-2 {
+    letter-spacing: 2px;
+}
+
+/* This styles the 'Toolbox' word specifically */
+.text-primary {
+    color: #0d6efd; /* This is the standard Bootstrap Blue; feel free to change to your preferred accent color */
+}
+
+/* Small detail line under the title */
+.text-muted {
+    color: #6c757d !important;
+    font-style: italic;
+}
+
 
 
 
