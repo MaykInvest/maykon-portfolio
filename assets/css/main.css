@@ -1982,15 +1982,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
   margin-bottom: 0;
 }
 
-
-
-
-
-
-
-
-
-
+/* End of Skill card */
 
 
 /*--------------------------------------------------------------
@@ -2323,8 +2315,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 
     /* Compact Footer Styling */
 
-    
-    .social-links a {
+        .social-links a {
       background: rgba(255, 255, 255, 0.05);
       color: #fff;
       transition: 0.3s;
@@ -2334,11 +2325,6 @@ article.timeline__item:nth-child(even) .timeline__icon {
       background: var(--card-primary);
       color: #000;
     }
-
-
-
-
-
 
 
 
