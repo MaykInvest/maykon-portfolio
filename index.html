@@ -30,18 +30,6 @@
   <!-- Main CSS: Your custom styles and the portfolio theme styles -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <script>
-  window.addEventListener('load', () => {
-    AOS.init({
-      duration: 600,    // How long the animation lasts (faster is better for alignment)
-      easing: 'ease-in-out',
-      once: true,       // Only animate once
-      mirror: false,
-      offset: 50        // Triggers the animation 50px before it hits the center
-    });
-  });
-  </script>
-
 </head>
 
 <body class="index-page">
@@ -80,8 +68,8 @@
     </nav>
 
     <div class="header-social-links">
-       <a href="https://www.linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" rel="noopener" class="linkedin"><i class="bi bi-linkedin"></i></a>
-       <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="github"><i class="bi bi-github"></i></a>
+       <a href="https://www.linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" rel="noopener" class="linkedin" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+       <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="github" aria-label="GitHub"><i class="bi bi-github"></i></a>
     </div>
 
   </div>
@@ -96,16 +84,16 @@
 
       <div class="row gy-4 align-items-center">
         
-        <!-- Hero Text Content: Left side on desktop, bottom side on mobile -->
+        <!-- Hero Text Content: Right side on desktop, bottom side on mobile -->
         <div class="col-lg-6 order-2 order-lg-2">
           <div class="hero-content">
             <!-- Main Title with AOS Animation -->
             <h1 data-aos="fade-up" data-aos-delay="300">I'm <span class="highlight">Maykon Jonattan</span></h1>
             <!-- Typed.js placeholder: The text here will "type" automatically -->
             <h2 data-aos="fade-up" data-aos-delay="400">An Aspiring <span class="typed" data-typed-items="Data Scientist, Data Analyst, ML Specialist, SQL Expert"></span></h2>
-            <p data-aos="fade-up" data-aos-delay="500">
-              I transform raw data into actionable insights. Proficient in Python, SQL and Power BI, 
-              passionate about building machine learning models that solve real-world problems.
+            <p data-aos="fade-up" data-aos-delay="500" >
+              I transform raw data into actionable insights. 
+              Proficient in Python, SQL and Power BI, passionate about building machine learning models that solve real-world problems.
             </p>
             
           <!-- Call to Action (CTA) Buttons -->
@@ -114,23 +102,24 @@
             <!-- Projects Button (Blue Highlight) --> 
             <a href="portfolio.html" class="btn btn-compact btn-dark-white">Projects<i class="bi bi-arrow-right"></i></a> 
 
-            <!-- Contact Button (Highlight Purple/Indigo) --> 
-            <a href="contact.html" class="btn btn-compact btn-dark-white">  Contact <i class="bi bi-envelope"></i></a> 
-
             <!-- Resume Button (Grey/White Highlight) --> 
             <a href="resume.html" class="btn btn-compact btn-dark-white">Resume <i class="bi bi-file-earmark-person"></i></a>
+
+            <!-- Contact Button (Highlight Purple/Indigo) --> 
+            <a href="contact.html" class="btn btn-compact btn-dark-white">  Contact <i class="bi bi-envelope"></i></a>
+
           </div>
 
           </div>
         </div>
 
-        <!-- Hero Image Column: Right side on desktop, top side on mobile -->
+        <!-- Hero Image Column: Left side on desktop, top side on mobile -->
         <div class="col-lg-6 order-1 order-lg-1 text-center">
           <div class="hero-image" data-aos="zoom-in" data-aos-delay="200">
             <div class="image-wrapper position-relative">
 
               <!-- Main Profile Photo -->
-              <img src="assets/img/profile/profile-square-11.webp" alt="Maykon Jonattan" class="img-fluid rounded shadow">
+              <img src="assets/img/profile/profile-image.webp" alt="Maykon Jonattan" class="img-fluid rounded shadow" loading="eager" fetchpriority="high">
               
               <!-- Floating Elements: Small badges that hover around the main photo -->
               <div class="floating-elements">
@@ -216,6 +205,17 @@
 <script src="assets/js/main.js"></script>
 
 <script>
+  // Initialize AOS (Animate on Scroll)
+  window.addEventListener('load', () => {
+    AOS.init({
+      duration: 600,    // How long the animation lasts
+      easing: 'ease-in-out',
+      once: true,       // Only animate once
+      mirror: false,
+      offset: 50        // Triggers the animation 50px before it hits the center
+    });
+  });
+
 const scene = document.querySelector('.logo-3d-scene');
 const cube = document.querySelector('.logo-3d-cube');
 
