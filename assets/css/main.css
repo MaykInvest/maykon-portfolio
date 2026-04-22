@@ -1284,10 +1284,22 @@ section,
 }
 
 
-@media (max-width: 992px) {
-  .hero .hero-image .floating-elements .floating-card {
-    display: none;
+/* Forcing floating elements to be visible on all devices */
+.floating-elements {
+  display: block !important; 
+  position: relative; /* Ensures they stay near your photo */
+}
+
+/* Make badges a bit smaller on phones so they don't cover your face */
+@media (max-width: 768px) {
+  .floating-card {
+    padding: 5px 10px !important;
+    font-size: 12px !important;
   }
+  
+  /* Adjusting positions so they stay within the screen bounds */
+  .floating-card.design { left: 5% !important; top: 10% !important; }
+  .floating-card.code { right: 5% !important; bottom: 10% !important; }
 }
 
 @keyframes float {
