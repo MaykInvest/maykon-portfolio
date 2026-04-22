@@ -1,18 +1,18 @@
-# 🌐 My Web Portfolio
+🌐 My Web Portfolio
 
 A professional, responsive portfolio website built to showcase my skills and projects.
 This site features a sleek dark theme and is fully optimized for mobile and desktop viewing.
 
 ---
 
-## 🚀 Live Demo
+🚀 Live Demo
 
 You can view the live website here:
 👉 **[Insert Your GitHub Pages Link Here]**
 
 ---
 
-## 🛠️ Built With
+🛠️ Built With
 
 * **HTML5 & CSS3** – Core structure and custom styling
 * **JavaScript** – Interactive elements and functionality
@@ -21,7 +21,7 @@ You can view the live website here:
 
 ---
 
-## ✨ Key Features
+✨ Key Features
 
 * **Responsive Design**
   Seamlessly adapts to mobile, tablet, and desktop screens
@@ -34,11 +34,11 @@ You can view the live website here:
 
 ---
 
-## 📂 Project Structure
+📂 Project Structure
 
 The project is organized into dedicated pages for better navigation and maintainability:
 
-### Root Files
+Root Files
 
 ```
 index.html        # Homepage & Landing area
@@ -49,7 +49,7 @@ portfolio.html    # Project showcase
 contact.html      # Contact form and links
 ```
 
-### Assets Directory (`/assets`)
+Assets Directory (`/assets`)
 
 ```
 /css              # Custom styles and overrides
@@ -60,7 +60,7 @@ contact.html      # Contact form and links
 
 ---
 
-## 🔧 How to Run Locally
+🔧 How to Run Locally
 
 1. Clone the repository:
 
@@ -78,7 +78,7 @@ cd your-repository-name
 
 ---
 
-## 📜 Credits & Attributions
+📜 Credits & Attributions
 
 While this project has been extensively modified, customized, and rebuilt to fit my personal brand, the initial layout structure was inspired by a template from **BootstrapMade**.
 
@@ -89,7 +89,7 @@ While this project has been extensively modified, customized, and rebuilt to fit
 
 ---
 
-## 📬 Contact
+📬 Contact
 
 Feel free to connect with me or check out my work:
 
@@ -98,6 +98,6 @@ Feel free to connect with me or check out my work:
 
 ---
 
-## ⭐ Final Note
+⭐ Final Note
 
 This portfolio is continuously evolving as I improve my skills in data science, development, and system design.
