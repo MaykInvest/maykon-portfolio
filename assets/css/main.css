@@ -111,19 +111,36 @@ h6 {
 }
 
 
-
-
 /*--------------------------------------------------------------
 # Polished Data Science 3D Cube Logo
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Premium Data Science 3D Cube Logo - Interactive Speed Version
+# New Feature: Spins faster on hover with smooth transition
+--------------------------------------------------------------*/
+:root {
+  --cube-size: 42px;
+  --cube-half: calc(var(--cube-size) / 2);
+  --cube-accent: #06b6d4;
+  --cube-hover-accent: #4f46e5;
+  --cube-glass-bg: rgba(10, 25, 47, 0.6);
+  
+  /* Rotation Speeds */
+  --cube-speed-normal: 12s;
+  --cube-speed-fast: 3s; /* 4x faster on hover */
+}
+
 .logo-3d-scene {
-  width: 42px;
-  height: 42px;
-  perspective: 300px; /* Increased for a more dramatic 3D feel */
-  margin-left: 150px;
+  width: var(--cube-size);
+  height: var(--cube-size);
+  perspective: 600px;
+  margin-left: clamp(20px, 15vw, 200px);
   display: flex;
   align-items: center;
   justify-content: center;
+  filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.2));
+  transition: filter 0.5s ease;
+  cursor: pointer;
 }
 
 .logo-3d-cube {
@@ -131,72 +148,106 @@ h6 {
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  animation: rotateDataCube 15s infinite linear; /* Slower, more professional speed */
+  
+  /* Main Animation */
+  animation: rotateDataCube var(--cube-speed-normal) infinite linear;
   will-change: transform;
+  
+  /* Smooth transition for the animation speed change */
+  transition: animation-duration 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* The Core - Adds a volumetric glow inside the cube */
+/* --- Speed Boost on Hover --- */
+.logo-3d-scene:hover .logo-3d-cube {
+  animation-duration: var(--cube-speed-fast);
+  /* Optional: we removed animation-play-state: paused to let it spin */
+}
+
+/* The Core - Volumetric light source */
 .cube-core {
   position: absolute;
-  width: 20px;
-  height: 20px;
-  top: 11px;
-  left: 11px;
-  background: #06b6d4;
-  filter: blur(15px);
-  opacity: 0.5;
+  width: 40%;
+  height: 40%;
+  top: 30%;
+  left: 30%;
+  background: var(--cube-accent);
+  filter: blur(12px);
+  opacity: 0.6;
   border-radius: 50%;
   transform: translateZ(0);
+  animation: corePulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes corePulse {
+  from { transform: scale(0.8) translateZ(0); opacity: 0.4; }
+  to { transform: scale(1.2) translateZ(0); opacity: 0.8; }
 }
 
 .cube-face {
   position: absolute;
-  width: 42px;
-  height: 42px;
-  /* Glassmorphism Effect */
-  background: rgba(10, 25, 47, 0.7); 
-  border: 1px solid rgba(6, 182, 212, 0.4);
+  width: 100%;
+  height: 100%;
+  background: var(--cube-glass-bg);
+  border: 1.5px solid rgba(6, 182, 212, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #06b6d4;
-  font-size: 1.2rem;
-  backdrop-filter: blur(2px);
-  /* Ensures the back of faces don't flicker */
+  color: var(--cube-accent);
+  font-size: 1rem;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   backface-visibility: visible;
-  transition: all 0.3s ease;
+  transition: 
+    border-color 0.4s, 
+    background 0.4s, 
+    box-shadow 0.4s,
+    transform 0.4s;
+  
+  box-shadow: inset 0 0 12px rgba(6, 182, 212, 0.1);
 }
 
-/* Exact positioning for a 42px cube (half is 21px) */
-.face-front  { transform: rotateY(0deg) translateZ(21px); }
-.face-back   { transform: rotateY(180deg) translateZ(21px); }
-.face-right  { transform: rotateY(90deg) translateZ(21px); }
-.face-left   { transform: rotateY(-90deg) translateZ(21px); }
-.face-top    { transform: rotateX(90deg) translateZ(21px); }
-.face-bottom { transform: rotateX(-90deg) translateZ(21px); }
+/* Positioning */
+.face-front  { transform: rotateY(0deg)   translateZ(var(--cube-half)); }
+.face-back   { transform: rotateY(180deg) translateZ(var(--cube-half)); }
+.face-right  { transform: rotateY(90deg)   translateZ(var(--cube-half)); }
+.face-left   { transform: rotateY(-90deg)  translateZ(var(--cube-half)); }
+.face-top    { transform: rotateX(90deg)   translateZ(var(--cube-half)); }
+.face-bottom { transform: rotateX(-90deg)  translateZ(var(--cube-half)); }
 
-/* Animation: Complex axis rotation */
+/* Animation Keyframes */
 @keyframes rotateDataCube {
   0%   { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
   100% { transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg); }
 }
 
-/* Interaction: Pause and Highlight */
-.logo-3d-scene:hover .logo-3d-cube {
-  animation-play-state: paused; /* Better than 'none' because it stops in place */
+/* Interaction: Visual Feedback + Hyper-Glow */
+.logo-3d-scene:hover {
+  filter: drop-shadow(0 0 25px rgba(79, 70, 229, 0.6));
 }
 
 .logo-3d-scene:hover .cube-face {
-  border-color: #4f46e5;
-  color: #fff;
-  box-shadow: inset 0 0 15px rgba(79, 70, 229, 0.4), 0 0 15px rgba(6, 182, 212, 0.6);
+  border-color: var(--cube-hover-accent);
+  background: rgba(79, 70, 229, 0.25);
+  box-shadow: inset 0 0 20px rgba(79, 70, 229, 0.5);
+  /* Slight expansion for "charged" feel */
+  transform: scale(1.1) rotateX(inherit) rotateY(inherit); 
 }
 
+/* Re-adjusting faces during scale to maintain cube integrity */
+.logo-3d-scene:hover .face-front  { transform: scale(1.1) rotateY(0deg)   translateZ(calc(var(--cube-half) * 1.1)); }
+.logo-3d-scene:hover .face-back   { transform: scale(1.1) rotateY(180deg) translateZ(calc(var(--cube-half) * 1.1)); }
+.logo-3d-scene:hover .face-right  { transform: scale(1.1) rotateY(90deg)   translateZ(calc(var(--cube-half) * 1.1)); }
+.logo-3d-scene:hover .face-left   { transform: scale(1.1) rotateY(-90deg)  translateZ(calc(var(--cube-half) * 1.1)); }
+.logo-3d-scene:hover .face-top    { transform: scale(1.1) rotateX(90deg)   translateZ(calc(var(--cube-half) * 1.1)); }
+.logo-3d-scene:hover .face-bottom { transform: scale(1.1) rotateX(-90deg)  translateZ(calc(var(--cube-half) * 1.1)); }
+
 .logo-3d-scene:hover .cube-core {
-  opacity: 0.8;
-  background: #4f46e5;
+  background: var(--cube-hover-accent);
   filter: blur(20px);
+  transform: scale(1.8);
+  opacity: 1;
 }
+
 /*--------------------------------------------------------------
 # end Data Science 3D Cube Logo
 --------------------------------------------------------------*/
@@ -1218,7 +1269,7 @@ section,
 
 .hero .hero-image .image-wrapper {
   position: relative;
-  max-width: 450px;
+  max-width: 400px;
   margin: 0 auto;
 }
 
@@ -1283,27 +1334,35 @@ section,
   animation-delay: 1s;
 }
 
-
 /* Forcing floating elements to be visible on all devices */
 .floating-elements {
   display: block !important; 
   position: relative; /* Ensures they stay near your photo */
 }
 
+/* For Mobile size */
+@media (max-width: 768px) {
+  .hero-img-container {
+    max-width: 200px; /* Decrease this number for phones */
+  }
+}
+
 /* Make badges a bit smaller on phones so they don't cover your face */
 @media (max-width: 768px) {
   .floating-card {
     padding: 5px 10px !important;
-    font-size: 12px !important;
+    font-size: 12px !important;}
+  .hero-img-container {
+    max-width: 200px; /* Decrease this number for phones */
   }
-  
+
   /* Adjusting positions so they stay within the screen bounds */
   .floating-card.design { left: 5% !important; top: 10% !important; }
   .floating-card.code { right: 5% !important; bottom: 10% !important; }
 }
 
-@keyframes float {
 
+@keyframes float {
   0%,
   100% {
     transform: translateY(0px);
