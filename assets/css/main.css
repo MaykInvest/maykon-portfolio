@@ -1528,6 +1528,9 @@ justify-content: center;
   color: var(--text-secondary);
   margin-bottom: 1.5rem;
   line-height: 1.8;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 .about-text p strong {
