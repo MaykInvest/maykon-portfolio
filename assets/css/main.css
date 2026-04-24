@@ -1283,101 +1283,102 @@ section,
   transform: scale(1.02);
 }
 
-.hero .hero-image .floating-elements {
+/*--------------------------------------------------------------
+# Floating Badges — desktop absolute, mobile grid
+--------------------------------------------------------------*/
+.hero .hero-image {
+  position: relative;
+}
+
+.hero .hero-image .image-wrapper {
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Desktop: absolute positioned floating cards */
+.floating-elements {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   pointer-events: none;
 }
 
-.hero .hero-image .floating-elements .floating-card {
+.floating-card {
   position: absolute;
   background: var(--surface-color);
-  padding: 15px 20px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px color-mix(in srgb, var(--default-color), transparent 90%);
+  padding: 12px 16px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   font-weight: 600;
-  animation: float 3s ease-in-out infinite;
+  font-size: 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+  white-space: nowrap;
 }
 
-.hero .hero-image .floating-elements .floating-card i {
-  font-size: 1.5rem;
+.floating-card i {
+  font-size: 1.2rem;
   color: var(--accent-color);
 }
 
-.hero .hero-image .floating-elements .floating-card.design {
-  top: 80%;
-  right: -20%;
-  animation-delay: 0.5s;
-}
-
-.hero .hero-image .floating-elements .floating-card.code {
-  bottom: 70%;
-  left: -13%;
-  animation-delay: 1s;
-}
-
-.hero .hero-image .floating-elements .floating-card.creativity {
-  top: 35%;
-  right: -18%;
-  animation-delay: 1.5s;
-}
-
-.hero .hero-image .floating-elements .floating-card.sql {
-  bottom: 20%;
-  left: -12%;
-  animation-delay: 1s;
-}
-
-/* Forcing floating elements to be visible on all devices */
-.floating-elements {
-  display: block !important; 
-  position: relative; /* Ensures they stay near your photo */
-}
-
-/* For Mobile size */
-@media (max-width: 768px) {
-  .hero-img-container {
-    max-width: 200px; /* Decrease this number for phones */
-  }
-}
-
-/* Make badges a bit smaller on phones so they don't cover your face */
-@media (max-width: 768px) {
+/* Desktop badge positions — only shown on 768px+ */
+@media (prefers-reduced-motion: no-preference) {
   .floating-card {
-    padding: 5px 10px !important;
-    font-size: 12px !important;}
-  .hero-img-container {
-    max-width: 200px; /* Decrease this number for phones */
+    animation: float 3s ease-in-out infinite;
   }
-
-  /* Adjusting positions so they stay within the screen bounds */
-  .floating-card.design { left: 5% !important; top: 10% !important; }
-  .floating-card.code { right: 5% !important; bottom: 10% !important; }
 }
 
+.floating-card.design    { top: 80%;  right: -18%; animation-delay: 0.5s; }
+.floating-card.code      { bottom: 70%; left: -13%; animation-delay: 1s; }
+.floating-card.creativity { top: 35%; right: -18%; animation-delay: 1.5s; }
+.floating-card.sql       { bottom: 20%; left: -12%; animation-delay: 1s; }
 
 @keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
 
-  50% {
-    transform: translateY(-10px);
-  }
+/* FIX: Hide absolute badges on mobile to avoid clipping */
+@media (max-width: 767px) {
+  .floating-elements { display: none; }
+}
+
+/* FIX: Mobile badge grid — only shown below 768px */
+.mobile-badges {
+  display: none; /* hidden on desktop */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 1.25rem;
+}
+
+.mobile-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 65%);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--default-color);
+}
+
+.mobile-badge i {
+  color: var(--accent-color);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 767px) {
+  .mobile-badges { display: flex; }
 }
 
 @media (max-width: 992px) {
-  .hero .hero-content {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
+  .hero .hero-content { text-align: center; margin-bottom: 3rem; }
+  .hero-actions { justify-content: center; }
 }
 
 
