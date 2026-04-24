@@ -96,6 +96,74 @@ h6 {
 }
 
 
+/*--------------------------------------------------------------
+# mobile menu
+--------------------------------------------------------------*/
+
+/* 1. Hide the checkbox and label by default (on Desktop) */
+.nav-toggle, .nav-toggle-label {
+  display: none;
+}
+
+/* 2. Mobile Specific Styling (Applied when screen is smaller than 992px) */
+@media (max-width: 991px) {
+  .nav-toggle-label {
+    display: block;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  /* Creating the Hamburger Bars */
+  .nav-toggle-label span, 
+  .nav-toggle-label span::before, 
+  .nav-toggle-label span::after {
+    display: block;
+    background: white;
+    height: 2px;
+    width: 25px;
+    position: relative;
+    transition: 0.3s;
+  }
+
+  .nav-toggle-label span::before { content: ""; top: 8px; }
+  .nav-toggle-label span::after { content: ""; bottom: 10px; }
+
+  /* The Hidden Menu */
+  .navmenu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Pushes menu off-screen to the right */
+    width: 70%;
+    height: 100vh;
+    background: #161b2a; /* Your surface color */
+    transition: 0.4s;
+    padding-top: 80px;
+    z-index: 1000;
+  }
+
+  .navmenu ul {
+    flex-direction: column; /* Stack links vertically */
+    align-items: center;
+  }
+
+  .navmenu ul li {
+    margin: 20px 0;
+  }
+
+  /* MAGIC: When checkbox is checked, show the menu */
+  .nav-toggle:checked ~ .navmenu {
+    right: 0;
+  }
+
+  /* Hamburger to 'X' animation */
+  .nav-toggle:checked + .nav-toggle-label span { background: transparent; }
+  .nav-toggle:checked + .nav-toggle-label span::before { transform: rotate(45deg); top: 0; }
+  .nav-toggle:checked + .nav-toggle-label span::after { transform: rotate(-45deg); bottom: 2px; }
+}
+/*--------------------------------------------------------------
+# End mobile menu
+--------------------------------------------------------------*/
+
 
 /*--------------------------------------------------------------
 # Global Header
