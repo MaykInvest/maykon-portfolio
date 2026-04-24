@@ -526,31 +526,6 @@ h6 {
     background-color: rgba(33, 37, 41, 0.03);
   }
 
-  .mobile-nav-active {
-    overflow: hidden;
-  }
-
-  .mobile-nav-active .mobile-nav-toggle {
-    color: #fff;
-    position: absolute;
-    font-size: 32px;
-    top: 15px;
-    right: 15px;
-    margin-right: 0;
-    z-index: 9999;
-  }
-
-  .mobile-nav-active .navmenu {
-    position: fixed;
-    overflow: hidden;
-    inset: 0;
-    background: rgba(33, 37, 41, 0.8);
-    transition: 0.3s;
-  }
-
-  .mobile-nav-active .navmenu>ul {
-    display: block;
-  }
 }
 
 
@@ -1013,15 +988,6 @@ h6 {
 }
 
 /*--------------------------------------------------------------
-# Disable aos animation delay on mobile devices
---------------------------------------------------------------*/
-@media screen and (max-width: 768px) {
-  [data-aos-delay] {
-    transition-delay: 0 !important;
-  }
-}
-
-/*--------------------------------------------------------------
 # Global Page Titles & Breadcrumbs
 --------------------------------------------------------------*/
 .page-title {
@@ -1345,42 +1311,10 @@ section,
   .floating-elements { display: none; }
 }
 
-/* FIX: Mobile badge grid — only shown below 768px */
-.mobile-badges {
-  display: none; /* hidden on desktop */
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 1.25rem;
-}
-
-.mobile-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--surface-color);
-  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 65%);
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--default-color);
-}
-
-.mobile-badge i {
-  color: var(--accent-color);
-  font-size: 0.9rem;
-}
-
-@media (max-width: 767px) {
-  .mobile-badges { display: flex; }
-}
-
 @media (max-width: 992px) {
   .hero .hero-content { text-align: center; margin-bottom: 3rem; }
   .hero-actions { justify-content: center; }
 }
-
 
 
 /* --------------------------------------------------------------
@@ -1463,16 +1397,6 @@ transition: transform 0.2s ease;
 .btn-compact:hover i { 
 transform: scale(1.2); /* The icon just grows slightly */
 }
-
-/* Adjust for Mobile */
-@media (max-width: 576px) { 
-.hero-actions .btn-compact { 
-width: 100%; 
-justify-content: center; 
-}
-}
-
-
 
 
 
@@ -1606,12 +1530,6 @@ justify-content: center;
   font-weight: 600;
 }
 
-/* Mobile Adjustments */
-@media (max-width: 991px) {
-  .profile-card { margin-top: 100px; }
-  .about-text { text-align: center; }
-  .profile-quote { text-align: left; }
-}
 
 
 
