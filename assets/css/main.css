@@ -114,12 +114,9 @@ h6 {
 /*--------------------------------------------------------------
 # Polished Data Science 3D Cube Logo
 --------------------------------------------------------------*/
-/*--------------------------------------------------------------
-# Premium Data Science 3D Cube Logo - Interactive Speed Version
-# New Feature: Spins faster on hover with smooth transition
---------------------------------------------------------------*/
+
 :root {
-  --cube-size: 42px;
+  --cube-size: 52px;
   --cube-half: calc(var(--cube-size) / 2);
   --cube-accent: #06b6d4;
   --cube-hover-accent: #4f46e5;
@@ -214,10 +211,31 @@ h6 {
 .face-top    { transform: rotateX(90deg)   translateZ(var(--cube-half)); }
 .face-bottom { transform: rotateX(-90deg)  translateZ(var(--cube-half)); }
 
-/* Animation Keyframes */
+
+/* --- "Eternal" Random Rotation --- */
 @keyframes rotateDataCube {
-  0%   { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-  100% { transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg); }
+  0% { 
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); 
+  }
+  25% { 
+    /* Using non-round numbers (like 107 and 193) makes the movement look less mechanical */
+    transform: rotateX(107deg) rotateY(193deg) rotateZ(41deg); 
+  }
+  50% { 
+    transform: rotateX(281deg) rotateY(-83deg) rotateZ(167deg); 
+  }
+  75% { 
+    transform: rotateX(143deg) rotateY(317deg) rotateZ(-97deg); 
+  }
+  100% { 
+    /* We end at high, non-matching numbers to ensure the loop is invisible */
+    transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg); 
+  }
+}
+/* cube class */
+.logo-3d-cube {
+  animation: rotateDataCube 12s linear infinite; /* 'linear' is key for a never-ending spin */
+  transform-style: preserve-3d;
 }
 
 /* Interaction: Visual Feedback + Hyper-Glow */
