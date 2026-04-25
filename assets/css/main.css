@@ -2331,6 +2331,36 @@ article.timeline__item:nth-child(even) .timeline__icon {
     .flip-card-container.flipped .mouse-instruction {
       opacity: 0;
     }
+  /* --- Soft Skills List Custom Styling --- */
+
+  .resume-item .list-group-item {
+    padding: 15px 0; /* Adds vertical breathing room */
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle divider line */
+    transition: all 0.3s ease;
+  }
+
+  .resume-item .list-group-item:last-child {
+    border-bottom: none; /* Removes the line from the last item */
+  }
+
+  .resume-item .list-group-item i {
+    font-size: 1.2rem; /* Makes icons slightly larger */
+    min-width: 30px;   /* Ensures icons are perfectly aligned vertically */
+  }
+
+  .resume-item .list-group-item strong {
+    color: var(--accent-color); /* Uses your blue/highlight color for the skill name */
+    margin-right: 5px;
+  }
+
+  /* Hover effect to make the list interactive */
+  .resume-item .list-group-item:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    padding-left: 10px; /* Slight slide effect on hover */
+}
 
     /* Resume Button */
     .btn-resume {
@@ -2352,7 +2382,6 @@ article.timeline__item:nth-child(even) .timeline__icon {
     }
 
     /* Compact Footer Styling */
-
         .social-links a {
       background: rgba(255, 255, 255, 0.05);
       color: #fff;
