@@ -2043,6 +2043,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 .resume .resume-item .resume-content {
   padding-left: 1.25rem;
   border-left: 2px solid color-mix(in srgb, var(--accent-color), transparent 85%);
+  text-align: justify;  
 }
 
 .resume .resume-item article {
