@@ -1846,9 +1846,6 @@ article.timeline__item:nth-child(even) .timeline__icon {
     font-style: italic;
 }
 
-
-
-
 /*--------------------------------------------------------------
 # end about section
 --------------------------------------------------------------*/
@@ -1896,89 +1893,88 @@ article.timeline__item:nth-child(even) .timeline__icon {
 /* Internal CSS specifically for the Skills page */
     
 
-    /* Skills Card Hover Effects */
-    .skills .service-item {
-      background-color: var(--surface-color);
-      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
-      color: var(--text-main);
-    }
+  /* Skills Card Hover Effects */
+  .skills .service-item {
+    background-color: var(--surface-color);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    color: var(--text-main);
+  }
 
-    .skills .service-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5) !important;
-      border-color: var(--accent-color) !important;
-    }
+  .skills .service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5) !important;
+    border-color: var(--accent-color) !important;
+  }
 
-    /* Icon Animation */
-    .skills .service-item .service-icon i {
-      transition: transform 0.3s ease-in-out;
-    }
+  /* Icon Animation */
+  .skills .service-item .service-icon i {
+    transition: transform 0.3s ease-in-out;
+  }
 
-    .skills .service-item:hover .service-icon i {
-      transform: scale(1.15) rotate(-5deg);
-    }
+  .skills .service-item:hover .service-icon i {
+    transform: scale(1.15) rotate(-5deg);
+  }
 
-    /* Ensuring progress bars are visible on dark background */
-    .progress {
-      background-color: #333; /* Darker track for the bar */
-    }
+  /* Ensuring progress bars are visible on dark background */
+  .progress {
+    background-color: #333; /* Darker track for the bar */
+  }
 
-    .skills h3 {
-      color: var(--text-main);
-    }
+  .skills h3 {
+    color: var(--text-main);
+  }
 
-    .skills p, .skills .list-unstyled {
-      color: var(--text-muted);
-    }
+  .skills p, .skills .list-unstyled {
+    color: var(--text-muted);
+  }
 
-        /* Internal CSS specifically for the Skills page */
-    
-    /* Dark Theme Core Colors */
-    :root {
-      --background-color: #101a20;
-      --surface-color: #14243f;
-      --accent-color: #007bff; /* Primary Blue */
-      --text-main: #ffffff;
-      --text-muted: #a0a0a0;
-    }
+  /* Internal CSS specifically for the Skills page */
+  
+  /* Dark Theme Core Colors */
+  :root {
+    --background-color: #101a20;
+    --surface-color: #14243f;
+    --accent-color: #007bff; /* Primary Blue */
+    --text-main: #ffffff;
+    --text-muted: #a0a0a0;
+  }
 
-    /* Skills Card Hover Effects */
-    .skills .service-item {
-      background-color: var(--surface-color);
-      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
-      color: var(--text-main);
-    }
+  /* Skills Card Hover Effects */
+  .skills .service-item {
+    background-color: var(--surface-color);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    color: var(--text-main);
+  }
 
-    .skills .service-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5) !important;
-      border-color: var(--accent-color) !important;
-    }
+  .skills .service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5) !important;
+    border-color: var(--accent-color) !important;
+  }
 
-    /* Icon Animation */
-    .skills .service-item .service-icon i {
-      transition: transform 0.3s ease-in-out;
-    }
+  /* Icon Animation */
+  .skills .service-item .service-icon i {
+    transition: transform 0.3s ease-in-out;
+  }
 
-    .skills .service-item:hover .service-icon i {
-      transform: scale(1.15) rotate(-5deg);
-    }
+  .skills .service-item:hover .service-icon i {
+    transform: scale(1.15) rotate(-5deg);
+  }
 
-    /* Ensuring progress bars are visible on dark background */
-    .progress {
-      background-color: #333; /* Darker track for the bar */
-    }
+  /* Ensuring progress bars are visible on dark background */
+  .progress {
+    background-color: #333; /* Darker track for the bar */
+  }
 
-    .skills h3 {
-      color: var(--text-main);
-    }
+  .skills h3 {
+    color: var(--text-main);
+  }
 
-    .skills p, .skills .list-unstyled {
-      color: var(--text-muted);
-    }
+  .skills p, .skills .list-unstyled {
+    color: var(--text-muted);
+  }
 
-
-    .section-title {
+  .section-title {
   text-align: center;
   padding-bottom: 60px;
   position: relative;
@@ -2010,6 +2006,65 @@ article.timeline__item:nth-child(even) .timeline__icon {
 .section-title p {
   margin-bottom: 0;
 }
+
+/* Ensure the SVG icon fits perfectly and looks "real" */
+.tech-icon-svg {
+  width: 48px;  /* Adjust size as needed */
+  height: 48px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  /* Adds a subtle professional shadow to the SVG */
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2 ));
+}
+
+/* Interaction: Scale the icon slightly on hover */
+.flip-card-container:hover .tech-icon-svg {
+  transform: scale(1.1);
+}
+
+/* Ensure the icon-box centers the image correctly */
+.icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  height: 60px; /* Consistent height prevents layout jumps */
+}
+
+/* Unified Skill Card Styling */
+.icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  height: 60px; /* Fixed height for visual alignment */
+}
+
+.tech-icon-svg {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+}
+
+.flip-card-container:hover .tech-icon-svg {
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* Ensure progress bars look modern */
+.progress {
+  height: 8px !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background-color: var(--accent-color) !important;
+  transition: width 1s ease-in-out;
+}
+
 /* End of Skill card */
 
 
