@@ -107,8 +107,6 @@ main {
 }
 
 
-
-
 .main {
   flex: 1 0 auto; /* This tells the main content to grow and fill all available space */
 }
@@ -2657,7 +2655,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #4f46e5, #db2777);
+  background: linear-gradient(135deg, #7b76e4, #35363d);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -2735,11 +2733,9 @@ article.timeline__item:nth-child(even) .timeline__icon {
 .refined-submit-btn .btn-icon { transition: 0.3s; }
 .refined-submit-btn:hover .btn-icon { transform: translateX(5px); }
 
-
-
 /* Social Grid Row Layout */
 .social-grid-row {
-  display: flex;
+  display: center;
   flex-wrap: wrap;
 }
 
@@ -2750,7 +2746,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+  border-radius: 25%;
   background: rgba(255, 255, 255, 0.05);
   color: #a0a0a0;
   font-size: 1.4rem;
