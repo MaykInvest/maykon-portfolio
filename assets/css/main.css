@@ -60,15 +60,54 @@
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
+/* Universal Body Styling */
 body {
   color: var(--default-color);
-  background-color: var(--background-color);
   font-family: var(--default-font);
+  background-color: #0a1118; /* Solid dark base for your dark theme */
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* 100% of the Viewport Height */
+  min-height: 100vh; /* Ensures the page is at least the full height of the screen */
   margin: 0;
+  position: relative; /* Necessary to position the background gradient behind it */
+  overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
 }
+
+/* The Mesh Gradient Background */
+body::before {
+  content: "";
+  position: fixed; /* Stays fixed so it doesn't move when you scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* This creates the blue and pink "glows" in the corners */
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(79, 70, 229, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(219, 39, 119, 0.08) 0%, transparent 45%);
+  z-index: -1; /* Keeps the glow behind your cards and text */
+  pointer-events: none; /* Allows you to click on elements "through" the background */
+}
+
+/* Make all sections transparent so the body gradient shows through */
+section, .section {
+  background: transparent !important;
+}
+
+/* If you have a specific main container, make it transparent too */
+main {
+  background: transparent !important;
+}
+
+/* This ensures your "cards" still stand out against the background */
+.refined-card, .card {
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+
 
 .main {
   flex: 1 0 auto; /* This tells the main content to grow and fill all available space */
@@ -2695,3 +2734,37 @@ article.timeline__item:nth-child(even) .timeline__icon {
 .refined-submit-btn:hover { background: #4338ca; transform: scale(1.05); }
 .refined-submit-btn .btn-icon { transition: 0.3s; }
 .refined-submit-btn:hover .btn-icon { transform: translateX(5px); }
+
+
+
+/* Social Grid Row Layout */
+.social-grid-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Round Icon Buttons */
+.social-icon-only {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  color: #a0a0a0;
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Hover Effects */
+.social-icon-only:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.social-icon-only.whatsapp:hover { color: #25D366; border-color: #25D366; box-shadow: 0 0 15px rgba(37, 211, 102, 0.3); }
+.social-icon-only.linkedin:hover { color: #0077B5; border-color: #0077B5; box-shadow: 0 0 15px rgba(0, 119, 181, 0.3); }
+.social-icon-only.github:hover { color: #fff; border-color: #fff; box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); }

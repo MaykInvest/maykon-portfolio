@@ -41,6 +41,7 @@
 </head>
 
 <body class="contact-page">
+  
 
   <!-- ======= Header / Navigation Bar ======= -->
   <header id="header" class="header d-flex align-items-center sticky-top">
@@ -122,10 +123,16 @@
 
               <div class="refined-card p-4 flex-grow-1" data-aos="fade-up" data-aos-delay="300">
                 <h5 class="text-white mb-4">Connect Socially</h5>
-                <div class="social-grid">
-                  <a href="https://wa.me/YOUR_NUMBER" class="social-item whatsapp"><i class="bi bi-whatsapp"></i><span>WhatsApp</span></a>
-                  <a href="https://linkedin.com/in/maykon-oliveira-maykinvest/" class="social-item linkedin"><i class="bi bi-linkedin"></i><span>LinkedIn</span></a>
-                  <a href="https://github.com/MaykInvest" class="social-item github"><i class="bi bi-github"></i><span>GitHub</span></a>
+                <div class="social-grid-row d-flex gap-3 justify-content-start">
+                  <a href="https://wa.me/5584987257836" target="_blank" class="social-icon-only whatsapp" title="WhatsApp">
+                    <i class="bi bi-whatsapp"></i>
+                  </a>
+                  <a href="https://linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" class="social-icon-only linkedin" title="LinkedIn">
+                    <i class="bi bi-linkedin"></i>
+                  </a>
+                  <a href="https://github.com/MaykInvest" target="_blank" class="social-icon-only github" title="GitHub">
+                    <i class="bi bi-github"></i>
+                  </a>
                 </div>
               </div>
 
@@ -237,28 +244,34 @@
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
   <script>
+    // 1. Select the form and modal elements
     const contactForm = document.querySelector('.contact form');
     const successModal = new bootstrap.Modal(document.getElementById('successModal'));
     const userNameSpan = document.getElementById('userName');
 
+    // 2. Listen for the "Submit" click
     contactForm.addEventListener('submit', async (event) => {
-      event.preventDefault();
+      event.preventDefault(); // Prevents the page from refreshing
       
       const formData = new FormData(contactForm);
       const name = formData.get('name');
-      const submitBtn = contactForm.querySelector('.btn-submit');
-      const originalText = submitBtn.innerHTML;
+      
+      // 3. Find the button using the correct class: .refined-submit-btn
+      const submitBtn = contactForm.querySelector('.refined-submit-btn');
+      const originalContent = submitBtn.innerHTML;
 
-      // Show loading state
+      // 4. Show loading state (Spinner)
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Sending...';
 
       try {
+        // 5. Send the data to Formspree
         const response = await fetch(contactForm.action, {
           method: 'POST',
           body: formData,
@@ -266,6 +279,7 @@
         });
 
         if (response.ok) {
+          // 6. If successful, show the modal and reset form
           userNameSpan.textContent = name;
           successModal.show();
           contactForm.reset();
@@ -275,8 +289,9 @@
       } catch (error) {
         alert("Connection error. Please try again later.");
       } finally {
+        // 7. Always put the button back to normal
         submitBtn.disabled = false;
-        submitBtn.innerHTML = originalText;
+        submitBtn.innerHTML = originalContent;
       }
     });
   </script>
