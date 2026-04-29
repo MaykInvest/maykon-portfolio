@@ -83,112 +83,100 @@
   <main class="main">
 
     <!-- Contact Section -->
-    <section id="contact" class="contact section">
+    <section id="contact" class="contact section position-relative overflow-hidden" style="background: #0a1118; padding: 100px 0;">
+      <!-- Mesh Gradient Overlays for Depth -->
+      <div class="mesh-gradient"></div>
 
-      <div class="container" data-aos="fade-up">
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact Me</h2>
+      <div class="container position-relative" data-aos="fade-up">
         
-      </div>
-      <!-- End Section Title -->
+        <div class="section-title text-center mb-5">
+          <span class="badge rounded-pill bg-primary bg-opacity-10 text-primary px-3 py-2 mb-3 fw-bold text-uppercase tracking-wider" style="letter-spacing: 2px; font-size: 0.7rem;">Get In Touch</span>
+          <h2 class="display-5 fw-bold text-white mb-3">Let's Start a <span class="text-gradient">Conversation</span></h2>
+          <p class="text-muted mx-auto" style="max-width: 600px;">Whether you have a question about data science, a project proposal, or just want to say hi, my inbox is always open.</p>
+        </div>
 
-        <div class="row g-3 g-lg-4 align-items-stretch">
-
-          <!-- Contact Info Column -->
-          <div class="col-lg-5">
-            <div class="info-box" data-aos="fade-up" data-aos-delay="200">
-              <h3>Let’s discuss your Project!</h3>
-              <p>I'm always open to discussing product design work or partnership opportunities.</p>
-
-              <!-- Location -->
-              <a href="https://www.google.com/maps/search/?api=1&query=Mossoró,+Rio+Grande+do+Norte,+Brazil" target="_blank" class="text-decoration-none">
-                <div class="info-item d-flex align-items-start" data-aos="fade-up" data-aos-delay="300">
-                  <div class="icon-box me-3">
-                    <i class="bi bi-geo-alt"></i>
+        <div class="row g-4 justify-content-center">
+          <!-- Left: Contact Details -->
+          <div class="col-lg-4">
+            <div class="contact-info-wrapper h-100 d-flex flex-column gap-3">
+              
+              <div class="refined-card p-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="d-flex align-items-center">
+                  <div class="icon-box-refined"><i class="bi bi-geo-alt-fill"></i></div>
+                  <div class="ms-3">
+                    <p class="text-uppercase small fw-bold text-primary mb-1">Location</p>
+                    <h5 class="text-white mb-0">Mossoró / RN - Brazil</h5>
                   </div>
-                  <div class="content">
-                    <h4>Location</h4>
-                    <p>Mossoró / RN - Brazil</p>                    
-                  </div>
-                </div>
-              </a>
-
-              <!-- Email -->
-              <div class="info-item d-flex align-items-start" data-aos="fade-up" data-aos-delay="400">
-                <div class="icon-box me-3"> 
-                  <i class="bi bi-envelope-fill"></i>
-                </div>
-                <div class="content">
-                  <h4>Email</h4>
-                  <p><a href="mailto:maykinvest@outlook.com" class="text-decoration-none">maykinvest@outlook.com</a></p>
                 </div>
               </div>
 
-              <!-- Business Hours -->
-              <div class="info-item d-flex align-items-start" data-aos="fade-up" data-aos-delay="400">
-                <div class="icon-box me-3">
-                  <i class="bi bi-clock-fill"></i>
+              <div class="refined-card p-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="d-flex align-items-center">
+                  <div class="icon-box-refined"><i class="bi bi-envelope-paper-heart"></i></div>
+                  <div class="ms-3">
+                    <p class="text-uppercase small fw-bold text-primary mb-1">Email Me</p>
+                    <h5 class="text-white mb-0">maykinvest@outlook.com</h5>
+                  </div>
                 </div>
-                <div class="content">
-                  <h4>Business Hours </h4>
-                  <p class="mb-0">Monday – Friday: 07:00 – 19:00</p>
-                  <p class="mb-0">Saturday: 09:00 – 13:00</p>
-                  <p class="mb-0">Sunday: Closed</p>
+              </div>
+
+              <div class="refined-card p-4 flex-grow-1" data-aos="fade-up" data-aos-delay="300">
+                <h5 class="text-white mb-4">Connect Socially</h5>
+                <div class="social-grid">
+                  <a href="https://wa.me/YOUR_NUMBER" class="social-item whatsapp"><i class="bi bi-whatsapp"></i><span>WhatsApp</span></a>
+                  <a href="https://linkedin.com/in/maykon-oliveira-maykinvest/" class="social-item linkedin"><i class="bi bi-linkedin"></i><span>LinkedIn</span></a>
+                  <a href="https://github.com/MaykInvest" class="social-item github"><i class="bi bi-github"></i><span>GitHub</span></a>
                 </div>
               </div>
 
             </div>
           </div>
 
-          <!-- Contact Form Column -->
-          <div class="col-lg-7">
-            <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
-              <h3>Get In Touch</h3>
-              <p>I'm available for freelance work. Drop me a line if you have a project you think I'd be a good fit for.</p>
-
-              <form action="https://formspree.io/f/xreypzpl" method="POST">
-                <!-- Email subject -->
-                <input type="hidden" name="_subject" value="New Portfolio Message">
-
-                <div class="row gy-3">
-
-                  <!-- Name -->
-                  <div class="col-md-6">
-                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+          <!-- Right: Refined Form -->
+          <div class="col-lg-8">
+            <div class="refined-card p-5" data-aos="fade-up" data-aos-delay="400">
+              <form action="https://formspree.io/f/xreypzpl" method="POST" class="row g-4">
+                <div class="col-md-6">
+                  <div class="input-group-refined">
+                    <input type="text" name="name" required placeholder=" ">
+                    <label>Full Name</label>
+                    <span class="focus-border"></span>
                   </div>
-
-                  <!-- Email -->
-                  <div class="col-md-6">
-                    <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group-refined">
+                    <input type="email" name="email" required placeholder=" ">
+                    <label>Email Address</label>
+                    <span class="focus-border"></span>
                   </div>
-
-                  <!-- Subject -->
-                  <div class="col-12">
-                    <input type="text" name="subject" class="form-control" placeholder="Subject">
+                </div>
+                <div class="col-12">
+                  <div class="input-group-refined">
+                    <input type="text" name="subject" required placeholder=" ">
+                    <label>Subject</label>
+                    <span class="focus-border"></span>
                   </div>
-
-                  <!-- Message -->
-                  <div class="col-12">
-                    <textarea name="message" class="form-control" rows="3" placeholder="Message" required></textarea>
+                </div>
+                <div class="col-12">
+                  <div class="input-group-refined">
+                    <textarea name="message" required placeholder=" " style="min-height: 150px;"></textarea>
+                    <label>Your Message</label>
+                    <span class="focus-border"></span>
                   </div>
-
-                  <!-- Submit Button -->
-                  <div class="col-12 text-center">
-                    <button type="submit" class="btn btn-primary btn-submit">Send Message</button>
-                  </div>
-
+                </div>
+                <div class="col-12 mt-5">
+                  <button type="submit" class="refined-submit-btn">
+                    <span class="btn-text">Send Message</span>
+                    <span class="btn-icon"><i class="bi bi-arrow-right"></i></span>
+                  </button>
                 </div>
               </form>
-
             </div>
           </div>
-
-        </div> <!-- End Row -->
-
-      </div> <!-- End Container -->
-
+        </div>
+      </div>
     </section>
+    <!-- End Contact Section -->
 
   </main>
 
