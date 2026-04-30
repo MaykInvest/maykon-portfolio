@@ -2638,26 +2638,29 @@ article.timeline__item:nth-child(even) .timeline__icon {
 .refined-submit-btn .btn-icon { transition: 0.3s; }
 .refined-submit-btn:hover .btn-icon { transform: translateX(5px); }
 
-/* Social Grid Row Layout */
+/* Social Grid Row Layout - CORRECTED */
 .social-grid-row {
-  display: center;
+  display: flex;             /* Changed from 'center' to 'flex' */
+  justify-content: center;   /* This actually centers them */
+  gap: 20px;                 /* Space between icons */
   flex-wrap: wrap;
+  margin-top: 25px;
 }
 
-/* Round Icon Buttons */
+/* Round Icon Buttons - IMPROVED */
 .social-icon-only {
   width: 50px;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 25%;
-  background: rgba(255, 255, 255, 0.05);
+  border-radius: 14px;      /* Changed 25% to 14px for a modern "Squircle" look */
+  background: rgba(255, 255, 255, 0.03);
   color: #a0a0a0;
   font-size: 1.4rem;
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* Hover Effects */
@@ -2666,6 +2669,63 @@ article.timeline__item:nth-child(even) .timeline__icon {
   background: rgba(255, 255, 255, 0.1);
 }
 
-.social-icon-only.whatsapp:hover { color: #25D366; border-color: #25D366; box-shadow: 0 0 15px rgba(37, 211, 102, 0.3); }
-.social-icon-only.linkedin:hover { color: #0077B5; border-color: #0077B5; box-shadow: 0 0 15px rgba(0, 119, 181, 0.3); }
-.social-icon-only.github:hover { color: #fff; border-color: #fff; box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); }
+/* Corrected Text Gradient for Visibility */
+.text-gradient {
+  background: linear-gradient(135deg, #7b76e4, #b2afff); /* Lighter end-color */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hover Effects with matching glow */
+.social-icon-only:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Official Brand Colors for Socials */
+.social-icon-only.whatsapp:hover { color: #25D366; border-color: rgba(37, 211, 102, 0.5); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2); }
+.social-icon-only.linkedin:hover { color: #0077B5; border-color: rgba(0, 119, 181, 0.5); box-shadow: 0 10px 20px rgba(0, 119, 181, 0.2); }
+.social-icon-only.github:hover { color: #fff; border-color: rgba(255, 255, 255, 0.3); box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1); }
+
+/* --- Smart Status Badge Styling --- */
+
+/* Base badge styling to ensure it matches your dark theme */
+#status-badge {
+  padding: 6px 12px;
+  letter-spacing: 0.5px;
+  transition: all 0.5s ease; /* Smooth transition when status changes */
+  display: flex;
+  align-items: center;
+}
+
+/* Green Glow when Available */
+.text-success.border-success {
+  box-shadow: 0 0 10px rgba(25, 135, 84, 0.2);
+  background-color: rgba(25, 135, 84, 0.1) !important;
+}
+
+/* Red Glow when Closed */
+.text-danger.border-danger {
+  box-shadow: 0 0 10px rgba(220, 53, 69, 0.2);
+  background-color: rgba(220, 53, 69, 0.1) !important;
+}
+
+/* Styling the countdown text inside the badge */
+#status-text {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Ensure the spinner is perfectly aligned */
+#status-spinner {
+  margin-top: -1px;
+}
+
+/* Get in touch blue box */
+.tracking-wider {  
+  width: fit-content !important;
+  display: block; /* Ensures it treats width: fit-content correctly */
+  margin-left: auto; /* Use these two together to center the small box */
+  margin-right: auto;
+}
