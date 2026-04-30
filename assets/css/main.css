@@ -2699,22 +2699,22 @@ article.timeline__item:nth-child(even) .timeline__icon {
   align-items: center;
 }
 
-/* Green Glow when Available */
-.text-success.border-success {
-  box-shadow: 0 0 10px rgba(25, 135, 84, 0.2);
-  background-color: rgba(25, 135, 84, 0.1) !important;
+/* Center the "Get In Touch" badge correctly */
+.tracking-wider {
+  display: inline-block !important; /* Changed from block to inline-block */
+  width: auto !important;
+  margin: 0 auto; 
 }
 
-/* Red Glow when Closed */
-.text-danger.border-danger {
-  box-shadow: 0 0 10px rgba(220, 53, 69, 0.2);
-  background-color: rgba(220, 53, 69, 0.1) !important;
+/* Ensure long emails don't break the card alignment */
+.text-break {
+  word-wrap: break-word !important;
+  word-break: break-word !important;
 }
 
-/* Styling the countdown text inside the badge */
-#status-text {
-  font-weight: 600;
-  text-transform: uppercase;
+/* Improve the form button alignment */
+.refined-submit-btn {
+  justify-content: center; /* Centers the text inside the button */
 }
 
 /* Ensure the spinner is perfectly aligned */
@@ -2728,4 +2728,30 @@ article.timeline__item:nth-child(even) .timeline__icon {
   display: block; /* Ensures it treats width: fit-content correctly */
   margin-left: auto; /* Use these two together to center the small box */
   margin-right: auto;
+}
+
+.copy-btn {
+  transition: transform 0.2s ease;
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.copy-btn:hover {
+  transform: scale(1.2);
+}
+
+.copy-btn i {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* This forces the contact section to ignore extra header-spacing if the template is adding it */
+#contact.section {
+  padding-top: 60px !important;
+}
+
+/* Optional: Ensure the title itself has no top margin */
+.section-title h2 {
+  margin-top: 0 !important;
 }

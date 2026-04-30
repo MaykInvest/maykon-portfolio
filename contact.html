@@ -82,135 +82,144 @@
 
   <main class="main">
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact section position-relative overflow-hidden" style="background: #0a1118; padding: 100px 0;">
-      <!-- Mesh Gradient Overlays for Depth -->
-      <div class="mesh-gradient"></div>
+ <!-- START OF CONTACT SECTION -->
+<section id="contact" class="contact section position-relative overflow-hidden" style="background: #0a1118; padding: 60px 0 100px 0;">
+  
+  <div class="container section-title text-center mb-5 mt-0" data-aos="fade-up">
+    <h2 class="display-5 fw-bold text-white mb-3">Let's Start a <span class="text-gradient">Conversation</span></h2>
+    <p class="text-muted mx-auto">
+      Whether you have a project proposal, or just want to say hi, my inbox is always open.
+    </p>
+  </div>
 
-      <div class="container position-relative" data-aos="fade-up">
-        
-        <div class="section-title text-center mb-4">
-          <h2 class="display-5 fw-bold text-white mb-3">Let's Start a <span class="text-gradient">Conversation</span></h2>
-          <p class="text-muted mx-auto" style="max-width: 600px;">Whether you have a project proposal, or just want to say hi, my inbox is always open.</p>
-        
-        </div>
-
-        <div class="row g-4 justify-content-center">
-          <!-- Left: Contact Details -->
-
-          <div class="col-lg-4">
-            <div class="contact-info-wrapper h-100 d-flex flex-column gap-3">
-              
-              <div class="refined-card p-3" data-aos="fade-up" data-aos-delay="100">
-                <a href="https://www.google.com/maps/search/?api=1&query=Mossoró+RN+Brazil" target="_blank" class="text-decoration-none">
-                  <div class="d-flex align-items-center">
-                    <div class="icon-box-refined">
-                      <i class="bi bi-geo-alt-fill"></i>
-                    </div>
-                    <div class="ms-3">
-                      <p class="text-uppercase small fw-bold text-primary mb-1">Location</p>
-                      <h5 class="text-white mb-0">Mossoró / RN - Brazil</h5>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div class="refined-card p-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="d-flex align-items-center">
-                  <div class="icon-box-refined"><i class="bi bi-envelope-paper-heart"></i></div>
-                  <div class="ms-3">
-                    <p class="text-uppercase small fw-bold text-primary mb-1">Email Me</p>
-                    <h5 class="text-white mb-0">maykinvest@outlook.com</h5>
-                  </div>
+  <div class="container position-relative" data-aos="fade-up">
+    <!-- Row with 'align-items-stretch' makes the Left and Right columns equal height -->
+    <div class="row g-4 justify-content-center align-items-stretch">
+      
+      <!-- LEFT COLUMN: Contact Details -->
+      <div class="col-lg-4 d-flex flex-column">
+        <!-- 'h-100' ensures this wrapper fills the column height -->
+        <div class="contact-info-wrapper h-100 d-flex flex-column gap-3">
+          
+          <!-- 1. Location Card -->
+          <div class="refined-card p-3" data-aos="fade-up" data-aos-delay="100">
+            <a href="https://www.google.com/maps/search/?api=1&query=Mossoró+RN+Brazil" target="_blank" class="text-decoration-none">
+              <div class="d-flex align-items-center">
+                <div class="icon-box-refined"><i class="bi bi-geo-alt-fill"></i></div>
+                <div class="ms-3">
+                  <p class="text-uppercase small fw-bold text-primary mb-1">Location</p>
+                  <h5 class="text-white mb-0" style="font-size: 1.1rem;">Mossoró / RN - Brazil</h5>
                 </div>
               </div>
+            </a>
+          </div>
 
-              <div class="refined-card p-3 text-center" data-aos="fade-up" data-aos-delay="350">
-                <div class="d-flex align-items-center justify-content-center mb-2">
-                  <div class="icon-box-refined me-2" style="width: 35px; height: 35px; font-size: 1rem;">
-                    <i class="bi bi-clock-fill"></i>
-                  </div>
-                  <h6 class="text-white mb-0">Working Hours</h6>
-                </div>
-                
-              <div class="working-hours-content">
-                <p class="text-primary small fw-bold mb-1">Monday to Friday</p>
-                <p class="text-white mb-0" style="font-size: 0.85rem;">08:00 AM — 06:00 PM</p>
-                
-                <div class="d-flex align-items-center justify-content-center mt-2">
-                  <span id="status-badge" class="badge rounded-pill bg-opacity-10 border" style="font-size: 0.65rem;">
-                    <span id="status-spinner" class="spinner-grow spinner-grow-sm me-1" role="status" aria-hidden="true" style="width: 8px; height: 8px;"></span>
-                    <span id="status-text">Checking Status...</span>
-                  </span>
+          <!-- 2. Email Card with Copy Feature -->
+          <div class="refined-card p-3" data-aos="fade-up" data-aos-delay="200">
+            <div class="d-flex align-items-center justify-content-between">
+              <div class="d-flex align-items-center">
+                <div class="icon-box-refined"><i class="bi bi-envelope-paper-heart"></i></div>
+                <div class="ms-3 text-break">
+                  <p class="text-uppercase small fw-bold text-primary mb-1">Email Me</p>
+                  <h5 class="text-white mb-0" id="emailText" style="font-size: 0.95rem;">maykinvest@outlook.com</h5>
                 </div>
               </div>
-
-              </div>
-
-              <div class="refined-card py-3 px-2 text-center" data-aos="fade-up" data-aos-delay="300">
-                <h6 class="text-white mb-3">Connect Socially</h6>
-                
-                <div class="social-grid-row d-flex gap-3 justify-content-center">
-                  <a href="https://wa.me/5584987257836" target="_blank" class="social-icon-only whatsapp" title="WhatsApp">
-                    <i class="bi bi-whatsapp"></i>
-                  </a>
-                  <a href="https://linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" class="social-icon-only linkedin" title="LinkedIn">
-                    <i class="bi bi-linkedin"></i>
-                  </a>
-                  <a href="https://github.com/MaykInvest" target="_blank" class="social-icon-only github" title="GitHub">
-                    <i class="bi bi-github"></i>
-                  </a>
-                </div>
-              </div>
-
+              <!-- Copy Button -->
+              <button class="btn btn-link text-primary p-0 ms-2 copy-btn" onclick="copyEmail()" title="Copy to clipboard">
+                <i class="bi bi-clipboard" id="copyIcon"></i>
+              </button>
             </div>
           </div>
 
-          <!-- Right: Refined Form -->
-          <div class="col-lg-8">
-            <div class="refined-card p-5" data-aos="fade-up" data-aos-delay="400">
-              <form action="https://formspree.io/f/xreypzpl" method="POST" class="row g-4">
-                <div class="col-md-6">
-                  <div class="input-group-refined">
-                    <input type="text" name="name" required placeholder=" ">
-                    <label>Full Name</label>
-                    <span class="focus-border"></span>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="input-group-refined">
-                    <input type="email" name="email" required placeholder=" ">
-                    <label>Email Address</label>
-                    <span class="focus-border"></span>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="input-group-refined">
-                    <input type="text" name="subject" required placeholder=" ">
-                    <label>Subject</label>
-                    <span class="focus-border"></span>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="input-group-refined">
-                    <textarea name="message" required placeholder=" " style="min-height: 150px;"></textarea>
-                    <label>Your Message</label>
-                    <span class="focus-border"></span>
-                  </div>
-                </div>
-                <div class="col-12 mt-5">
-                  <button type="submit" class="refined-submit-btn">
-                    <span class="btn-text">Send Message</span>
-                    <span class="btn-icon"><i class="bi bi-arrow-right"></i></span>
-                  </button>
-                </div>
-              </form>
+          <!-- 3. Working Hours Card -->
+          <div class="refined-card p-4 text-center" data-aos="fade-up" data-aos-delay="350">
+            <div class="d-flex align-items-center justify-content-center mb-2">
+              <div class="icon-box-refined me-2" style="width: 35px; height: 35px; font-size: 1rem;">
+                <i class="bi bi-clock-fill"></i>
+              </div>
+              <h6 class="text-white mb-0">Working Hours</h6>
+            </div>
+            <p class="text-primary small fw-bold mb-1">Monday to Friday</p>
+            <p class="text-white mb-2" style="font-size: 0.85rem;">08:00 AM — 06:00 PM</p>
+            <div class="d-flex justify-content-center">
+              <span id="status-badge" class="badge rounded-pill bg-opacity-10 border" style="font-size: 0.65rem;">
+                <span id="status-spinner" class="spinner-grow spinner-grow-sm me-1" role="status"></span>
+                <span id="status-text">Checking Status...</span>
+              </span>
             </div>
           </div>
+
+          <!-- 4. Socials Card (The Alignment Fix) -->
+          <!-- 'mt-auto' pushes this card to the very bottom of the column -->
+          <div class="refined-card py-4 px-2 text-center mt-auto" data-aos="fade-up" data-aos-delay="300">
+            <h6 class="text-white mb-3">Connect Socially</h6>
+            <div class="social-grid-row d-flex gap-3 justify-content-center">
+              <a href="https://wa.me/5584987257836" target="_blank" class="social-icon-only whatsapp" title="WhatsApp">
+                <i class="bi bi-whatsapp"></i>
+              </a>
+              <a href="https://linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" class="social-icon-only linkedin" title="LinkedIn">
+                <i class="bi bi-linkedin"></i>
+              </a>
+              <a href="https://github.com/MaykInvest" target="_blank" class="social-icon-only github" title="GitHub">
+                <i class="bi bi-github"></i>
+              </a>
+            </div>
+          </div>
+
+        </div> <!-- End Info Wrapper -->
+      </div> <!-- End Left Column -->
+
+      <!-- RIGHT COLUMN: Contact Form -->
+      <div class="col-lg-8">
+        <!-- 'h-100' makes the form card fill the height to match the left side -->
+        <div class="refined-card p-4 p-lg-5 h-100" data-aos="fade-up" data-aos-delay="400">
+          <form action="https://formspree.io/f/xreypzpl" method="POST" class="row g-4">
+            <div class="col-md-6">
+              <div class="input-group-refined">
+                <input type="text" name="name" required placeholder=" ">
+                <label>Full Name</label>
+                <span class="focus-border"></span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="input-group-refined">
+                <input type="email" name="email" required placeholder=" ">
+                <label>Email Address</label>
+                <span class="focus-border"></span>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="input-group-refined">
+                <input type="text" name="subject" required placeholder=" ">
+                <label>Subject</label>
+                <span class="focus-border"></span>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="input-group-refined">
+                <textarea name="message" required placeholder=" " style="min-height: 150px;"></textarea>
+                <label>Your Message</label>
+                <span class="focus-border"></span>
+              </div>
+            </div>
+            <!-- Submit Button aligned to bottom -->
+            <div class="col-12 mt-5">
+              <button type="submit" class="refined-submit-btn w-100 justify-content-center">
+                <span class="btn-text">Send Message</span>
+                <span class="btn-icon ms-2"><i class="bi bi-arrow-right"></i></span>
+              </button>
+            </div>
+          </form>
         </div>
-      </div>
-    </section>
-    <!-- End Contact Section -->
+      </div> <!-- End Right Column -->
+
+    </div> <!-- End Row -->
+  </div> <!-- End Container -->
+
+  <!-- Background Mesh Overlay -->
+  <div class="mesh-gradient"></div>
+</section>
+<!-- END OF CONTACT SECTION -->
 
   </main>
 
@@ -391,7 +400,30 @@
   // Update every minute so the countdown stays fresh
   updateWorkStatus();
   setInterval(updateWorkStatus, 60000);
+
+  function copyEmail() {
+    // 1. Get the text from the email element
+    const email = document.getElementById('emailText').innerText;
+    const icon = document.getElementById('copyIcon');
+
+    // 2. Use the Clipboard API to copy it
+    navigator.clipboard.writeText(email).then(() => {
+      // 3. Visual feedback: Change icon to a checkmark
+      icon.classList.replace('bi-clipboard', 'bi-check2-all');
+      icon.classList.add('text-success');
+
+      // 4. Reset icon back to clipboard after 2 seconds
+      setTimeout(() => {
+        icon.classList.replace('bi-check2-all', 'bi-clipboard');
+        icon.classList.remove('text-success');
+      }, 2000);
+    }).catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+  }
+
   </script>
+  
 
 </body>
 
