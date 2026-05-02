@@ -2397,6 +2397,33 @@ article.timeline__item:nth-child(even) .timeline__icon {
     color: #000;
   }
 
+   /* Button to download my resume in PDF */
+
+  .cv-section {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.btn-download {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #0d6efd;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-download:hover {
+  background-color: #0b5ed7;
+  transform: translateY(-2px);
+}
+  
+/*--------------------------------------------------------------
+# End Resume Section
+--------------------------------------------------------------*/
+
 
 /*--------------------------------------------------------------
 # Portfolio Section
