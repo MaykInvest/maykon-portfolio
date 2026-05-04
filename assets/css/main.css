@@ -1796,127 +1796,17 @@ article.timeline__item:nth-child(even) .timeline__icon {
 /*--------------------------------------------------------------
 # Skills Section
 --------------------------------------------------------------*/
-.skills .skill-box {
-  background-color: var(--surface-color);
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+/* 1. ROOT VARIABLES: This defines your "theme colors" so you can reuse them easily */
+:root {
+  --background-color: #101a20; /* The main dark background */
+  --surface-color: #14243f;    /* The slightly lighter blue for cards */
+  --accent-color: #007bff;     /* The primary blue for highlights/bars */
+  --text-main: #ffffff;        /* Pure white for headings */
+  --text-muted: #a0a0a0;       /* Greyish white for descriptions */
 }
 
-.skills .skill-box h3 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
-.skills .skill-box p {
-  font-size: 0.9rem;
-  margin-bottom: 0.8rem;
-  opacity: 0.6;
-}
-
-.skills .skill-box .progress {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 85%);
-  border-radius: 50px;
-  height: 8px;
-  margin-top: 5px;
-  overflow: hidden;
-}
-
-.skills .skill-box .progress .progress-bar {
-  background-color: var(--accent-color);
-  height: 100%;
-  position: relative;
-  border-radius: 50px;
-  transition: 0.9s;
-  width: 1px;
-}
-
-/* Internal CSS specifically for the Skills page */
-    
-
-  /* Skills Card Hover Effects */
-  .skills .service-item {
-    background-color: var(--surface-color);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
-    color: var(--text-main);
-  }
-
-  .skills .service-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5) !important;
-    border-color: var(--accent-color) !important;
-  }
-
-  /* Icon Animation */
-  .skills .service-item .service-icon i {
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .skills .service-item:hover .service-icon i {
-    transform: scale(1.15) rotate(-5deg);
-  }
-
-  /* Ensuring progress bars are visible on dark background */
-  .progress {
-    background-color: #333; /* Darker track for the bar */
-  }
-
-  .skills h3 {
-    color: var(--text-main);
-  }
-
-  .skills p, .skills .list-unstyled {
-    color: var(--text-muted);
-  }
-
-  /* Internal CSS specifically for the Skills page */
-  
-  /* Dark Theme Core Colors */
-  :root {
-    --background-color: #101a20;
-    --surface-color: #14243f;
-    --accent-color: #007bff; /* Primary Blue */
-    --text-main: #ffffff;
-    --text-muted: #a0a0a0;
-  }
-
-  /* Skills Card Hover Effects */
-  .skills .service-item {
-    background-color: var(--surface-color);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
-    color: var(--text-main);
-  }
-
-  .skills .service-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5) !important;
-    border-color: var(--accent-color) !important;
-  }
-
-  /* Icon Animation */
-  .skills .service-item .service-icon i {
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .skills .service-item:hover .service-icon i {
-    transform: scale(1.15) rotate(-5deg);
-  }
-
-  /* Ensuring progress bars are visible on dark background */
-  .progress {
-    background-color: #333; /* Darker track for the bar */
-  }
-
-  .skills h3 {
-    color: var(--text-main);
-  }
-
-  .skills p, .skills .list-unstyled {
-    color: var(--text-muted);
-  }
-
-  .section-title {
+/* 2. SECTION TITLE: Styles the "Skills" heading with lines on the left and right */
+.section-title {
   text-align: center;
   padding-bottom: 60px;
   position: relative;
@@ -1925,9 +1815,11 @@ article.timeline__item:nth-child(even) .timeline__icon {
 .section-title h2 {
   font-size: 32px;
   font-weight: 700;
+  color: var(--text-main);
   position: relative;
 }
 
+/* Creating the decorative lines next to the title */
 .section-title h2:before,
 .section-title h2:after {
   content: "";
@@ -1935,76 +1827,85 @@ article.timeline__item:nth-child(even) .timeline__icon {
   height: 2px;
   background: var(--accent-color);
   display: inline-block;
+  vertical-align: middle;
 }
 
-.section-title h2:before {
-  margin: 0 15px 10px 0;
-}
-
-.section-title h2:after {
-  margin: 0 0 10px 15px;
-}
+.section-title h2:before { margin-right: 15px; }
+.section-title h2:after { margin-left: 15px; }
 
 .section-title p {
+  color: var(--text-muted);
   margin-bottom: 0;
 }
 
-/* Ensure the SVG icon fits perfectly and looks "real" */
-.tech-icon-svg {
-  width: 48px;  /* Adjust size as needed */
-  height: 48px;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-  /* Adds a subtle professional shadow to the SVG */
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2 ));
+
+/* 3. SKILL BOX/SERVICE ITEM: The container for each individual skill */
+.skills .service-item, .skills .skill-box {
+  background-color: var(--surface-color);
+  padding: 2rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  color: var(--text-main);
+  border: 1px solid transparent; /* invisible border until hover */
 }
 
-/* Interaction: Scale the icon slightly on hover */
-.flip-card-container:hover .tech-icon-svg {
-  transform: scale(1.1);
+/* HOVER EFFECT: Makes the card lift up and glows when you hover your mouse */
+.skills .service-item:hover {
+  transform: translateY(-10px); /* Moves it up 10 pixels */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5) !important; /* Soft dark shadow */
+  border-color: var(--accent-color) !important; /* Border turns blue */
 }
 
-/* Ensure the icon-box centers the image correctly */
+.skills h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.skills p {
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* 4. TECH ICONS: Styling the SVG images (like the HTML5 or CSS3 logos) */
 .icon-box {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-  height: 60px; /* Consistent height prevents layout jumps */
-}
-
-/* Unified Skill Card Styling */
-.icon-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-  height: 60px; /* Fixed height for visual alignment */
+  height: 60px; /* Keeps all icons aligned in a row */
 }
 
 .tech-icon-svg {
   width: 50px;
   height: 50px;
   object-fit: contain;
+  /* Adds a smooth animation when the icon moves */
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
 }
 
-.flip-card-container:hover .tech-icon-svg {
+/* Animation: Makes the icon grow and tilt slightly on hover */
+.flip-card-container:hover .tech-icon-svg, 
+.service-item:hover .tech-icon-svg {
   transform: scale(1.15) rotate(5deg);
 }
 
-/* Ensure progress bars look modern */
+/* 5. PROGRESS BARS: The proficiency meters */
 .progress {
   height: 8px !important;
-  background-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: rgba(255, 255, 255, 0.1) !important; /* Dark track */
   border-radius: 10px;
   overflow: hidden;
+  margin-top: 10px;
 }
 
 .progress-bar {
-  background-color: var(--accent-color) !important;
-  transition: width 1s ease-in-out;
+  background-color: var(--accent-color) !important; /* The blue filling */
+  height: 100%;
+  transition: width 1s ease-in-out; /* Makes the bar "slide" into place */
 }
 
 /* End of Skill card */
