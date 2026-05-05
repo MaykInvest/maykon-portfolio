@@ -1933,68 +1933,56 @@ article.timeline__item:nth-child(even) .timeline__icon {
   border-radius: 25px;
   background: rgba(10, 20, 30, 0.95);
   backdrop-filter: blur(15px);
+  /* Changed border to use the card color variable */
   border: 1px solid rgba(255, 255, 255, 0.05);
   overflow: hidden;
   display: flex; flex-direction: column; justify-content: center; align-items: center;
 }
 
-/* --- BREATHING PULSE --- */
+/* --- DYNAMIC BREATHING PULSE --- */
 .elite-card-front::before {
   content: "";
   position: absolute;
   inset: -2px;
-  border-radius: 16px;
+  border-radius: 25px;
 
-  /* Python-inspired gradient */
-  background: linear-gradient(
-    135deg,
-    #3273a8 0%,     /* Python blue */
-    #4fa3d1 25%,    /* softer transition */
-    #d9ca94 50%,    /* Python yellow */
-    #e9c65d 75%,    /* warmer tone */
-    #20425d 100%    /* loop back for smooth cycle */
+  /* IMPROVEMENT: Uses the --card-color variable from your HTML */
+  background: radial-gradient(
+    circle at center,
+    var(--card-color) 0%,
+    transparent 70%
   );
 
-  filter: blur(10px);
+  filter: blur(20px);
   opacity: 0.35;
-
   z-index: 0;
-
-  animation: pythonPulse 3.5s ease-in-out infinite;
+  animation: dynamicPulse 3.5s ease-in-out infinite;
 }
 
-/* Keep content above */
+/* Keep content above the glow */
 .elite-card-front > * {
   position: relative;
   z-index: 1;
 }
 
-/* Improved animation */
-@keyframes pythonPulse {
-  0% {
-    opacity: 0.2;
-    transform: scale(0.97);
-  }
-  50% {
-    opacity: 0.5;
-    transform: scale(1.025);
-  }
-  100% {
-    opacity: 0.2;
-    transform: scale(0.97);
-  }
+/* Universal animation for all card colors */
+@keyframes dynamicPulse {
+  0% { opacity: 0.15; transform: scale(0.92); }
+  50% { opacity: 0.45; transform: scale(1.05); }
+  100% { opacity: 0.15; transform: scale(0.92); }
 }
 
 /* --- Parallax Content --- */
 .parallax-content { transform: translateZ(50px); text-align: center; }
 .elite-logo { width: 80px; margin-bottom: 15px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4)); }
 .elite-name { font-size: 1.8rem; font-weight: 800; color: white; margin-bottom: 8px; }
+
 .elite-badge {
   display: flex; align-items: center; gap: 8px;
   background: rgba(255, 255, 255, 0.05);
   padding: 5px 15px; border-radius: 50px;
   font-size: 0.65rem; font-weight: 700; 
-  color: var(--card-color); /* Matches the brand color */
+  color: var(--card-color); 
   border: 1px solid var(--card-color);
   text-transform: uppercase; letter-spacing: 1px;
 }
@@ -2013,17 +2001,101 @@ article.timeline__item:nth-child(even) .timeline__icon {
   padding: 25px;
   align-items: flex-start;
   text-align: left;
+  /* Adds a subtle top glow on the back too */
+  border-top: 3px solid var(--card-color);
 }
 
-.back-title { font-weight: 800; color: white; border-bottom: 2px solid var(--accent-color); padding-bottom: 5px; }
+/* Matches the title and icons to the specific card color */
+.back-title { 
+  font-weight: 800; 
+  color: white; 
+  border-bottom: 2px solid var(--card-color); 
+  padding-bottom: 5px; 
+}
+
 .elite-tags span {
   display: inline-block; padding: 4px 10px; background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.1); border-radius: 6px;
   font-size: 0.7rem; color: #ccc; margin: 0 4px 6px 0;
+  transition: all 0.3s ease;
 }
+
+/* Subtle hover effect on tags using card color */
+.elite-tags span:hover {
+    border-color: var(--card-color);
+    color: white;
+}
+
 .elite-list { list-style: none; padding: 0; margin: 0; }
 .elite-list li { font-size: 0.8rem; color: #aaa; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-.elite-list li i { color: var(--accent-color); }
+
+/* Fixed: The icons now use the specific card color */
+.elite-list li i { color: var(--card-color); }
+
+
+/* --- Mouse Interaction (Smaller & Cleaner) --- */
+.interaction-guide {
+  position: absolute;
+  bottom: 15px; /* Moved slightly lower */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px; /* Tighter spacing */
+  opacity: 0.4; /* More subtle starting point */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Slimmer Mouse Icon */
+.mouse-icon {
+  width: 14px;  /* Reduced width */
+  height: 22px; /* Reduced height */
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  position: relative;
+}
+
+.mouse-wheel {
+  width: 1.5px;
+  height: 4px;
+  background: var(--card-color);
+  position: absolute;
+  top: 4px;
+  left: calc(50% - 0.75px);
+  border-radius: 1px;
+  animation: scrollWheel 1.8s infinite; /* Slower, smoother animation */
+}
+
+@keyframes scrollWheel {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(6px); opacity: 0; }
+}
+
+.guide-text {
+  font-size: 0.55rem; /* Tiny but readable */
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  font-weight: 500;
+  animation: textFade 1.8s infinite;
+}
+
+/* Subtle pulse for the text */
+@keyframes textFade {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Clean exit on hover */
+.elite-card:hover .interaction-guide {
+  opacity: 0;
+  transform: translateX(-50%) translateY(10px); /* Slides down out of view */
+}
+
 
 /*--------------------------------------------------------------
 # End of Skill card 
