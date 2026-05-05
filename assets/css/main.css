@@ -1908,7 +1908,126 @@ article.timeline__item:nth-child(even) .timeline__icon {
   transition: width 1s ease-in-out; /* Makes the bar "slide" into place */
 }
 
-/* End of Skill card */
+/* --- Detailed Skills (3D Cards) --- */
+.elite-card {
+  height: 380px;
+  perspective: 1500px;
+  margin-bottom: 30px;
+}
+
+.elite-card-inner {
+  position: relative;
+  width: 100%; height: 100%;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.elite-card:hover .elite-card-inner { transform: rotateY(180deg); }
+
+.elite-card-front, .elite-card-back {
+  position: absolute;
+  width: 100%; height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 25px;
+  background: rgba(10, 20, 30, 0.95);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+}
+
+/* --- BREATHING PULSE --- */
+.elite-card-front::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 16px;
+
+  /* Python-inspired gradient */
+  background: linear-gradient(
+    135deg,
+    #3273a8 0%,     /* Python blue */
+    #4fa3d1 25%,    /* softer transition */
+    #d9ca94 50%,    /* Python yellow */
+    #e9c65d 75%,    /* warmer tone */
+    #20425d 100%    /* loop back for smooth cycle */
+  );
+
+  filter: blur(10px);
+  opacity: 0.35;
+
+  z-index: 0;
+
+  animation: pythonPulse 3.5s ease-in-out infinite;
+}
+
+/* Keep content above */
+.elite-card-front > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Improved animation */
+@keyframes pythonPulse {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.97);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.025);
+  }
+  100% {
+    opacity: 0.2;
+    transform: scale(0.97);
+  }
+}
+
+/* --- Parallax Content --- */
+.parallax-content { transform: translateZ(50px); text-align: center; }
+.elite-logo { width: 80px; margin-bottom: 15px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4)); }
+.elite-name { font-size: 1.8rem; font-weight: 800; color: white; margin-bottom: 8px; }
+.elite-badge {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 5px 15px; border-radius: 50px;
+  font-size: 0.65rem; font-weight: 700; 
+  color: var(--card-color); /* Matches the brand color */
+  border: 1px solid var(--card-color);
+  text-transform: uppercase; letter-spacing: 1px;
+}
+
+.pulse-dot {
+  width: 6px; height: 6px; 
+  background: var(--card-color);
+  border-radius: 50%; animation: dotPulse 1.5s infinite;
+}
+
+@keyframes dotPulse { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(2.5); opacity: 0; } }
+
+/* --- BACK Side Styling --- */
+.elite-card-back {
+  transform: rotateY(180deg);
+  padding: 25px;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.back-title { font-weight: 800; color: white; border-bottom: 2px solid var(--accent-color); padding-bottom: 5px; }
+.elite-tags span {
+  display: inline-block; padding: 4px 10px; background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 6px;
+  font-size: 0.7rem; color: #ccc; margin: 0 4px 6px 0;
+}
+.elite-list { list-style: none; padding: 0; margin: 0; }
+.elite-list li { font-size: 0.8rem; color: #aaa; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+.elite-list li i { color: var(--accent-color); }
+
+/*--------------------------------------------------------------
+# End of Skill card 
+--------------------------------------------------------------*/
 
 
 /*--------------------------------------------------------------
