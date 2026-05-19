@@ -2614,149 +2614,112 @@ article.timeline__item:nth-child(even) .timeline__icon {
 /*--------------------------------------------------------------
 # Portfolio Section
 --------------------------------------------------------------*/
-  .portfolio .portfolio-filters {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 30px;
-    padding: 0;
-    list-style: none;
-  }
+ /*--------------------------------------------------------------
+# Elite Portfolio Card Modernization
+--------------------------------------------------------------*/
+.portfolio-card {
+  position: relative;
+  background: var(--surface-color);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
 
-  .portfolio .portfolio-filters li {
-    padding: 8px 20px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
-    color: var(--accent-color);
-  }
+.portfolio-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-color: var(--accent-color);
+}
 
-  .portfolio .portfolio-filters li:hover {
-    background-color: color-mix(in srgb, var(--accent-color), transparent 80%);
-  }
+.portfolio-img {
+  position: relative;
+  overflow: hidden;
+}
 
-  .portfolio .portfolio-filters li.filter-active {
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
-  }
+.portfolio-img img {
+  transition: transform 0.6s ease;
+}
 
-  .portfolio .portfolio-card {
-    background-color: var(--surface-color);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    margin-bottom: 30px;
-    transition: all 0.3s ease;
-  }
+.portfolio-card:hover .portfolio-img img {
+  transform: scale(1.1);
+}
 
-  .portfolio .portfolio-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  }
+/* Overlay Glassmorphism */
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 182, 212, 0.2); /* Cor do seu tema com transparência */
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
 
-  .portfolio .portfolio-card:hover .portfolio-img .portfolio-overlay {
-    opacity: 1;
-  }
+.portfolio-card:hover .portfolio-overlay {
+  opacity: 1;
+}
 
-  .portfolio .portfolio-card:hover .portfolio-img img {
-    transform: scale(1.1);
-  }
+.overlay-content {
+  text-align: center;
+  color: #fff;
+  transform: translateY(20px);
+  transition: transform 0.4s ease;
+}
 
-  .portfolio .portfolio-card .portfolio-img {
-    position: relative;
-    overflow: hidden;
-  }
+.portfolio-card:hover .overlay-content {
+  transform: translateY(0);
+}
 
-  .portfolio .portfolio-card .portfolio-img img {
-    width: 100%;
-    height: auto;
-    transition: transform 0.5s ease;
-  }
+.overlay-content i {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 10px;
+}
 
-  .portfolio .portfolio-card .portfolio-img .portfolio-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    opacity: 0;
-    transition: all 0.3s ease;
-  }
+/* Info Section */
+.portfolio-info {
+  padding: 20px;
+  position: relative;
+}
 
-  .portfolio .portfolio-card .portfolio-img .portfolio-overlay a {
-    width: 45px;
-    height: 45px;
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-  }
+.portfolio-info h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #fff;
+}
 
-  .portfolio .portfolio-card .portfolio-img .portfolio-overlay a:hover {
-    background-color: color-mix(in srgb, var(--accent-color), #fff 20%);
-    transform: translateY(-5px);
-  }
+.portfolio-info p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 15px;
+}
 
-  .portfolio .portfolio-card .portfolio-info {
-    padding: 20px;
-  }
+.portfolio-tags span {
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  background: rgba(6, 182, 212, 0.1);
+  color: var(--accent-color);
+  border-radius: 20px;
+  margin-right: 5px;
+}
 
-  .portfolio .portfolio-card .portfolio-info h4 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-    color: var(--heading-color);
-  }
+/* Botão de Lupa (Preview) */
+.preview-link {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.4);
+  transition: color 0.3s;
+}
 
-  .portfolio .portfolio-card .portfolio-info p {
-    font-size: 0.9rem;
-    color: var(--default-color);
-    margin-bottom: 10px;
-  }
-
-  .portfolio .portfolio-card .portfolio-info .portfolio-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .portfolio .portfolio-card .portfolio-info .portfolio-tags span {
-    font-size: 0.8rem;
-    padding: 4px 12px;
-    border-radius: 20px;
-    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
-    color: var(--accent-color);
-  }
-
-  .portfolio .btn-primary {
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
-    color: var(--contrast-color);
-    padding: 12px 30px;
-    font-weight: 600;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-  }
-
-  .portfolio .btn-primary:hover {
-    background-color: color-mix(in srgb, var(--accent-color), #000 10%);
-    border-color: color-mix(in srgb, var(--accent-color), #000 10%);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  }
+.preview-link:hover {
+  color: var(--accent-color);
+}
 
 
 /*--------------------------------------------------------------

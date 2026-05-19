@@ -89,136 +89,119 @@
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="200">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-strategy">Strategy</li>
-            <li data-filter=".filter-finance">Finance</li>
-            <li data-filter=".filter-operations">Operations</li>
-            <li data-filter=".filter-technology">Technology</li>
-          </ul><!-- End Portfolio Filters -->
 
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="300">
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-strategy">
-              <div class="portfolio-card">
-                <div class="portfolio-img">
-                  <img src="assets/img/portfolio/portfolio-1.webp" alt="Portfolio Item" class="img-fluid">
-                  <div class="portfolio-overlay">
-                    <a href="assets/img/portfolio/portfolio-1.webp" class="glightbox portfolio-lightbox"><i class="bi bi-plus"></i></a>
-                    <a href="#" class="portfolio-details-link"><i class="bi bi-link"></i></a>
-                  </div>
-                </div>
-                <div class="portfolio-info">
-                  <h4>Business Growth Strategy</h4>
-                  <p>Strategic Planning</p>
-                  <div class="portfolio-tags">
-                    <span>Strategy</span>
-                    <span>Consulting</span>
+        <!-- Project Card: Heart Disease Diagnostic Classification -->
+        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml filter-python">
+          
+          <div class="portfolio-card h-100"> <!-- h-100 ensures equal card heights in your grid -->
+            
+            <!-- Primary Link Wrapper: Clicking image directs straight to your GitHub repository -->
+            <a href="https://github.com/MaykInvest/Heart_Disease_Diagnostic.git" target="_blank" rel="noopener" class="portfolio-link-wrapper d-block position-relative overflow-hidden">
+              <div class="portfolio-img">
+
+                <!-- Image of the project is here -->
+                <img src="assets/img/portfolio/portfolio-1.webp" alt="Dashboard showing business growth strategy metrics" class="img-fluid w-100">
+
+                <!-- Interactive GitHub Overlay on Hover -->
+                <div class="portfolio-overlay">
+                  <div class="overlay-content text-center">
+                    <i class="bi bi-github fs-2 mb-2"></i>
+                    <span class="d-block fw-semibold">View Repository</span>
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-finance">
-              <div class="portfolio-card">
-                <div class="portfolio-img">
-                  <img src="assets/img/portfolio/portfolio-2.webp" alt="Portfolio Item" class="img-fluid">
-                  <div class="portfolio-overlay">
-                    <a href="assets/img/portfolio/portfolio-2.webp" class="glightbox portfolio-lightbox"><i class="bi bi-plus"></i></a>
-                    <a href="#" class="portfolio-details-link"><i class="bi bi-link"></i></a>
-                  </div>
+            </a>
+            
+            <!-- Project Meta Information -->
+            <div class="portfolio-info p-4">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <div>
+                  <h4 class="text-white mb-1">Heart Disease Diagnostic System</h4>
+                  <p class="text-muted small mb-0">Supervised Machine Learning & Classification</p>
                 </div>
-                <div class="portfolio-info">
-                  <h4>Financial Restructuring</h4>
-                  <p>Financial Advisory</p>
-                  <div class="portfolio-tags">
-                    <span>Finance</span>
-                    <span>Investment</span>
-                  </div>
-                </div>
+                <!-- Secondary Preview Trigger (Lightbox Magnifier) -->
+                <a href="assets/img/portfolio/heart-diagnostic.webp" class="glightbox preview-link text-muted ms-2" title="Expand Project Preview">
+                  <i class="bi bi-zoom-in fs-5"></i>
+                </a>
+              </div>
+              
+              <!-- Project Narrative Brief -->
+              <p class="text-muted small my-3">
+                Developed an end-to-end classification pipeline to predict patient cardiovascular risk. Cleaned clinical feature spaces and conducted detailed EDA before training high-accuracy predictive models.
+              </p>
+              
+              <!-- Tech Stack Badges matching your Core Data Science Stack -->
+              <div class="portfolio-tags d-flex flex-wrap gap-2 mt-2">
+                <span class="tag-pill text-nowrap"><i class="bi bi-code-slash me-1"></i> Python</span>
+                <span class="tag-pill text-nowrap"><i class="bi bi-cpu me-1"></i> Scikit-Learn</span>
+                <span class="tag-pill text-nowrap"><i class="bi bi-pie-chart me-1"></i> Seaborn / EDA</span>
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-operations">
-              <div class="portfolio-card">
-                <div class="portfolio-img">
-                  <img src="assets/img/portfolio/portfolio-3.webp" alt="Portfolio Item" class="img-fluid">
-                  <div class="portfolio-overlay">
-                    <a href="assets/img/portfolio/portfolio-3.webp" class="glightbox portfolio-lightbox"><i class="bi bi-plus"></i></a>
-                    <a href="#" class="portfolio-details-link"><i class="bi bi-link"></i></a>
+          </div>
+        </div>
+        <!-- End Card -->
+
+        
+        <!-- Project Card: Python Programming Assistant AI -->
+        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ai filter-python">
+          <div class="portfolio-card h-100"> <!-- h-100 ensures equal card heights across the row -->
+            
+            <!-- Primary Link Wrapper: Clicking image directs to your GitHub repository -->
+            <a href="https://github.com/MaykInvest/Python-Programming-Assistant.git" target="_blank" rel="noopener" class="portfolio-link-wrapper d-block position-relative overflow-hidden">
+              <div class="portfolio-img">
+                <img src="assets/img/portfolio/portfolio-2.webp" alt="AI code assistant interface with Python terminal output" class="img-fluid w-100">
+                <!-- Interactive GitHub Overlay on Hover -->
+                <div class="portfolio-overlay">
+                  <div class="overlay-content text-center">
+                    <i class="bi bi-github fs-2 mb-2"></i>
+                    <span class="d-block fw-semibold">View Repository</span>
                   </div>
                 </div>
-                <div class="portfolio-info">
-                  <h4>Supply Chain Optimization</h4>
-                  <p>Operations Management</p>
-                  <div class="portfolio-tags">
-                    <span>Operations</span>
-                    <span>Logistics</span>
-                  </div>
+              </div>
+            </a>
+            
+            <!-- Project Meta Information -->
+            <div class="portfolio-info p-4">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <div>
+                  <h4 class="text-white mb-1">Python Programming Assistant</h4>
+                  <p class="text-muted small mb-0">Artificial Intelligence & NLP Automation</p>
                 </div>
+                <!-- Secondary Preview Trigger (Lightbox Magnifier) -->
+                <a href="assets/img/portfolio/portfolio-2.webp" class="glightbox preview-link text-muted ms-2" title="Expand Project Preview">
+                  <i class="bi bi-zoom-in fs-5"></i>
+                </a>
+              </div>
+              
+              <!-- Project Narrative Brief -->
+              <p class="text-muted small my-3">
+                Engineered an intelligent conversational assistant designed to accelerate programming workflows. Implemented natural language processing to interpret user goals, generate optimized scripts, and debug Python syntax on the fly.
+              </p>
+              
+              <!-- Tech Stack Badges matching your engineering stack -->
+              <div class="portfolio-tags d-flex flex-wrap gap-2 mt-2">
+                <span class="tag-pill text-nowrap"><i class="bi bi-code-slash me-1"></i> Python</span>
+                <span class="tag-pill text-nowrap"><i class="bi bi-cpu-fill me-1"></i> LLM Integration</span>
+                <span class="tag-pill text-nowrap"><i class="bi bi-terminal-fill me-1"></i> Automation</span>
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-technology">
-              <div class="portfolio-card">
-                <div class="portfolio-img">
-                  <img src="assets/img/portfolio/portfolio-4.webp" alt="Portfolio Item" class="img-fluid">
-                  <div class="portfolio-overlay">
-                    <a href="assets/img/portfolio/portfolio-4.webp" class="glightbox portfolio-lightbox"><i class="bi bi-plus"></i></a>
-                    <a href="#" class="portfolio-details-link"><i class="bi bi-link"></i></a>
-                  </div>
-                </div>
-                <div class="portfolio-info">
-                  <h4>Digital Transformation</h4>
-                  <p>Technology Consulting</p>
-                  <div class="portfolio-tags">
-                    <span>Technology</span>
-                    <span>Innovation</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+          </div>
+        </div>
+        <!-- End Project Card -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-strategy">
-              <div class="portfolio-card">
-                <div class="portfolio-img">
-                  <img src="assets/img/portfolio/portfolio-5.webp" alt="Portfolio Item" class="img-fluid">
-                  <div class="portfolio-overlay">
-                    <a href="assets/img/portfolio/portfolio-5.webp" class="glightbox portfolio-lightbox"><i class="bi bi-plus"></i></a>
-                    <a href="#" class="portfolio-details-link"><i class="bi bi-link"></i></a>
-                  </div>
-                </div>
-                <div class="portfolio-info">
-                  <h4>Market Expansion</h4>
-                  <p>Strategic Planning</p>
-                  <div class="portfolio-tags">
-                    <span>Strategy</span>
-                    <span>Growth</span>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-finance">
-              <div class="portfolio-card">
-                <div class="portfolio-img">
-                  <img src="assets/img/portfolio/portfolio-6.webp" alt="Portfolio Item" class="img-fluid">
-                  <div class="portfolio-overlay">
-                    <a href="assets/img/portfolio/portfolio-6.webp" class="glightbox portfolio-lightbox"><i class="bi bi-plus"></i></a>
-                    <a href="#" class="portfolio-details-link"><i class="bi bi-link"></i></a>
-                  </div>
-                </div>
-                <div class="portfolio-info">
-                  <h4>Investment Strategy</h4>
-                  <p>Financial Advisory</p>
-                  <div class="portfolio-tags">
-                    <span>Finance</span>
-                    <span>Investment</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Portfolio Items Container -->
+
+
+
+
+
+
+
+
+
+        
 
         </div>
 
