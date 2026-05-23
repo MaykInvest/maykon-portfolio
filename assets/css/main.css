@@ -2613,107 +2613,252 @@ article.timeline__item:nth-child(even) .timeline__icon {
 /*--------------------------------------------------------------
 # Portfolio Section
 --------------------------------------------------------------*/
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap' );
+/* --- Google Fonts import --- */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
 
-  :root {
-    --card-bg: linear-gradient(165deg, #111827 0%, #030712 100%);
-    --accent-cyan: #06b6d4;
-    --accent-purple: #a855f7;
-    --text-muted: rgba(156, 163, 175, 0.7);
-  }
+/* --- CSS reset (box-model + spacing) --- */
+*{box-sizing:border-box;margin:0;padding:0}
 
-  .elite-wrap { padding: 3rem 1rem; font-family: 'Inter', sans-serif; }
-  .elite-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
-  
-  .elite-perspective { perspective: 2000px; }
-  
-  .elite-card {
-    position: relative;
-    background: var(--card-bg);
-    border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transform-style: preserve-3d;
-    transition: transform 0.15s ease-out, box-shadow 0.4s ease;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    will-change: transform;
-  }
+/* --- Page wrapper: outer padding and default font --- */
+.wrap{padding:2rem 0.5rem 3rem;font-family:'Inter',sans-serif}
 
-  /* Dynamic Light Glint */
-  .elite-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-                rgba(255,255,255,0.08) 0%, transparent 60%);
-    opacity: 0;
-    transition: opacity 0.3s;
-    pointer-events: none;
-    z-index: 10;
-  }
-  .elite-card:hover::before { opacity: 1; }
+/* --- Responsive grid: auto-fits columns, min 300px each --- */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
 
-  /* Content Layers */
-  .elite-img-wrap {
-    position: relative;
-    height: 220px;
-    overflow: hidden;
-    transform: translateZ(20px); /* Lifts image slightly */
-  }
+/* --- Card wrapper: establishes the 3D perspective context.
+     perspective:1200px controls how "deep" the tilt feels —
+     lower value = more dramatic, higher = more subtle. --- */
+.cw{perspective:1200px}
 
-  .elite-img-wrap img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
-  }
-  .elite-card:hover .elite-img-wrap img { transform: scale(1.1) rotate(-1deg); }
 
-  /* Floating GitHub Button */
-  .elite-gh-btn {
-    position: absolute; top: 15px; right: 15px; z-index: 15;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 700;
-    display: flex; align-items: center; gap: 8px;
-    transform: translateZ(40px); /* Higher floating effect */
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .elite-gh-btn:hover { background: #fff; color: #000; transform: translateZ(50px) scale(1.05); }
+/* ========================
+   CARD BASE + 3D SETUP
+   ======================== */
+.card{
+  border-radius:22px;
+  background:linear-gradient(160deg,#0e1521 0%,#0a0f1a 100%);
+  border:1px solid rgba(255,255,255,0.07);
 
-  .elite-body {
-    padding: 24px;
-    transform: translateZ(30px); /* Lifts content area */
-  }
+  /* Allows children to participate in the 3D space */
+  transform-style:preserve-3d;
 
-  .elite-title {
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 8px;
-    letter-spacing: -0.02em;
-  }
+  /* Smooth return to flat after mouse leaves */
+  transition:transform 0.07s linear,box-shadow 0.35s ease;
 
-  .elite-desc {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
+  /* Subtle inner highlight + deep outer shadow */
+  box-shadow:0 2px 0 rgba(255,255,255,0.04) inset,0 16px 48px rgba(0,0,0,0.6);
 
-  .elite-stats {
-    display: flex; gap: 20px; padding-top: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-  }
+  /* GPU hint: only transform and opacity will change */
+  will-change:transform;
 
-  .stat-item { text-align: left; }
-  .stat-val { font-family: 'Space Mono', monospace; font-weight: 700; color: var(--accent-cyan); font-size: 1rem; }
-  .stat-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.3); }
+  overflow:hidden;
+  position:relative;
+}
 
+
+/* ========================
+   GLOW BORDER (hover only)
+   Absolute overlay that fades in on hover.
+   Each card sets its own color via inline style.
+   ======================== */
+.glow-border{position:absolute;inset:0;border-radius:22px;opacity:0;transition:opacity 0.4s ease;pointer-events:none;z-index:0}
+.card:hover .glow-border{opacity:1}
+
+/* Content sits above the glow border overlay */
+.card-content{position:relative;z-index:1}
+
+
+/* ========================
+   SHIMMER SWEEP (hover)
+   A diagonal light streak that slides across on hover.
+   Starts off-screen left, travels to off-screen right.
+   ======================== */
+.shimmer{
+  position:absolute;top:0;left:-120%;
+  width:60%;height:100%;
+  background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,0.045) 50%,transparent 65%);
+  pointer-events:none;z-index:20;
+  transition:left 0.7s cubic-bezier(0.4,0,0.2,1)
+}
+.card:hover .shimmer{left:160%}  /* trigger: slide across */
+
+
+/* ========================
+   CARD IMAGE AREA
+   ======================== */
+
+/* Container with fixed height and overflow hidden for zoom effect */
+.img-wrap{position:relative;height:200px;overflow:hidden}
+
+/* Gradient overlay: fades image bottom into card background */
+.img-wrap::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,transparent 40%,rgba(10,15,26,0.95) 100%);
+  z-index:2;pointer-events:none
+}
+
+/* Image: zooms in and darkens on card hover */
+/* 1. Target the parent wrapper to act as a center-alignment grid */
+.img-wrap {
+  display: flex;
+  justify-content: center; /* Centers the image horizontally */
+  align-items: center;     /* Centers the image vertically */
+  overflow: hidden;        /* Prevents scaling images from breaking the container edges */
+}
+
+/* 2. Your original image styles with scaling metrics */
+.img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;
+  filter: brightness(0.65) saturate(0.8);
+}
+
+.card:hover .img-wrap img{transform:scale(1.09);filter:brightness(0.4) saturate(1.15)}
+
+/* Category badge overlaid on the image (top-left) */
+.img-badge{
+  position:absolute;top:14px;left:14px;z-index:6;
+  display:flex;align-items:center;gap:5px;
+  padding:4px 10px;border-radius:50px;
+  font-size:10.5px;font-weight:600;letter-spacing:0.07em;
+  font-family:'Space Mono',monospace;
+  backdrop-filter:blur(8px);
+  background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.12);
+  color:rgba(255,255,255,0.8)
+}
+/* Colored dot inside the badge */
+.dot{width:6px;height:6px;border-radius:50%}
+
+
+/* ========================
+   GITHUB BUTTON (top-right of image)
+   Pill expand animation on hover:
+   starts as a circle icon, expands to show label text.
+   ======================== */
+.gh-btn{
+  position:absolute;top:12px;right:12px;z-index:10;
+  width:38px;height:38px;border-radius:50%;
+  background:rgba(15,20,30,0.7);
+  border:1px solid rgba(255,255,255,0.15);
+  backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;color:rgba(255,255,255,0.5);
+  /* Animate: width, border-radius, bg, color, padding */
+  transition:width 0.35s cubic-bezier(0.4,0,0.2,1),
+             border-radius 0.35s cubic-bezier(0.4,0,0.2,1),
+             background 0.25s,border-color 0.25s,color 0.25s,
+             padding 0.35s;
+  overflow:hidden;white-space:nowrap;
+}
+.gh-btn i{font-size:18px;flex-shrink:0;transition:color 0.25s}
+
+/* Hidden label — revealed by expanding max-width on hover */
+.gh-btn-label{
+  font-size:12px;font-weight:600;font-family:'Inter',sans-serif;
+  max-width:0;overflow:hidden;opacity:0;
+  transition:max-width 0.35s cubic-bezier(0.4,0,0.2,1),opacity 0.2s 0.1s,margin 0.35s;
+  margin-left:0;letter-spacing:0.01em;
+}
+/* Hover state: circle → pill, dark → white, show label */
+.gh-btn:hover{width:130px;border-radius:50px;background:rgba(255,255,255,0.95);border-color:transparent;color:#0a0f1a;padding:0 14px 0 10px;}
+.gh-btn:hover i{color:#0a0f1a}
+.gh-btn:hover .gh-btn-label{max-width:100px;opacity:1;margin-left:7px}
+
+
+/* ========================
+   CARD TITLE AREA
+   Overlaps the image bottom via negative margin-top.
+   ======================== */
+.title-area{padding:0 18px 14px;margin-top:-32px;position:relative;z-index:3}
+.cat-label{font-size:10.5px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;font-family:'Space Mono',monospace;margin-bottom:5px}
+.card-title{font-size:17px;font-weight:600;color:#edf2ff;line-height:1.3;display:flex;align-items:center;justify-content:space-between;gap:8px}
+
+
+/* ========================
+   TOGGLE BUTTON (+ / ×)
+   The two <span> elements form a "+" shape.
+   When .open is added to the card, they rotate
+   into an "×" shape via CSS transforms.
+   ======================== */
+.toggle-btn{
+  width:28px;height:28px;border-radius:50%;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  transition:background 0.25s;
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
+  position:relative
+}
+/* Horizontal bar of the + */
+.toggle-btn span{display:block;width:10px;height:1.5px;border-radius:2px;background:rgba(200,210,230,0.7);position:absolute;transition:transform 0.22s ease,background 0.2s}
+.toggle-btn .h{transform:rotate(0)}
+/* Vertical bar: rotated 90° to form the + cross */
+.toggle-btn .v{transform:rotate(90deg)}
+
+/* When card is open: button turns red and bars form × */
+.card.open .toggle-btn{background:rgba(239,68,68,0.15);border-color:rgba(239,68,68,0.3)}
+.card.open .toggle-btn span{background:#f87171}
+.card.open .toggle-btn .h{transform:rotate(45deg)}
+.card.open .toggle-btn .v{transform:rotate(135deg)}
+
+
+/* ========================
+   EXPANDABLE DETAIL PANEL (flap)
+   Uses max-height trick for smooth CSS height animation.
+   Inner element fades + slides up after the container opens.
+   ======================== */
+.divider{height:1px;background:rgba(255,255,255,0.06);margin:0 18px}
+
+/* Outer: clips content and animates from 0 → max-height */
+.flap-outer{overflow:hidden;max-height:0;transition:max-height 0.42s cubic-bezier(0.4,0,0.2,1)}
+
+/* Inner: fades in with a slight upward slide (staggered delay) */
+.flap-inner{opacity:0;transform:translateY(-8px);transition:opacity 0.25s 0.12s,transform 0.25s 0.12s;padding:16px 18px 0}
+
+/* .open class triggers both layers */
+.card.open .flap-outer{max-height:260px}
+.card.open .flap-inner{opacity:1;transform:translateY(0)}
+
+
+/* ========================
+   PANEL CONTENT: description, tags, action buttons
+   ======================== */
+.desc{font-size:12.5px;line-height:1.7;color:rgba(180,195,225,0.55);margin-bottom:14px}
+
+/* Tag pills */
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tag{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;padding:3px 10px;border-radius:50px;font-family:'Space Mono',monospace;font-weight:400}
+
+/* Action buttons row */
+.actions{display:flex;gap:8px;padding-bottom:16px}
+.abtn{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border-radius:9px;font-size:12px;font-weight:500;font-family:'Inter',sans-serif;text-decoration:none;cursor:pointer;border:none;transition:transform 0.15s,filter 0.15s}
+.abtn:hover{transform:translateY(-1px);filter:brightness(1.12)}
+
+
+/* ========================
+   STATS ROW
+   Three quick-glance metrics at the bottom of the card.
+   ======================== */
+.stat-row{display:flex;gap:20px;padding:10px 18px;border-top:1px solid rgba(255,255,255,0.05)}
+.stat{text-align:center}
+.stat-val{font-size:14px;font-weight:600;font-family:'Space Mono',monospace}
+.stat-lbl{font-size:9.5px;color:rgba(148,163,184,0.4);letter-spacing:0.06em;text-transform:uppercase;margin-top:1px}
+
+
+/* ========================
+   CARD FOOTER
+   Left: repo meta (branch, language)
+   Right: "View code →" link
+   ======================== */
+.foot{display:flex;align-items:center;justify-content:space-between;padding:10px 18px;border-top:1px solid rgba(255,255,255,0.05)}
+.foot-meta{display:flex;gap:16px}
+.meta-i{display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(148,163,184,0.38)}
+.meta-i i{font-size:12px}
+
+/* Arrow link: gap widens + opacity lifts on hover */
+.view-link{display:flex;align-items:center;gap:4px;font-size:11.5px;font-weight:500;text-decoration:none;transition:gap 0.2s,opacity 0.2s;opacity:0.5}
+.view-link:hover{gap:7px;opacity:1}
 
 /*--------------------------------------------------------------
 # End of Portfolio Section
