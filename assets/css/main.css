@@ -2610,117 +2610,114 @@ article.timeline__item:nth-child(even) .timeline__icon {
 # End Resume Section
 --------------------------------------------------------------*/
 
-
 /*--------------------------------------------------------------
 # Portfolio Section
 --------------------------------------------------------------*/
- /*--------------------------------------------------------------
-# Elite Portfolio Card Modernization
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap' );
+
+  :root {
+    --card-bg: linear-gradient(165deg, #111827 0%, #030712 100%);
+    --accent-cyan: #06b6d4;
+    --accent-purple: #a855f7;
+    --text-muted: rgba(156, 163, 175, 0.7);
+  }
+
+  .elite-wrap { padding: 3rem 1rem; font-family: 'Inter', sans-serif; }
+  .elite-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+  
+  .elite-perspective { perspective: 2000px; }
+  
+  .elite-card {
+    position: relative;
+    background: var(--card-bg);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transform-style: preserve-3d;
+    transition: transform 0.15s ease-out, box-shadow 0.4s ease;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    will-change: transform;
+  }
+
+  /* Dynamic Light Glint */
+  .elite-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                rgba(255,255,255,0.08) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    z-index: 10;
+  }
+  .elite-card:hover::before { opacity: 1; }
+
+  /* Content Layers */
+  .elite-img-wrap {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    transform: translateZ(20px); /* Lifts image slightly */
+  }
+
+  .elite-img-wrap img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+  }
+  .elite-card:hover .elite-img-wrap img { transform: scale(1.1) rotate(-1deg); }
+
+  /* Floating GitHub Button */
+  .elite-gh-btn {
+    position: absolute; top: 15px; right: 15px; z-index: 15;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex; align-items: center; gap: 8px;
+    transform: translateZ(40px); /* Higher floating effect */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .elite-gh-btn:hover { background: #fff; color: #000; transform: translateZ(50px) scale(1.05); }
+
+  .elite-body {
+    padding: 24px;
+    transform: translateZ(30px); /* Lifts content area */
+  }
+
+  .elite-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+
+  .elite-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .elite-stats {
+    display: flex; gap: 20px; padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .stat-item { text-align: left; }
+  .stat-val { font-family: 'Space Mono', monospace; font-weight: 700; color: var(--accent-cyan); font-size: 1rem; }
+  .stat-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.3); }
+
+
+/*--------------------------------------------------------------
+# End of Portfolio Section
 --------------------------------------------------------------*/
-.portfolio-card {
-  position: relative;
-  background: var(--surface-color);
-  border-radius: 16px;
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.portfolio-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  border-color: var(--accent-color);
-}
-
-.portfolio-img {
-  position: relative;
-  overflow: hidden;
-}
-
-.portfolio-img img {
-  transition: transform 0.6s ease;
-}
-
-.portfolio-card:hover .portfolio-img img {
-  transform: scale(1.1);
-}
-
-/* Overlay Glassmorphism */
-.portfolio-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(6, 182, 212, 0.2); /* Cor do seu tema com transparência */
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.portfolio-card:hover .portfolio-overlay {
-  opacity: 1;
-}
-
-.overlay-content {
-  text-align: center;
-  color: #fff;
-  transform: translateY(20px);
-  transition: transform 0.4s ease;
-}
-
-.portfolio-card:hover .overlay-content {
-  transform: translateY(0);
-}
-
-.overlay-content i {
-  font-size: 2.5rem;
-  display: block;
-  margin-bottom: 10px;
-}
-
-/* Info Section */
-.portfolio-info {
-  padding: 20px;
-  position: relative;
-}
-
-.portfolio-info h4 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 5px;
-  color: #fff;
-}
-
-.portfolio-info p {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 15px;
-}
-
-.portfolio-tags span {
-  font-size: 0.75rem;
-  padding: 4px 12px;
-  background: rgba(6, 182, 212, 0.1);
-  color: var(--accent-color);
-  border-radius: 20px;
-  margin-right: 5px;
-}
-
-/* Botão de Lupa (Preview) */
-.preview-link {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.4);
-  transition: color 0.3s;
-}
-
-.preview-link:hover {
-  color: var(--accent-color);
-}
-
 
 /*--------------------------------------------------------------
 # Contact Section
