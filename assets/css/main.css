@@ -1357,6 +1357,43 @@ gap: 8px;
 text-transform: none; /* We removed the uppercase to be more minimalist */
 }
 
+@media (min-width: 992px) {
+    /* 1. Safely reduce default section paddings so it doesn't push into the footer */
+    #hero {
+      padding: 20px 0 !important;
+      min-height: calc(100vh - 200px) !important;
+    }
+
+    /* 2. Scale down the image box so it takes up less vertical real estate */
+    .hero-image img {
+      max-height: 42vh !important;
+      width: auto !important;
+      object-fit: contain !important;
+    }
+
+    /* 3. Keep the floating background badge elements from breaking bounds */
+    .image-wrapper {
+      max-height: 42vh;
+    }
+    
+      /* Safety Net: If the screen is very short, slightly shrink the text and image spacing */
+    @media (max-height: 700px) {
+      #hero h1 { font-size: 2.2rem !important; }
+      #hero p { font-size: 0.9rem !important; margin-bottom: 15px !important; }
+      .hero-image img { max-height: 30vh !important; }
+    }
+
+
+  }
+
+
+
+
+
+
+
+
+
 /* --- HOVER: DIRECT COLOR CHANGE --- */
 
 /* Cyan version */
