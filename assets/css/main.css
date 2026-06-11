@@ -1264,42 +1264,81 @@ section,
   pointer-events: none;
 }
 
+
+/* ==========================================================================
+   Floating Profile Badges Component
+   ========================================================================== */
+
+/* Forces the wrapper to shrink-wrap strictly to the image width, 
+   preventing absolute badges from wandering across the screen row width */
+.image-wrapper {
+  display: inline-block;}
+
+/* Base Configuration: Hide elements on mobile to prevent layout 
+   cluttering, overflows, or overlapping with typography sections */
 .floating-card {
-  position: absolute;
-  background: var(--surface-color);
-  padding: 12px 16px;
-  border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 600;
-  font-size: 0.85rem;
-  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 70%);
-  white-space: nowrap;
+  display: none;
 }
 
-.floating-card i {
-  font-size: 1.2rem;
-  color: var(--accent-color);
-}
-
-/* Desktop badge positions — only shown on 768px+ */
-@media (prefers-reduced-motion: no-preference) {
+/* Media Query: Desktop Viewports (768px and up) */
+@media (min-width: 768px) {
   .floating-card {
-    animation: float 3s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    background: var(--surface-color, #121212); /* Adapts to your portfolio's dark theme surface */
+    padding: 10px 16px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5); /* Strong shadow depth layer separation */
+    font-weight: 600;
+    font-size: 0.85rem;
+    border: 1px solid color-mix(in srgb, var(--accent-color, #0d6efd), transparent 75%);
+    white-space: nowrap;
+    z-index: 3; /* Keeps badges floating visually over any image overlay masks */
+  }
+
+  /* Target inside elements to give uniform sizing context to Bootstrap Icons */
+  .floating-card i {
+    font-size: 1rem;
+  }
+
+  /* Symmetric Layout Positioning:
+     Negative coordinate boundaries project the badges slightly outside the picture box frame.
+  */
+  .floating-card.code       { top: 12%;    left: -25%; }   /* Python - Upper Left Position */
+  .floating-card.sql        { bottom: 15%; left: -20%; }   /* SQL - Lower Left Position */
+  .floating-card.creativity { top: 23%;    right: -25%; }  /* Power BI - Upper Right Position */
+  .floating-card.design     { bottom: 1%; right: -35%; }  /* Data science - Lower Right Position */
+
+  /* Safe Core Animation Engine Implementation */
+  @media (prefers-reduced-motion: no-preference) {
+    .floating-card {
+      animation: ambientFloat 3.5s ease-in-out infinite;
+    }
+    
+    /* Asynchronous animation delay offsets to simulate real float dynamics */
+    .floating-card.code       { animation-delay: 0.0s; }
+    .floating-card.creativity { animation-delay: 0.8s; }
+    .floating-card.sql        { animation-delay: 1.5s; }
+    .floating-card.design     { animation-delay: 2.2s; }
   }
 }
 
-.floating-card.design    { top: 80%;  right: -18%; animation-delay: 0.5s; }
-.floating-card.code      { bottom: 70%; left: -13%; animation-delay: 1s; }
-.floating-card.creativity { top: 35%; right: -18%; animation-delay: 1.5s; }
-.floating-card.sql       { bottom: 20%; left: -12%; animation-delay: 1s; }
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-10px); }
+/* Smooth ambient floating keyframes vector mapping */
+@keyframes ambientFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px); /* Moves up smoothly by 8px at midpoints */
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
+
+
 
 /* FIX: Hide absolute badges on mobile to avoid clipping */
 @media (max-width: 767px) {
@@ -1366,7 +1405,7 @@ text-transform: none; /* We removed the uppercase to be more minimalist */
 
     /* 2. Scale down the image box so it takes up less vertical real estate */
     .hero-image img {
-      max-height: 42vh !important;
+      max-height: 48vh !important;
       width: auto !important;
       object-fit: contain !important;
     }
@@ -1385,13 +1424,6 @@ text-transform: none; /* We removed the uppercase to be more minimalist */
 
 
   }
-
-
-
-
-
-
-
 
 
 /* --- HOVER: DIRECT COLOR CHANGE --- */
