@@ -2654,10 +2654,83 @@ article.timeline__item:nth-child(even) .timeline__icon {
 
    /* Button to download my resume in PDF */
 
-  .cv-section {
+.cv-section {
   text-align: center;
-  margin: 40px 0;
+  margin: 50px 0;
+  padding: 20px;
 }
+
+.cv-section h3 {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.cv-subtitle {
+  color: #94a3b8; /* Soft slate gray text */
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+}
+
+/* Flex wrapper to place buttons side-by-side or stacked on mobile */
+.cv-button-group {
+  display: inline-flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Base button properties shared by both links */
+.cv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* 1. Download Button (Cyan Accent theme to match your style) */
+.btn-download {
+  background: #06b6d4;
+  color: #0f172a; /* Dark background font color for crisp contrast */
+  box-shadow: 0 4px 14px rgba(6, 182, 212, 0.3);
+}
+
+.btn-download:hover {
+  background: #22d3ee;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(34, 211, 238, 0.4);
+  color: #0f172a;
+}
+
+/* 2. View Online Button (Outlined Minimalist theme) */
+.btn-view {
+  background: rgba(255, 255, 255, 0.03);
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-view:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+/* Active scale click effect for both buttons */
+.cv-btn:active {
+  transform: translateY(0);
+}
+
+
+
+
 
 .btn-download {
   display: inline-block;
