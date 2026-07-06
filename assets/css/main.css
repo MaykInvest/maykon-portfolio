@@ -1306,10 +1306,10 @@ section,
   /* Symmetric Layout Positioning:
      Negative coordinate boundaries project the badges slightly outside the picture box frame.
   */
-  .floating-card.code       { top: 12%;    left: -25%; }   /* Python - Upper Left Position */
-  .floating-card.sql        { bottom: 15%; left: -20%; }   /* SQL - Lower Left Position */
-  .floating-card.creativity { top: 23%;    right: -25%; }  /* Power BI - Upper Right Position */
-  .floating-card.design     { bottom: 1%; right: -35%; }  /* Data science - Lower Right Position */
+  .floating-card.python       { top: 12%;    left: -15%; }   /* Python - Upper Left Position */
+  .floating-card.sql        { bottom: 20%; left: -15%; }   /* SQL - Lower Left Position */
+  .floating-card.Power-bi { top: 35%;    right: -19%; }  /* Power BI - Upper Right Position */
+  .floating-card.Data-Science     { bottom: 4%; right: -21%; }  /* Data science - Lower Right Position */
 
   /* Safe Core Animation Engine Implementation */
   @media (prefers-reduced-motion: no-preference) {
@@ -1318,10 +1318,10 @@ section,
     }
     
     /* Asynchronous animation delay offsets to simulate real float dynamics */
-    .floating-card.code       { animation-delay: 0.0s; }
-    .floating-card.creativity { animation-delay: 0.8s; }
-    .floating-card.sql        { animation-delay: 1.5s; }
-    .floating-card.design     { animation-delay: 2.2s; }
+    .floating-card.python       { animation-delay: 0.0s; }
+    .floating-card.Power-bi { animation-delay: 1.0s; }
+    .floating-card.sql { animation-delay: 1.5s; }
+    .floating-card.Data-Science { animation-delay: 2.2s; }
   }
 }
 
