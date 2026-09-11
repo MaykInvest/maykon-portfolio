@@ -2,256 +2,204 @@
 <html lang="en">
 
 <head>
-  <!-- Basic Setup: Character encoding and Responsive Viewport -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  
-  <!-- SEO: Title and descriptions that appear in Google search results -->
   <title>Maykon Jonattan | Data Scientist Portfolio</title>
   <meta name="description" content="Portfolio of Maykon Jonattan de Oliveira, aspiring Data Scientist specializing in Python, machine learning, and data analysis.">
   <meta name="keywords" content="Data Scientist, Data Analyst, Machine Learning, Python, SQL, Portfolio, Maykon Jonattan">
 
-  <!-- Favicons: The small icons that appear in the browser tab -->
+  <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts: Loading Roboto, Poppins, and Raleway for typography -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS: Frameworks like Bootstrap and animation libraries (AOS, Swiper) -->
+  <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
-  <!-- Main CSS: Your custom styles and the portfolio theme styles -->
+  <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-
 </head>
 
 <body class="index-page">
-
-<!-- ======= Header / Navigation Bar ======= -->
-<header id="header" class="header d-flex align-items-center sticky-top">
-  <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
-    <!-- icon Navigation Bar -->
-    <a href="index.html" class="logo d-flex align-items-center">
-      <div class="logo-3d-scene">
-        <div class="logo-3d-cube">
-          <div class="cube-core"></div>
-
-          <div class="cube-face face-front"><i class="bi bi-bar-chart-fill"></i></div>
-          <div class="cube-face face-back"><i class="bi bi-code-slash"></i></div>
-          <div class="cube-face face-right"><i class="bi bi-database-fill-lock"></i></div>
-          <div class="cube-face face-left"><i class="bi bi-cpu"></i></div>
-          <div class="cube-face face-top"><i class="bi bi-graph-up-arrow"></i></div>
-          <div class="cube-face face-bottom"><i class="bi bi-clipboard-data"></i></div>
-        </div>
-      </div>
-    </a>
-    <!-- End icon Navigation Bar -->
-
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="resume.html">Resume</a></li>        
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-    </nav>
-
-    <div style="width: 100px;"></div> <!-- Professional "Invisible Spacer" Trick to replace the social links-->
-
-  </div>
-</header>
-
-<main class="main">
-
-  <!-- ======= Hero Section: The main landing view of the site ======= -->
-  <section id="hero" class="hero section dark-background">
-
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-      <div class="row gy-4 align-items-center">
-        
-        <!-- Hero Text Content: Right side on desktop, bottom side on mobile -->
-        <div class="col-lg-6 order-2 order-lg-2">
-          <div class="hero-content">
-            <!-- Main Title with AOS Animation -->
-            <h1 data-aos="fade-up" data-aos-delay="300">I'm <span class="highlight">Maykon Jonattan</span></h1>
-            <!-- Typed.js placeholder: The text here will "type" automatically -->
-            <h2 data-aos="fade-up" data-aos-delay="400">A Determined <span class="typed" data-typed-items="Data Scientist, Data Analyst, ML Specialist, SQL Expert"></span></h2>
-            <p data-aos="fade-up" data-aos-delay="500" >
-              I transform raw data into actionable insights. 
-              Proficient in Python, SQL and Power BI, passionate about building machine learning models that solve real-world problems.
-            </p>
-            
-          <!-- Call to Action (CTA) Buttons -->
-          <div class="hero-actions d-flex gap-2 flex-wrap">
-
-
-            <!-- Resume Button (Grey/White Highlight) --> 
-            <a href="resume.html" class="btn btn-compact btn-dark-white">Resume <i class="bi bi-file-earmark-person"></i></a>
-
-            <!-- Projects Button (Blue Highlight) --> 
-            <a href="portfolio.html" class="btn btn-compact btn-dark-white">Projects<i class="bi bi-arrow-right"></i></a>
-
-            <!-- Contact Button (Highlight Purple/Indigo) --> 
-            <a href="contact.html" class="btn btn-compact btn-dark-white">  Contact <i class="bi bi-envelope"></i></a>
-
-          </div>
-
+  <!-- Header Navigation -->
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <!-- Logo -->
+      <a href="index.html" class="logo d-flex align-items-center">
+        <div class="logo-3d-scene">
+          <div class="logo-3d-cube">
+            <div class="cube-core"></div>
+            <div class="cube-face face-front"><i class="bi bi-bar-chart-fill"></i></div>
+            <div class="cube-face face-back"><i class="bi bi-code-slash"></i></div>
+            <div class="cube-face face-right"><i class="bi bi-database-fill-lock"></i></div>
+            <div class="cube-face face-left"><i class="bi bi-cpu"></i></div>
+            <div class="cube-face face-top"><i class="bi bi-graph-up-arrow"></i></div>
+            <div class="cube-face face-bottom"><i class="bi bi-clipboard-data"></i></div>
           </div>
         </div>
+      </a>
 
-        <!-- Hero Image Column: Left side on desktop, top side on mobile -->
-        <div class="col-lg-6 order-1 order-lg-1 text-center">
-          <div class="hero-image" data-aos="zoom-in" data-aos-delay="200">
-            <div class="image-wrapper position-relative">
+      <!-- Navigation Menu -->
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
 
-              <img src="assets/img/profile/profile-image.webp" alt="Maykon Jonattan" class="img-fluid rounded shadow" loading="eager" fetchpriority="high">
-              
-              <div class="floating-elements">
-                
-                <div class="floating-card python" data-aos="fade-right" data-aos-delay="800" data-aos-anchor=".hero-image">
-                  <i class="bi bi-code-slash text-info"></i>
-                  <span>Python</span>
-                </div>
+      <!-- Spacer for layout alignment -->
+      <div style="width: 100px;"></div>
+    </div>
+  </header>
 
-                <div class="floating-card sql" data-aos="fade-down" data-aos-delay="900" data-aos-anchor=".hero-image"> 
-                  <i class="bi bi-database text-warning"></i> 
-                  <span>SQL</span> 
-                </div>
-
-                <div class="floating-card Power-bi" data-aos="fade-up" data-aos-delay="1000" data-aos-anchor=".hero-image">
-                  <i class="bi bi-bar-chart text-warning"></i>
-                  <span>Power BI</span>
-                </div>
-
-                <div class="floating-card Data-Science" data-aos="fade-left" data-aos-delay="700" data-aos-anchor=".hero-image">
-                  <i class="bi bi-graph-up text-primary"></i>
-                  <span>Data Science</span>
-                </div>
-
-              </div> </div> </div> </div>
-
+  <main class="main">
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4 align-items-center">
+          
+          <!-- Hero Text Content -->
+          <div class="col-lg-6 order-2 order-lg-2">
+            <div class="hero-content">
+              <h1 data-aos="fade-up" data-aos-delay="300">I'm <span class="highlight">Maykon Jonattan</span></h1>
+              <h2 data-aos="fade-up" data-aos-delay="400">A Determined <span class="typed" data-typed-items="Data Scientist, Data Analyst, ML Specialist, SQL Expert"></span></h2>
+              <p data-aos="fade-up" data-aos-delay="500">
+                I transform raw data into actionable insights. Proficient in Python, SQL and Power BI, passionate about building machine learning models that solve real-world problems.
+              </p>
+              <!-- Call to Action Buttons -->
+              <div class="hero-actions d-flex gap-2 flex-wrap">
+                <a href="resume.html" class="btn btn-compact btn-dark-white">Resume <i class="bi bi-file-earmark-person"></i></a>
+                <a href="portfolio.html" class="btn btn-compact btn-dark-white">Projects <i class="bi bi-arrow-right"></i></a>
+                <a href="contact.html" class="btn btn-compact btn-dark-white">Contact <i class="bi bi-envelope"></i></a>
+              </div>
             </div>
           </div>
+
+          <!-- Hero Image Column -->
+          <div class="col-lg-6 order-1 order-lg-1 text-center">
+            <div class="hero-image" data-aos="zoom-in" data-aos-delay="200">
+              <div class="image-wrapper position-relative">
+                <img src="assets/img/profile/profile-image.webp" alt="Maykon Jonattan" class="img-fluid rounded shadow" loading="eager" fetchpriority="high">
+
+                <div class="floating-elements">
+                  <div class="floating-card python" data-aos="fade-right" data-aos-delay="800" data-aos-anchor=".hero-image">
+                    <i class="bi bi-code-slash text-info"></i>
+                    <span>Python</span>
+                  </div>
+                  <div class="floating-card sql" data-aos="fade-down" data-aos-delay="900" data-aos-anchor=".hero-image">
+                    <i class="bi bi-database text-warning"></i>
+                    <span>SQL</span>
+                  </div>
+                  <div class="floating-card Power-bi" data-aos="fade-up" data-aos-delay="1000" data-aos-anchor=".hero-image">
+                    <i class="bi bi-bar-chart text-warning"></i>
+                    <span>Power BI</span>
+                  </div>
+                  <div class="floating-card Data-Science" data-aos="fade-left" data-aos-delay="700" data-aos-anchor=".hero-image">
+                    <i class="bi bi-graph-up text-primary"></i>
+                    <span>Data Science</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- Footer -->
+  <footer id="footer" class="footer-sleek">
+    <div class="container">
+      <div class="footer-inner d-flex flex-column align-items-center py-3">
+        <!-- Roles -->
+        <p class="sleek-roles mb-2">
+          Data Scientist <span class="dot">•</span> Data Analyst <span class="dot">•</span> Power BI <span class="dot">•</span> SQL
+        </p>
+
+        <!-- Social Links -->
+        <div class="social-links-sleek d-flex gap-2 mb-3">
+          <a href="https://www.linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" rel="noopener" class="sleek-glow linkedin" title="LinkedIn">
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="sleek-glow github" title="GitHub">
+            <i class="bi bi-github"></i>
+          </a>
+          <a href="contact.html" class="sleek-glow email" title="Email">
+            <i class="bi bi-envelope-at-fill"></i>
+          </a>
+        </div>
+
+        <!-- Legal & Credits -->
+        <div class="sleek-legal">
+          <span>© 2026 Maykon Jonattan</span>
+          <span class="mx-2">|</span>
+          <span>Designed by <a href="https://bootstrapmade.com/" target="_blank" class="sleek-credit">BootstrapMade</a></span>
         </div>
       </div>
     </div>
-  </section>
-</main>
+  </footer>
 
 
-<!-- Ultra‑compact footer -->
-<footer id="footer" class="footer-sleek">
-  <div class="container">
-    <div class="footer-inner d-flex flex-column align-items-center py-3">
-      
-      <!-- Compact Roles -->
-      <p class="sleek-roles mb-2">
-        Data Scientist <span class="dot">•</span> Data Analyst <span class="dot">•</span> Power BI <span class="dot">•</span> SQL
-      </p>
+  <!-- Scroll to Top Button -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
 
-      <!-- Vibrant Social Links (Compact) -->
-      <div class="social-links-sleek d-flex gap-2 mb-3">
-        <a href="https://www.linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" rel="noopener" class="sleek-glow linkedin" title="LinkedIn">
-          <i class="bi bi-linkedin"></i>
-        </a>
-        <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="sleek-glow github" title="GitHub">
-          <i class="bi bi-github"></i>
-        </a>
-        <a href="contact.html" class="sleek-glow email" title="Email">
-          <i class="bi bi-envelope-at-fill"></i>
-        </a>
-      </div>
+  <!-- Preloader -->
+  <div id="preloader"></div>
 
-      <!-- Single-Line Legal & Credits -->
-      <div class="sleek-legal">
-        <span>© 2026 Maykon Jonattan</span>
-        <span class="mx-2">|</span>
-        <span>Designed by <a href="https://bootstrapmade.com/" target="_blank" class="sleek-credit">BootstrapMade</a></span>
-      </div>
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
-    </div>
-  </div>
-</footer>
-<!-- End of the compact footer -->
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
 
-
-<!-- Scroll to Top Button: Becomes visible once the user scrolls down -->
-<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
-
-<!-- Preloader: Loading screen animation shown before the page finishes loading -->
-<div id="preloader"></div>
-
-<!-- Vendor JS Files: Functional scripts for animations, email forms, and galleries -->
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/php-email-form/validate.js"></script>
-<script src="assets/vendor/aos/aos.js"></script>
-<script src="assets/vendor/typed.js/typed.umd.js"></script>
-<script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-
-<!-- Main JS File: Initialization script that connects all the libraries above -->
-<script src="assets/js/main.js"></script>
-
-<script>
-  // Initialize AOS (Animate on Scroll)
-  window.addEventListener('load', () => {
-    AOS.init({
-      duration: 600,    // How long the animation lasts
-      easing: 'ease-in-out',
-      once: true,       // Only animate once
-      mirror: false,
-      offset: 50        // Triggers the animation 50px before it hits the center
+  <script>
+    /* Initialize AOS (Animate on Scroll) */
+    window.addEventListener('load', () => {
+      AOS.init({
+        duration: 600,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false,
+        offset: 50
+      });
     });
-  });
 
-const scene = document.querySelector('.logo-3d-scene');
-const cube = document.querySelector('.logo-3d-cube');
+    /* Logo 3D Cube Tilt Effect */
+    const scene = document.querySelector('.logo-3d-scene');
+    const cube = document.querySelector('.logo-3d-cube');
 
-scene.addEventListener('mousemove', (e) => {
-  const rect = scene.getBoundingClientRect();
+    scene.addEventListener('mousemove', (e) => {
+      const rect = scene.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const midX = rect.width / 2;
+      const midY = rect.height / 2;
+      const rotateY = ((x - midX) / midX) * 25;
+      const rotateX = -((y - midY) / midY) * 25;
+      cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
 
-  // Get mouse position inside element
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
-
-  // Normalize values (-1 to 1)
-  const midX = rect.width / 2;
-  const midY = rect.height / 2;
-
-  const rotateY = ((x - midX) / midX) * 25;  // horizontal movement
-  const rotateX = -((y - midY) / midY) * 25; // vertical movement
-
-  cube.style.transform = `
-    rotateX(${rotateX}deg)
-    rotateY(${rotateY}deg)
-  `;
-});
-
-scene.addEventListener('mouseleave', () => {
-  // Reset to default smooth state
-  cube.style.transform = 'rotateX(0deg) rotateY(0deg)';
-});
-</script>
-
-
-</script>
-
+    scene.addEventListener('mouseleave', () => {
+      cube.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    });
+  </script>
 </body>
 
 </html>
