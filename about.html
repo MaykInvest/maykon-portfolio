@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- Meta Tags -->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About | Maykon Jonattan - Data Scientist & ML Enthusiast</title>
-  <meta name="description" content="Learn about Maykon Jonattan, an aspiring Data Scientist passionate about Python, Machine Learning, and turning data into actionable insights.">
-  <meta name="keywords" content="Data Scientist, Machine Learning, Python, SQL, Power BI, Data Analysis">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>About | Maykon Jonattan - Data Scientist</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -22,317 +20,382 @@
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Custom styles for this page -->
+  <style>
+    /* Add any custom styles here if needed */
+  </style>
 </head>
 
 <body class="about-page">
-  <!-- =========================================
-       HEADER / NAVIGATION
-       ========================================= -->
+
+  <!-- ======= Header / Navigation Bar ======= -->
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-      <!-- Logo -->
-      <a href="index.html" class="logo d-flex align-items-center">
-        <div class="logo-3d-scene">
-          <div class="logo-3d-cube">
-            <div class="cube-core"></div>
-            <div class="cube-face face-front"><i class="bi bi-bar-chart-fill"></i></div>
-            <div class="cube-face face-back"><i class="bi bi-code-slash"></i></div>
-            <div class="cube-face face-right"><i class="bi bi-database-fill-lock"></i></div>
-            <div class="cube-face face-left"><i class="bi bi-cpu"></i></div>
-            <div class="cube-face face-top"><i class="bi bi-graph-up-arrow"></i></div>
-            <div class="cube-face face-bottom"><i class="bi bi-clipboard-data"></i></div>
-          </div>
-        </div>
-      </a>
 
-      <!-- Navigation Menu -->
+    <!-- icon Navigation Bar -->
+    <a href="index.html" class="logo d-flex align-items-center">
+      <div class="logo-3d-scene">
+        <div class="logo-3d-cube">
+          <div class="cube-core"></div>
+
+          <div class="cube-face face-front"><i class="bi bi-bar-chart-fill"></i></div>
+          <div class="cube-face face-back"><i class="bi bi-code-slash"></i></div>
+          <div class="cube-face face-right"><i class="bi bi-database-fill-lock"></i></div>
+          <div class="cube-face face-left"><i class="bi bi-cpu"></i></div>
+          <div class="cube-face face-top"><i class="bi bi-graph-up-arrow"></i></div>
+          <div class="cube-face face-bottom"><i class="bi bi-clipboard-data"></i></div>
+        </div>
+      </div>
+    </a>
+    <!-- End icon Navigation Bar -->
+
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html" class="active">About</a></li>
           <li><a href="skills.html">Skills</a></li>
-          <li><a href="resume.html">Resume</a></li>
+          <li><a href="resume.html">Resume</a></li>        
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <!-- Spacer -->
-      <div style="width: 100px;"></div>
+      <div style="width: 100px;"></div> <!-- Professional "Invisible Spacer" Trick to replace the social links-->
+
     </div>
   </header>
 
-  <!-- =========================================
-       MAIN CONTENT
-       ========================================= -->
   <main class="main">
+
     <!-- About Section -->
     <section id="about" class="about-modern section dark-background">
+
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>A little bit about me!</h2>
       </div>
+      <!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <!-- Profile & Introduction -->
+
+        <!-- top section -->
+
         <div class="row align-items-center g-5 about-intro">
-          <!-- Profile Card -->
+
+          <!-- PROFILE CARD (Futuristic Aside) -->
           <aside class="col-lg-4">
             <div class="profile-card text-center" data-aos="fade-right">
               <div class="profile-img-wrapper">
-                <img src="assets/img/profile/profile-image.webp" alt="Maykon Jonattan - Data Scientist" class="profile-img" loading="eager" fetchpriority="high" />
+                <img
+                  src="assets/img/profile/profile-image.webp"
+                  alt="Maykon Jonattan - Data Scientist"
+                  class="profile-img"
+                  loading="eager"
+                  fetchpriority="high"
+                />
               </div>
+
               <h3 class="profile-name">Maykon Jonattan</h3>
-              <p class="profile-role">Data Scientist</p>
+              <p class="profile-role">Aspiring Data Scientist</p>
+
               <div class="profile-quote-container">
-                <p class="profile-quote">"I'm the kind of person who isn't afraid of <strong>challenges</strong>."</p>
+                <p class="profile-quote">
+                  “I'm the kind of person who isn't afraid of <strong>challenges</strong>.”
+                </p>
               </div>
             </div>
           </aside>
 
-          <!-- About Text -->
+          <!-- INTRO TEXT (Readable Section) -->
           <section class="col-lg-8" data-aos="fade-left" data-aos-delay="200">
             <div class="about-text">
-              <p>I started learning Python as an alternative to leaving the support field. What began as an experiment quickly became a passion, and after a few years, I discovered <strong>Data Science with Machine Learning</strong>, and everything changed.</p>
-              <p>To be honest, I'm not going to pretend I know everything. But I'm dedicated and willing to work hard and get things done. Every day, I work to improve my skills, deepen my knowledge, and be a better person than I was yesterday.</p>
-              <p>When faced with a challenge, I don't stop. I study more, practice more, and adapt to the new situation. Growing up isn't an option for me, it's a habit.</p>
-              <p class="signature">It would be a pleasure to hear from you. God bless!</p>
+              <p>
+                I started learning Python as an alternative to leaving the support field. 
+                What began as an experiment quickly became a passion, and after a few years, 
+                I discovered <strong>Data Science with Machine Learning</strong>, 
+                and everything changed.
+              </p>
+              <p>
+                To be honest, I'm not going to pretend I know everything.
+                But I'm dedicated and willing to work hard and get things done. 
+                Every day, I work to improve my skills, deepen my knowledge, and be a better person than I was yesterday.
+              </p>
+              <p>
+                When faced with a challenge, I don't stop. 
+                I study more, practice more, and adapt to the new situation.
+                Growing up isn't an option for me, it's a habit.
+              </p>
+              <p class="signature">
+                It would be a pleasure to hear from you. God bless!
+              </p>
+
             </div>
           </section>
+
         </div>
+        <!-- end top section -->
 
-        <!-- Timeline Section -->
+      
+        
+        <!-- Row 3: Timeline -->
         <section class="timeline">
-          <!-- 2023 - Python -->
-          <article class="timeline__item">
-            <div class="timeline__content">
-              <span class="label">The Beginning</span>
-              <h1>Learning Python</h1>
-              <time datetime="2023">2023</time>
-              <hr />
-              <p>Started my programming journey by learning Python — the language that powers most of the Data Science ecosystem. Focused on fundamentals such as data structures, functions, and libraries like NumPy and Pandas.</p>
-              <div class="tags">
-                <span class="tag">Python</span>
-                <span class="tag">NumPy</span>
-                <span class="tag">Pandas</span>
-              </div>
-            </div>
-            <div class="timeline__icon">
-              <div class="icon-card">
-                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="8" y="20" width="48" height="32" rx="4" fill="rgba(37,99,235,0.15)" stroke="#2563eb" stroke-width="2" />
-                  <polyline points="18,28 26,36 18,44" stroke="#93c5fd" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-                  <line x1="30" y1="44" x2="46" y2="44" stroke="#4a9eff" stroke-width="2.5" stroke-linecap="round" />
-                  <circle cx="32" cy="12" r="4" fill="rgba(37,99,235,0.3)" stroke="#2563eb" stroke-width="2" />
-                  <line x1="32" y1="16" x2="32" y2="20" stroke="#2563eb" stroke-width="2" />
-                </svg>
-              </div>
-            </div>
-          </article>
 
-          <!-- 2024 - Data Science -->
-          <article class="timeline__item">
-            <div class="timeline__content">
-              <span class="label">Discovery</span>
-              <h1>Diving into Data Science</h1>
-              <time datetime="2024">2024</time>
-              <hr />
-              <p>Discovered the world of Data Science and committed to studying it seriously. Explored statistics, data visualisation, machine learning concepts, and tools like Scikit-learn and Matplotlib to understand patterns in data.</p>
-              <div class="tags">
-                <span class="tag">Statistics</span>
-                <span class="tag">Scikit-learn</span>
-                <span class="tag">Matplotlib</span>
-                <span class="tag">Machine Learning</span>
-              </div>
-            </div>
-            <div class="timeline__icon">
-              <div class="icon-card">
-                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="8" y="8" width="48" height="48" rx="4" fill="rgba(37,99,235,0.1)" stroke="#2563eb" stroke-width="2" />
-                  <line x1="16" y1="48" x2="16" y2="16" stroke="#1a4fa0" stroke-width="1.5" />
-                  <line x1="16" y1="48" x2="52" y2="48" stroke="#1a4fa0" stroke-width="1.5" />
-                  <rect x="20" y="34" width="7" height="14" rx="1.5" fill="#1e40af" />
-                  <rect x="30" y="24" width="7" height="24" rx="1.5" fill="#2563eb" />
-                  <rect x="40" y="18" width="7" height="30" rx="1.5" fill="#3b82f6" />
-                  <polyline points="20,30 30,22 40,16 50,12" stroke="#93c5fd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 2" />
-                </svg>
-              </div>
-            </div>
-          </article>
-
-          <!-- 2025 - Projects & SQL -->
-          <article class="timeline__item">
-            <div class="timeline__content">
-              <span class="label">Building & Querying</span>
-              <h1>First Projects &amp; SQL</h1>
-              <time datetime="2025">2025</time>
-              <hr />
-              <p>Moved from theory to practice by building real Data Science projects. Also started learning SQL to query and manipulate databases — a critical skill for any data professional working with structured data.</p>
-              <div class="tags">
-                <span class="tag">SQL</span>
-                <span class="tag">Projects</span>
-                <span class="tag">Databases</span>
-                <span class="tag">EDA</span>
-              </div>
-            </div>
-            <div class="timeline__icon">
-              <div class="icon-card">
-                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <ellipse cx="32" cy="18" rx="18" ry="7" fill="rgba(37,99,235,0.2)" stroke="#2563eb" stroke-width="2" />
-                  <path d="M14 18 C14 18 14 30 14 36 C14 39.87 22.06 43 32 43 C41.94 43 50 39.87 50 36 L50 18" stroke="#2563eb" stroke-width="2" fill="rgba(37,99,235,0.08)" />
-                  <path d="M14 27 C14 30.87 22.06 34 32 34 C41.94 34 50 30.87 50 27" stroke="#4a9eff" stroke-width="1.5" stroke-dasharray="3 2" />
-                  <path d="M14 36 C14 39.87 22.06 43 32 43 C41.94 43 50 39.87 50 36 L50 46 C50 49.87 41.94 53 32 53 C22.06 53 14 49.87 14 46 Z" fill="rgba(37,99,235,0.15)" stroke="#2563eb" stroke-width="2" />
-                  <line x1="38" y1="48" x2="44" y2="48" stroke="#93c5fd" stroke-width="2" stroke-linecap="round" />
-                  <line x1="38" y1="51" x2="42" y2="51" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round" />
-                </svg>
-              </div>
-            </div>
-          </article>
-
-          <!-- 2026 - Job & Power BI -->
-          <article class="timeline__item">
-            <div class="timeline__content">
-              <span class="label">Next Step</span>
-              <h1>Entering the Job Market &amp; Power BI</h1>
-              <time datetime="2026">2026</time>
-              <hr />
-              <p>Aiming to land my first job in the Data Science field while expanding my skill set with Power BI — a leading business intelligence tool for creating interactive dashboards and data-driven reports.</p>
-              <div class="tags">
-                <span class="tag">Power BI</span>
-                <span class="tag">Dashboards</span>
-                <span class="tag">Job Search</span>
-                <span class="tag">BI</span>
-              </div>
-            </div>
-            <div class="timeline__icon">
-              <div class="icon-card">
-                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="8" y="8" width="48" height="36" rx="4" fill="rgba(37,99,235,0.1)" stroke="#2563eb" stroke-width="2" />
-                  <rect x="14" y="14" width="16" height="10" rx="2" fill="rgba(37,99,235,0.25)" stroke="#4a9eff" stroke-width="1.2" />
-                  <rect x="34" y="14" width="16" height="10" rx="2" fill="rgba(37,99,235,0.25)" stroke="#4a9eff" stroke-width="1.2" />
-                  <rect x="14" y="28" width="36" height="10" rx="2" fill="rgba(37,99,235,0.15)" stroke="#4a9eff" stroke-width="1.2" />
-                  <line x1="20" y1="33" x2="44" y2="33" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round" />
-                  <line x1="20" y1="36" x2="36" y2="36" stroke="#1e40af" stroke-width="1.5" stroke-linecap="round" />
-                  <line x1="28" y1="44" x2="28" y2="56" stroke="#2563eb" stroke-width="2" />
-                  <line x1="36" y1="44" x2="36" y2="56" stroke="#2563eb" stroke-width="2" />
-                  <line x1="20" y1="56" x2="44" y2="56" stroke="#2563eb" stroke-width="2" stroke-linecap="round" />
-                  <circle cx="42" cy="19" r="3" fill="#3b82f6" opacity="0.8" />
-                  <polyline points="40,19 42,17 44,19" stroke="#93c5fd" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </div>
-            </div>
-          </article>
-        </section>
-
-        <!-- Tech Stack Section -->
-        <section>
-          <!-- Title -->
-          <div class="row mb-4">
-            <div class="col-12 text-center">
-              <h3 class="tech-stack-title text-uppercase letter-spacing-2">Technical <span class="text-primary">Toolbox</span></h3>
-              <p class="text-muted small">The technologies and frameworks I use to bring data to life.</p>
+        <!-- 2023 ─ Python -->
+        <article class="timeline__item">
+          <div class="timeline__content">
+            <span class="label">The Beginning</span>
+            <h1>Learning Python</h1>
+            <time datetime="2023">2023</time>
+            <hr />
+            <p>Started my programming journey by learning Python — the language that powers most of the Data Science ecosystem. Focused on fundamentals such as data structures, functions, and libraries like NumPy and Pandas.</p>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">NumPy</span>
+              <span class="tag">Pandas</span>
             </div>
           </div>
-
-          <!-- Tech Grid -->
-          <div class="container mb-5" data-aos="fade-up" data-aos-delay="100">
-            <div class="tech-grid">
-              <a href="https://www.python.org/" target="_blank" rel="noopener" class="tech-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python Logo">
-                <span>Python</span>
-              </a>
-              <a href="https://jupyter.org/" target="_blank" rel="noopener" class="tech-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" alt="Jupyter Notebook Logo">
-                <span>Jupyter</span>
-              </a>
-              <a href="https://www.r-project.org/" target="_blank" rel="noopener" class="tech-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R Logo">
-                <span>R</span>
-              </a>
-              <a href="https://www.ibm.com/think/topics/data-science" target="_blank" rel="noopener" class="tech-item">
-                <img src="https://img.icons8.com/fluency/96/combo-chart.png" alt="Data Science Icon">
-                <span>Data Science</span>
-              </a>
-              <a href="https://www.ibm.com/think/topics/machine-learning" target="_blank" rel="noopener" class="tech-item">
-                <img src="https://img.icons8.com/fluency/96/artificial-intelligence.png" alt="Machine Learning Icon">
-                <span>Machine Learning</span>
-              </a>
-              <a href="https://aws.amazon.com/what-is/sql/" target="_blank" rel="noopener" class="tech-item">
-                <img src="https://img.icons8.com/color/96/database.png" alt="SQL Icon">
-                <span>SQL</span>
-              </a>
-              <a href="https://learn.microsoft.com/en-us/power-bi/fundamentals/power-bi-overview" target="_blank" rel="noopener" class="tech-item">
-                <img src="https://img.icons8.com/color/96/power-bi.png" alt="Power BI Icon">
-                <span>Power BI</span>
-              </a>
+          <div class="timeline__icon">
+            <div class="icon-card">
+              <!-- Python / Code icon -->
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="20" width="48" height="32" rx="4" fill="rgba(37,99,235,0.15)" stroke="#2563eb" stroke-width="2"/>
+                <polyline points="18,28 26,36 18,44" stroke="#93c5fd" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="30" y1="44" x2="46" y2="44" stroke="#4a9eff" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="32" cy="12" r="4" fill="rgba(37,99,235,0.3)" stroke="#2563eb" stroke-width="2"/>
+                <line x1="32" y1="16" x2="32" y2="20" stroke="#2563eb" stroke-width="2"/>
+              </svg>
             </div>
           </div>
+        </article>
 
-          <!-- Call-to-Action Buttons -->
-          <div class="row mt-5">
-            <div class="col-12 d-flex gap-3 flex-wrap justify-content-center" data-aos="fade-up">
-              <a href="skills.html" class="btn-elite">Skills <i class="bi bi-terminal"></i></a>
+        <!-- 2024 ─ Data Science -->
+        <article class="timeline__item">
+          <div class="timeline__content">
+            <span class="label">Discovery</span>
+            <h1>Diving into Data Science</h1>
+            <time datetime="2024">2024</time>
+            <hr />
+            <p>Discovered the world of Data Science and committed to studying it seriously. Explored statistics, data visualisation, machine learning concepts, and tools like Scikit-learn and Matplotlib to understand patterns in data.</p>
+            <div class="tags">
+              <span class="tag">Statistics</span>
+              <span class="tag">Scikit-learn</span>
+              <span class="tag">Matplotlib</span>
+              <span class="tag">Machine Learning</span>
             </div>
           </div>
-        </section>
+          <div class="timeline__icon">
+            <div class="icon-card">
+              <!-- Data / Chart icon -->
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="8" width="48" height="48" rx="4" fill="rgba(37,99,235,0.1)" stroke="#2563eb" stroke-width="2"/>
+                <line x1="16" y1="48" x2="16" y2="16" stroke="#1a4fa0" stroke-width="1.5"/>
+                <line x1="16" y1="48" x2="52" y2="48" stroke="#1a4fa0" stroke-width="1.5"/>
+                <rect x="20" y="34" width="7" height="14" rx="1.5" fill="#1e40af"/>
+                <rect x="30" y="24" width="7" height="24" rx="1.5" fill="#2563eb"/>
+                <rect x="40" y="18" width="7" height="30" rx="1.5" fill="#3b82f6"/>
+                <polyline points="20,30 30,22 40,16 50,12" stroke="#93c5fd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 2"/>
+              </svg>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2025 ─ Projects & SQL -->
+        <article class="timeline__item">
+          <div class="timeline__content">
+            <span class="label">Building & Querying</span>
+            <h1>First Projects &amp; SQL</h1>
+            <time datetime="2025">2025</time>
+            <hr />
+            <p>Moved from theory to practice by building real Data Science projects. Also started learning SQL to query and manipulate databases — a critical skill for any data professional working with structured data.</p>
+            <div class="tags">
+              <span class="tag">SQL</span>
+              <span class="tag">Projects</span>
+              <span class="tag">Databases</span>
+              <span class="tag">EDA</span>
+            </div>
+          </div>
+          <div class="timeline__icon">
+            <div class="icon-card">
+              <!-- Database / SQL icon -->
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="32" cy="18" rx="18" ry="7" fill="rgba(37,99,235,0.2)" stroke="#2563eb" stroke-width="2"/>
+                <path d="M14 18 C14 18 14 30 14 36 C14 39.87 22.06 43 32 43 C41.94 43 50 39.87 50 36 L50 18" stroke="#2563eb" stroke-width="2" fill="rgba(37,99,235,0.08)"/>
+                <path d="M14 27 C14 30.87 22.06 34 32 34 C41.94 34 50 30.87 50 27" stroke="#4a9eff" stroke-width="1.5" stroke-dasharray="3 2"/>
+                <path d="M14 36 C14 39.87 22.06 43 32 43 C41.94 43 50 39.87 50 36 L50 46 C50 49.87 41.94 53 32 53 C22.06 53 14 49.87 14 46 Z" fill="rgba(37,99,235,0.15)" stroke="#2563eb" stroke-width="2"/>
+                <line x1="38" y1="48" x2="44" y2="48" stroke="#93c5fd" stroke-width="2" stroke-linecap="round"/>
+                <line x1="38" y1="51" x2="42" y2="51" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2026 ─ Job & Power BI -->
+        <article class="timeline__item">
+          <div class="timeline__content">
+            <span class="label">Next Step</span>
+            <h1>Entering the Job Market &amp; Power BI</h1>
+            <time datetime="2026">2026</time>
+            <hr />
+            <p>Aiming to land my first job in the Data Science field while expanding my skill set with Power BI — a leading business intelligence tool for creating interactive dashboards and data-driven reports.</p>
+            <div class="tags">
+              <span class="tag">Power BI</span>
+              <span class="tag">Dashboards</span>
+              <span class="tag">Job Search</span>
+              <span class="tag">BI</span>
+            </div>
+          </div>
+          <div class="timeline__icon">
+            <div class="icon-card">
+              <!-- Dashboard / Power BI icon -->
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="8" width="48" height="36" rx="4" fill="rgba(37,99,235,0.1)" stroke="#2563eb" stroke-width="2"/>
+                <rect x="14" y="14" width="16" height="10" rx="2" fill="rgba(37,99,235,0.25)" stroke="#4a9eff" stroke-width="1.2"/>
+                <rect x="34" y="14" width="16" height="10" rx="2" fill="rgba(37,99,235,0.25)" stroke="#4a9eff" stroke-width="1.2"/>
+                <rect x="14" y="28" width="36" height="10" rx="2" fill="rgba(37,99,235,0.15)" stroke="#4a9eff" stroke-width="1.2"/>
+                <line x1="20" y1="33" x2="44" y2="33" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="20" y1="36" x2="36" y2="36" stroke="#1e40af" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="28" y1="44" x2="28" y2="56" stroke="#2563eb" stroke-width="2"/>
+                <line x1="36" y1="44" x2="36" y2="56" stroke="#2563eb" stroke-width="2"/>
+                <line x1="20" y1="56" x2="44" y2="56" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="42" cy="19" r="3" fill="#3b82f6" opacity="0.8"/>
+                <polyline points="40,19 42,17 44,19" stroke="#93c5fd" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+        </article>
+
+      </section>
+        <!-- end row 3 -->
+
+      <section>
+
+        <!-- Title Tech Grid Section -->
+        <div class="row mb-4">
+          <div class="col-12 text-center">
+            <h3 class="tech-stack-title text-uppercase letter-spacing-2">
+              Technical <span class="text-primary">Toolbox</span>
+            </h3>
+            <p class="text-muted small">The technologies and frameworks I use to bring data to life.</p>
+          </div>
+        </div>
+        
+      <!-- Tech Grid Section -->
+      <div class="container mb-5" data-aos="fade-up" data-aos-delay="100">
+        <div class="tech-grid">
+          <a href="https://www.python.org/" target="_blank" rel="noopener" class="tech-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python Logo">
+            <span>Python</span>
+          </a>
+          <a href="https://jupyter.org/" target="_blank" rel="noopener" class="tech-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" alt="Jupyter Notebook Logo">
+            <span>Jupyter</span>
+          </a>
+
+          <a href="https://www.r-project.org/" target="_blank" rel="noopener" class="tech-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R Logo">
+            <span>R</span>
+          </a>
+          <a href="https://www.ibm.com/think/topics/data-science" target="_blank" rel="noopener" class="tech-item">
+            <img src="https://img.icons8.com/fluency/96/combo-chart.png" alt="Data Science Icon">
+            <span>Data Science</span>
+          </a>
+          <a href="https://www.ibm.com/think/topics/machine-learning" target="_blank" rel="noopener" class="tech-item">
+            <img src="https://img.icons8.com/fluency/96/artificial-intelligence.png" alt="Machine Learning Icon">
+            <span>Machine Learning</span>
+          </a>
+
+          <a href="https://aws.amazon.com/what-is/sql/" target="_blank" rel="noopener" class="tech-item">
+            <img src="https://img.icons8.com/color/96/database.png" alt="SQL Icon">
+            <span>SQL</span>
+          </a>
+          <a href="https://learn.microsoft.com/en-us/power-bi/fundamentals/power-bi-overview" target="_blank" rel="noopener" class="tech-item">
+            <img src="https://img.icons8.com/color/96/power-bi.png" alt="Power BI Icon">
+            <span>Power BI</span>
+          </a>
+        </div>
       </div>
+
+      <!-- Row 4: CTA Buttons -->
+      <div class="row mt-5">
+        <div class="col-12 d-flex gap-3 flex-wrap justify-content-center" data-aos="fade-up">
+          <a href="skills.html" class="btn-elite">
+            Skills
+            <i class="bi bi-terminal"></i> <!-- Data Science / Tech Icon -->
+          </a>
+        </div>
+      </div>
+      <!-- end row 4 -->
+      </section>
+
+      </div><!-- end container -->
     </section>
+    <!-- end about section -->
+
   </main>
 
-  <!-- =========================================
-       FOOTER
-       ========================================= -->
-  <footer id="footer" class="footer-sleek">
-    <div class="container">
-      <div class="footer-inner d-flex flex-column align-items-center py-3">
-        <!-- Roles -->
-        <p class="sleek-roles mb-2">
-          Data Scientist <span class="dot">•</span> Data Analyst <span class="dot">•</span> Power BI <span class="dot">•</span> SQL
-        </p>
+<!-- Ultra‑compact footer -->
+<footer id="footer" class="footer-sleek">
+  <div class="container">
+    <div class="footer-inner d-flex flex-column align-items-center py-3">
+      
+      <!-- Compact Roles -->
+      <p class="sleek-roles mb-2">
+        Data Scientist <span class="dot">•</span> Data Analyst <span class="dot">•</span> Power BI <span class="dot">•</span> SQL
+      </p>
 
-        <!-- Social Links -->
-        <div class="social-links-sleek d-flex gap-2 mb-3">
-          <a href="https://www.linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" rel="noopener" class="sleek-glow linkedin" title="LinkedIn">
-            <i class="bi bi-linkedin"></i>
-          </a>
-          <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="sleek-glow github" title="GitHub">
-            <i class="bi bi-github"></i>
-          </a>
-          <a href="contact.html" class="sleek-glow email" title="Email">
-            <i class="bi bi-envelope-at-fill"></i>
-          </a>
-        </div>
-
-        <!-- Copyright -->
-        <div class="sleek-legal">
-          <span>© 2026 Maykon Jonattan</span>
-          <span class="mx-2">|</span>
-          <span>Designed by <a href="https://bootstrapmade.com/" target="_blank" class="sleek-credit">BootstrapMade</a></span>
-        </div>
+      <!-- Vibrant Social Links (Compact) -->
+      <div class="social-links-sleek d-flex gap-2 mb-3">
+        <a href="https://www.linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" rel="noopener" class="sleek-glow linkedin" title="LinkedIn">
+          <i class="bi bi-linkedin"></i>
+        </a>
+        <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="sleek-glow github" title="GitHub">
+          <i class="bi bi-github"></i>
+        </a>
+        <a href="contact.html" class="sleek-glow email" title="Email">
+          <i class="bi bi-envelope-at-fill"></i>
+        </a>
       </div>
-    </div>
-  </footer>
 
-  <!-- =========================================
-       SCROLL TOP & PRELOADER
-       ========================================= -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
-    <i class="bi bi-arrow-up-short"></i>
-  </a>
+      <!-- Single-Line Legal & Credits -->
+      <div class="sleek-legal">
+        <span>© 2026 Maykon Jonattan</span>
+        <span class="mx-2">|</span>
+        <span>Designed by <a href="https://bootstrapmade.com/" target="_blank" class="sleek-credit">BootstrapMade</a></span>
+      </div>
+
+    </div>
+  </div>
+</footer>
+<!-- End of the compact footer -->
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
   <div id="preloader"></div>
 
-  <!-- =========================================
-       VENDOR SCRIPTS (ESSENTIAL ONLY)
-       ========================================= -->
+  <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-</body>
 
+  <!-- Remove broken parallax script (no .icon-ball elements) -->
+</body>
 </html>
