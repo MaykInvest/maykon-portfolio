@@ -1,53 +1,136 @@
+/*==============================================================
+  MAYKON JONATTAN — PORTFOLIO STYLESHEET (main.css)
+  Based on the BootstrapMade "FolioOne" template, heavily customized.
+
+  TABLE OF CONTENTS  (search for the number, e.g. "# 3.2", to jump)
+
+  1. SETTINGS
+     1.1  Fonts
+     1.2  Design tokens (all CSS variables)
+     1.3  Color presets
+
+  2. BASE
+     2.1  Reset
+     2.2  Page body & background glow
+     2.3  Links & headings
+     2.4  Sections & glass surfaces
+     2.5  Section titles
+     2.6  Utility classes
+
+  3. SHARED COMPONENTS (used on every page)
+     3.1  Header
+     3.2  3D cube logo
+     3.3  Navigation – desktop
+     3.4  Navigation – mobile
+     3.5  "Next page" button (.btn-elite)
+     3.6  Tags / pills
+     3.7  Footer
+     3.8  Scroll-to-top button
+     3.9  Preloader
+
+  4. PAGES
+     4.1  Home      (index.html)
+     4.2  About     (about.html)
+     4.3  Skills    (skills.html)
+     4.4  Resume    (resume.html)
+     4.5  Portfolio (portfolio.html)
+     4.6  Contact   (contact.html)
+
+  5. LEGACY – not used by any page (safe to delete)
+==============================================================*/
+
+
+/*==============================================================
+  # 1. SETTINGS
+==============================================================*/
+
 /*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
+  # 1.1 Fonts
+  Roboto, Raleway and Poppins are loaded by the <link> tag in
+  each HTML page.
+
+  NOTE: the line below used to sit in the middle of this file.
+  Browsers ignore an @import that is not at the very top, so it
+  never loaded. It is kept commented out so the site looks
+  exactly the same. To really use Inter / Space Mono, move this
+  URL into the Google Fonts <link> of each page instead.
 --------------------------------------------------------------*/
-/* Fonts */
+/* @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap'); */
+
+
+/*--------------------------------------------------------------
+  # 1.2 Design tokens
+  Every CSS variable of the site lives here. Change a value once
+  and it updates everywhere.
+--------------------------------------------------------------*/
 :root {
+  /* Fonts */
   --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Raleway", sans-serif;
   --nav-font: "Poppins", sans-serif;
-}
 
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root {
-  --background-color: #101a20;
-  /* Background color for the entire website, including individual sections */
-  --default-color: #e7f2f7;
-  /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #ffffff;
-  /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #1387c1;
-  /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #141f26;
-  /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff;
-  /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
-}
+  /* Global colors */
+  --background-color: #101a20;   /* page background */
+  --default-color: #e7f2f7;      /* body text */
+  --heading-color: #ffffff;      /* headings */
+  --accent-color: #007bff;       /* brand blue: buttons, links, highlights */
+  --surface-color: #14243f;      /* background of boxed elements (cards, badges) */
+  --contrast-color: #ffffff;     /* text on top of accent-colored backgrounds */
 
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
-:root {
-  --nav-color: #ffffff;
-  /* The default color of the main navmenu links */
-  --nav-hover-color: #1387c1;
-  /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #213642;
-  /* Used as the background color for mobile navigation menu */
+  /* Text shades */
+  --text-main: #ffffff;
+  --text-muted: #a0a0a0;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+
+  /* Navigation menu */
+  --nav-color: #ffffff;                    /* menu links */
+  --nav-hover-color: #1387c1;              /* menu links on hover / active page */
+  --nav-mobile-background-color: #213642;  /* mobile menu background */
   --nav-dropdown-background-color: #051117;
-  /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #e7f2f7;
-  /* Used for navigation links of the dropdown items in the navigation menu. */
   --nav-dropdown-hover-color: #1387c1;
-  /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+
+  /* Neon accents */
+  --neon-blue: #06b6d4;
+  --neon-purple: #4f46e5;
+  --accent-glow: rgba(6, 182, 212, 0.5);
+
+  /* Glass effect */
+  --glass-bg: rgba(15, 23, 42, 0.6);
+  --glass-hover: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-border-hover: rgba(255, 255, 255, 0.25);
+  --shimmer-color: rgba(255, 255, 255, 0.4);
+
+  /* Motion */
+  --transition-smooth: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  --transition-fast: 0.15s ease;
+  --transition-speed: 0.6s;
+
+  /* 3D cube logo */
+  --cube-size: 52px;
+  --cube-half: calc(var(--cube-size) / 2);
+  --cube-accent: #06b6d4;
+  --cube-hover-accent: #4f46e5;
+  --cube-glass-bg: rgba(10, 25, 47, 0.6);
+  --cube-speed-normal: 12s;
+  --cube-speed-fast: 3s;  /* spin speed on hover */
+
+  /* Tech grid cards (About page) */
+  --card-primary: #00d4ff;
+  --card-primary-dark: #0099cc;
+  --card-bg-front: #1a1f2b;
+  --card-bg-back: #11141d;
+  --card-text-main: #e2e8f0;
+  --card-accent-muted: rgba(255, 255, 255, 0.1);
 }
 
-/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
-.light-background {
-  --background-color: #142027;
-  --surface-color: #325264;
-}
-
+/*--------------------------------------------------------------
+  # 1.3 Color presets
+  Add .dark-background to a section to use these colors there.
+--------------------------------------------------------------*/
 .dark-background {
   --background-color: #0b1419;
   --default-color: #ffffff;
@@ -56,13 +139,28 @@
   --contrast-color: #ffffff;
 }
 
+
+/*==============================================================
+  # 2. BASE
+==============================================================*/
+
+/*--------------------------------------------------------------
+  # 2.1 Reset
+--------------------------------------------------------------*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0
+}
+
 /* Smooth scroll */
 :root {
   scroll-behavior: smooth;
 }
 
+
 /*--------------------------------------------------------------
-# General Styling & Shared Classes
+  # 2.2 Page body & background glow
 --------------------------------------------------------------*/
 /* Universal Body Styling */
 body {
@@ -100,30 +198,15 @@ body::before {
   /* Allows you to click on elements "through" the background */
 }
 
-/* Make all sections transparent so the body gradient shows through */
-section,
-.section {
-  background: transparent !important;
-}
-
-/* If you have a specific main container, make it transparent too */
-main {
-  background: transparent !important;
-}
-
-/* This ensures your "cards" still stand out against the background */
-.refined-card,
-.card {
-  background: rgba(255, 255, 255, 0.03) !important;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
 .main {
   flex: 1 0 auto;
   /* This tells the main content to grow and fill all available space */
 }
 
+
+/*--------------------------------------------------------------
+  # 2.3 Links & headings
+--------------------------------------------------------------*/
 a {
   color: var(--accent-color);
   text-decoration: none;
@@ -145,152 +228,130 @@ h6 {
   font-family: var(--heading-font);
 }
 
+
 /*--------------------------------------------------------------
-# Mobile menu - Fixed & Refined
+  # 2.4 Sections & glass surfaces
 --------------------------------------------------------------*/
+section,
+.section {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 60px 0;
+  scroll-margin-top: 100px;
+  overflow: clip;
+}
 
-/* ── Hide the nav list by default on mobile ─────────────────── */
 @media (max-width: 1199px) {
-  .navmenu ul {
-    display: none;
+
+  section,
+  .section {
+    scroll-margin-top: 66px;
   }
 }
 
-
-/* ── Hamburger toggle button ────────────────────────────────── */
-@media (max-width: 1199px) {
-  .mobile-nav-toggle {
-    color: var(--nav-color, #fff);
-    font-size: 28px;
-    cursor: pointer;
-    line-height: 0;
-    transition: 0.3s;
-    z-index: 9999;
-    margin-right: 10px;
-  }
+/* Make sections transparent so the body glow shows through */
+section,
+.section {
+  background: transparent !important;
 }
 
-
-/* ── Full-screen overlay (the dark backdrop) ────────────────── */
-@media (max-width: 1199px) {
-  .mobile-nav-active {
-    overflow: hidden;
-    /* Locks body scroll while menu is open */
-  }
-
-  .mobile-nav-active .navmenu {
-    position: fixed;
-    inset: 0;
-    /* Deep dark background — full screen */
-    background: #0a0f1a;
-    z-index: 9997;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+/* If you have a specific main container, make it transparent too */
+main {
+  background: transparent !important;
 }
 
-
-/* ── Nav link list — centered column ────────────────────────── */
-@media (max-width: 1199px) {
-  .mobile-nav-active .navmenu ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-    /* Separator lines handle spacing */
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    /* Remove the old floating box style */
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    position: static;
-    inset: auto;
-    overflow-y: visible;
-  }
+/* Glass look for cards so they stand out on the background */
+.refined-card,
+.card {
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-
-/* ── Individual nav items ───────────────────────────────────── */
-@media (max-width: 1199px) {
-  .mobile-nav-active .navmenu ul li {
-    width: 100%;
-    text-align: center;
-    /* Thin separator line between items (matches the reference) */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  }
-
-  .mobile-nav-active .navmenu ul li:last-child {
-    border-bottom: none;
-  }
-}
-
-
-/* ── Nav links ──────────────────────────────────────────────── */
-@media (max-width: 1199px) {
-  .mobile-nav-active .navmenu a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* Center text horizontally */
-    padding: 22px 20px;
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 1.15rem;
-    font-weight: 500;
-    font-family: var(--nav-font, 'Poppins', sans-serif);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: color 0.2s ease, background 0.2s ease;
-    width: 100%;
-  }
-
-  /* Hover: accent color highlight */
-  .mobile-nav-active .navmenu a:hover,
-  .mobile-nav-active .navmenu .active {
-    color: var(--accent-color, #1387c1);
-    background: rgba(255, 255, 255, 0.03);
-  }
-}
-
-
-/* ── Close button (× at the top) ───────────────────────────── */
-@media (max-width: 1199px) {
-
-  /* Position the toggle button at the top of the overlay */
-  .mobile-nav-active .mobile-nav-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 32px;
-    z-index: 9999;
-    transition: color 0.2s, transform 0.2s;
-  }
-
-  .mobile-nav-active .mobile-nav-toggle:hover {
-    color: #fff;
-    transform: scale(1.1);
-  }
-
-  /* Swap hamburger icon to × when menu is open */
-  .mobile-nav-active .mobile-nav-toggle.bi-list::before {
-    content: "\f659";
-    /* Bootstrap Icons × code */
-  }
-}
 
 /*--------------------------------------------------------------
-# End mobile menu
+  # 2.5 Section titles
+  The big title + subtitle at the top of each page,
+  with a small accent line on each side of the title.
 --------------------------------------------------------------*/
+.section-title {
+  text-align: center;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-main);
+  margin-top: 0 !important;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+  position: relative;
+}
+
+.section-title h2:before,
+.section-title h2:after {
+  content: "";
+  width: 50px;
+  height: 2px;
+  background: var(--accent-color);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.section-title h2:before {
+  margin-right: 15px;
+}
+
+.section-title h2:after {
+  margin-left: 15px;
+}
+
+.section-title p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  max-width: 900px;
+  margin: 0 auto;
+  text-wrap: balance;
+}
 
 
 /*--------------------------------------------------------------
-# Global Header
+  # 2.6 Utility classes
+--------------------------------------------------------------*/
+/* Adds a bit of space between letters for a modern, professional look */
+.letter-spacing-2 {
+  letter-spacing: 2px;
+}
+
+/* This styles the 'Toolbox' word specifically */
+.text-primary {
+  color: #0d6efd;
+  /* This is the standard Bootstrap Blue; feel free to change to your preferred accent color */
+}
+
+/* Small detail line under the title */
+.text-muted {
+  color: #6c757d !important;
+  font-style: italic;
+}
+
+/* Lets long text (like the email) wrap instead of overflowing */
+.text-break {
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+
+/*==============================================================
+  # 3. SHARED COMPONENTS
+==============================================================*/
+
+/*--------------------------------------------------------------
+  # 3.1 Header
 --------------------------------------------------------------*/
 .header {
   --background-color: rgba(255, 255, 255, 0);
@@ -302,24 +363,16 @@ h6 {
   border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
 }
 
-
-/*--------------------------------------------------------------
-# Polished Data Science 3D Cube Logo
---------------------------------------------------------------*/
-
-:root {
-  --cube-size: 52px;
-  --cube-half: calc(var(--cube-size) / 2);
-  --cube-accent: #06b6d4;
-  --cube-hover-accent: #4f46e5;
-  --cube-glass-bg: rgba(10, 25, 47, 0.6);
-
-  /* Rotation Speeds */
-  --cube-speed-normal: 12s;
-  --cube-speed-fast: 3s;
-  /* 4x faster on hover */
+/* Header background once the page is scrolled */
+.scrolled .header {
+  --background-color: rgba(16, 26, 32, 0.9);
 }
 
+
+/*--------------------------------------------------------------
+  # 3.2 3D cube logo
+  The spinning cube in the top-left corner of the header.
+--------------------------------------------------------------*/
 .logo-3d-scene {
   width: var(--cube-size);
   height: var(--cube-size);
@@ -454,13 +507,6 @@ h6 {
   }
 }
 
-/* cube class */
-.logo-3d-cube {
-  animation: rotateDataCube 12s linear infinite;
-  /* 'linear' is key for a never-ending spin */
-  transform-style: preserve-3d;
-}
-
 /* Interaction: Visual Feedback + Hyper-Glow */
 .logo-3d-scene:hover {
   filter: drop-shadow(0 0 25px rgba(79, 70, 229, 0.6));
@@ -506,20 +552,10 @@ h6 {
   opacity: 1;
 }
 
-/*--------------------------------------------------------------
-# end Data Science 3D Cube Logo
---------------------------------------------------------------*/
-
-/* Global Header on Scroll
-------------------------------*/
-.scrolled .header {
-  --background-color: rgba(16, 26, 32, 0.9);
-}
 
 /*--------------------------------------------------------------
-# Navigation Menu
+  # 3.3 Navigation – desktop (1200px and wider)
 --------------------------------------------------------------*/
-/* Desktop Navigation */
 @media (min-width: 1200px) {
   .navmenu {
     padding: 0;
@@ -594,64 +630,126 @@ h6 {
     color: var(--nav-hover-color);
   }
 
-  .navmenu .dropdown ul {
-    margin: 0;
-    padding: 10px 0;
-    background: var(--nav-dropdown-background-color);
-    display: block;
-    position: absolute;
-    visibility: hidden;
-    left: -5px;
-    top: 130%;
-    opacity: 0;
-    transition: 0.3s;
-    border-radius: 4px;
-    z-index: 99;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+}
+
+
+/*--------------------------------------------------------------
+  # 3.4 Navigation – mobile (up to 1199px)
+--------------------------------------------------------------*/
+
+/* ── Open menu: full-screen dark overlay ───────────────────── */
+@media (max-width: 1199px) {
+  .mobile-nav-active {
+    overflow: hidden;
+    /* Locks body scroll while menu is open */
   }
 
-  .navmenu .dropdown ul li {
-    min-width: 200px;
-  }
-
-  .navmenu .dropdown ul a {
-    padding: 10px 20px;
-    font-size: 15px;
-    text-transform: none;
-    color: var(--nav-dropdown-color);
-  }
-
-  .navmenu .dropdown ul a i {
-    font-size: 12px;
-  }
-
-  .navmenu .dropdown ul a:hover,
-  .navmenu .dropdown ul .active:hover,
-  .navmenu .dropdown ul li:hover>a {
-    color: var(--nav-dropdown-hover-color);
-  }
-
-  .navmenu .dropdown:hover>ul {
-    opacity: 1;
-    top: 100%;
-    visibility: visible;
-  }
-
-  .navmenu .dropdown .dropdown ul {
-    top: 0;
-    left: -90%;
-    visibility: hidden;
-  }
-
-  .navmenu .dropdown .dropdown:hover>ul {
-    opacity: 1;
-    top: 0;
-    left: -100%;
-    visibility: visible;
+  .mobile-nav-active .navmenu {
+    position: fixed;
+    inset: 0;
+    /* Deep dark background — full screen */
+    background: #0a0f1a;
+    z-index: 9997;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
-/* Mobile Navigation */
+/* ── Open menu: centered column of links ───────────────────── */
+@media (max-width: 1199px) {
+  .mobile-nav-active .navmenu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    /* Separator lines handle spacing */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    /* Remove the old floating box style */
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    position: static;
+    inset: auto;
+    overflow-y: visible;
+  }
+}
+
+
+/* ── Individual nav items ───────────────────────────────────── */
+@media (max-width: 1199px) {
+  .mobile-nav-active .navmenu ul li {
+    width: 100%;
+    text-align: center;
+    /* Thin separator line between items (matches the reference) */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .mobile-nav-active .navmenu ul li:last-child {
+    border-bottom: none;
+  }
+}
+
+
+/* ── Nav links ──────────────────────────────────────────────── */
+@media (max-width: 1199px) {
+  .mobile-nav-active .navmenu a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Center text horizontally */
+    padding: 22px 20px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.15rem;
+    font-weight: 500;
+    font-family: var(--nav-font, 'Poppins', sans-serif);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.2s ease, background 0.2s ease;
+    width: 100%;
+  }
+
+  /* Hover: accent color highlight */
+  .mobile-nav-active .navmenu a:hover,
+  .mobile-nav-active .navmenu .active {
+    color: var(--accent-color, #1387c1);
+    background: rgba(255, 255, 255, 0.03);
+  }
+}
+
+/* ── Open menu: close button (×) ───────────────────────────── */
+@media (max-width: 1199px) {
+
+  /* Position the toggle button at the top of the overlay */
+  .mobile-nav-active .mobile-nav-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 32px;
+    z-index: 9999;
+    transition: color 0.2s, transform 0.2s;
+  }
+
+  .mobile-nav-active .mobile-nav-toggle:hover {
+    color: #fff;
+    transform: scale(1.1);
+  }
+
+  /* Swap hamburger icon to × when menu is open */
+  .mobile-nav-active .mobile-nav-toggle.bi-list::before {
+    content: "\f659";
+    /* Bootstrap Icons × code */
+  }
+}
+
+/* ── Base mobile styles: hamburger button, hidden link list ── */
+/* (keep this block after the "open menu" rules: on :focus these win) */
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
     color: var(--nav-color);
@@ -660,6 +758,7 @@ h6 {
     margin-right: 10px;
     cursor: pointer;
     transition: color 0.3s;
+    z-index: 9999;
   }
 
   .navmenu {
@@ -731,165 +830,13 @@ h6 {
     transform: rotate(180deg);
   }
 
-  .navmenu .dropdown ul {
-    position: static;
-    display: none;
-    z-index: 99;
-    padding: 10px 0;
-    margin: 10px 20px;
-    background-color: var(--nav-dropdown-background-color);
-    transition: all 0.5s ease-in-out;
-  }
-
-  .navmenu .dropdown ul ul {
-    background-color: rgba(33, 37, 41, 0.1);
-  }
-
-  .navmenu .dropdown>.dropdown-active {
-    display: block;
-    background-color: rgba(33, 37, 41, 0.03);
-  }
-
 }
 
 
-/* icon nav bar */
-/* Container Layout */
-.hud-logo-container-dark {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.logo-text-dark {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 1.4rem;
-  color: #ffffff;
-  letter-spacing: -0.5px;
-}
-
-.logo-text-dark .highlight-dark {
-  color: #00e6e6;
-  /* Matching the dark mode glow color */
-}
-
-/* Processor Frame Animation */
-.processor-frame-dark {
-  animation: pulseStrokeDark 3s ease-in-out infinite alternate;
-}
-
-@keyframes pulseStrokeDark {
-
-  0%,
-  100% {
-    stroke-width: 2;
-    stroke-opacity: 0.8;
-  }
-
-  50% {
-    stroke-width: 3;
-    stroke-opacity: 1;
-  }
-}
-
-/* Processor Core Pulsing */
-.processor-core-dark {
-  animation: pulseCoreDark 2s ease-in-out infinite;
-}
-
-@keyframes pulseCoreDark {
-
-  0%,
-  100% {
-    r: 5px;
-    opacity: 0.6;
-  }
-
-  50% {
-    r: 7px;
-    opacity: 1;
-  }
-}
-
-/* Data Bars Animation */
-.data-bars-left-dark rect:nth-child(1) {
-  animation: barAnimateDark 2.5s ease-in-out infinite alternate;
-}
-
-.data-bars-left-dark rect:nth-child(2) {
-  animation: barAnimateDark 2.8s ease-in-out infinite alternate 0.3s;
-}
-
-.data-bars-left-dark rect:nth-child(3) {
-  animation: barAnimateDark 2.2s ease-in-out infinite alternate 0.6s;
-}
-
-.data-bars-right-dark rect:nth-child(1) {
-  animation: barAnimateDark 2.7s ease-in-out infinite alternate;
-}
-
-.data-bars-right-dark rect:nth-child(2) {
-  animation: barAnimateDark 2.3s ease-in-out infinite alternate 0.4s;
-}
-
-.data-bars-right-dark rect:nth-child(3) {
-  animation: barAnimateDark 2.9s ease-in-out infinite alternate 0.8s;
-}
-
-@keyframes barAnimateDark {
-
-  0%,
-  100% {
-    height: 10px;
-    transform: translateY(0);
-  }
-
-  50% {
-    height: 20px;
-    transform: translateY(-10px);
-  }
-}
-
-/* Circular Indicator Rotation */
-.circular-indicator-dark {
-  animation: rotateIndicatorDark 5s linear infinite;
-}
-
-.indicator-hand-dark {
-  animation: rotateIndicatorDark 5s linear infinite;
-}
-
-.hud-logo-container-dark:hover .hud-logo-dark {
-  transform: scale(1.05);
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-@keyframes rotateIndicatorDark {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
-/* ─── Button that leads to the next page ────────────────────────────────────────────── */
-:root {
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-hover: rgba(255, 255, 255, 0.08);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-border-hover: rgba(255, 255, 255, 0.25);
-  --shimmer-color: rgba(255, 255, 255, 0.4);
-
-  --transition-smooth: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-  --transition-fast: 0.15s ease;
-}
-
+/*--------------------------------------------------------------
+  # 3.5 "Next page" button (.btn-elite)
+  Glass button at the bottom of a page that leads to the next one.
+--------------------------------------------------------------*/
 .btn-elite {
   display: inline-flex;
   align-items: center;
@@ -997,12 +944,38 @@ h6 {
   }
 }
 
-/* Button in the end of the page that leads to the next page */
 
+/*--------------------------------------------------------------
+  # 3.6 Tags / pills
+  Small rounded labels (About timeline and Portfolio cards).
+  Portfolio cards set their own colors with inline styles.
+--------------------------------------------------------------*/
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 1rem;
+  margin-bottom: 16px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10.5px;
+  font-weight: 400;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.05em;
+  padding: 3px 10px;
+  border-radius: 50px;
+  background: rgba(37, 99, 235, 0.15);
+  border: 1px solid rgba(37, 99, 235, 0.35);
+  color: #93c5fd;
+}
 
 
 /*--------------------------------------------------------------
-# Global Footer
+  # 3.7 Footer
 --------------------------------------------------------------*/
 /* Sleek Footer Base */
 .footer-sleek {
@@ -1068,26 +1041,45 @@ h6 {
   color: rgba(255, 255, 255, 0.3);
 }
 
-.sleek-credit {
-  color: rgba(255, 255, 255, 0.5);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s;
-}
-
-.sleek-credit:hover {
-  color: var(--accent-color);
-  text-decoration: underline;
-}
 
 /*--------------------------------------------------------------
-# End of Global Footer
+  # 3.8 Scroll-to-top button
 --------------------------------------------------------------*/
+.scroll-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: -15px;
+  z-index: 99999;
+  background-color: var(--accent-color);
+  width: 44px;
+  height: 44px;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
 
+.scroll-top i {
+  font-size: 24px;
+  color: var(--contrast-color);
+  line-height: 0;
+}
+
+.scroll-top:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  color: var(--contrast-color);
+}
+
+.scroll-top.active {
+  visibility: visible;
+  opacity: 1;
+  bottom: 15px;
+}
 
 
 /*--------------------------------------------------------------
-# Preloader
+  # 3.9 Preloader
+  Full-screen loading animation shown until the page has loaded.
 --------------------------------------------------------------*/
 #preloader {
   position: fixed;
@@ -1131,141 +1123,16 @@ h6 {
   }
 }
 
-/*--------------------------------------------------------------
-# Scroll Top Button
---------------------------------------------------------------*/
-.scroll-top {
-  position: fixed;
-  visibility: hidden;
-  opacity: 0;
-  right: 15px;
-  bottom: -15px;
-  z-index: 99999;
-  background-color: var(--accent-color);
-  width: 44px;
-  height: 44px;
-  border-radius: 50px;
-  transition: all 0.4s;
-}
 
-.scroll-top i {
-  font-size: 24px;
-  color: var(--contrast-color);
-  line-height: 0;
-}
-
-.scroll-top:hover {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
-  color: var(--contrast-color);
-}
-
-.scroll-top.active {
-  visibility: visible;
-  opacity: 1;
-  bottom: 15px;
-}
+/*==============================================================
+  # 4. PAGES
+==============================================================*/
 
 /*--------------------------------------------------------------
-# Global Page Titles & Breadcrumbs
+  # 4.1 Home (index.html)
 --------------------------------------------------------------*/
-.page-title {
-  color: var(--default-color);
-  background-color: var(--background-color);
-  position: relative;
-}
 
-.page-title .heading {
-  padding: 80px 0;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-}
-
-.page-title .heading h1 {
-  font-size: 38px;
-  font-weight: 700;
-}
-
-.page-title nav {
-  background-color: color-mix(in srgb, var(--default-color), transparent 96%);
-  padding: 20px 0;
-}
-
-.page-title nav ol {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.page-title nav ol li+li {
-  padding-left: 10px;
-}
-
-.page-title nav ol li+li::before {
-  content: "/";
-  display: inline-block;
-  padding-right: 10px;
-  color: color-mix(in srgb, var(--default-color), transparent 70%);
-}
-
-/*--------------------------------------------------------------
-# Global Sections
---------------------------------------------------------------*/
-section,
-.section {
-  color: var(--default-color);
-  background-color: var(--background-color);
-  padding: 60px 0;
-  scroll-margin-top: 100px;
-  overflow: clip;
-}
-
-@media (max-width: 1199px) {
-
-  section,
-  .section {
-    scroll-margin-top: 66px;
-  }
-}
-
-/*--------------------------------------------------------------
-# Global Section Titles
---------------------------------------------------------------*/
-.section-title {
-  text-align: center;
-  padding-bottom: 60px;
-  position: relative;
-}
-
-.section-title h2 {
-  font-size: 3.5rem;
-  font-weight: 400;
-  line-height: 1.2;
-  color: var(--heading-color);
-  margin-bottom: 1.5rem;
-  letter-spacing: -1px;
-}
-
-@media (max-width: 768px) {
-  .section-title h2 {
-    font-size: 2.5rem;
-  }
-}
-
-.section-title p {
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: color-mix(in srgb, var(--default-color), transparent 25%);
-  max-width: 900px;
-  margin: 0 auto;
-  text-wrap: balance;
-}
-
-/*--------------------------------------------------------------
-# Hero Section
---------------------------------------------------------------*/
+/* ── Hero: layout and text ─────────────────────────────────── */
 .hero {
   padding: 60px 0;
   min-height: calc(100vh - 80px);
@@ -1383,31 +1250,8 @@ section,
   }
 }
 
-.hero .social-links {
-  display: flex;
-  gap: 1rem;
-}
 
-.hero .social-links a {
-  width: 45px;
-  height: 45px;
-  background: var(--surface-color);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--default-color);
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
-}
-
-.hero .social-links a:hover {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 70%);
-}
-
+/* ── Hero: profile image ───────────────────────────────────── */
 .hero .hero-image {
   position: relative;
 }
@@ -1428,20 +1272,8 @@ section,
   transform: scale(1.02);
 }
 
-/*--------------------------------------------------------------
-# Floating Badges — desktop absolute, mobile grid
---------------------------------------------------------------*/
-.hero .hero-image {
-  position: relative;
-}
-
-.hero .hero-image .image-wrapper {
-  position: relative;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-/* Desktop: absolute positioned floating cards */
+/* ── Hero: floating skill badges around the photo ──────────── */
+/* (shown from 768px up, hidden on phones) */
 .floating-elements {
   position: absolute;
   top: 0;
@@ -1450,11 +1282,6 @@ section,
   bottom: 0;
   pointer-events: none;
 }
-
-
-/* ==========================================================================
-   Floating Profile Badges Component
-   ========================================================================== */
 
 /* Forces the wrapper to shrink-wrap strictly to the image width, 
    preventing absolute badges from wandering across the screen row width */
@@ -1564,7 +1391,6 @@ section,
 }
 
 
-
 /* FIX: Hide absolute badges on mobile to avoid clipping */
 @media (max-width: 767px) {
   .floating-elements {
@@ -1583,18 +1409,7 @@ section,
   }
 }
 
-
-/* --------------------------------------------------------------
-  Hero Buttons – Modern Minimalist
--------------------------------------------------------------- */
-
-/* Variáveis de Design para consistência */
-:root {
-  --accent-glow: rgba(6, 182, 212, 0.5);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-bg: rgba(255, 255, 255, 0.03);
-}
-
+/* ── Hero: buttons (Resume / Projects / Let's Talk) ────────── */
 .hero-actions .btn {
   padding: 14px 32px;
   border-radius: 12px;
@@ -1611,7 +1426,7 @@ section,
   border: 1px solid transparent;
 }
 
-/* --- BOTÃO PRIMÁRIO (NEON/GRADIENTE) --- */
+
 /* --- COMPACT BUTTON BASE --- */
 .hero-actions .btn-compact {
   padding: 8px 18px;
@@ -1676,24 +1491,7 @@ section,
 }
 
 
-/* --- HOVER: DIRECT COLOR CHANGE --- */
-
-/* Cyan version */
-.btn-dark-cyan:hover {
-  background: #0891b2 !important;
-  border-color: #0891b2 !important;
-  color: #fff !important;
-  box-shadow: 0 4px 15px rgba(8, 145, 178, 0.4);
-}
-
-/* Indigo Version (Deep Purple) */
-.btn-dark-indigo:hover {
-  background: #4f46e5 !important;
-  border-color: #4f46e5 !important;
-  color: #fff !important;
-  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
-}
-
+/* Hover colors */
 /* White version */
 .btn-dark-white:hover {
   background: #f8fafc !important;
@@ -1714,21 +1512,11 @@ section,
 }
 
 
-
 /*--------------------------------------------------------------
-# About Section
+  # 4.2 About (about.html)
 --------------------------------------------------------------*/
 
-:root {
-  --neon-blue: #06b6d4;
-  --neon-purple: #4f46e5;
-  --glass-bg: rgba(15, 23, 42, 0.6);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --transition-smooth: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
+/* ── Profile card ──────────────────────────────────────────── */
 /* Profile Card - Futuristic Upgrade */
 .profile-card {
   position: relative;
@@ -1823,7 +1611,7 @@ section,
   margin: 0 auto;
 }
 
-/* About Text - Readability & Flow */
+/* ── About text ────────────────────────────────────────────── */
 .about-text p {
   font-size: clamp(1rem, 1.1vw, 1.15rem);
   color: var(--text-secondary);
@@ -1847,16 +1635,7 @@ section,
   font-weight: 600;
 }
 
-
-
-
-/* ─── Timeline begin  ──────────────────────────────────────── */
-.timeline-wrapper {
-  width: 100%;
-  max-width: 56rem;
-}
-
-/* ─── Timeline Section ──────────────────────────────────────── */
+/* ── Timeline (2023 → today) ───────────────────────────────── */
 section.timeline {
   display: grid;
   position: relative;
@@ -1968,26 +1747,7 @@ article.timeline__item::before {
   color: #9db4d8;
 }
 
-/* Tags / pills */
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 1rem;
-}
-
-.tag {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  padding: 0.25rem 0.65rem;
-  border-radius: 999px;
-  background: rgba(37, 99, 235, 0.15);
-  border: 1px solid rgba(37, 99, 235, 0.35);
-  color: #93c5fd;
-}
-
-/* ─── Icon Box ──────────────────────────────────────────────── */
+/* Timeline icon box */
 .timeline__icon {
   display: flex;
   align-items: center;
@@ -2084,7 +1844,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
   }
 }
 
-/* Styling for the Tech Stack Title */
+/* ── Tech stack title and grid ─────────────────────────────── */
 .tech-stack-title {
   font-weight: 700;
   font-size: 1.5rem;
@@ -2093,106 +1853,42 @@ article.timeline__item:nth-child(even) .timeline__icon {
   margin-bottom: 0.5rem;
 }
 
-/* Adds a bit of space between letters for a modern, professional look */
-.letter-spacing-2 {
-  letter-spacing: 2px;
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
 }
 
-/* This styles the 'Toolbox' word specifically */
-.text-primary {
-  color: #0d6efd;
-  /* This is the standard Bootstrap Blue; feel free to change to your preferred accent color */
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  color: inherit;
 }
 
-/* Small detail line under the title */
-.text-muted {
-  color: #6c757d !important;
-  font-style: italic;
-}
-
-/*--------------------------------------------------------------
-# end about section
---------------------------------------------------------------*/
-
-
-/*--------------------------------------------------------------
-# Skills Section
---------------------------------------------------------------*/
-/* 1. ROOT VARIABLES: This defines your "theme colors" so you can reuse them easily */
-:root {
-  --background-color: #101a20;
-  /* The main dark background */
-  --surface-color: #14243f;
-  /* The slightly lighter blue for cards */
-  --accent-color: #007bff;
-  /* The primary blue for highlights/bars */
-  --text-main: #ffffff;
-  /* Pure white for headings */
-  --text-muted: #a0a0a0;
-  /* Greyish white for descriptions */
-}
-
-/* 2. SECTION TITLE: Styles the "Skills" heading with lines on the left and right */
-.section-title {
-  text-align: center;
-  padding-bottom: 60px;
-  position: relative;
-}
-
-.section-title h2 {
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--text-main);
-  position: relative;
-}
-
-/* Creating the decorative lines next to the title */
-.section-title h2:before,
-.section-title h2:after {
-  content: "";
-  width: 50px;
-  height: 2px;
-  background: var(--accent-color);
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.section-title h2:before {
-  margin-right: 15px;
-}
-
-.section-title h2:after {
-  margin-left: 15px;
-}
-
-.section-title p {
-  color: var(--text-muted);
-  margin-bottom: 0;
-}
-
-
-/* 3. SKILL BOX/SERVICE ITEM: The container for each individual skill */
-.skills .service-item,
-.skills .skill-box {
-  background-color: var(--surface-color);
-  padding: 2rem;
-  border-radius: 8px;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
-  color: var(--text-main);
-  border: 1px solid transparent;
-  /* invisible border until hover */
-}
-
-/* HOVER EFFECT: Makes the card lift up and glows when you hover your mouse */
-.skills .service-item:hover {
+.tech-item:hover {
   transform: translateY(-10px);
-  /* Moves it up 10 pixels */
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5) !important;
-  /* Soft dark shadow */
-  border-color: var(--accent-color) !important;
-  /* Border turns blue */
+  filter: drop-shadow(0 0 8px var(--card-primary));
 }
 
+.tech-item img {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 0.75rem;
+}
+
+.tech-item span {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+
+/*--------------------------------------------------------------
+  # 4.3 Skills (skills.html)
+--------------------------------------------------------------*/
 .skills h3 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
@@ -2206,57 +1902,11 @@ article.timeline__item:nth-child(even) .timeline__icon {
   color: var(--text-muted);
 }
 
-/* 4. TECH ICONS: Styling the SVG images (like the HTML5 or CSS3 logos) */
-.icon-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-  height: 60px;
-  /* Keeps all icons aligned in a row */
-}
-
-.tech-icon-svg {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  /* Adds a smooth animation when the icon moves */
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
-}
-
-/* Animation: Makes the icon grow and tilt slightly on hover */
-.flip-card-container:hover .tech-icon-svg,
-.service-item:hover .tech-icon-svg {
-  transform: scale(1.15) rotate(5deg);
-}
-
-/* 5. PROGRESS BARS: The proficiency meters */
-.progress {
-  height: 8px !important;
-  background-color: rgba(255, 255, 255, 0.1) !important;
-  /* Dark track */
-  border-radius: 10px;
-  overflow: hidden;
-  margin-top: 10px;
-}
-
-.progress-bar {
-  background-color: var(--accent-color) !important;
-  /* The blue filling */
-  height: 100%;
-  transition: width 1s ease-in-out;
-  /* Makes the bar "slide" into place */
-}
-
-/* --- Detailed Skills (3D Cards) --- */
-
-/* --- Elite Card Base --- */
+/* ── Flip cards: base and 3D flip ──────────────────────────── */
 .elite-card {
   height: 380px;
   perspective: 1500px;
   margin-bottom: 30px;
-  /* Ensure the parent also respects the radius for shadow clipping */
   border-radius: 25px;
 }
 
@@ -2267,64 +1917,14 @@ article.timeline__item:nth-child(even) .timeline__icon {
   transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
   cursor: pointer;
-  /* CRITICAL: Force rounded corners on the moving container */
   border-radius: 25px;
-}
-
-/* Maintain flip when locked */
-.elite-card.is-locked .elite-card-inner {
-  transform: rotateY(180deg);
-}
-
-/* --- Front & Back Shared Styles --- */
-.elite-card-front,
-.elite-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  /* CRITICAL: Ensure no content leaks out of the corners */
-  border-radius: 25px !important;
-  overflow: hidden;
-
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-
-  background: rgba(10, 20, 30, 0.95);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Ensure the back side stays rounded when flipped */
-.elite-card-back {
-  transform: rotateY(180deg);
-  /* Extra reinforcement for the back side */
-  border-radius: 25px !important;
-}
-
-/* --- State-Specific Glow --- */
-.elite-card.is-locked {
-  box-shadow: 0 0 30px var(--card-color);
-  transition: box-shadow 0.3s ease;
-}
-
-.elite-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-style: preserve-3d;
-  cursor: pointer;
 }
 
 .elite-card:hover .elite-card-inner {
   transform: rotateY(180deg);
 }
 
+/* Front and back faces */
 .elite-card-front,
 .elite-card-back {
   position: absolute;
@@ -2332,10 +1932,9 @@ article.timeline__item:nth-child(even) .timeline__icon {
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  border-radius: 25px;
+  border-radius: 25px !important;
   background: rgba(10, 20, 30, 0.95);
   backdrop-filter: blur(15px);
-  /* Changed border to use the card color variable */
   border: 1px solid rgba(255, 255, 255, 0.05);
   overflow: hidden;
   display: flex;
@@ -2344,7 +1943,8 @@ article.timeline__item:nth-child(even) .timeline__icon {
   align-items: center;
 }
 
-/* --- DYNAMIC BREATHING PULSE --- */
+/* ── Flip cards: front side ────────────────────────────────── */
+/* Breathing glow in the card's color (--card-color is set in the HTML) */
 .elite-card-front::before {
   content: "";
   position: absolute;
@@ -2440,17 +2040,15 @@ article.timeline__item:nth-child(even) .timeline__icon {
   }
 }
 
-/* --- BACK Side Styling --- */
+/* ── Flip cards: back side ─────────────────────────────────── */
 .elite-card-back {
   transform: rotateY(180deg);
   padding: 25px;
   align-items: flex-start;
   text-align: left;
-  /* Adds a subtle top glow on the back too */
   border-top: 3px solid var(--card-color);
 }
 
-/* Matches the title and icons to the specific card color */
 .back-title {
   font-weight: 800;
   color: white;
@@ -2496,8 +2094,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
   color: var(--card-color);
 }
 
-
-/* --- Mouse Interaction (Smaller & Cleaner) --- */
+/* ── Flip cards: "hover to flip" mouse hint ────────────────── */
 .interaction-guide {
   position: absolute;
   bottom: 15px;
@@ -2519,12 +2116,25 @@ article.timeline__item:nth-child(even) .timeline__icon {
 /* Slimmer Mouse Icon */
 .mouse-icon {
   width: 14px;
-  /* Reduced width */
   height: 22px;
-  /* Reduced height */
   border: 1.5px solid rgba(255, 255, 255, 0.6);
   border-radius: 8px;
   position: relative;
+  font-size: 1.2rem;
+  color: var(--card-primary);
+  animation: mouseSwipe 2s infinite ease-in-out;
+}
+
+@keyframes mouseSwipe {
+
+  0%,
+  100% {
+    transform: translateX(-10px);
+  }
+
+  50% {
+    transform: translateX(10px);
+  }
 }
 
 .mouse-wheel {
@@ -2582,7 +2192,12 @@ article.timeline__item:nth-child(even) .timeline__icon {
   /* Slides down out of view */
 }
 
-/* --- Click-to-Lock Logic --- */
+/* ── Flip cards: click to lock ─────────────────────────────── */
+.elite-card.is-locked {
+  box-shadow: 0 0 30px var(--card-color);
+  transition: box-shadow 0.3s ease;
+}
+
 /* 1. Hide the "LOCKED" header by default */
 .lock-status {
   position: absolute;
@@ -2610,7 +2225,6 @@ article.timeline__item:nth-child(even) .timeline__icon {
 .elite-card.is-locked .elite-card-inner {
   transform: rotateY(180deg);
   box-shadow: 0 0 30px var(--card-color);
-  /* Intensified glow when locked */
 }
 
 /* 3. Style for the dynamic instruction at the bottom */
@@ -2626,13 +2240,10 @@ article.timeline__item:nth-child(even) .timeline__icon {
 
 
 /*--------------------------------------------------------------
-# End of Skill card 
+  # 4.4 Resume (resume.html)
 --------------------------------------------------------------*/
 
-
-/*--------------------------------------------------------------
-# Resume Section
---------------------------------------------------------------*/
+/* ── Education / Experience timeline ───────────────────────── */
 .resume .resume-item {
   margin-bottom: 3rem;
 }
@@ -2723,42 +2334,6 @@ article.timeline__item:nth-child(even) .timeline__icon {
   padding-bottom: 0;
 }
 
-.resume .skill-item {
-  margin-bottom: 2rem;
-}
-
-.resume .skill-item h4 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-  color: var(--heading-color);
-}
-
-.resume .skill-item .progress {
-  height: 0.75rem;
-  background-color: color-mix(in srgb, var(--accent-color), transparent 92%);
-  border-radius: 1rem;
-  overflow: visible;
-}
-
-.resume .skill-item .progress .progress-bar {
-  background-color: var(--accent-color);
-  position: relative;
-  border-radius: 1rem;
-  width: 0;
-  transition: width 1s ease;
-}
-
-.resume .skill-item .progress .progress-bar::after {
-  content: attr(aria-valuenow) "%";
-  position: absolute;
-  right: 0;
-  top: -1.75rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--accent-color);
-}
-
 @media (max-width: 991.98px) {
   .resume .resume-item {
     margin-bottom: 2rem;
@@ -2775,182 +2350,8 @@ article.timeline__item:nth-child(even) .timeline__icon {
   }
 }
 
-:root {
-  --card-primary: #00d4ff;
-  --card-primary-dark: #0099cc;
-  --card-bg-front: #1a1f2b;
-  --card-bg-back: #11141d;
-  --card-text-main: #e2e8f0;
-  --card-accent-muted: rgba(255, 255, 255, 0.1);
-  --transition-speed: 0.6s;
-}
-
-/* Tech Grid Refinement */
-.tech-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 2rem;
-  padding: 2rem 0;
-}
-
-.tech-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  color: inherit;
-}
-
-.tech-item:hover {
-  transform: translateY(-10px);
-  filter: drop-shadow(0 0 8px var(--card-primary));
-}
-
-.tech-item img {
-  width: 64px;
-  height: 64px;
-  margin-bottom: 0.75rem;
-}
-
-.tech-item span {
-  font-weight: 500;
-  font-size: 0.9rem;
-}
-
-/* Flip Card Enhancements */
-.flip-card-container {
-  perspective: 1000px;
-  width: 100%;
-  height: 420px;
-  cursor: pointer;
-  margin-bottom: 1rem;
-  outline: none;
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
-  transform-style: preserve-3d;
-}
-
-.flip-card-container:hover .flip-card-inner,
-.flip-card-container.flipped .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  border: 1px solid var(--card-accent-muted);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.flip-card-front {
-  background: linear-gradient(145deg, var(--card-bg-front), #11141d);
-  color: var(--card-text-main);
-  z-index: 2;
-}
-
-.flip-card-back {
-  background: radial-gradient(circle at top left, #1a1f2b, var(--card-bg-back));
-  color: #ffffff;
-  transform: rotateY(180deg);
-  z-index: 1;
-}
-
-.icon-box {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-  color: var(--card-primary);
-  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.3));
-}
-
-.skill-box {
-  width: 100%;
-  margin-top: 1.5rem;
-}
-
-.progress {
-  height: 8px !important;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.progress-bar {
-  background: linear-gradient(90deg, var(--card-primary), var(--card-primary-dark));
-  box-shadow: 0 0 10px var(--card-primary);
-}
-
-.flip-card-back h4 {
-  color: var(--card-primary);
-  font-weight: 700;
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.flip-card-back ul li {
-  margin-bottom: 0.75rem;
-  font-size: 0.95rem;
-  color: #cbd5e0;
-  display: flex;
-  align-items: center;
-}
-
-.flip-card-back ul li i {
-  color: var(--card-primary);
-  margin-right: 10px;
-}
-
-/* Animation: Mouse Swipe */
-.mouse-instruction {
-  margin-top: auto;
-  opacity: 0.6;
-  transition: opacity 0.3s;
-}
-
-.mouse-icon {
-  font-size: 1.2rem;
-  color: var(--card-primary);
-  animation: mouseSwipe 2s infinite ease-in-out;
-}
-
-@keyframes mouseSwipe {
-
-  0%,
-  100% {
-    transform: translateX(-10px);
-  }
-
-  50% {
-    transform: translateX(10px);
-  }
-}
-
-.flip-card-container:hover .mouse-instruction,
-.flip-card-container.flipped .mouse-instruction {
-  opacity: 0;
-}
-
-
-/* --- Soft Skills List  --- */
+/* ── Soft skills list ──────────────────────────────────────── */
 .resume-item .list-group-item {
-  /* Changed padding: 15px (top/bottom) 20px (left/right) */
   padding: 15px 20px;
   border-left: none;
   border-right: none;
@@ -2958,13 +2359,11 @@ article.timeline__item:nth-child(even) .timeline__icon {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
   text-align: justify;
-  /* This ensures the padding stays INSIDE the box */
   box-sizing: border-box;
 }
 
 .resume-item .list-group-item span {
   width: 100%;
-  /* Optional: adding a little extra space after the icon */
   padding-right: 5px;
 }
 
@@ -2993,50 +2392,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
   /* Slight slide effect on hover */
 }
 
-/* Target the span specifically to ensure it justifies within the flexbox */
-.resume-item .list-group-item span {
-  width: 100%;
-}
-
-/* Resume Button */
-.btn-resume {
-  background-color: var(--card-primary);
-  border: none;
-  color: #000;
-  font-weight: 700;
-  padding: 0.8rem 2rem;
-  border-radius: 50px;
-  transition: all 0.3s;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.btn-resume:hover {
-  background-color: #fff;
-  transform: scale(1.05);
-  box-shadow: 0 0 20px var(--card-primary);
-}
-
-/* Compact Footer Styling */
-.social-links a {
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
-  transition: 0.3s;
-}
-
-.social-links a:hover {
-  background: var(--card-primary);
-  color: #000;
-}
-
-
-
-/* Button to download my resume in PDF */
-
-/* ── CV pill button ─────────────────────────────────────────────
-   Ghost pill that matches the dark portfolio theme.
-   Sits below the resume content, centered.
-   ────────────────────────────────────────────────────────────── */
+/* ── "View / Download CV" button ───────────────────────────── */
 .cv-section {
   text-align: center;
   margin: 40px 0 10px;
@@ -3100,24 +2456,11 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 
-
 /*--------------------------------------------------------------
-# End Resume Section
+  # 4.5 Portfolio (portfolio.html)
 --------------------------------------------------------------*/
 
-/*--------------------------------------------------------------
-# Portfolio Section
---------------------------------------------------------------*/
-/* --- Google Fonts import --- */
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
-
-/* --- CSS reset (box-model + spacing) --- */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0
-}
-
+/* ── Grid ──────────────────────────────────────────────────── */
 /* --- Page wrapper: outer padding and default font --- */
 .wrap {
   padding: 2rem 0.5rem 3rem;
@@ -3138,7 +2481,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
   perspective: 1200px
 }
 
-
+/* ── Project card ──────────────────────────────────────────── */
 /* ========================
    CARD BASE + 3D SETUP
    ======================== */
@@ -3501,53 +2844,6 @@ article.timeline__item:nth-child(even) .timeline__icon {
   margin-bottom: 14px
 }
 
-/* Tag pills */
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 16px
-}
-
-.tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 10.5px;
-  padding: 3px 10px;
-  border-radius: 50px;
-  font-family: 'Space Mono', monospace;
-  font-weight: 400
-}
-
-/* Action buttons row */
-.actions {
-  display: flex;
-  gap: 8px;
-  padding-bottom: 16px
-}
-
-.abtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 7px 14px;
-  border-radius: 9px;
-  font-size: 12px;
-  font-weight: 500;
-  font-family: 'Inter', sans-serif;
-  text-decoration: none;
-  cursor: pointer;
-  border: none;
-  transition: transform 0.15s, filter 0.15s
-}
-
-.abtn:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.12)
-}
-
-
 /* ========================
    STATS ROW
    Three quick-glance metrics at the bottom of the card.
@@ -3608,30 +2904,12 @@ article.timeline__item:nth-child(even) .timeline__icon {
   font-size: 12px
 }
 
-/* Arrow link: gap widens + opacity lifts on hover */
-.view-link {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 11.5px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: gap 0.2s, opacity 0.2s;
-  opacity: 0.5
-}
-
-.view-link:hover {
-  gap: 7px;
-  opacity: 1
-}
 
 /*--------------------------------------------------------------
-# End of Portfolio Section
+  # 4.6 Contact (contact.html)
 --------------------------------------------------------------*/
 
-/*--------------------------------------------------------------
-# Contact Section
---------------------------------------------------------------*/
+/* ── Background and title ──────────────────────────────────── */
 /* Mesh Gradient Background */
 .mesh-gradient {
   position: absolute;
@@ -3646,11 +2924,17 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #7b76e4, #35363d);
+  background: linear-gradient(135deg, #7b76e4, #b2afff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+/* Removes extra top spacing added by the template */
+#contact.section {
+  padding-top: 60px !important;
+}
+
+/* ── Info cards (location, email, hours, socials) ──────────── */
 /* Refined Cards */
 .refined-card {
   background: rgba(255, 255, 255, 0.02);
@@ -3680,39 +2964,92 @@ article.timeline__item:nth-child(even) .timeline__icon {
   font-size: 1.2rem;
 }
 
-/* Social Grid */
-.social-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
+/* Copy-email button */
+.copy-btn {
+  transition: transform 0.2s ease;
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
-.social-item {
+.copy-btn:hover {
+  transform: scale(1.2);
+}
+
+.copy-btn i {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* "Working hours" open/closed badge */
+#status-badge {
+  padding: 6px 12px;
+  letter-spacing: 0.5px;
+  transition: all 0.5s ease;
+  /* Smooth transition when status changes */
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 12px 20px;
-  border-radius: 12px;
+}
+
+#status-spinner {
+  margin-top: -1px;
+}
+
+/* ── Social icons ──────────────────────────────────────────── */
+.social-grid-row {
+  display: flex;
+  /* Changed from 'center' to 'flex' */
+  justify-content: center;
+  /* This actually centers them */
+  gap: 20px;
+  /* Space between icons */
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+/* Round Icon Buttons - IMPROVED */
+.social-icon-only {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  /* Changed 25% to 14px for a modern "Squircle" look */
   background: rgba(255, 255, 255, 0.03);
-  text-decoration: none;
   color: #a0a0a0;
-  transition: all 0.3s ease;
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.social-item:hover {
+.social-icon-only:hover {
+  transform: translateY(-8px);
   background: rgba(255, 255, 255, 0.08);
-  color: white;
-  transform: translateX(5px);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
-.social-item.whatsapp:hover {
+/* Brand colors on hover */
+.social-icon-only.whatsapp:hover {
   color: #25D366;
+  border-color: rgba(37, 211, 102, 0.5);
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
 }
 
-.social-item.linkedin:hover {
+.social-icon-only.linkedin:hover {
   color: #0077B5;
+  border-color: rgba(0, 119, 181, 0.5);
+  box-shadow: 0 10px 20px rgba(0, 119, 181, 0.2);
 }
 
+.social-icon-only.github:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* ── Contact form ──────────────────────────────────────────── */
 /* Custom Input Groups */
 .input-group-refined {
   position: relative;
@@ -3764,7 +3101,8 @@ article.timeline__item:nth-child(even) .timeline__icon {
   width: 100%;
 }
 
-/* Refined Submit Button */
+
+/* Submit button */
 .refined-submit-btn {
   background: #4f46e5;
   border: none;
@@ -3774,6 +3112,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
   font-weight: 600;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 15px;
   transition: 0.3s;
   position: relative;
@@ -3791,146 +3130,4 @@ article.timeline__item:nth-child(even) .timeline__icon {
 
 .refined-submit-btn:hover .btn-icon {
   transform: translateX(5px);
-}
-
-/* Social Grid Row Layout - CORRECTED */
-.social-grid-row {
-  display: flex;
-  /* Changed from 'center' to 'flex' */
-  justify-content: center;
-  /* This actually centers them */
-  gap: 20px;
-  /* Space between icons */
-  flex-wrap: wrap;
-  margin-top: 25px;
-}
-
-/* Round Icon Buttons - IMPROVED */
-.social-icon-only {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 14px;
-  /* Changed 25% to 14px for a modern "Squircle" look */
-  background: rgba(255, 255, 255, 0.03);
-  color: #a0a0a0;
-  font-size: 1.4rem;
-  text-decoration: none;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* Hover Effects */
-.social-icon-only:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* Corrected Text Gradient for Visibility */
-.text-gradient {
-  background: linear-gradient(135deg, #7b76e4, #b2afff);
-  /* Lighter end-color */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Hover Effects with matching glow */
-.social-icon-only:hover {
-  transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Official Brand Colors for Socials */
-.social-icon-only.whatsapp:hover {
-  color: #25D366;
-  border-color: rgba(37, 211, 102, 0.5);
-  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
-}
-
-.social-icon-only.linkedin:hover {
-  color: #0077B5;
-  border-color: rgba(0, 119, 181, 0.5);
-  box-shadow: 0 10px 20px rgba(0, 119, 181, 0.2);
-}
-
-.social-icon-only.github:hover {
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
-}
-
-/* --- Smart Status Badge Styling --- */
-
-/* Base badge styling to ensure it matches your dark theme */
-#status-badge {
-  padding: 6px 12px;
-  letter-spacing: 0.5px;
-  transition: all 0.5s ease;
-  /* Smooth transition when status changes */
-  display: flex;
-  align-items: center;
-}
-
-/* Center the "Get In Touch" badge correctly */
-.tracking-wider {
-  display: inline-block !important;
-  /* Changed from block to inline-block */
-  width: auto !important;
-  margin: 0 auto;
-}
-
-/* Ensure long emails don't break the card alignment */
-.text-break {
-  word-wrap: break-word !important;
-  word-break: break-word !important;
-}
-
-/* Improve the form button alignment */
-.refined-submit-btn {
-  justify-content: center;
-  /* Centers the text inside the button */
-}
-
-/* Ensure the spinner is perfectly aligned */
-#status-spinner {
-  margin-top: -1px;
-}
-
-/* Get in touch blue box */
-.tracking-wider {
-  width: fit-content !important;
-  display: block;
-  /* Ensures it treats width: fit-content correctly */
-  margin-left: auto;
-  /* Use these two together to center the small box */
-  margin-right: auto;
-}
-
-.copy-btn {
-  transition: transform 0.2s ease;
-  text-decoration: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-.copy-btn:hover {
-  transform: scale(1.2);
-}
-
-.copy-btn i {
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-
-/* This forces the contact section to ignore extra header-spacing if the template is adding it */
-#contact.section {
-  padding-top: 60px !important;
-}
-
-/* Optional: Ensure the title itself has no top margin */
-.section-title h2 {
-  margin-top: 0 !important;
 }
