@@ -1920,7 +1920,8 @@ article.timeline__item:nth-child(even) .timeline__icon {
   border-radius: 25px;
 }
 
-.elite-card:hover .elite-card-inner {
+/* Turned by a click (the script in skills.html adds .is-flipped) */
+.elite-card.is-flipped .elite-card-inner {
   transform: rotateY(180deg);
 }
 
@@ -1941,6 +1942,39 @@ article.timeline__item:nth-child(even) .timeline__icon {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+/* ── Flip cards: 3D tilt and light that follows the mouse ──── */
+/* The script in skills.html tilts .elite-card toward the mouse and
+   sets --glow-x / --glow-y (the light position, in %). */
+.elite-card {
+  transition: transform 300ms ease-out, box-shadow 300ms ease-out;
+}
+
+.elite-card.is-tilting {
+  transition-duration: 150ms;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
+}
+
+/* The light: a soft white spot on top of each face */
+.elite-card-front::after,
+.elite-card-back::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--glow-x, 50%) var(--glow-y, -20%),
+      rgba(255, 255, 255, 0.2),
+      rgba(0, 0, 0, 0.06) 60%);
+}
+
+/* The back is turned around, so its light is mirrored left-right */
+.elite-card-back::after {
+  background: radial-gradient(circle at calc(100% - var(--glow-x, 50%)) var(--glow-y, -20%),
+      rgba(255, 255, 255, 0.2),
+      rgba(0, 0, 0, 0.06) 60%);
 }
 
 /* ── Flip cards: front side ────────────────────────────────── */
@@ -1993,8 +2027,8 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 .elite-logo {
-  width: 80px;
-  margin-bottom: 15px;
+  width: 110px;
+  margin-bottom: 20px;
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
 }
 
@@ -2094,148 +2128,61 @@ article.timeline__item:nth-child(even) .timeline__icon {
   color: var(--card-color);
 }
 
-/* ── Flip cards: "hover to flip" mouse hint ────────────────── */
+/* ── Flip cards: "click to see more" hint (front) ──────────── */
 .interaction-guide {
   position: absolute;
-  bottom: 15px;
-  /* Moved slightly lower */
+  bottom: 18px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  /* Tighter spacing */
-  opacity: 0.4;
-  /* More subtle starting point */
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  gap: 6px;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
   pointer-events: none;
   z-index: 5;
 }
 
-/* Slimmer Mouse Icon */
-.mouse-icon {
-  width: 14px;
-  height: 22px;
-  border: 1.5px solid rgba(255, 255, 255, 0.6);
-  border-radius: 8px;
-  position: relative;
-  font-size: 1.2rem;
-  color: var(--card-primary);
-  animation: mouseSwipe 2s infinite ease-in-out;
+.elite-card:hover .interaction-guide {
+  opacity: 1;
 }
 
-@keyframes mouseSwipe {
+.guide-icon {
+  font-size: 1rem;
+  color: var(--card-color);
+  animation: tapHint 1.8s ease-in-out infinite;
+}
+
+/* The little hand "taps" up and down */
+@keyframes tapHint {
 
   0%,
   100% {
-    transform: translateX(-10px);
+    transform: translateY(0);
   }
 
   50% {
-    transform: translateX(10px);
-  }
-}
-
-.mouse-wheel {
-  width: 1.5px;
-  height: 4px;
-  background: var(--card-color);
-  position: absolute;
-  top: 4px;
-  left: calc(50% - 0.75px);
-  border-radius: 1px;
-  animation: scrollWheel 1.8s infinite;
-  /* Slower, smoother animation */
-}
-
-@keyframes scrollWheel {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateY(6px);
-    opacity: 0;
+    transform: translateY(-4px);
   }
 }
 
 .guide-text {
-  font-size: 0.55rem;
-  /* Tiny but readable */
+  font-size: 0.6rem;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: rgba(255, 255, 255, 0.5);
-  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
   font-weight: 500;
-  animation: textFade 1.8s infinite;
 }
 
-/* Subtle pulse for the text */
-@keyframes textFade {
-
-  0%,
-  100% {
-    opacity: 0.6;
-  }
-
-  50% {
-    opacity: 1;
-  }
-}
-
-/* Clean exit on hover */
-.elite-card:hover .interaction-guide {
-  opacity: 0;
-  transform: translateX(-50%) translateY(10px);
-  /* Slides down out of view */
-}
-
-/* ── Flip cards: click to lock ─────────────────────────────── */
-.elite-card.is-locked {
-  box-shadow: 0 0 30px var(--card-color);
-  transition: box-shadow 0.3s ease;
-}
-
-/* 1. Hide the "LOCKED" header by default */
-.lock-status {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: var(--card-color);
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
-  z-index: 10;
-}
-
-/* 2. When locked: Show header and intensify border */
-.elite-card.is-locked .lock-status {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.elite-card.is-locked .elite-card-inner {
-  transform: rotateY(180deg);
-  box-shadow: 0 0 30px var(--card-color);
-}
-
-/* 3. Style for the dynamic instruction at the bottom */
-.lock-instruction {
+/* ── Flip cards: "click to flip back" hint (back) ──────────── */
+.flip-back-hint {
   color: rgba(255, 255, 255, 0.4);
   transition: color 0.3s ease;
 }
 
-.elite-card.is-locked .lock-instruction {
+.elite-card:hover .flip-back-hint {
   color: var(--card-color);
-  font-weight: 700;
 }
 
 
