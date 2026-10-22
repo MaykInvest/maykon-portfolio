@@ -778,60 +778,6 @@
 
 
   <!-- GitHub cards script -->
-  <script>
-
-    /* Tracks stacking order so the last-opened card renders on top */
-    var zTop = 10;
-
-    document.querySelectorAll('.card').forEach(function (card) {
-      var wrap = card.parentElement;  /* .cw — the perspective container */
-      var btn = card.querySelector('.toggle-btn');
-
-      /* ── 1. TOGGLE: expand / collapse the detail panel ── */
-      btn.addEventListener('click', function (e) {
-        e.stopPropagation();  /* prevent click bubbling to the wrap */
-
-        var wasOpen = card.classList.contains('open');
-
-        /* Close all cards first (accordion-style) */
-        document.querySelectorAll('.card').forEach(function (c) { c.classList.remove('open'); });
-
-        /* If this card wasn't open, open it and bring it to the front */
-        if (!wasOpen) {
-          card.classList.add('open');
-          card.style.zIndex = zTop++;
-        }
-      });
-
-      /* ── 2. 3D TILT on mousemove ──
-        Maps cursor position within the card to rotateX / rotateY.
-        dx/dy are normalized -1 → +1 relative to card center.
-        Max tilt: ±11deg. Box shadow shifts opposite to tilt for depth. */
-      wrap.addEventListener('mousemove', function (e) {
-        var r = card.getBoundingClientRect();
-        var dx = (e.clientX - r.left - r.width / 2) / (r.width / 2);
-        var dy = (e.clientY - r.top - r.height / 2) / (r.height / 2);
-
-        card.style.transform = 'rotateX(' + (-dy * 11) + 'deg) rotateY(' + (dx * 11) + 'deg) translateZ(10px)';
-        card.style.boxShadow = (-dx * 20) + 'px ' + (-dy * 20) + 'px 60px rgba(0,0,0,0.65),inset 0 2px 0 rgba(255,255,255,0.05)';
-      });
-
-      /* ── Reset tilt when mouse leaves the wrapper ── */
-      wrap.addEventListener('mouseleave', function () {
-        card.style.transform = 'rotateX(0) rotateY(0) translateZ(0)';
-        card.style.boxShadow = '0 2px 0 rgba(255,255,255,0.04) inset,0 16px 48px rgba(0,0,0,0.6)';
-      });
-
-      /* ── 3. PRESS FEEDBACK: slight scale-down on click ── */
-      wrap.addEventListener('mousedown', function () {
-        card.style.transform = 'rotateX(0) rotateY(0) translateZ(2px) scale(0.985)';
-      });
-      wrap.addEventListener('mouseup', function () {
-        card.style.transform = 'rotateX(0) rotateY(0) translateZ(10px)';
-      });
-
-    });
-  </script>
 
 
 

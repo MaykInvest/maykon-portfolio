@@ -173,7 +173,7 @@
                     </div>
                   </div>
                   <!-- Copy Button -->
-                  <button class="btn btn-link text-primary p-0 ms-2 copy-btn" onclick="copyEmail()"
+                  <button class="btn btn-link text-primary p-0 ms-2 copy-btn" id="copyEmailBtn"
                     title="Copy to clipboard">
                     <i class="bi bi-clipboard" id="copyIcon"></i>
                   </button>
@@ -316,133 +316,7 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <script>
-    // 1. Select the form and modal elements
-    const contactForm = document.querySelector('.contact form');
-    const successModal = new bootstrap.Modal(document.getElementById('successModal'));
-    const userNameSpan = document.getElementById('userName');
 
-    // 2. Listen for the "Submit" click
-    contactForm.addEventListener('submit', async (event) => {
-      event.preventDefault(); // Prevents the page from refreshing
-
-      const formData = new FormData(contactForm);
-      const name = formData.get('name');
-
-      // 3. Find the button using the correct class: .refined-submit-btn
-      const submitBtn = contactForm.querySelector('.refined-submit-btn');
-      const originalContent = submitBtn.innerHTML;
-
-      // 4. Show loading state (Spinner)
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Sending...';
-
-      try {
-        // 5. Send the data to Formspree
-        const response = await fetch(contactForm.action, {
-          method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-          // 6. If successful, show the modal and reset form
-          userNameSpan.textContent = name;
-          successModal.show();
-          contactForm.reset();
-        } else {
-          alert("Oops! There was a problem sending your message.");
-        }
-      } catch (error) {
-        alert("Connection error. Please try again later.");
-      } finally {
-        // 7. Always put the button back to normal
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalContent;
-      }
-    });
-  </script>
-
-  <script>
-    function updateWorkStatus() {
-      const now = new Date();
-      const day = now.getDay(); // 0=Sun, 1=Mon...
-      const hour = now.getHours();
-      const minute = now.getMinutes();
-
-      const badge = document.getElementById('status-badge');
-      const spinner = document.getElementById('status-spinner');
-      const text = document.getElementById('status-text');
-
-      // Convert everything to minutes of the day for easier math
-      const currentMinutes = (hour * 60) + minute;
-      const openMinutes = 8 * 60;  // 08:00 AM
-      const closeMinutes = 18 * 60; // 06:00 PM
-
-      let isOpen = (day >= 1 && day <= 5) && (currentMinutes >= openMinutes && currentMinutes < closeMinutes);
-
-      if (isOpen) {
-        // --- STYLE: OPEN ---
-        badge.className = "badge rounded-pill bg-success bg-opacity-10 text-success border border-success border-opacity-25";
-        spinner.classList.remove('d-none');
-        text.innerText = "Available Now";
-      } else {
-        // --- STYLE: CLOSED ---
-        badge.className = "badge rounded-pill bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25";
-        spinner.classList.add('d-none');
-
-        // Calculate time until next open
-        let timeLeftMsg = "";
-
-        if (day >= 1 && day <= 5 && currentMinutes < openMinutes) {
-          // It's a weekday before 8 AM
-          timeLeftMsg = calculateTimeDiff(currentMinutes, openMinutes);
-        } else if (day >= 1 && day <= 4 && currentMinutes >= closeMinutes) {
-          // It's Mon-Thu after 6 PM (Wait until tomorrow 8 AM)
-          timeLeftMsg = calculateTimeDiff(currentMinutes, openMinutes + 1440); // 1440 = mins in a day
-        } else {
-          // It's Friday night or Weekend (Wait until Monday 8 AM)
-          timeLeftMsg = "Opens Monday";
-        }
-
-        text.innerText = `Closed • ${timeLeftMsg}`;
-      }
-    }
-
-    // Helper to turn minutes into "Xh Ym" format
-    function calculateTimeDiff(start, end) {
-      let diff = end - start;
-      let h = Math.floor(diff / 60);
-      let m = diff % 60;
-      return `${h}h ${m}m left`;
-    }
-
-    // Update every minute so the countdown stays fresh
-    updateWorkStatus();
-    setInterval(updateWorkStatus, 60000);
-
-    function copyEmail() {
-      // 1. Get the text from the email element
-      const email = document.getElementById('emailText').innerText;
-      const icon = document.getElementById('copyIcon');
-
-      // 2. Use the Clipboard API to copy it
-      navigator.clipboard.writeText(email).then(() => {
-        // 3. Visual feedback: Change icon to a checkmark
-        icon.classList.replace('bi-clipboard', 'bi-check2-all');
-        icon.classList.add('text-success');
-
-        // 4. Reset icon back to clipboard after 2 seconds
-        setTimeout(() => {
-          icon.classList.replace('bi-check2-all', 'bi-clipboard');
-          icon.classList.remove('text-success');
-        }, 2000);
-      }).catch(err => {
-        console.error('Failed to copy: ', err);
-      });
-    }
-
-  </script>
 
 
 </body>

@@ -553,59 +553,6 @@
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const cards = document.querySelectorAll('.elite-card');
-
-      cards.forEach(card => {
-        // Click (or tap) turns the card: front = icon, back = details
-        card.addEventListener('click', function () {
-          this.classList.toggle('is-flipped');
-        });
-      });
-
-      // 3D tilt: the card leans toward the mouse and a light follows it.
-      // Skipped for people who turned on "reduce motion" in their system.
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      if (!reduceMotion) {
-        cards.forEach(card => {
-          let bounds;
-
-          function tiltToMouse(event) {
-            // Mouse position measured from the center of the card
-            const centerX = event.clientX - bounds.left - bounds.width / 2;
-            const centerY = event.clientY - bounds.top - bounds.height / 2;
-            const distance = Math.sqrt(centerX ** 2 + centerY ** 2);
-
-            card.style.transform = `
-              perspective(1500px)
-              scale3d(1.04, 1.04, 1.04)
-              rotate3d(${centerY / 100}, ${-centerX / 100}, 0, ${Math.log(distance + 1) * 2}deg)
-            `;
-
-            // Light position in % of the card size
-            card.style.setProperty('--glow-x', `${50 + (centerX * 2 / bounds.width) * 100}%`);
-            card.style.setProperty('--glow-y', `${50 + (centerY * 2 / bounds.height) * 100}%`);
-          }
-
-          card.addEventListener('mouseenter', () => {
-            bounds = card.getBoundingClientRect();
-            card.classList.add('is-tilting');
-            card.addEventListener('mousemove', tiltToMouse);
-          });
-
-          card.addEventListener('mouseleave', () => {
-            card.removeEventListener('mousemove', tiltToMouse);
-            card.classList.remove('is-tilting');
-            card.style.transform = '';
-            card.style.removeProperty('--glow-x');
-            card.style.removeProperty('--glow-y');
-          });
-        });
-      }
-    });
-  </script>
 
 </body>
 
