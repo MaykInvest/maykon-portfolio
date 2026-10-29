@@ -70,12 +70,18 @@
   --nav-font: "Poppins", sans-serif;
 
   /* Global colors */
-  --background-color: #101a20;   /* page background */
-  --default-color: #e7f2f7;      /* body text */
-  --heading-color: #ffffff;      /* headings */
-  --accent-color: #007bff;       /* brand blue: buttons, links, highlights */
-  --surface-color: #14243f;      /* background of boxed elements (cards, badges) */
-  --contrast-color: #ffffff;     /* text on top of accent-colored backgrounds */
+  --background-color: #101a20;
+  /* page background */
+  --default-color: #e7f2f7;
+  /* body text */
+  --heading-color: #ffffff;
+  /* headings */
+  --accent-color: #007bff;
+  /* brand blue: buttons, links, highlights */
+  --surface-color: #14243f;
+  /* background of boxed elements (cards, badges) */
+  --contrast-color: #ffffff;
+  /* text on top of accent-colored backgrounds */
 
   /* Text shades */
   --text-main: #ffffff;
@@ -84,9 +90,12 @@
   --text-secondary: #94a3b8;
 
   /* Navigation menu */
-  --nav-color: #ffffff;                    /* menu links */
-  --nav-hover-color: #1387c1;              /* menu links on hover / active page */
-  --nav-mobile-background-color: #213642;  /* mobile menu background */
+  --nav-color: #ffffff;
+  /* menu links */
+  --nav-hover-color: #1387c1;
+  /* menu links on hover / active page */
+  --nav-mobile-background-color: #213642;
+  /* mobile menu background */
   --nav-dropdown-background-color: #051117;
   --nav-dropdown-color: #e7f2f7;
   --nav-dropdown-hover-color: #1387c1;
@@ -115,7 +124,8 @@
   --cube-hover-accent: #4f46e5;
   --cube-glass-bg: rgba(10, 25, 47, 0.6);
   --cube-speed-normal: 12s;
-  --cube-speed-fast: 3s;  /* spin speed on hover */
+  --cube-speed-fast: 3s;
+  /* spin speed on hover */
 
   /* Tech grid cards (About page) */
   --card-primary: #00d4ff;
@@ -1858,11 +1868,35 @@ article.timeline__item:nth-child(even) .timeline__icon {
   margin-bottom: 0.5rem;
 }
 
+/* Flex + wrap so an incomplete last row is centered instead of stuck to the left */
 .tech-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
   padding: 2rem 0;
+  max-width: 760px;
+  /* at most 5 icons per row: 9 icons -> balanced 5 + 4 */
+  margin: 0 auto;
+}
+
+.tech-item {
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  color: inherit;
+}
+
+/* svg = the inline GitHub logo, sized like the other icons */
+.tech-item img,
+.tech-item svg {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 0.75rem;
 }
 
 .tech-item {
