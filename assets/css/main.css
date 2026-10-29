@@ -2037,6 +2037,27 @@ article.timeline__item:nth-child(even) .timeline__icon {
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
 }
 
+/* Card with two logos (Git & GitHub): smaller logos side by side */
+.elite-logo-pair {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.elite-logo-pair .elite-logo {
+  width: 80px;
+  margin-bottom: 0;
+}
+
+.elite-logo-icon {
+  font-size: 80px;
+  line-height: 1;
+  color: #fff;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+}
+
 .elite-name {
   font-size: 1.8rem;
   font-weight: 800;
