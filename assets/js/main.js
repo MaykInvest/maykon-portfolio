@@ -17,7 +17,6 @@
 
   /**
    * Mobile nav toggle
-   * Refined by Senior Engineer for stability and UX
    */
   const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
 
@@ -40,18 +39,6 @@
       if (document.querySelector('.mobile-nav-active')) {
         mobileNavToogle();
       }
-    });
-  });
-
-  /**
-   * Toggle mobile nav dropdowns
-   */
-  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-    navmenu.addEventListener('click', function(e) {
-      e.preventDefault();
-      this.parentNode.classList.toggle('active');
-      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
-      e.stopImmediatePropagation();
     });
   });
 
@@ -100,7 +87,9 @@
       mirror: false
     });
   }
-  window.addEventListener('load', aosInit);
+  // Run now (this script is at the end of <body>), not on 'load':
+  // 'load' waits for every image, and until AOS runs the content stays invisible
+  aosInit();
 
   /**
    * Init typed.js
@@ -115,91 +104,6 @@
       typeSpeed: 100,
       backSpeed: 50,
       backDelay: 2000
-    });
-  }
-
-  /**
-   * Animate the skills items on reveal
-   */
-  let skillsAnimation = document.querySelectorAll('.skills-animation');
-  skillsAnimation.forEach((item) => {
-    new Waypoint({
-      element: item,
-      offset: '80%',
-      handler: function(direction) {
-        let progress = item.querySelectorAll('.progress .progress-bar');
-        progress.forEach(el => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%';
-        });
-      }
-    });
-  });
-
-  /**
-   * Initiate Pure Counter
-   */
-  if (typeof PureCounter !== 'undefined') {
-    new PureCounter();
-  }
-
-  /**
-   * Init swiper sliders
-   */
-  function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
-      let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
-      );
-
-      if (swiperElement.classList.contains("swiper-tab")) {
-        // Custom pagination logic if needed
-      } else {
-        new Swiper(swiperElement, config);
-      }
-    });
-  }
-
-  window.addEventListener("load", initSwiper);
-
-  /**
-   * Init isotope layout and filters
-   */
-  document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
-    let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
-    let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
-    let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
-
-    let initIsotope;
-    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
-      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
-        itemSelector: '.isotope-item',
-        layoutMode: layout,
-        filter: filter,
-        sortBy: sort
-      });
-    });
-
-    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
-      filters.addEventListener('click', function() {
-        isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
-        this.classList.add('filter-active');
-        initIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        if (typeof aosInit === 'function') {
-          aosInit();
-        }
-      }, false);
-    });
-
-  });
-
-  /**
-   * Initiate glightbox
-   */
-  if (typeof GLightbox !== 'undefined') {
-    const glightbox = GLightbox({
-      selector: '.glightbox'
     });
   }
 
@@ -292,10 +196,14 @@
       e.stopPropagation();
       const wasOpen = card.classList.contains('open');
 
-      projectCards.forEach(c => c.classList.remove('open'));
+      projectCards.forEach(c => {
+        c.classList.remove('open');
+        c.querySelector('.toggle-btn').setAttribute('aria-expanded', 'false');
+      });
 
       if (!wasOpen) {
         card.classList.add('open');
+        toggleBtn.setAttribute('aria-expanded', 'true'); // tells screen readers the details are open
         card.style.zIndex = topLayer++;
       }
     });
@@ -382,9 +290,14 @@
   }
 
   function updateWorkStatus() {
-    const now = new Date();
-    const day = now.getDay(); // 0 = Sunday ... 6 = Saturday
-    const currentMinutes = now.getHours() * 60 + now.getMinutes();
+    // Use Brazil time (my working hours), not the visitor's own timezone
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/Sao_Paulo', weekday: 'short', hour: 'numeric', minute: 'numeric', hourCycle: 'h23'
+    }).formatToParts(new Date());
+    const part = type => parts.find(p => p.type === type).value;
+
+    const day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(part('weekday')); // 0 = Sunday ... 6 = Saturday
+    const currentMinutes = Number(part('hour')) * 60 + Number(part('minute'));
     const openMinutes = 8 * 60;   // 08:00
     const closeMinutes = 18 * 60; // 18:00
 

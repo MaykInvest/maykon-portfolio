@@ -1,18 +1,18 @@
-🌐 My Web Portfolio
+# 🌐 My Web Portfolio
 
 A professional, responsive portfolio website built to showcase my skills and projects.
 This site features a sleek dark theme and is fully optimized for mobile and desktop viewing.
 
 ---
 
-🚀 Live Demo
+## 🚀 Live Demo
 
 You can view the live website here:
-👉 **[Insert Your GitHub Pages Link Here]**
+👉 **[maykinvest.github.io/maykon-portfolio](https://maykinvest.github.io/maykon-portfolio/)**
 
 ---
 
-🛠️ Built With
+## 🛠️ Built With
 
 * **HTML5 & CSS3** – Core structure and custom styling
 * **JavaScript** – Interactive elements and functionality
@@ -21,7 +21,7 @@ You can view the live website here:
 
 ---
 
-✨ Key Features
+## ✨ Key Features
 
 * **Responsive Design**
   Seamlessly adapts to mobile, tablet, and desktop screens
@@ -34,11 +34,11 @@ You can view the live website here:
 
 ---
 
-📂 Project Structure
+## 📂 Project Structure
 
 The project is organized into dedicated pages for better navigation and maintainability:
 
-Root Files
+### Root Files
 
 ```
 index.html        # Homepage & Landing area
@@ -49,7 +49,7 @@ portfolio.html    # Project showcase
 contact.html      # Contact form and links
 ```
 
-Assets Directory (`/assets`)
+### Assets Directory (`/assets`)
 
 ```
 /css              # Custom styles and overrides
@@ -60,25 +60,25 @@ Assets Directory (`/assets`)
 
 ---
 
-🔧 How to Run Locally
+## 🔧 How to Run Locally
 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/your-repository-name.git
+git clone https://github.com/MaykInvest/maykon-portfolio.git
 ```
 
 2. Navigate into the project folder:
 
 ```bash
-cd your-repository-name
+cd maykon-portfolio
 ```
 
 3. Open `index.html` in your browser
 
 ---
 
-📜 Credits & Attributions
+## 📜 Credits & Attributions
 
 While this project has been extensively modified, customized, and rebuilt to fit my personal brand, the initial layout structure was inspired by a template from **BootstrapMade**.
 
@@ -89,15 +89,15 @@ While this project has been extensively modified, customized, and rebuilt to fit
 
 ---
 
-📬 Contact
+## 📬 Contact
 
 Feel free to connect with me or check out my work:
 
-* GitHub: *https://github.com/MaykInvest*
-* LinkedIn: *www.linkedin.com/in/maykon-oliveira-maykinvest*
+* GitHub: [github.com/MaykInvest](https://github.com/MaykInvest)
+* LinkedIn: [linkedin.com/in/maykon-oliveira-maykinvest](https://www.linkedin.com/in/maykon-oliveira-maykinvest/)
 
 ---
 
-⭐ Final Note
+## ⭐ Final Note
 
 This portfolio is continuously evolving as I improve my skills in data science, development, and system design.

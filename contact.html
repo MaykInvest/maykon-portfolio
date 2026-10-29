@@ -5,8 +5,17 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Contact | Maykon Jonattan - Data Scientist</title>
-  <meta name="description" content="">
+  <meta name="description"
+    content="Get in touch with Maykon Jonattan, aspiring Data Scientist, for opportunities, collaborations or questions.">
   <meta name="keywords" content="">
+
+  <!-- Link previews: what LinkedIn, WhatsApp, etc. show when this page is shared -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact | Maykon Jonattan - Data Scientist">
+  <meta property="og:description" content="Get in touch with Maykon Jonattan, aspiring Data Scientist, for opportunities, collaborations or questions.">
+  <meta property="og:url" content="https://maykinvest.github.io/maykon-portfolio/contact.html">
+  <meta property="og:image" content="https://maykinvest.github.io/maykon-portfolio/assets/img/profile/profile-image.webp">
+  <meta name="twitter:card" content="summary">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -16,15 +25,13 @@
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
@@ -77,7 +84,7 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <div style="width: 100px;"></div> <!-- Professional "Invisible Spacer" Trick to replace the social links-->
+      <div class="header-spacer d-none d-xl-block"></div> <!-- Keeps the menu centered on desktop; hidden on mobile so the menu button sits at the right edge -->
 
     </div>
   </header>
@@ -153,7 +160,7 @@
                   <h6 class="text-white mb-0">Working Hours</h6>
                 </div>
                 <p class="text-primary small fw-bold mb-1">Monday to Friday</p>
-                <p class="text-white mb-2" style="font-size: 0.85rem;">08:00 AM — 06:00 PM</p>
+                <p class="text-white mb-2" style="font-size: 0.85rem;">08:00 AM — 06:00 PM (Brasília time, UTC−3)</p>
                 <div class="d-flex justify-content-center">
                   <span id="status-badge" class="badge rounded-pill bg-opacity-10 border" style="font-size: 0.65rem;">
                     <span id="status-spinner" class="spinner-grow spinner-grow-sm me-1" role="status"></span>
@@ -191,29 +198,29 @@
               <form action="https://formspree.io/f/xreypzpl" method="POST" class="row g-4">
                 <div class="col-md-6">
                   <div class="input-group-refined">
-                    <input type="text" name="name" required placeholder=" ">
-                    <label>Full Name</label>
+                    <input type="text" id="contact-name" name="name" autocomplete="name" required placeholder=" ">
+                    <label for="contact-name">Full Name</label>
                     <span class="focus-border"></span>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="input-group-refined">
-                    <input type="email" name="email" required placeholder=" ">
-                    <label>Email Address</label>
+                    <input type="email" id="contact-email" name="email" autocomplete="email" required placeholder=" ">
+                    <label for="contact-email">Email Address</label>
                     <span class="focus-border"></span>
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="input-group-refined">
-                    <input type="text" name="subject" required placeholder=" ">
-                    <label>Subject</label>
+                    <input type="text" id="contact-subject" name="subject" required placeholder=" ">
+                    <label for="contact-subject">Subject</label>
                     <span class="focus-border"></span>
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="input-group-refined">
-                    <textarea name="message" required placeholder=" " style="min-height: 150px;"></textarea>
-                    <label>Your Message</label>
+                    <textarea id="contact-message" name="message" required placeholder=" " style="min-height: 150px;"></textarea>
+                    <label for="contact-message">Your Message</label>
                     <span class="focus-border"></span>
                   </div>
                 </div>
@@ -304,13 +311,6 @@
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
 
   <!-- Main JS File -->

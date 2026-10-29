@@ -368,6 +368,11 @@ main {
   --background-color: rgba(16, 26, 32, 0.9);
 }
 
+/* Empty block on the right that balances the logo, so the menu stays centered (desktop only) */
+.header .header-spacer {
+  width: 100px;
+}
+
 
 /*--------------------------------------------------------------
   # 3.2 3D cube logo

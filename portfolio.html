@@ -5,8 +5,17 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Portfolio | Maykon Jonattan - Data Scientist</title>
-  <meta name="description" content="">
+  <meta name="description"
+    content="Data science projects by Maykon Jonattan: forecasting, machine learning, NLP sentiment analysis and data analysis in Python.">
   <meta name="keywords" content="">
+
+  <!-- Link previews: what LinkedIn, WhatsApp, etc. show when this page is shared -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Portfolio | Maykon Jonattan - Data Scientist">
+  <meta property="og:description" content="Data science projects by Maykon Jonattan: forecasting, machine learning, NLP sentiment analysis and data analysis in Python.">
+  <meta property="og:url" content="https://maykinvest.github.io/maykon-portfolio/portfolio.html">
+  <meta property="og:image" content="https://maykinvest.github.io/maykon-portfolio/assets/img/profile/profile-image.webp">
+  <meta name="twitter:card" content="summary">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -16,15 +25,13 @@
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
@@ -73,7 +80,7 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <div style="width: 100px;"></div> <!-- Professional "Invisible Spacer" Trick to replace the social links-->
+      <div class="header-spacer d-none d-xl-block"></div> <!-- Keeps the menu centered on desktop; hidden on mobile so the menu button sits at the right edge -->
 
     </div>
   </header>
@@ -118,7 +125,7 @@
 
                     <a href="#" data-bs-toggle="modal" data-bs-target="#energyForecastingModal"
                       style="cursor: pointer; width: 100%; display: block;">
-                      <img src="assets/img/portfolio/Energy_consumption.webp"
+                      <img src="assets/img/portfolio/Energy_consumption.webp" width="1200" height="800" loading="lazy" decoding="async"
                         alt="Energy Consumption Forecasting project">
                     </a>
                   </div>
@@ -127,7 +134,7 @@
                     <div class="cat-label" style="color:#fbbf24">Forecasting Energy Consumption</div>
                     <div class="card-title">
                       <span>Predictive Analytics </span>
-                      <button class="toggle-btn" aria-label="Toggle details"><span class="h"></span><span
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="h"></span><span
                           class="v"></span></button>
                     </div>
                   </div>
@@ -185,7 +192,7 @@
                       aria-label="Close"></button>
                   </div>
                   <div class="modal-body text-center p-2">
-                    <img src="assets/img/portfolio/Energy_consumption.webp" class="img-fluid rounded w-100"
+                    <img src="assets/img/portfolio/Energy_consumption.webp" width="1200" height="800" loading="lazy" decoding="async" class="img-fluid rounded w-100"
                       alt="Energy consumption forecasting graphs preview">
                   </div>
                 </div>
@@ -216,7 +223,7 @@
 
                     <a href="#" data-bs-toggle="modal" data-bs-target="#titanicMlModal"
                       style="cursor: pointer; width: 100%; display: block;">
-                      <img src="assets/img/portfolio/Titanic.webp" alt="Titanic ML project">
+                      <img src="assets/img/portfolio/Titanic.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Titanic ML project">
                     </a>
                   </div>
 
@@ -224,7 +231,7 @@
                     <div class="cat-label" style="color:#7dd3fc">Titanic Survival Prediction</div>
                     <div class="card-title">
                       <span>Titanic Classification Models</span>
-                      <button class="toggle-btn" aria-label="Toggle details"><span class="h"></span><span
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="h"></span><span
                           class="v"></span></button>
                     </div>
                   </div>
@@ -285,7 +292,7 @@
                       aria-label="Close"></button>
                   </div>
                   <div class="modal-body text-center p-2">
-                    <img src="assets/img/portfolio/Titanic.webp" class="img-fluid rounded w-100"
+                    <img src="assets/img/portfolio/Titanic.webp" width="1200" height="800" loading="lazy" decoding="async" class="img-fluid rounded w-100"
                       alt="Titanic project analysis and feature correlations preview">
                   </div>
                 </div>
@@ -315,7 +322,7 @@
 
                     <a href="#" data-bs-toggle="modal" data-bs-target="#housePricesModal"
                       style="cursor: pointer; width: 100%; display: block;">
-                      <img src="assets/img/portfolio/House_prices_prediction.webp"
+                      <img src="assets/img/portfolio/House_prices_prediction.webp" width="1200" height="800" loading="lazy" decoding="async"
                         alt="House Prices Prediction project">
                     </a>
                   </div>
@@ -324,7 +331,7 @@
                     <div class="cat-label" style="color:#ffc107">House Prices Prediction</div>
                     <div class="card-title">
                       <span>Advanced Regression Models</span>
-                      <button class="toggle-btn" aria-label="Toggle details"><span class="h"></span><span
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="h"></span><span
                           class="v"></span></button>
                     </div>
                   </div>
@@ -385,7 +392,7 @@
                       aria-label="Close"></button>
                   </div>
                   <div class="modal-body text-center p-2">
-                    <img src="assets/img/portfolio/House_prices_prediction.webp" class="img-fluid rounded w-100"
+                    <img src="assets/img/portfolio/House_prices_prediction.webp" width="1200" height="800" loading="lazy" decoding="async" class="img-fluid rounded w-100"
                       alt="House Prices Prediction analysis and model results preview">
                   </div>
                 </div>
@@ -414,7 +421,7 @@
 
                     <a href="#" data-bs-toggle="modal" data-bs-target="#pythonAssistantModal"
                       style="cursor: pointer; width: 100%; display: block;">
-                      <img src="assets/img/portfolio/Python_bot.webp" alt="Python Assistant project">
+                      <img src="assets/img/portfolio/Python_bot.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Python Assistant project">
                     </a>
                   </div>
 
@@ -422,7 +429,7 @@
                     <div class="cat-label" style="color:#c084fc">Python Programming Assistant</div>
                     <div class="card-title">
                       <span>AI Coding </span>
-                      <button class="toggle-btn" aria-label="Toggle details"><span class="h"></span><span
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="h"></span><span
                           class="v"></span></button>
                     </div>
                   </div>
@@ -480,7 +487,7 @@
                       aria-label="Close"></button>
                   </div>
                   <div class="modal-body text-center p-2">
-                    <img src="assets/img/portfolio/Python_bot.webp" class="img-fluid rounded w-100"
+                    <img src="assets/img/portfolio/Python_bot.webp" width="1200" height="800" loading="lazy" decoding="async" class="img-fluid rounded w-100"
                       alt="Python Assistant project preview snapshot">
                   </div>
                 </div>
@@ -509,7 +516,7 @@
 
                     <a href="#" data-bs-toggle="modal" data-bs-target="#sentimentAnalysisModal"
                       style="cursor: pointer; width: 100%; display: block;">
-                      <img src="assets/img/portfolio/Sentimental.webp" alt="Sentiment Analysis project">
+                      <img src="assets/img/portfolio/Sentimental.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Sentiment Analysis project">
                     </a>
                   </div>
 
@@ -517,7 +524,7 @@
                     <div class="cat-label" style="color:#2dd4bf">Classification For Sentiment Analysis</div>
                     <div class="card-title">
                       <span>Sentiment AI </span>
-                      <button class="toggle-btn" aria-label="Toggle details"><span class="h"></span><span
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="h"></span><span
                           class="v"></span></button>
                     </div>
                   </div>
@@ -574,7 +581,7 @@
                       aria-label="Close"></button>
                   </div>
                   <div class="modal-body text-center p-2">
-                    <img src="assets/img/portfolio/Sentimental.webp" class="img-fluid rounded w-100"
+                    <img src="assets/img/portfolio/Sentimental.webp" width="1200" height="800" loading="lazy" decoding="async" class="img-fluid rounded w-100"
                       alt="Sentiment AI metrics and visualization preview">
                   </div>
                 </div>
@@ -606,7 +613,7 @@
 
                     <a href="#" data-bs-toggle="modal" data-bs-target="#trafficAnalysisModal"
                       style="cursor: pointer; width: 100%; display: block;">
-                      <img src="assets/img/portfolio/Traffic_Accident.webp" alt="Traffic Accident Analysis project">
+                      <img src="assets/img/portfolio/Traffic_Accident.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Traffic Accident Analysis project">
                     </a>
                   </div>
 
@@ -614,7 +621,7 @@
                     <div class="cat-label" style="color:#fb923c">Traffic Accident Analysis</div>
                     <div class="card-title">
                       <span>Urban Safety Insights - Porto Alegre</span>
-                      <button class="toggle-btn" aria-label="Toggle details">
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false">
                         <span class="h"></span><span class="v"></span>
                       </button>
                     </div>
@@ -682,7 +689,7 @@
                       aria-label="Close"></button>
                   </div>
                   <div class="modal-body text-center p-2">
-                    <img src="assets/img/portfolio/Traffic_Accident.webp" class="img-fluid rounded w-100"
+                    <img src="assets/img/portfolio/Traffic_Accident.webp" width="1200" height="800" loading="lazy" decoding="async" class="img-fluid rounded w-100"
                       alt="Traffic analysis geographical map charts preview">
                   </div>
                 </div>
@@ -712,6 +719,8 @@
           <!-- End button to the next page -->
 
         </div>
+
+      </div><!-- End container -->
 
     </section><!-- /Portfolio Section -->
 
@@ -763,15 +772,7 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
