@@ -7,13 +7,13 @@
   <title>Contact | Maykon Jonattan - Data Scientist</title>
   <meta name="description"
     content="Get in touch with Maykon Jonattan, aspiring Data Scientist, for opportunities, collaborations or questions.">
-  <meta name="keywords" content="">
 
   <!-- Link previews: what LinkedIn, WhatsApp, etc. show when this page is shared -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Contact | Maykon Jonattan - Data Scientist">
   <meta property="og:description" content="Get in touch with Maykon Jonattan, aspiring Data Scientist, for opportunities, collaborations or questions.">
   <meta property="og:url" content="https://maykinvest.github.io/maykon-portfolio/contact.html">
+  <link rel="canonical" href="https://maykinvest.github.io/maykon-portfolio/contact.html">
   <meta property="og:image" content="https://maykinvest.github.io/maykon-portfolio/assets/img/profile/profile-image.webp">
   <meta name="twitter:card" content="summary">
 
@@ -35,18 +35,6 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-
-  <style>
-
-  </style>
-
-  <!-- =======================================================
-  * Template Name: FolioOne
-  * Template URL: https://bootstrapmade.com/folioone-bootstrap-portfolio-website-template/
-  * Updated: Aug 23 2025 with Bootstrap v5.3.7
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="contact-page">
@@ -81,7 +69,7 @@
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="contact.html" class="active">Contact</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        <button type="button" class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"></button>
       </nav>
 
       <div class="header-spacer d-none d-xl-block"></div> <!-- Keeps the menu centered on desktop; hidden on mobile so the menu button sits at the right edge -->
@@ -96,10 +84,10 @@
       style="background: #0a1118; padding: 60px 0 100px 0;">
 
       <div class="container section-title text-center mb-5 mt-0" data-aos="fade-up">
-        <h2 class="display-5 fw-bold text-white mb-3">
+        <h1 class="display-5 fw-bold text-white mb-3">
           <span class="text-gradient">Let's Talk</span>
           <i class="bi bi-chat-dots ms-2"></i>
-        </h2>
+        </h1>
         <p class="text-muted mx-auto">
           Whether you have a project proposal, or just want to say hi, my inbox is always open.
         </p>
@@ -116,7 +104,7 @@
 
               <!-- 1. Location Card -->
               <div class="refined-card p-3" data-aos="fade-up" data-aos-delay="100">
-                <a href="https://www.google.com/maps/search/?api=1&query=Mossoró+RN+Brazil" target="_blank"
+                <a href="https://www.google.com/maps/search/?api=1&query=Mossoró+RN+Brazil" target="_blank" rel="noopener"
                   class="text-decoration-none">
                   <div class="d-flex align-items-center">
                     <div class="icon-box-refined"><i class="bi bi-geo-alt-fill"></i></div>
@@ -128,31 +116,26 @@
                 </a>
               </div>
 
-
-              <!-- 2. Socials Card (The Alignment Fix) -->
-              <!-- 'mt-auto' pushes this card to the very bottom of the column -->
-              <div class="refined-card py-4 px-2 text-center mt-auto" data-aos="fade-up" data-aos-delay="300">
-                <h6 class="text-white mb-3">Connect Socially</h6>
-                <div class="social-grid-row d-flex gap-3 justify-content-center">
-                  <a href="https://wa.me/5584987257836" target="_blank" class="social-icon-only whatsapp"
-                    title="WhatsApp">
-                    <i class="bi bi-whatsapp"></i>
-                  </a>
-                  <a href="https://linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank"
-                    class="social-icon-only linkedin" title="LinkedIn">
-                    <i class="bi bi-linkedin"></i>
-                  </a>
-                  <a href="https://github.com/MaykInvest" target="_blank" class="social-icon-only github"
-                    title="GitHub">
-                    <i class="bi bi-github"></i>
-                  </a>
+              <!-- 2. Email Card with Copy Feature -->
+              <div class="refined-card p-3" data-aos="fade-up" data-aos-delay="150">
+                <div class="d-flex align-items-center justify-content-between">
+                  <div class="d-flex align-items-center">
+                    <div class="icon-box-refined"><i class="bi bi-envelope-paper-heart" aria-hidden="true"></i></div>
+                    <div class="ms-3 text-break">
+                      <p class="text-uppercase small fw-bold text-primary mb-1">Email Me</p>
+                      <h5 class="text-white mb-0" id="emailText" style="font-size: 0.95rem;">maykinvest@outlook.com</h5>
+                    </div>
+                  </div>
+                  <!-- Copy Button -->
+                  <button class="btn btn-link text-primary p-0 ms-2 copy-btn" id="copyEmailBtn" type="button"
+                    title="Copy to clipboard" aria-label="Copy email address">
+                    <i class="bi bi-clipboard" id="copyIcon"></i>
+                  </button>
                 </div>
               </div>
 
-
-              
               <!-- 3. Working Hours Card -->
-              <div class="refined-card p-4 text-center" data-aos="fade-up" data-aos-delay="350">
+              <div class="refined-card p-4 text-center" data-aos="fade-up" data-aos-delay="200">
                 <div class="d-flex align-items-center justify-content-center mb-2">
                   <div class="icon-box-refined me-2" style="width: 35px; height: 35px; font-size: 1rem;">
                     <i class="bi bi-clock-fill"></i>
@@ -162,28 +145,31 @@
                 <p class="text-primary small fw-bold mb-1">Monday to Friday</p>
                 <p class="text-white mb-2" style="font-size: 0.85rem;">08:00 AM — 06:00 PM (Brasília time, UTC−3)</p>
                 <div class="d-flex justify-content-center">
-                  <span id="status-badge" class="badge rounded-pill bg-opacity-10 border" style="font-size: 0.65rem;">
-                    <span id="status-spinner" class="spinner-grow spinner-grow-sm me-1" role="status"></span>
+                  <span id="status-badge" class="badge rounded-pill bg-opacity-10 border" role="status" aria-live="polite" style="font-size: 0.65rem;">
+                    <span id="status-spinner" class="spinner-grow spinner-grow-sm me-1" aria-hidden="true"></span>
                     <span id="status-text">Checking Status...</span>
                   </span>
                 </div>
               </div>
 
-              <!-- 4. Email Card with Copy Feature -->
-              <div class="refined-card p-3" data-aos="fade-up" data-aos-delay="200">
-                <div class="d-flex align-items-center justify-content-between">
-                  <div class="d-flex align-items-center">
-                    <div class="icon-box-refined"><i class="bi bi-envelope-paper-heart"></i></div>
-                    <div class="ms-3 text-break">
-                      <p class="text-uppercase small fw-bold text-primary mb-1">Email Me</p>
-                      <h5 class="text-white mb-0" id="emailText" style="font-size: 0.95rem;">maykinvest@outlook.com</h5>
-                    </div>
-                  </div>
-                  <!-- Copy Button -->
-                  <button class="btn btn-link text-primary p-0 ms-2 copy-btn" id="copyEmailBtn"
-                    title="Copy to clipboard">
-                    <i class="bi bi-clipboard" id="copyIcon"></i>
-                  </button>
+
+              <!-- 4. Socials Card -->
+              <!-- 'mt-auto' keeps this card at the bottom so the column lines up with the form -->
+              <div class="refined-card py-4 px-2 text-center mt-auto" data-aos="fade-up" data-aos-delay="250">
+                <h6 class="text-white mb-3">Connect Socially</h6>
+                <div class="social-grid-row d-flex gap-3 justify-content-center">
+                  <a href="https://wa.me/5584987257836" target="_blank" rel="noopener" class="social-icon-only whatsapp"
+                    title="WhatsApp" aria-label="WhatsApp">
+                    <i class="bi bi-whatsapp"></i>
+                  </a>
+                  <a href="https://linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" rel="noopener"
+                    class="social-icon-only linkedin" title="LinkedIn" aria-label="LinkedIn">
+                    <i class="bi bi-linkedin"></i>
+                  </a>
+                  <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="social-icon-only github"
+                    title="GitHub" aria-label="GitHub">
+                    <i class="bi bi-github"></i>
+                  </a>
                 </div>
               </div>
 
@@ -196,6 +182,8 @@
             <!-- 'h-100' makes the form card fill the height to match the left side -->
             <div class="refined-card p-4 p-lg-5 h-100" data-aos="fade-up" data-aos-delay="400">
               <form action="https://formspree.io/f/xreypzpl" method="POST" class="row g-4">
+                <!-- Spam trap: hidden from people, bots fill it in and Formspree drops the message -->
+                <input type="text" name="_gotcha" class="d-none" tabindex="-1" autocomplete="off" aria-hidden="true">
                 <div class="col-md-6">
                   <div class="input-group-refined">
                     <input type="text" id="contact-name" name="name" autocomplete="name" required placeholder=" ">
@@ -223,6 +211,10 @@
                     <label for="contact-message">Your Message</label>
                     <span class="focus-border"></span>
                   </div>
+                </div>
+                <!-- Error message (filled in by main.js if sending fails) -->
+                <div class="col-12">
+                  <p id="form-error" class="form-error d-none" role="alert"></p>
                 </div>
                 <!-- Submit Button aligned to bottom -->
                 <div class="col-12 mt-5">
@@ -278,14 +270,13 @@
         <!-- Vibrant Social Links (Compact) -->
         <div class="social-links-sleek d-flex gap-2 mb-3">
           <a href="https://www.linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" rel="noopener"
-            class="sleek-glow linkedin" title="LinkedIn">
+            class="sleek-glow linkedin" title="LinkedIn" aria-label="LinkedIn">
             <i class="bi bi-linkedin"></i>
           </a>
-          <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="sleek-glow github"
-            title="GitHub">
+          <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="sleek-glow github" title="GitHub" aria-label="GitHub">
             <i class="bi bi-github"></i>
           </a>
-          <a href="contact.html" class="sleek-glow email" title="Email">
+          <a href="contact.html" class="sleek-glow email" title="Email" aria-label="Contact by email">
             <i class="bi bi-envelope-at-fill"></i>
           </a>
         </div>
@@ -302,8 +293,8 @@
 
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"
+    aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Preloader -->
   <div id="preloader"></div>
@@ -321,4 +312,4 @@
 
 </body>
 
-</html><!-- End of File -->
+</html>

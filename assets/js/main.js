@@ -22,9 +22,12 @@
 
   function mobileNavToogle() {
     if (!mobileNavToggleBtn) return;
-    document.querySelector('body').classList.toggle('mobile-nav-active');
+    const isOpen = document.querySelector('body').classList.toggle('mobile-nav-active');
     mobileNavToggleBtn.classList.toggle('bi-list');
     mobileNavToggleBtn.classList.toggle('bi-x');
+    // Tell screen readers whether the menu is open
+    mobileNavToggleBtn.setAttribute('aria-expanded', isOpen);
+    mobileNavToggleBtn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
   }
 
   if (mobileNavToggleBtn) {
@@ -97,7 +100,7 @@
   const selectTyped = document.querySelector('.typed');
   if (selectTyped) {
     let typed_strings = selectTyped.getAttribute('data-typed-items');
-    typed_strings = typed_strings.split(',');
+    typed_strings = typed_strings.split(',').map(item => item.trim());
     new Typed('.typed', {
       strings: typed_strings,
       loop: true,
@@ -131,7 +134,8 @@
 
   /**
    * Skills page: flip cards
-   * Click (or tap) turns the card: front = icon, back = details.
+   * Click (or tap, or Enter/Space on the keyboard) turns the card:
+   * front = icon, back = details.
    * On hover the card tilts toward the mouse and a light follows it
    * (skipped when the system asks for reduced motion).
    */
@@ -139,8 +143,22 @@
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   skillCards.forEach(card => {
-    card.addEventListener('click', () => {
-      card.classList.toggle('is-flipped');
+    // Make the card reachable with Tab and announced as a button
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-pressed', 'false');
+
+    function flipCard() {
+      const flipped = card.classList.toggle('is-flipped');
+      card.setAttribute('aria-pressed', flipped);
+    }
+
+    card.addEventListener('click', flipCard);
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault(); // Space would scroll the page
+        flipCard();
+      }
     });
 
     if (reduceMotion) return;
@@ -244,12 +262,21 @@
     const successModal = new bootstrap.Modal(successModalEl);
     const userNameSpan = document.getElementById('userName');
     const submitBtn = contactForm.querySelector('.refined-submit-btn');
+    const formError = document.getElementById('form-error');
+
+    // Shows (or hides, with no message) the error line above the button
+    function showFormError(message) {
+      if (!formError) return;
+      formError.textContent = message || '';
+      formError.classList.toggle('d-none', !message);
+    }
 
     contactForm.addEventListener('submit', async (event) => {
       event.preventDefault(); // don't reload the page
 
       const formData = new FormData(contactForm);
       const originalContent = submitBtn.innerHTML;
+      showFormError();
 
       // Loading state
       submitBtn.disabled = true;
@@ -267,10 +294,10 @@
           successModal.show();
           contactForm.reset();
         } else {
-          alert("Oops! There was a problem sending your message.");
+          showFormError("Oops! There was a problem sending your message. Please try again or email me directly.");
         }
       } catch (error) {
-        alert("Connection error. Please try again later.");
+        showFormError("Connection error. Please check your internet and try again.");
       } finally {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalContent;

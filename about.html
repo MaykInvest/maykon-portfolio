@@ -7,7 +7,6 @@
   <title>About | Maykon Jonattan - Data Scientist</title>
   <meta name="description"
     content="About Maykon Jonattan de Oliveira, aspiring Data Scientist: background, education and what drives my work with data.">
-  <meta name="keywords" content="">
 
   <!-- Link previews: what LinkedIn, WhatsApp, etc. show when this page is shared -->
   <meta property="og:type" content="website">
@@ -15,6 +14,7 @@
   <meta property="og:description"
     content="About Maykon Jonattan de Oliveira, aspiring Data Scientist: background, education and what drives my work with data.">
   <meta property="og:url" content="https://maykinvest.github.io/maykon-portfolio/about.html">
+  <link rel="canonical" href="https://maykinvest.github.io/maykon-portfolio/about.html">
   <meta property="og:image"
     content="https://maykinvest.github.io/maykon-portfolio/assets/img/profile/profile-image.webp">
   <meta name="twitter:card" content="summary">
@@ -76,7 +76,7 @@
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        <button type="button" class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"></button>
       </nav>
 
       <div class="header-spacer d-none d-xl-block"></div>
@@ -92,7 +92,7 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>A little bit about me!</h2>
+        <h1>A little bit about me!</h1>
       </div>
       <!-- End Section Title -->
 
@@ -125,7 +125,7 @@
           <section class="col-lg-8" data-aos="fade-left" data-aos-delay="200">
             <div class="about-text">
               <p>
-                I started learning Python as an alternative to leaving the support field.
+                I started learning Python as a way to grow beyond IT support.
                 What began as an experiment quickly became a passion, and after a few years,
                 I discovered <strong>Data Science with Machine Learning</strong>,
                 and everything changed.
@@ -139,7 +139,7 @@
               <p>
                 When faced with a challenge, I don't stop.
                 I study more, practice more, and adapt to the new situation.
-                Growing up isn't an option for me, it's a habit.
+                Growing isn't an option for me, it's a habit.
               </p>
               <p class="signature">
                 It would be a pleasure to hear from you. God bless!
@@ -160,7 +160,7 @@
           <article class="timeline__item">
             <div class="timeline__content">
               <span class="label">The Beginning</span>
-              <h1>Learning Python</h1>
+              <h3>Learning Python</h3>
               <time datetime="2023">2023</time>
               <hr />
               <p>Started my programming journey by learning Python — the language that powers most of the Data Science
@@ -192,7 +192,7 @@
           <article class="timeline__item">
             <div class="timeline__content">
               <span class="label">Discovery</span>
-              <h1>Diving into Data Science</h1>
+              <h3>Diving into Data Science</h3>
               <time datetime="2024">2024</time>
               <hr />
               <p>Discovered the world of Data Science and committed to studying it seriously. Explored statistics, data
@@ -227,7 +227,7 @@
           <article class="timeline__item">
             <div class="timeline__content">
               <span class="label">Building & Querying</span>
-              <h1>First Projects &amp; SQL</h1>
+              <h3>First Projects &amp; SQL</h3>
               <time datetime="2025">2025</time>
               <hr />
               <p>Moved from theory to practice by building real Data Science projects. Also started learning SQL to
@@ -264,7 +264,7 @@
           <article class="timeline__item">
             <div class="timeline__content">
               <span class="label">Next Step</span>
-              <h1>Entering the Job Market &amp; Power BI</h1>
+              <h3>Entering the Job Market &amp; Power BI</h3>
               <time datetime="2026">2026</time>
               <hr />
               <p>Aiming to land my first job in the Data Science field while expanding my skill set with Power BI — a
@@ -409,14 +409,13 @@
         <!-- Vibrant Social Links (Compact) -->
         <div class="social-links-sleek d-flex gap-2 mb-3">
           <a href="https://www.linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" rel="noopener"
-            class="sleek-glow linkedin" title="LinkedIn">
+            class="sleek-glow linkedin" title="LinkedIn" aria-label="LinkedIn">
             <i class="bi bi-linkedin"></i>
           </a>
-          <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="sleek-glow github"
-            title="GitHub">
+          <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="sleek-glow github" title="GitHub" aria-label="GitHub">
             <i class="bi bi-github"></i>
           </a>
-          <a href="contact.html" class="sleek-glow email" title="Email">
+          <a href="contact.html" class="sleek-glow email" title="Email" aria-label="Contact by email">
             <i class="bi bi-envelope-at-fill"></i>
           </a>
         </div>
@@ -424,6 +423,8 @@
         <!-- Single-Line Legal & Credits -->
         <div class="sleek-legal">
           <span>© 2026 Maykon Jonattan</span>
+          <span class="dot">•</span>
+          <span>Some icons by <a href="https://icons8.com" target="_blank" rel="noopener">Icons8</a></span>
         </div>
 
       </div>
@@ -432,8 +433,8 @@
   <!-- End of the compact footer -->
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"
+    aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Preloader -->
   <div id="preloader"></div>

@@ -290,6 +290,7 @@ main {
   position: relative;
 }
 
+.section-title h1,
 .section-title h2 {
   font-size: 32px;
   font-weight: 700;
@@ -301,6 +302,8 @@ main {
   position: relative;
 }
 
+.section-title h1:before,
+.section-title h1:after,
 .section-title h2:before,
 .section-title h2:after {
   content: "";
@@ -311,10 +314,12 @@ main {
   vertical-align: middle;
 }
 
+.section-title h1:before,
 .section-title h2:before {
   margin-right: 15px;
 }
 
+.section-title h1:after,
 .section-title h2:after {
   margin-left: 15px;
 }
@@ -767,6 +772,9 @@ main {
 /* (keep this block after the "open menu" rules: on :focus these win) */
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
+    background: none;
+    border: 0;
+    padding: 0;
     color: var(--nav-color);
     font-size: 28px;
     line-height: 0;
@@ -1054,6 +1062,14 @@ main {
 .sleek-legal {
   font-size: 0.65rem;
   color: rgba(255, 255, 255, 0.3);
+}
+
+.sleek-legal .dot {
+  margin: 0 6px;
+}
+
+.sleek-legal a {
+  color: inherit;
 }
 
 
@@ -1732,7 +1748,7 @@ article.timeline__item::before {
   margin-bottom: 0.4rem;
 }
 
-.timeline__content h1 {
+.timeline__content h3 {
   font-size: 1.15rem;
   font-weight: 700;
   color: #e8f0ff;
@@ -1959,7 +1975,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
   border-radius: 25px;
 }
 
-/* Turned by a click (the script in skills.html adds .is-flipped) */
+/* Turned by a click (main.js adds .is-flipped) */
 .elite-card.is-flipped .elite-card-inner {
   transform: rotateY(180deg);
 }
@@ -1984,7 +2000,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* ── Flip cards: 3D tilt and light that follows the mouse ──── */
-/* The script in skills.html tilts .elite-card toward the mouse and
+/* main.js tilts .elite-card toward the mouse and
    sets --glow-x / --glow-y (the light position, in %). */
 .elite-card {
   transition: transform 300ms ease-out, box-shadow 300ms ease-out;
@@ -3137,4 +3153,42 @@ article.timeline__item:nth-child(even) .timeline__icon {
 
 .refined-submit-btn:hover .btn-icon {
   transform: translateX(5px);
+}
+/*--------------------------------------------------------------
+  # Accessibility helpers
+--------------------------------------------------------------*/
+
+/* Project image that opens the preview window: a <button> styled like the plain image */
+.img-preview-btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+/* Visible outline when moving with the keyboard (Tab) */
+.mobile-nav-toggle:focus-visible,
+.elite-card:focus-visible,
+.img-preview-btn:focus-visible,
+.toggle-btn:focus-visible,
+.gh-btn:focus-visible,
+.copy-btn:focus-visible,
+.sleek-glow:focus-visible,
+.social-icon-only:focus-visible,
+.scroll-top:focus-visible {
+  outline: 2px solid var(--accent-color, #1387c1);
+  outline-offset: 3px;
+}
+
+/* Contact form: error shown above the send button */
+.form-error {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: #fca5a5;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
 }

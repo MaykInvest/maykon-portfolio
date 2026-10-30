@@ -7,13 +7,13 @@
   <title>Portfolio | Maykon Jonattan - Data Scientist</title>
   <meta name="description"
     content="Data science projects by Maykon Jonattan: forecasting, machine learning, NLP sentiment analysis and data analysis in Python.">
-  <meta name="keywords" content="">
 
   <!-- Link previews: what LinkedIn, WhatsApp, etc. show when this page is shared -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Portfolio | Maykon Jonattan - Data Scientist">
   <meta property="og:description" content="Data science projects by Maykon Jonattan: forecasting, machine learning, NLP sentiment analysis and data analysis in Python.">
   <meta property="og:url" content="https://maykinvest.github.io/maykon-portfolio/portfolio.html">
+  <link rel="canonical" href="https://maykinvest.github.io/maykon-portfolio/portfolio.html">
   <meta property="og:image" content="https://maykinvest.github.io/maykon-portfolio/assets/img/profile/profile-image.webp">
   <meta name="twitter:card" content="summary">
 
@@ -35,14 +35,6 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: FolioOne
-  * Template URL: https://bootstrapmade.com/folioone-bootstrap-portfolio-website-template/
-  * Updated: Aug 23 2025 with Bootstrap v5.3.7
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="portfolio-page">
@@ -77,7 +69,7 @@
           <li><a href="portfolio.html" class="active">Portfolio</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        <button type="button" class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"></button>
       </nav>
 
       <div class="header-spacer d-none d-xl-block"></div> <!-- Keeps the menu centered on desktop; hidden on mobile so the menu button sits at the right edge -->
@@ -92,7 +84,7 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
+        <h1>Portfolio</h1>
         <p>Here you can explore some of the projects I have worked on and the skills I have developed.</p>
       </div><!-- End Section Title -->
 
@@ -118,16 +110,16 @@
                   <div class="img-wrap">
                     <div class="img-badge"><span class="dot" style="background:#f59e0b"></span> Time Series </div>
                     <a class="gh-btn" href="https://github.com/MaykInvest/Forecasting_Energy_Consumption"
-                      target="_blank" rel="noopener" aria-label="View GitHub repository">
+                      target="_blank" rel="noopener" aria-label="View Energy Consumption Forecasting on GitHub">
                       <i class="bi bi-github"></i>
                       <span class="gh-btn-label">GitHub</span>
                     </a>
 
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#energyForecastingModal"
-                      style="cursor: pointer; width: 100%; display: block;">
+                    <button type="button" class="img-preview-btn" data-bs-toggle="modal" data-bs-target="#energyForecastingModal"
+                      aria-label="Open preview: Energy Consumption Forecasting project">
                       <img src="assets/img/portfolio/Energy_consumption.webp" width="1200" height="800" loading="lazy" decoding="async"
                         alt="Energy Consumption Forecasting project">
-                    </a>
+                    </button>
                   </div>
 
                   <div class="title-area">
@@ -146,8 +138,7 @@
                         demands.</p>
                       <div class="tags">
                         <span class="tag"
-                          style="background:rgba(245,158,11,0.1);color:#fcd34d;border:1px solid rgba(245,158,11,0.2)"><i
-                            class="ti ti-timeline" style="font-size:11px"></i>Forecasting</span>
+                          style="background:rgba(245,158,11,0.1);color:#fcd34d;border:1px solid rgba(245,158,11,0.2)"><i class="bi bi-clock-history me-1" style="font-size:11px"></i>Forecasting</span>
                         <span class="tag"
                           style="background:rgba(56,189,248,0.1);color:#bae6fd;border:1px solid rgba(56,189,248,0.2)">Data
                           Science</span>
@@ -183,11 +174,11 @@
               </div>
             </div>
 
-            <div class="modal fade" id="energyForecastingModal" tabindex="-1" aria-hidden="true">
+            <div class="modal fade" id="energyForecastingModal" tabindex="-1" aria-labelledby="energyForecastingModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content" style="background: #121214; border: 1px solid rgba(245,158,11,0.35);">
                   <div class="modal-header" style="border-bottom: 1px solid rgba(255,255,255,0.1);">
-                    <h5 class="modal-title" style="color: #fbbf24;">Energy Forecasting Project Preview</h5>
+                    <h5 class="modal-title" id="energyForecastingModalLabel" style="color: #fbbf24;">Energy Forecasting Project Preview</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
@@ -216,15 +207,15 @@
                     </div>
 
                     <a class="gh-btn" href="https://github.com/MaykInvest/Titanic-analysis.git" target="_blank"
-                      rel="noopener" aria-label="View GitHub repository">
+                      rel="noopener" aria-label="View Titanic Survival Prediction on GitHub">
                       <i class="bi bi-github"></i>
                       <span class="gh-btn-label">GitHub</span>
                     </a>
 
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#titanicMlModal"
-                      style="cursor: pointer; width: 100%; display: block;">
+                    <button type="button" class="img-preview-btn" data-bs-toggle="modal" data-bs-target="#titanicMlModal"
+                      aria-label="Open preview: Titanic ML project">
                       <img src="assets/img/portfolio/Titanic.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Titanic ML project">
-                    </a>
+                    </button>
                   </div>
 
                   <div class="title-area">
@@ -244,8 +235,7 @@
 
                       <div class="tags">
                         <span class="tag"
-                          style="background:rgba(56,189,248,0.1);color:#7dd3fc;border:1px solid rgba(56,189,248,0.2)"><i
-                            class="ti ti-brand-python" style="font-size:11px"></i>Python</span>
+                          style="background:rgba(56,189,248,0.1);color:#7dd3fc;border:1px solid rgba(56,189,248,0.2)"><i class="bi bi-filetype-py me-1" style="font-size:11px"></i>Python</span>
                         <span class="tag"
                           style="background:rgba(139,92,246,0.1);color:#c4b5fd;border:1px solid rgba(139,92,246,0.2)">XGBoost</span>
                         <span class="tag"
@@ -283,11 +273,11 @@
               </div>
             </div>
 
-            <div class="modal fade" id="titanicMlModal" tabindex="-1" aria-hidden="true">
+            <div class="modal fade" id="titanicMlModal" tabindex="-1" aria-labelledby="titanicMlModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content" style="background: #121214; border: 1px solid rgba(56,189,248,0.35);">
                   <div class="modal-header" style="border-bottom: 1px solid rgba(255,255,255,0.1);">
-                    <h5 class="modal-title" style="color: #7dd3fc;">Titanic Classification Project Preview</h5>
+                    <h5 class="modal-title" id="titanicMlModalLabel" style="color: #7dd3fc;">Titanic Classification Project Preview</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
@@ -315,16 +305,16 @@
                     <div class="img-badge"><span class="dot" style="background:#ffc107"></span> ML · Regression</div>
 
                     <a class="gh-btn" href="https://github.com/MaykInvest/House_Prices_Prediction.git" target="_blank"
-                      rel="noopener" aria-label="View GitHub repository for House Prices Prediction">
+                      rel="noopener" aria-label="View House Prices Prediction on GitHub">
                       <i class="bi bi-github"></i>
                       <span class="gh-btn-label">GitHub</span>
                     </a>
 
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#housePricesModal"
-                      style="cursor: pointer; width: 100%; display: block;">
+                    <button type="button" class="img-preview-btn" data-bs-toggle="modal" data-bs-target="#housePricesModal"
+                      aria-label="Open preview: House Prices Prediction project">
                       <img src="assets/img/portfolio/House_prices_prediction.webp" width="1200" height="800" loading="lazy" decoding="async"
                         alt="House Prices Prediction project">
-                    </a>
+                    </button>
                   </div>
 
                   <div class="title-area">
@@ -344,8 +334,8 @@
                         performance.</p>
 
                       <div class="tags">
-                        <span class="meta-i"> <i class="bi bi-code-slash me-1" style="color: #38bdf8;"></i> Python
-                        </span>
+                        <span class="tag"
+                          style="background:rgba(255,193,7,0.1);color:#ffc107;border:1px solid rgba(255,193,7,0.2)">Python</span>
                         <span class="tag"
                           style="background:rgba(255,193,7,0.1);color:#ffc107;border:1px solid rgba(255,193,7,0.2)">Scikit-Learn</span>
                         <span class="tag"
@@ -361,8 +351,8 @@
 
                   <div class="stat-row">
                     <div class="stat">
-                      <div class="stat-val" style="color:#ffc107">0.92 R²</div>
-                      <div class="stat-lbl">Accuracy</div>
+                      <div class="stat-val" style="color:#ffc107">0.92</div>
+                      <div class="stat-lbl">R² Score</div>
                     </div>
                     <div class="stat">
                       <div class="stat-val" style="color:#ffe082">81</div>
@@ -383,11 +373,11 @@
               </div>
             </div>
 
-            <div class="modal fade" id="housePricesModal" tabindex="-1" aria-hidden="true">
+            <div class="modal fade" id="housePricesModal" tabindex="-1" aria-labelledby="housePricesModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content" style="background: #121214; border: 1px solid rgba(255,193,7,0.35);">
                   <div class="modal-header" style="border-bottom: 1px solid rgba(255,255,255,0.1);">
-                    <h5 class="modal-title" style="color: #ffc107;">House Prices Prediction Project Preview</h5>
+                    <h5 class="modal-title" id="housePricesModalLabel" style="color: #ffc107;">House Prices Prediction Project Preview</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
@@ -414,15 +404,15 @@
                   <div class="img-wrap">
                     <div class="img-badge"><span class="dot" style="background:#a855f7"></span> AI </div>
                     <a class="gh-btn" href="https://github.com/MaykInvest/Python-Programming-Assistant.git"
-                      target="_blank" rel="noopener" aria-label="View GitHub repository">
+                      target="_blank" rel="noopener" aria-label="View Python Programming Assistant on GitHub">
                       <i class="bi bi-github"></i>
                       <span class="gh-btn-label">GitHub</span>
                     </a>
 
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#pythonAssistantModal"
-                      style="cursor: pointer; width: 100%; display: block;">
+                    <button type="button" class="img-preview-btn" data-bs-toggle="modal" data-bs-target="#pythonAssistantModal"
+                      aria-label="Open preview: Python Assistant project">
                       <img src="assets/img/portfolio/Python_bot.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Python Assistant project">
-                    </a>
+                    </button>
                   </div>
 
                   <div class="title-area">
@@ -441,8 +431,7 @@
                         prompt engineering.</p>
                       <div class="tags">
                         <span class="tag"
-                          style="background:rgba(168,85,247,0.1);color:#d8b4fe;border:1px solid rgba(168,85,247,0.2)"><i
-                            class="ti ti-brand-python" style="font-size:11px"></i>Python</span>
+                          style="background:rgba(168,85,247,0.1);color:#d8b4fe;border:1px solid rgba(168,85,247,0.2)"><i class="bi bi-filetype-py me-1" style="font-size:11px"></i>Python</span>
                         <span class="tag"
                           style="background:rgba(236,72,153,0.1);color:#f9a8d4;border:1px solid rgba(236,72,153,0.2)">LLM
                           API</span>
@@ -478,11 +467,11 @@
               </div>
             </div>
 
-            <div class="modal fade" id="pythonAssistantModal" tabindex="-1" aria-hidden="true">
+            <div class="modal fade" id="pythonAssistantModal" tabindex="-1" aria-labelledby="pythonAssistantModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content" style="background: #121214; border: 1px solid rgba(168,85,247,0.35);">
                   <div class="modal-header" style="border-bottom: 1px solid rgba(255,255,255,0.1);">
-                    <h5 class="modal-title" style="color: #c084fc;">Python Assistant Project Preview</h5>
+                    <h5 class="modal-title" id="pythonAssistantModalLabel" style="color: #c084fc;">Python Assistant Project Preview</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
@@ -509,15 +498,15 @@
                   <div class="img-wrap">
                     <div class="img-badge"><span class="dot" style="background:#14b8a6"></span> ML Model </div>
                     <a class="gh-btn" href="https://github.com/MaykInvest/Sentiment_Analysis_Airline.git"
-                      target="_blank" rel="noopener" aria-label="View GitHub repository">
+                      target="_blank" rel="noopener" aria-label="View Sentiment Analysis on GitHub">
                       <i class="bi bi-github"></i>
                       <span class="gh-btn-label">GitHub</span>
                     </a>
 
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#sentimentAnalysisModal"
-                      style="cursor: pointer; width: 100%; display: block;">
+                    <button type="button" class="img-preview-btn" data-bs-toggle="modal" data-bs-target="#sentimentAnalysisModal"
+                      aria-label="Open preview: Sentiment Analysis project">
                       <img src="assets/img/portfolio/Sentimental.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Sentiment Analysis project">
-                    </a>
+                    </button>
                   </div>
 
                   <div class="title-area">
@@ -536,8 +525,7 @@
                         vectorization and feature extraction.</p>
                       <div class="tags">
                         <span class="tag"
-                          style="background:rgba(20,184,166,0.1);color:#99f6e4;border:1px solid rgba(20,184,166,0.2)"><i
-                            class="ti ti-chart-dots" style="font-size:11px"></i>Scikit-Learn</span>
+                          style="background:rgba(20,184,166,0.1);color:#99f6e4;border:1px solid rgba(20,184,166,0.2)"><i class="bi bi-diagram-3 me-1" style="font-size:11px"></i>Scikit-Learn</span>
                         <span class="tag"
                           style="background:rgba(56,189,248,0.1);color:#bae6fd;border:1px solid rgba(56,189,248,0.2)">NLP</span>
                         <span class="tag"
@@ -572,11 +560,11 @@
               </div>
             </div>
 
-            <div class="modal fade" id="sentimentAnalysisModal" tabindex="-1" aria-hidden="true">
+            <div class="modal fade" id="sentimentAnalysisModal" tabindex="-1" aria-labelledby="sentimentAnalysisModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content" style="background: #121214; border: 1px solid rgba(20,184,166,0.35);">
                   <div class="modal-header" style="border-bottom: 1px solid rgba(255,255,255,0.1);">
-                    <h5 class="modal-title" style="color: #2dd4bf;">Sentiment AI Project Preview</h5>
+                    <h5 class="modal-title" id="sentimentAnalysisModalLabel" style="color: #2dd4bf;">Sentiment AI Project Preview</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
@@ -606,15 +594,15 @@
                     </div>
 
                     <a class="gh-btn" href="https://github.com/MaykInvest/Traffic-Accident-Analysis-in-Porto-Alegre"
-                      target="_blank" rel="noopener" aria-label="View GitHub repository">
+                      target="_blank" rel="noopener" aria-label="View Traffic Accident Analysis on GitHub">
                       <i class="bi bi-github"></i>
                       <span class="gh-btn-label">GitHub</span>
                     </a>
 
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#trafficAnalysisModal"
-                      style="cursor: pointer; width: 100%; display: block;">
+                    <button type="button" class="img-preview-btn" data-bs-toggle="modal" data-bs-target="#trafficAnalysisModal"
+                      aria-label="Open preview: Traffic Accident Analysis project">
                       <img src="assets/img/portfolio/Traffic_Accident.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Traffic Accident Analysis project">
-                    </a>
+                    </button>
                   </div>
 
                   <div class="title-area">
@@ -638,7 +626,7 @@
                       <div class="tags">
                         <span class="tag"
                           style="background:rgba(249,115,22,0.1);color:#fdba74;border:1px solid rgba(249,115,22,0.2)">
-                          <i class="ti ti-brand-python" style="font-size:11px"></i>Python
+                          <i class="bi bi-filetype-py me-1" style="font-size:11px"></i>Python
                         </span>
                         <span class="tag"
                           style="background:rgba(59,130,246,0.1);color:#93c5fd;border:1px solid rgba(59,130,246,0.2)">Pandas</span>
@@ -680,11 +668,11 @@
               </div>
             </div>
 
-            <div class="modal fade" id="trafficAnalysisModal" tabindex="-1" aria-hidden="true">
+            <div class="modal fade" id="trafficAnalysisModal" tabindex="-1" aria-labelledby="trafficAnalysisModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content" style="background: #121214; border: 1px solid rgba(249,115,22,0.35);">
                   <div class="modal-header" style="border-bottom: 1px solid rgba(255,255,255,0.1);">
-                    <h5 class="modal-title" style="color: #fb923c;">Traffic Analytics Project Preview</h5>
+                    <h5 class="modal-title" id="trafficAnalysisModalLabel" style="color: #fb923c;">Traffic Analytics Project Preview</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
@@ -740,14 +728,13 @@
         <!-- Vibrant Social Links (Compact) -->
         <div class="social-links-sleek d-flex gap-2 mb-3">
           <a href="https://www.linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" rel="noopener"
-            class="sleek-glow linkedin" title="LinkedIn">
+            class="sleek-glow linkedin" title="LinkedIn" aria-label="LinkedIn">
             <i class="bi bi-linkedin"></i>
           </a>
-          <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="sleek-glow github"
-            title="GitHub">
+          <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="sleek-glow github" title="GitHub" aria-label="GitHub">
             <i class="bi bi-github"></i>
           </a>
-          <a href="contact.html" class="sleek-glow email" title="Email">
+          <a href="contact.html" class="sleek-glow email" title="Email" aria-label="Contact by email">
             <i class="bi bi-envelope-at-fill"></i>
           </a>
         </div>
@@ -764,8 +751,8 @@
 
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"
+    aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Preloader -->
   <div id="preloader"></div>
