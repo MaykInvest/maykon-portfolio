@@ -2,107 +2,64 @@
   "use strict";
 
   /**
-   * Apply .scrolled class to the body as the page is scrolled down
+   * Once the page is scrolled down: darker header (.scrolled on <body>)
+   * and the scroll-to-top button appears
    */
-  function toggleScrolled() {
-    const selectBody = document.querySelector('body');
-    const selectHeader = document.querySelector('#header');
-    if (!selectHeader) return;
-    if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
-    window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
+  const scrollTop = document.querySelector('.scroll-top');
+
+  function onScroll() {
+    const scrolled = window.scrollY > 100;
+    document.body.classList.toggle('scrolled', scrolled);
+    scrollTop.classList.toggle('active', scrolled);
   }
 
-  document.addEventListener('scroll', toggleScrolled);
-  window.addEventListener('load', toggleScrolled);
+  document.addEventListener('scroll', onScroll);
+  window.addEventListener('load', onScroll);
+
+  scrollTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
   /**
    * Mobile nav toggle
    */
   const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
 
-  function mobileNavToogle() {
-    if (!mobileNavToggleBtn) return;
-    const isOpen = document.querySelector('body').classList.toggle('mobile-nav-active');
+  mobileNavToggleBtn.addEventListener('click', () => {
+    const isOpen = document.body.classList.toggle('mobile-nav-active');
     mobileNavToggleBtn.classList.toggle('bi-list');
     mobileNavToggleBtn.classList.toggle('bi-x');
     // Tell screen readers whether the menu is open
     mobileNavToggleBtn.setAttribute('aria-expanded', isOpen);
     mobileNavToggleBtn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-  }
-
-  if (mobileNavToggleBtn) {
-    mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
-  }
-
-  /**
-   * Hide mobile nav on same-page/hash links
-   */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
-      if (document.querySelector('.mobile-nav-active')) {
-        mobileNavToogle();
-      }
-    });
   });
 
   /**
    * Preloader
    */
-  const preloader = document.querySelector('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove();
-    });
-  }
+  window.addEventListener('load', () => {
+    document.querySelector('#preloader').remove();
+  });
 
   /**
-   * Scroll top button
+   * Animation on scroll.
+   * Runs now (this script is at the end of <body>), not on 'load':
+   * 'load' waits for every image, and until AOS runs the content stays invisible
    */
-  let scrollTop = document.querySelector('.scroll-top');
-
-  function toggleScrollTop() {
-    if (scrollTop) {
-      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
-    }
-  }
-
-  if (scrollTop) {
-    scrollTop.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  }
-
-  window.addEventListener('load', toggleScrollTop);
-  document.addEventListener('scroll', toggleScrollTop);
+  AOS.init({
+    duration: 600,
+    easing: 'ease-in-out',
+    once: true
+  });
 
   /**
-   * Animation on scroll function and init
-   */
-  function aosInit() {
-    AOS.init({
-      duration: 600,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    });
-  }
-  // Run now (this script is at the end of <body>), not on 'load':
-  // 'load' waits for every image, and until AOS runs the content stays invisible
-  aosInit();
-
-  /**
-   * Init typed.js
+   * Init typed.js (home page only)
    */
   const selectTyped = document.querySelector('.typed');
   if (selectTyped) {
-    let typed_strings = selectTyped.getAttribute('data-typed-items');
-    typed_strings = typed_strings.split(',').map(item => item.trim());
     new Typed('.typed', {
-      strings: typed_strings,
+      strings: selectTyped.dataset.typedItems.split(',').map(item => item.trim()),
       loop: true,
       typeSpeed: 100,
       backSpeed: 50,

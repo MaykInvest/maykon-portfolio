@@ -35,8 +35,7 @@
      4.4  Resume    (resume.html)
      4.5  Portfolio (portfolio.html)
      4.6  Contact   (contact.html)
-
-  5. LEGACY – not used by any page (safe to delete)
+     4.7  Accessibility helpers
 ==============================================================*/
 
 
@@ -47,15 +46,8 @@
 /*--------------------------------------------------------------
   # 1.1 Fonts
   Roboto, Raleway and Poppins are loaded by the <link> tag in
-  each HTML page.
-
-  NOTE: the line below used to sit in the middle of this file.
-  Browsers ignore an @import that is not at the very top, so it
-  never loaded. It is kept commented out so the site looks
-  exactly the same. To really use Inter / Space Mono, move this
-  URL into the Google Fonts <link> of each page instead.
+  each HTML page. Monospace labels use the system monospace font.
 --------------------------------------------------------------*/
-/* @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap'); */
 
 
 /*--------------------------------------------------------------
@@ -94,16 +86,10 @@
   /* menu links */
   --nav-hover-color: #1387c1;
   /* menu links on hover / active page */
-  --nav-mobile-background-color: #213642;
-  /* mobile menu background */
-  --nav-dropdown-background-color: #051117;
-  --nav-dropdown-color: #e7f2f7;
-  --nav-dropdown-hover-color: #1387c1;
 
   /* Neon accents */
   --neon-blue: #06b6d4;
   --neon-purple: #4f46e5;
-  --accent-glow: rgba(6, 182, 212, 0.5);
 
   /* Glass effect */
   --glass-bg: rgba(15, 23, 42, 0.6);
@@ -115,7 +101,6 @@
   /* Motion */
   --transition-smooth: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   --transition-fast: 0.15s ease;
-  --transition-speed: 0.6s;
 
   /* 3D cube logo */
   --cube-size: 52px;
@@ -127,13 +112,8 @@
   --cube-speed-fast: 3s;
   /* spin speed on hover */
 
-  /* Tech grid cards (About page) */
+  /* Tech grid hover glow (About page) */
   --card-primary: #00d4ff;
-  --card-primary-dark: #0099cc;
-  --card-bg-front: #1a1f2b;
-  --card-bg-back: #11141d;
-  --card-text-main: #e2e8f0;
-  --card-accent-muted: rgba(255, 255, 255, 0.1);
 }
 
 
@@ -242,10 +222,11 @@ h6 {
 /*--------------------------------------------------------------
   # 2.4 Sections & glass surfaces
 --------------------------------------------------------------*/
+/* Sections are transparent so the body glow shows through */
 section,
 .section {
   color: var(--default-color);
-  background-color: var(--background-color);
+  background: transparent;
   padding: 60px 0;
   scroll-margin-top: 100px;
   overflow: clip;
@@ -257,25 +238,6 @@ section,
   .section {
     scroll-margin-top: 66px;
   }
-}
-
-/* Make sections transparent so the body glow shows through */
-section,
-.section {
-  background: transparent !important;
-}
-
-/* If you have a specific main container, make it transparent too */
-main {
-  background: transparent !important;
-}
-
-/* Glass look for cards so they stand out on the background */
-.refined-card,
-.card {
-  background: rgba(255, 255, 255, 0.03) !important;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 
@@ -290,8 +252,7 @@ main {
   position: relative;
 }
 
-.section-title h1,
-.section-title h2 {
+.section-title h1 {
   font-size: 32px;
   font-weight: 700;
   line-height: 1.2;
@@ -303,9 +264,7 @@ main {
 }
 
 .section-title h1:before,
-.section-title h1:after,
-.section-title h2:before,
-.section-title h2:after {
+.section-title h1:after {
   content: "";
   width: 50px;
   height: 2px;
@@ -314,13 +273,11 @@ main {
   vertical-align: middle;
 }
 
-.section-title h1:before,
-.section-title h2:before {
+.section-title h1:before {
   margin-right: 15px;
 }
 
-.section-title h1:after,
-.section-title h2:after {
+.section-title h1:after {
   margin-left: 15px;
 }
 
@@ -342,22 +299,10 @@ main {
   letter-spacing: 2px;
 }
 
-/* This styles the 'Toolbox' word specifically */
-.text-primary {
-  color: #0d6efd;
-  /* This is the standard Bootstrap Blue; feel free to change to your preferred accent color */
-}
-
 /* Small detail line under the title */
 .text-muted {
   color: #6c757d !important;
   font-style: italic;
-}
-
-/* Lets long text (like the email) wrap instead of overflowing */
-.text-break {
-  word-wrap: break-word !important;
-  word-break: break-word !important;
 }
 
 
@@ -617,14 +562,6 @@ main {
     position: relative;
   }
 
-  .navmenu a i,
-  .navmenu a:focus i {
-    font-size: 12px;
-    line-height: 0;
-    margin-left: 5px;
-    transition: 0.3s;
-  }
-
   .navmenu>ul>li>a:before {
     content: "";
     position: absolute;
@@ -683,19 +620,10 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0;
     /* Separator lines handle spacing */
-    list-style: none;
     padding: 0;
     margin: 0;
     width: 100%;
-    /* Remove the old floating box style */
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    position: static;
-    inset: auto;
-    overflow-y: visible;
   }
 }
 
@@ -760,16 +688,9 @@ main {
     color: #fff;
     transform: scale(1.1);
   }
-
-  /* Swap hamburger icon to × when menu is open */
-  .mobile-nav-active .mobile-nav-toggle.bi-list::before {
-    content: "\f659";
-    /* Bootstrap Icons × code */
-  }
 }
 
 /* ── Base mobile styles: hamburger button, hidden link list ── */
-/* (keep this block after the "open menu" rules: on :focus these win) */
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
     background: none;
@@ -792,67 +713,7 @@ main {
   .navmenu ul {
     display: none;
     list-style: none;
-    position: absolute;
-    inset: 60px 20px 20px 20px;
-    padding: 10px 0;
-    margin: 0;
-    border-radius: 6px;
-    background-color: var(--nav-mobile-background-color);
-    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-    box-shadow: none;
-    overflow-y: auto;
-    transition: 0.3s;
-    z-index: 9998;
   }
-
-  .navmenu a,
-  .navmenu a:focus {
-    color: var(--nav-dropdown-color);
-    padding: 10px 20px;
-    font-family: var(--nav-font);
-    font-size: 17px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    white-space: nowrap;
-    transition: 0.3s;
-  }
-
-  .navmenu a i,
-  .navmenu a:focus i {
-    font-size: 12px;
-    line-height: 0;
-    margin-left: 5px;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: 0.3s;
-    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
-  }
-
-  .navmenu a i:hover,
-  .navmenu a:focus i:hover {
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
-  }
-
-  .navmenu a:hover,
-  .navmenu .active,
-  .navmenu .active:focus {
-    color: var(--nav-dropdown-hover-color);
-  }
-
-  .navmenu .active i,
-  .navmenu .active:focus i {
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
-    transform: rotate(180deg);
-  }
-
 }
 
 
@@ -872,7 +733,7 @@ main {
   position: relative;
   overflow: hidden;
 
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: system-ui, sans-serif;
   font-weight: 500;
   font-size: 0.9rem;
   letter-spacing: 0.08em;
@@ -987,7 +848,7 @@ main {
   gap: 4px;
   font-size: 10.5px;
   font-weight: 400;
-  font-family: 'Space Mono', monospace;
+  font-family: monospace;
   letter-spacing: 0.05em;
   padding: 3px 10px;
   border-radius: 50px;
@@ -1240,44 +1101,9 @@ main {
   margin-bottom: 3rem;
 }
 
-.hero .hero-actions .btn {
-  padding: 12px 30px;
-  border-radius: 50px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border: 2px solid;
-}
-
-.hero .hero-actions .btn.btn-primary {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-  border-color: var(--accent-color);
-}
-
-.hero .hero-actions .btn.btn-primary:hover {
-  background: color-mix(in srgb, var(--accent-color), black 15%);
-  border-color: color-mix(in srgb, var(--accent-color), black 15%);
-  transform: translateY(-2px);
-}
-
-.hero .hero-actions .btn.btn-outline {
-  background: transparent;
-  color: var(--accent-color);
-  border-color: var(--accent-color);
-}
-
-.hero .hero-actions .btn.btn-outline:hover {
-  transform: translateY(-2px);
-}
-
 @media (max-width: 576px) {
   .hero .hero-actions {
     flex-direction: column;
-  }
-
-  .hero .hero-actions .btn {
-    text-align: center;
   }
 }
 
@@ -1422,13 +1248,6 @@ main {
 }
 
 
-/* FIX: Hide absolute badges on mobile to avoid clipping */
-@media (max-width: 767px) {
-  .floating-elements {
-    display: none;
-  }
-}
-
 @media (max-width: 992px) {
   .hero .hero-content {
     text-align: center;
@@ -1441,45 +1260,21 @@ main {
 }
 
 /* ── Hero: buttons (Resume / Projects / Let's Talk) ────────── */
-.hero-actions .btn {
-  padding: 14px 32px;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid transparent;
-}
-
-
-/* --- COMPACT BUTTON BASE --- */
 .hero-actions .btn-compact {
-  padding: 8px 18px;
-  /* Reduced from 14px/32px to 8px/18px */
-  font-size: 0.85rem;
-  /* Smaller, more elegant font */
-  border-radius: 8px;
-  /* Closer corners for "tech" air */
-  font-weight: 500;
-  letter-spacing: 0.3px;
-  background: #0a0a0a;
-  /* Ultra-Dark Background */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  /* Almost invisible border */
-  color: rgba(255, 255, 255, 0.7);
-  /* Discrete text */
-  transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  text-transform: none;
-  /* We removed the uppercase to be more minimalist */
+  position: relative;
+  overflow: hidden;
+  padding: 12px 30px;
+  border-radius: 50px;
+  border: 2px solid;
+  background: #0a0a0a;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
 }
 
 @media (min-width: 992px) {
@@ -1758,7 +1553,7 @@ article.timeline__item::before {
 
 .timeline__content time {
   display: block;
-  font-family: "Roboto Mono", monospace;
+  font-family: monospace;
   font-weight: 700;
   font-size: 2.2rem;
   color: #2563eb;
@@ -1915,24 +1710,9 @@ article.timeline__item:nth-child(even) .timeline__icon {
   margin-bottom: 0.75rem;
 }
 
-.tech-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  color: inherit;
-}
-
 .tech-item:hover {
   transform: translateY(-10px);
   filter: drop-shadow(0 0 8px var(--card-primary));
-}
-
-.tech-item img {
-  width: 64px;
-  height: 64px;
-  margin-bottom: 0.75rem;
 }
 
 .tech-item span {
@@ -1963,6 +1743,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
   perspective: 1500px;
   margin-bottom: 30px;
   border-radius: 25px;
+  transition: transform 300ms ease-out, box-shadow 300ms ease-out;
 }
 
 .elite-card-inner {
@@ -2002,10 +1783,6 @@ article.timeline__item:nth-child(even) .timeline__icon {
 /* ── Flip cards: 3D tilt and light that follows the mouse ──── */
 /* main.js tilts .elite-card toward the mouse and
    sets --glow-x / --glow-y (the light position, in %). */
-.elite-card {
-  transition: transform 300ms ease-out, box-shadow 300ms ease-out;
-}
-
 .elite-card.is-tilting {
   transition-duration: 150ms;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
@@ -2106,13 +1883,6 @@ article.timeline__item:nth-child(even) .timeline__icon {
   line-height: 1;
   color: #fff;
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
-}
-
-.elite-name {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: white;
-  margin-bottom: 8px;
 }
 
 .elite-badge {
@@ -2382,7 +2152,6 @@ article.timeline__item:nth-child(even) .timeline__icon {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
   text-align: justify;
-  box-sizing: border-box;
 }
 
 .resume-item .list-group-item span {
@@ -2469,10 +2238,6 @@ article.timeline__item:nth-child(even) .timeline__icon {
   transform: translateY(-2px);
 }
 
-.cv-btn-pill:hover i {
-  color: var(--accent-color);
-}
-
 /* Press feedback */
 .cv-btn-pill:active {
   transform: translateY(0);
@@ -2487,7 +2252,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 /* --- Page wrapper: outer padding and default font --- */
 .wrap {
   padding: 2rem 0.5rem 3rem;
-  font-family: 'Inter', sans-serif
+  font-family: sans-serif
 }
 
 /* --- Responsive grid: auto-fits columns, min 300px each --- */
@@ -2510,7 +2275,8 @@ article.timeline__item:nth-child(even) .timeline__icon {
    ======================== */
 .card {
   border-radius: 22px;
-  background: linear-gradient(160deg, #0e1521 0%, #0a0f1a 100%);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.07);
 
   /* Allows children to participate in the 3D space */
@@ -2531,14 +2297,38 @@ article.timeline__item:nth-child(even) .timeline__icon {
 
 
 /* ========================
+   PROJECT COLORS
+   Each card (.cw) and its preview window set two variables
+   in the HTML: --accent-rgb (e.g. 245,158,11) and --accent-light.
+   ======================== */
+.cat-label,
+.portfolio .modal-title {
+  color: var(--accent-light);
+}
+
+.img-badge .dot {
+  background: rgb(var(--accent-rgb));
+}
+
+.portfolio .modal-content {
+  background: #121214;
+  border: 1px solid rgba(var(--accent-rgb), 0.35);
+}
+
+.portfolio .modal-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* ========================
    GLOW BORDER (hover only)
    Absolute overlay that fades in on hover.
-   Each card sets its own color via inline style.
    ======================== */
 .glow-border {
   position: absolute;
   inset: 0;
   border-radius: 22px;
+  box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb), 0.35), 0 0 60px rgba(var(--accent-rgb), 0.08);
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
@@ -2577,18 +2367,20 @@ article.timeline__item:nth-child(even) .timeline__icon {
   left: 160%
 }
 
-/* trigger: slide across */
-
 
 /* ========================
    CARD IMAGE AREA
    ======================== */
 
-/* Container with fixed height and overflow hidden for zoom effect */
+/* Container with fixed height and overflow hidden for zoom effect;
+   the image is centered inside it */
 .img-wrap {
   position: relative;
   height: 200px;
-  overflow: hidden
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Gradient overlay: fades image bottom into card background */
@@ -2602,18 +2394,6 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* Image: zooms in and darkens on card hover */
-/* 1. Target the parent wrapper to act as a center-alignment grid */
-.img-wrap {
-  display: flex;
-  justify-content: center;
-  /* Centers the image horizontally */
-  align-items: center;
-  /* Centers the image vertically */
-  overflow: hidden;
-  /* Prevents scaling images from breaking the container edges */
-}
-
-/* 2. Your original image styles with scaling metrics */
 .img-wrap img {
   width: 100%;
   height: 100%;
@@ -2642,7 +2422,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
   font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 0.07em;
-  font-family: 'Space Mono', monospace;
+  font-family: monospace;
   backdrop-filter: blur(8px);
   background: rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -2697,7 +2477,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 .gh-btn-label {
   font-size: 12px;
   font-weight: 600;
-  font-family: 'Inter', sans-serif;
+  font-family: sans-serif;
   max-width: 0;
   overflow: hidden;
   opacity: 0;
@@ -2743,7 +2523,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-family: 'Space Mono', monospace;
+  font-family: monospace;
   margin-bottom: 5px
 }
 
@@ -2769,7 +2549,6 @@ article.timeline__item:nth-child(even) .timeline__icon {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -2858,7 +2637,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 
 
 /* ========================
-   PANEL CONTENT: description, tags, action buttons
+   PANEL CONTENT: description and tags
    ======================== */
 .desc {
   font-size: 12.5px;
@@ -2867,9 +2646,31 @@ article.timeline__item:nth-child(even) .timeline__icon {
   margin-bottom: 14px
 }
 
+/* Tag colors: --tag-rgb sets the background and border tint */
+.card .tag {
+  background: rgba(var(--tag-rgb), 0.1);
+  border: 1px solid rgba(var(--tag-rgb), 0.2);
+}
+
+.card .tag i {
+  font-size: 11px;
+}
+
+.tag-yellow { --tag-rgb: 255, 193, 7; color: #ffc107; }
+.tag-purple { --tag-rgb: 168, 85, 247; color: #d8b4fe; }
+.tag-sky { --tag-rgb: 56, 189, 248; color: #bae6fd; }
+.tag-cyan { --tag-rgb: 56, 189, 248; color: #7dd3fc; }
+.tag-amber { --tag-rgb: 245, 158, 11; color: #fcd34d; }
+.tag-teal { --tag-rgb: 20, 184, 166; color: #99f6e4; }
+.tag-emerald { --tag-rgb: 16, 185, 129; color: #6ee7b7; }
+.tag-violet { --tag-rgb: 139, 92, 246; color: #c4b5fd; }
+.tag-blue { --tag-rgb: 59, 130, 246; color: #93c5fd; }
+.tag-orange { --tag-rgb: 249, 115, 22; color: #fdba74; }
+.tag-pink { --tag-rgb: 236, 72, 153; color: #f9a8d4; }
+
 /* ========================
    STATS ROW
-   Three quick-glance metrics at the bottom of the card.
+   Quick-glance metrics at the bottom of the card.
    ======================== */
 .stat-row {
   display: flex;
@@ -2885,7 +2686,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 .stat-val {
   font-size: 14px;
   font-weight: 600;
-  font-family: 'Space Mono', monospace
+  font-family: monospace
 }
 
 .stat-lbl {
@@ -2899,8 +2700,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 
 /* ========================
    CARD FOOTER
-   Left: repo meta (branch, language)
-   Right: "View code →" link
+   Repo meta (branch, language)
    ======================== */
 .foot {
   display: flex;
@@ -2927,6 +2727,12 @@ article.timeline__item:nth-child(even) .timeline__icon {
   font-size: 12px
 }
 
+/* Icon colors: branch, language, notebook, Streamlit */
+.meta-i .bi-git { color: #d41c03; }
+.meta-i .bi-code-slash { color: #38bdf8; }
+.meta-i .bi-journal-code { color: #f57c00; }
+.meta-i .bi-bar-chart-line-fill { color: #ff4b4b; }
+
 
 /*--------------------------------------------------------------
   # 4.6 Contact (contact.html)
@@ -2952,15 +2758,10 @@ article.timeline__item:nth-child(even) .timeline__icon {
   -webkit-text-fill-color: transparent;
 }
 
-/* Removes extra top spacing added by the template */
-#contact.section {
-  padding-top: 60px !important;
-}
-
 /* ── Info cards (location, email, hours, socials) ──────────── */
 /* Refined Cards */
 .refined-card {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 20px;
   backdrop-filter: blur(12px);
@@ -2991,7 +2792,6 @@ article.timeline__item:nth-child(even) .timeline__icon {
 .copy-btn {
   transition: transform 0.2s ease;
   text-decoration: none !important;
-  outline: none !important;
   box-shadow: none !important;
 }
 
@@ -3020,12 +2820,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 
 /* ── Social icons ──────────────────────────────────────────── */
 .social-grid-row {
-  display: flex;
-  /* Changed from 'center' to 'flex' */
-  justify-content: center;
-  /* This actually centers them */
   gap: 20px;
-  /* Space between icons */
   flex-wrap: wrap;
   margin-top: 25px;
 }
@@ -3038,7 +2833,6 @@ article.timeline__item:nth-child(even) .timeline__icon {
   align-items: center;
   justify-content: center;
   border-radius: 14px;
-  /* Changed 25% to 14px for a modern "Squircle" look */
   background: rgba(255, 255, 255, 0.03);
   color: #a0a0a0;
   font-size: 1.4rem;
@@ -3154,8 +2948,10 @@ article.timeline__item:nth-child(even) .timeline__icon {
 .refined-submit-btn:hover .btn-icon {
   transform: translateX(5px);
 }
+
+
 /*--------------------------------------------------------------
-  # Accessibility helpers
+  # 4.7 Accessibility helpers
 --------------------------------------------------------------*/
 
 /* Project image that opens the preview window: a <button> styled like the plain image */
