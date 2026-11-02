@@ -24,10 +24,10 @@
   /**
    * Mobile nav toggle
    */
-  const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+  const mobileNavToggleBtn = document.querySelector('.menu-btn');
 
   mobileNavToggleBtn.addEventListener('click', () => {
-    const isOpen = document.body.classList.toggle('mobile-nav-active');
+    const isOpen = document.body.classList.toggle('menu-open');
     mobileNavToggleBtn.classList.toggle('bi-list');
     mobileNavToggleBtn.classList.toggle('bi-x');
     // Tell screen readers whether the menu is open
@@ -70,8 +70,8 @@
   /**
    * 3D cube logo (header, every page): turns to follow the mouse
    */
-  const cubeScene = document.querySelector('.logo-3d-scene');
-  const cube = document.querySelector('.logo-3d-cube');
+  const cubeScene = document.querySelector('.cube-scene');
+  const cube = document.querySelector('.cube');
 
   if (cubeScene && cube) {
     cubeScene.addEventListener('mousemove', (e) => {
@@ -96,7 +96,7 @@
    * On hover the card tilts toward the mouse and a light follows it
    * (skipped when the system asks for reduced motion).
    */
-  const skillCards = document.querySelectorAll('.elite-card');
+  const skillCards = document.querySelectorAll('.skill-card');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   skillCards.forEach(card => {
@@ -159,11 +159,11 @@
    * The "+" button opens the details (one card open at a time),
    * and the card tilts in 3D following the mouse.
    */
-  const projectCards = document.querySelectorAll('.cw > .card');
+  const projectCards = document.querySelectorAll('.project > .project-card');
   let topLayer = 10; // the last opened card is drawn on top
 
   projectCards.forEach(card => {
-    const wrap = card.parentElement; // .cw, the perspective container
+    const wrap = card.parentElement; // .project, the perspective container
     const toggleBtn = card.querySelector('.toggle-btn');
 
     // Open / close the details
@@ -213,12 +213,12 @@
    * then show the "thank you" window (Bootstrap modal)
    */
   const contactForm = document.querySelector('.contact form');
-  const successModalEl = document.getElementById('successModal');
+  const successModalEl = document.getElementById('sent-modal');
 
   if (contactForm && successModalEl) {
     const successModal = new bootstrap.Modal(successModalEl);
-    const userNameSpan = document.getElementById('userName');
-    const submitBtn = contactForm.querySelector('.refined-submit-btn');
+    const userNameSpan = document.getElementById('sender-name');
+    const submitBtn = contactForm.querySelector('.submit-btn');
     const formError = document.getElementById('form-error');
 
     // Shows (or hides, with no message) the error line above the button
@@ -321,12 +321,12 @@
   /**
    * Contact page: copy the email when the clipboard button is clicked
    */
-  const copyEmailBtn = document.getElementById('copyEmailBtn');
+  const copyEmailBtn = document.getElementById('copy-email');
 
   if (copyEmailBtn) {
     copyEmailBtn.addEventListener('click', () => {
-      const email = document.getElementById('emailText').innerText;
-      const icon = document.getElementById('copyIcon');
+      const email = document.getElementById('email-text').innerText;
+      const icon = document.getElementById('copy-icon');
 
       navigator.clipboard.writeText(email).then(() => {
         // Show a check mark for 2 seconds

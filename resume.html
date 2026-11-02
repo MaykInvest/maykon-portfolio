@@ -37,7 +37,7 @@
   <link href="assets/css/main.css" rel="stylesheet">
 </head>
 
-<body class="resume-page">
+<body>
 
   <!-- ======= Header / Navigation Bar ======= -->
   <header id="header" class="header d-flex align-items-center sticky-top">
@@ -45,8 +45,8 @@
 
       <!-- icon Navigation Bar -->
       <a href="index.html" class="d-flex align-items-center">
-        <div class="logo-3d-scene">
-          <div class="logo-3d-cube">
+        <div class="cube-scene">
+          <div class="cube">
             <div class="cube-core"></div>
 
             <div class="cube-face face-front"><i class="bi bi-bar-chart-fill"></i></div>
@@ -69,7 +69,7 @@
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-        <button type="button" class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"></button>
+        <button type="button" class="menu-btn d-xl-none bi bi-list" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"></button>
       </nav>
 
       <div class="header-spacer d-none d-xl-block"></div> <!-- Keeps the menu centered on desktop; hidden on mobile so the menu button sits at the right edge -->
@@ -102,7 +102,7 @@
                 <article>
                   <h3>Associate Degree in Cybersecurity</h3>
                   <h4>Oct 2020 – Jun 2023</h4>
-                  <p class="institution"><em>Pythagoras University UNOPAR Anhanguera (Online)</em></p>
+                  <p class="org"><em>Pythagoras University UNOPAR Anhanguera (Online)</em></p>
                   <p>Recognized by the Brazilian Ministry of Education (MEC) under Decree No. 9,235/2017 and Ordinance
                     No. 1,095/2018.</p>
                 </article>
@@ -110,7 +110,7 @@
                 <article>
                   <h3>Postgraduate Certificate in Cloud Computing</h3>
                   <h4>Feb 2024 – Nov 2024</h4>
-                  <p class="institution"><em>Pythagoras University UNOPAR Anhanguera (Online)</em></p>
+                  <p class="org"><em>Pythagoras University UNOPAR Anhanguera (Online)</em></p>
                   <p>Postgraduate specialization focused on cloud infrastructure, services, and security.</p>
                   <p>Reaccredited by Ministerial Decree No. 959 of 09/14/2018, published in the Official Gazette No. 179
                     of 09/17/2018.</p>
@@ -119,7 +119,7 @@
                 <article>
                   <h3>Postgraduate Certificate in Data Science</h3>
                   <h4>Mar 2026 – Oct 2026</h4>
-                  <p class="institution"><em>Pythagoras University UNOPAR Anhanguera (Online)</em></p>
+                  <p class="org"><em>Pythagoras University UNOPAR Anhanguera (Online)</em></p>
                   <p>Recognized by the Brazilian Ministry of Education (MEC) under Decree No. 9,235/2017 and Ordinance
                     No. 1,095/2018.</p>
                 </article>
@@ -181,7 +181,7 @@
                 <article>
                   <h3>Freelance Data Scientist &amp; Web Developer</h3>
                   <h4>2018 – Present</h4>
-                  <p class="company"><em>Upwork · Remote</em></p>
+                  <p class="org"><em>Upwork · Remote</em></p>
                   <ul>
                     <li>Cleaned, processed and analyzed complex client datasets in Python (Pandas, NumPy), uncovering
                       business trends that informed clients' strategic decisions.</li>
@@ -197,7 +197,7 @@
                 <article>
                   <h3>IT Help Desk Technician</h3>
                   <h4>Aug 2016 – Present</h4>
-                  <p class="company"><em>Home for Poor Children (philanthropic institution) · Mossoró, Brazil</em></p>
+                  <p class="org"><em>Home for Poor Children (philanthropic institution) · Mossoró, Brazil</em></p>
                   <ul>
                     <li>Write SQL queries to extract data from internal databases and build interactive Power BI
                       dashboards that track support metrics and reveal root causes of recurring issues.</li>
@@ -217,20 +217,20 @@
               <div class="resume-content">
                 <article>
                   <h3>IBM Data Science Professional Certificate</h3>
-                  <p class="institution"><em>IBM · Coursera</em></p>
+                  <p class="org"><em>IBM · Coursera</em></p>
                 </article>
 
                 <article>
                   <h3>Statistics &amp; Probability</h3>
-                  <p class="institution"><em>Khan Academy</em></p>
+                  <p class="org"><em>Khan Academy</em></p>
                 </article>
 
                 <!-- Resume download -->
-                <div class="cv-section">
+                <div class="cv">
                   <h3>Get My Resume</h3>
-                  <p class="cv-subtitle">Download my full curriculum with detailed experience and certifications.</p>
+                  <p class="cv-text">Download my full curriculum with detailed experience and certifications.</p>
 
-                  <a href="assets/files/Maykon_Resume.pdf" target="_blank" rel="noopener" class="cv-btn-pill">
+                  <a href="assets/files/Maykon_Resume.pdf" target="_blank" rel="noopener" class="cv-btn">
                     <i class="bi bi-file-earmark-person-fill"></i>
                     View / Download CV
                   </a>
@@ -245,7 +245,7 @@
         <!-- Button to the next page -->
         <div class="row mt-5">
           <div class="col-12 d-flex gap-3 flex-wrap justify-content-center" data-aos="fade-up">
-            <a href="portfolio.html" class="btn-elite">
+            <a href="portfolio.html" class="btn-next">
               Portfolio
               <i class="bi bi-archive"></i> <!-- Tech Icon -->
             </a>
@@ -260,12 +260,12 @@
   </main>
 
   <!-- Ultra‑compact footer -->
-  <footer id="footer" class="footer-sleek">
+  <footer id="footer" class="site-footer">
     <div class="container">
       <div class="d-flex flex-column align-items-center py-3">
 
         <!-- Compact Roles -->
-        <p class="sleek-roles mb-2">
+        <p class="footer-roles mb-2">
           Data Scientist <span class="dot">•</span> Data Analyst <span class="dot">•</span> Power BI <span
             class="dot">•</span> SQL
         </p>
@@ -273,19 +273,19 @@
         <!-- Vibrant Social Links (Compact) -->
         <div class="d-flex gap-2 mb-3">
           <a href="https://www.linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" rel="noopener"
-            class="sleek-glow linkedin" title="LinkedIn" aria-label="LinkedIn">
+            class="footer-icon linkedin" title="LinkedIn" aria-label="LinkedIn">
             <i class="bi bi-linkedin"></i>
           </a>
-          <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="sleek-glow github" title="GitHub" aria-label="GitHub">
+          <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="footer-icon github" title="GitHub" aria-label="GitHub">
             <i class="bi bi-github"></i>
           </a>
-          <a href="contact.html" class="sleek-glow email" title="Email" aria-label="Contact by email">
+          <a href="contact.html" class="footer-icon email" title="Email" aria-label="Contact by email">
             <i class="bi bi-envelope-at-fill"></i>
           </a>
         </div>
 
         <!-- Single-Line Legal & Credits -->
-        <div class="sleek-legal">
+        <div class="footer-legal">
           <span>© 2026 Maykon Jonattan</span>
         </div>
 

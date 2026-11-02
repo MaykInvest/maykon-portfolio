@@ -43,7 +43,7 @@
 
 </head>
 
-<body class="index-page">
+<body>
 
   <!-- ======= Header / Navigation Bar ======= -->
   <header id="header" class="header d-flex align-items-center sticky-top">
@@ -51,8 +51,8 @@
 
       <!-- icon Navigation Bar -->
       <a href="index.html" class="d-flex align-items-center">
-        <div class="logo-3d-scene">
-          <div class="logo-3d-cube">
+        <div class="cube-scene">
+          <div class="cube">
             <div class="cube-core"></div>
 
             <div class="cube-face face-front"><i class="bi bi-bar-chart-fill"></i></div>
@@ -75,7 +75,7 @@
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-        <button type="button" class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"></button>
+        <button type="button" class="menu-btn d-xl-none bi bi-list" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"></button>
       </nav>
 
       <div class="header-spacer d-none d-xl-block"></div> <!-- Keeps the menu centered on desktop; hidden on mobile so the menu button sits at the right edge -->
@@ -110,15 +110,15 @@
               <div class="hero-actions d-flex gap-2 flex-wrap">
 
                 <!-- Resume Button (Grey/White Highlight) -->
-                <a href="resume.html" class="btn btn-compact btn-dark-white">Resume <i
+                <a href="resume.html" class="btn hero-btn">Resume <i
                     class="bi bi-file-earmark-person"></i></a>
 
                 <!-- Projects Button (Code / Grid Icon) -->
-                <a href="portfolio.html" class="btn btn-compact btn-dark-white"> Projects <i
+                <a href="portfolio.html" class="btn hero-btn"> Projects <i
                     class="bi bi-grid-fill"></i></a>
 
                 <!-- Contact Button (Highlight Purple/Indigo) -->
-                <a href="contact.html" class="btn btn-compact btn-dark-white"> Let's Talk <i
+                <a href="contact.html" class="btn hero-btn"> Let's Talk <i
                     class="bi bi-chat-dots"></i></a>
 
               </div>
@@ -134,27 +134,27 @@
                 <img src="assets/img/profile/profile-image.webp" alt="Maykon Jonattan" class="img-fluid rounded shadow"
                   loading="eager" fetchpriority="high">
 
-                <div class="floating-elements">
+                <div class="floating-badges">
 
-                  <div class="floating-card python" data-aos="fade-right" data-aos-delay="800"
+                  <div class="floating-badge python" data-aos="fade-right" data-aos-delay="800"
                     data-aos-anchor=".hero-image">
                     <i class="bi bi-code-slash text-info"></i>
                     <span>Python</span>
                   </div>
 
-                  <div class="floating-card sql" data-aos="fade-down" data-aos-delay="900"
+                  <div class="floating-badge sql" data-aos="fade-down" data-aos-delay="900"
                     data-aos-anchor=".hero-image">
                     <i class="bi bi-database text-warning"></i>
                     <span>SQL</span>
                   </div>
 
-                  <div class="floating-card Power-bi" data-aos="fade-up" data-aos-delay="1000"
+                  <div class="floating-badge power-bi" data-aos="fade-up" data-aos-delay="1000"
                     data-aos-anchor=".hero-image">
                     <i class="bi bi-bar-chart text-warning"></i>
                     <span>Power BI</span>
                   </div>
 
-                  <div class="floating-card Data-Science" data-aos="fade-left" data-aos-delay="700"
+                  <div class="floating-badge data-science" data-aos="fade-left" data-aos-delay="700"
                     data-aos-anchor=".hero-image">
                     <i class="bi bi-graph-up text-primary"></i>
                     <span>Data Science</span>
@@ -171,12 +171,12 @@
   </main>
 
   <!-- Ultra‑compact footer -->
-  <footer id="footer" class="footer-sleek">
+  <footer id="footer" class="site-footer">
     <div class="container">
       <div class="d-flex flex-column align-items-center py-3">
 
         <!-- Compact Roles -->
-        <p class="sleek-roles mb-2">
+        <p class="footer-roles mb-2">
           Data Scientist <span class="dot">•</span> Data Analyst <span class="dot">•</span> Power BI <span
             class="dot">•</span> SQL
         </p>
@@ -184,19 +184,19 @@
         <!-- Vibrant Social Links (Compact) -->
         <div class="d-flex gap-2 mb-3">
           <a href="https://www.linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" rel="noopener"
-            class="sleek-glow linkedin" title="LinkedIn" aria-label="LinkedIn">
+            class="footer-icon linkedin" title="LinkedIn" aria-label="LinkedIn">
             <i class="bi bi-linkedin"></i>
           </a>
-          <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="sleek-glow github" title="GitHub" aria-label="GitHub">
+          <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="footer-icon github" title="GitHub" aria-label="GitHub">
             <i class="bi bi-github"></i>
           </a>
-          <a href="contact.html" class="sleek-glow email" title="Email" aria-label="Contact by email">
+          <a href="contact.html" class="footer-icon email" title="Email" aria-label="Contact by email">
             <i class="bi bi-envelope-at-fill"></i>
           </a>
         </div>
 
         <!-- Single-Line Legal & Credits -->
-        <div class="sleek-legal">
+        <div class="footer-legal">
           <span>© 2026 Maykon Jonattan</span>
         </div>
 

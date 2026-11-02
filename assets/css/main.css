@@ -22,7 +22,7 @@
      3.2  3D cube logo
      3.3  Navigation – desktop
      3.4  Navigation – mobile
-     3.5  "Next page" button (.btn-elite)
+     3.5  "Next page" button (.btn-next)
      3.6  Tags / pills
      3.7  Footer
      3.8  Scroll-to-top button
@@ -338,7 +338,7 @@ section,
   # 3.2 3D cube logo
   The spinning cube in the top-left corner of the header.
 --------------------------------------------------------------*/
-.logo-3d-scene {
+.cube-scene {
   width: var(--cube-size);
   height: var(--cube-size);
   perspective: 600px;
@@ -351,7 +351,7 @@ section,
   cursor: pointer;
 }
 
-.logo-3d-cube {
+.cube {
   width: 100%;
   height: 100%;
   position: relative;
@@ -366,7 +366,7 @@ section,
 }
 
 /* --- Speed Boost on Hover --- */
-.logo-3d-scene:hover .logo-3d-cube {
+.cube-scene:hover .cube {
   animation-duration: var(--cube-speed-fast);
   /* Optional: we removed animation-play-state: paused to let it spin */
 }
@@ -473,11 +473,11 @@ section,
 }
 
 /* Interaction: Visual Feedback + Hyper-Glow */
-.logo-3d-scene:hover {
+.cube-scene:hover {
   filter: drop-shadow(0 0 25px rgba(79, 70, 229, 0.6));
 }
 
-.logo-3d-scene:hover .cube-face {
+.cube-scene:hover .cube-face {
   border-color: var(--cube-hover-accent);
   background: rgba(79, 70, 229, 0.25);
   box-shadow: inset 0 0 20px rgba(79, 70, 229, 0.5);
@@ -486,31 +486,31 @@ section,
 }
 
 /* Re-adjusting faces during scale to maintain cube integrity */
-.logo-3d-scene:hover .face-front {
+.cube-scene:hover .face-front {
   transform: scale(1.1) rotateY(0deg) translateZ(calc(var(--cube-half) * 1.1));
 }
 
-.logo-3d-scene:hover .face-back {
+.cube-scene:hover .face-back {
   transform: scale(1.1) rotateY(180deg) translateZ(calc(var(--cube-half) * 1.1));
 }
 
-.logo-3d-scene:hover .face-right {
+.cube-scene:hover .face-right {
   transform: scale(1.1) rotateY(90deg) translateZ(calc(var(--cube-half) * 1.1));
 }
 
-.logo-3d-scene:hover .face-left {
+.cube-scene:hover .face-left {
   transform: scale(1.1) rotateY(-90deg) translateZ(calc(var(--cube-half) * 1.1));
 }
 
-.logo-3d-scene:hover .face-top {
+.cube-scene:hover .face-top {
   transform: scale(1.1) rotateX(90deg) translateZ(calc(var(--cube-half) * 1.1));
 }
 
-.logo-3d-scene:hover .face-bottom {
+.cube-scene:hover .face-bottom {
   transform: scale(1.1) rotateX(-90deg) translateZ(calc(var(--cube-half) * 1.1));
 }
 
-.logo-3d-scene:hover .cube-core {
+.cube-scene:hover .cube-core {
   background: var(--cube-hover-accent);
   filter: blur(20px);
   transform: scale(1.8);
@@ -596,12 +596,12 @@ section,
 
 /* ── Open menu: full-screen dark overlay ───────────────────── */
 @media (max-width: 1199px) {
-  .mobile-nav-active {
+  .menu-open {
     overflow: hidden;
     /* Locks body scroll while menu is open */
   }
 
-  .mobile-nav-active .navmenu {
+  .menu-open .navmenu {
     position: fixed;
     inset: 0;
     /* Deep dark background — full screen */
@@ -615,7 +615,7 @@ section,
 
 /* ── Open menu: centered column of links ───────────────────── */
 @media (max-width: 1199px) {
-  .mobile-nav-active .navmenu ul {
+  .menu-open .navmenu ul {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -630,14 +630,14 @@ section,
 
 /* ── Individual nav items ───────────────────────────────────── */
 @media (max-width: 1199px) {
-  .mobile-nav-active .navmenu ul li {
+  .menu-open .navmenu ul li {
     width: 100%;
     text-align: center;
     /* Thin separator line between items (matches the reference) */
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
 
-  .mobile-nav-active .navmenu ul li:last-child {
+  .menu-open .navmenu ul li:last-child {
     border-bottom: none;
   }
 }
@@ -645,7 +645,7 @@ section,
 
 /* ── Nav links ──────────────────────────────────────────────── */
 @media (max-width: 1199px) {
-  .mobile-nav-active .navmenu a {
+  .menu-open .navmenu a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -663,8 +663,8 @@ section,
   }
 
   /* Hover: accent color highlight */
-  .mobile-nav-active .navmenu a:hover,
-  .mobile-nav-active .navmenu .active {
+  .menu-open .navmenu a:hover,
+  .menu-open .navmenu .active {
     color: var(--accent-color, #1387c1);
     background: rgba(255, 255, 255, 0.03);
   }
@@ -674,7 +674,7 @@ section,
 @media (max-width: 1199px) {
 
   /* Position the toggle button at the top of the overlay */
-  .mobile-nav-active .mobile-nav-toggle {
+  .menu-open .menu-btn {
     position: fixed;
     top: 20px;
     right: 20px;
@@ -684,7 +684,7 @@ section,
     transition: color 0.2s, transform 0.2s;
   }
 
-  .mobile-nav-active .mobile-nav-toggle:hover {
+  .menu-open .menu-btn:hover {
     color: #fff;
     transform: scale(1.1);
   }
@@ -692,7 +692,7 @@ section,
 
 /* ── Base mobile styles: hamburger button, hidden link list ── */
 @media (max-width: 1199px) {
-  .mobile-nav-toggle {
+  .menu-btn {
     background: none;
     border: 0;
     padding: 0;
@@ -718,10 +718,10 @@ section,
 
 
 /*--------------------------------------------------------------
-  # 3.5 "Next page" button (.btn-elite)
+  # 3.5 "Next page" button (.btn-next)
   Glass button at the bottom of a page that leads to the next one.
 --------------------------------------------------------------*/
-.btn-elite {
+.btn-next {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -761,7 +761,7 @@ section,
 }
 
 /* Shimmer layer */
-.btn-elite::before {
+.btn-next::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -777,7 +777,7 @@ section,
 }
 
 /* Hover */
-.btn-elite:hover {
+.btn-next:hover {
   transform: translateY(-4px) scale(1.02);
   background: var(--glass-hover);
   border-color: var(--glass-border-hover);
@@ -787,24 +787,24 @@ section,
     inset 0 1px 2px rgba(255, 255, 255, 0.1);
 }
 
-.btn-elite:hover::before {
+.btn-next:hover::before {
   transform: translateX(100%);
 }
 
 /* Active */
-.btn-elite:active {
+.btn-next:active {
   transform: translateY(-1px) scale(0.98);
   transition: transform var(--transition-fast);
 }
 
 /* Focus */
-.btn-elite:focus-visible {
+.btn-next:focus-visible {
   outline: 2px solid #fff;
   outline-offset: 4px;
 }
 
 /* Icons */
-.btn-elite i {
+.btn-next i {
   font-size: 1.1em;
   opacity: 0.6;
   transition:
@@ -812,7 +812,7 @@ section,
     opacity var(--transition-smooth);
 }
 
-.btn-elite:hover i {
+.btn-next:hover i {
   opacity: 1;
   transform: translateX(3px) rotate(-12deg);
 }
@@ -820,9 +820,9 @@ section,
 /* Accessibility: Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
 
-  .btn-elite,
-  .btn-elite::before,
-  .btn-elite i {
+  .btn-next,
+  .btn-next::before,
+  .btn-next i {
     transition: none !important;
     transform: none !important;
   }
@@ -862,7 +862,7 @@ section,
   # 3.7 Footer
 --------------------------------------------------------------*/
 /* Sleek Footer Base */
-.footer-sleek {
+.site-footer {
   background: rgba(10, 17, 24, 0.9);
   backdrop-filter: blur(10px);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -870,7 +870,7 @@ section,
 }
 
 /* Compact Roles */
-.sleek-roles {
+.footer-roles {
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -878,13 +878,13 @@ section,
   margin: 0;
 }
 
-.sleek-roles .dot {
+.footer-roles .dot {
   color: var(--accent-color);
   margin: 0 5px;
 }
 
 /* Compact Glow Icons */
-.sleek-glow {
+.footer-icon {
   width: 36px;
   height: 36px;
   display: flex;
@@ -898,38 +898,38 @@ section,
   text-decoration: none;
 }
 
-.sleek-glow:hover {
+.footer-icon:hover {
   transform: translateY(-3px) scale(1.05);
   color: white;
 }
 
 /* Brand Glows (Optimized) */
-.sleek-glow.linkedin:hover {
+.footer-icon.linkedin:hover {
   background: #0077B5;
   box-shadow: 0 5px 15px rgba(0, 119, 181, 0.4);
 }
 
-.sleek-glow.github:hover {
+.footer-icon.github:hover {
   background: #333;
   box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
 }
 
-.sleek-glow.email:hover {
+.footer-icon.email:hover {
   background: #ea4335;
   box-shadow: 0 5px 15px rgba(234, 67, 53, 0.4);
 }
 
 /* Compact Legal Line */
-.sleek-legal {
+.footer-legal {
   font-size: 0.65rem;
   color: rgba(255, 255, 255, 0.3);
 }
 
-.sleek-legal .dot {
+.footer-legal .dot {
   margin: 0 6px;
 }
 
-.sleek-legal a {
+.footer-legal a {
   color: inherit;
 }
 
@@ -1131,7 +1131,7 @@ section,
 
 /* ── Hero: floating skill badges around the photo ──────────── */
 /* (shown from 768px up, hidden on phones) */
-.floating-elements {
+.floating-badges {
   position: absolute;
   top: 0;
   left: 0;
@@ -1148,13 +1148,13 @@ section,
 
 /* Base Configuration: Hide elements on mobile to prevent layout 
    cluttering, overflows, or overlapping with typography sections */
-.floating-card {
+.floating-badge {
   display: none;
 }
 
 /* Media Query: Desktop Viewports (768px and up) */
 @media (min-width: 768px) {
-  .floating-card {
+  .floating-badge {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -1174,32 +1174,32 @@ section,
   }
 
   /* Target inside elements to give uniform sizing context to Bootstrap Icons */
-  .floating-card i {
+  .floating-badge i {
     font-size: 1rem;
   }
 
   /* Symmetric Layout Positioning:
      Negative coordinate boundaries project the badges slightly outside the picture box frame.
   */
-  .floating-card.python {
+  .floating-badge.python {
     top: 12%;
     left: -15%;
   }
 
   /* Python - Upper Left Position */
-  .floating-card.sql {
+  .floating-badge.sql {
     bottom: 20%;
     left: -15%;
   }
 
   /* SQL - Lower Left Position */
-  .floating-card.Power-bi {
+  .floating-badge.power-bi {
     top: 35%;
     right: -19%;
   }
 
   /* Power BI - Upper Right Position */
-  .floating-card.Data-Science {
+  .floating-badge.data-science {
     bottom: 4%;
     right: -21%;
   }
@@ -1208,24 +1208,24 @@ section,
 
   /* Safe Core Animation Engine Implementation */
   @media (prefers-reduced-motion: no-preference) {
-    .floating-card {
+    .floating-badge {
       animation: ambientFloat 3.5s ease-in-out infinite;
     }
 
     /* Asynchronous animation delay offsets to simulate real float dynamics */
-    .floating-card.python {
+    .floating-badge.python {
       animation-delay: 0.0s;
     }
 
-    .floating-card.Power-bi {
+    .floating-badge.power-bi {
       animation-delay: 1.0s;
     }
 
-    .floating-card.sql {
+    .floating-badge.sql {
       animation-delay: 1.5s;
     }
 
-    .floating-card.Data-Science {
+    .floating-badge.data-science {
       animation-delay: 2.2s;
     }
   }
@@ -1260,7 +1260,7 @@ section,
 }
 
 /* ── Hero: buttons (Resume / Projects / Let's Talk) ────────── */
-.hero-actions .btn-compact {
+.hero-actions .hero-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -1319,7 +1319,7 @@ section,
 
 /* Hover colors */
 /* White version */
-.btn-dark-white:hover {
+.hero-btn:hover {
   background: #f8fafc !important;
   border-color: #f8fafc !important;
   color: #0f172a !important;
@@ -1327,12 +1327,12 @@ section,
 }
 
 /* --- ICON MICRO-ANIMATION --- */
-.btn-compact i {
+.hero-btn i {
   font-size: 0.9rem;
   transition: transform 0.2s ease;
 }
 
-.btn-compact:hover i {
+.hero-btn:hover i {
   transform: scale(1.2);
   /* The icon just grows slightly */
 }
@@ -1380,7 +1380,7 @@ section,
 }
 
 /* Profile Image - The "Aura" Effect */
-.profile-img-wrapper {
+.profile-photo {
   position: relative;
   width: 180px;
   height: 180px;
@@ -1392,7 +1392,7 @@ section,
   z-index: 2;
 }
 
-.profile-img-wrapper::after {
+.profile-photo::after {
   content: '';
   position: absolute;
   inset: -10px;
@@ -1485,7 +1485,7 @@ section.timeline::before {
 }
 
 /* ─── Individual Article ────────────────────────────────────── */
-article.timeline__item {
+article.timeline-item {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0 3rem;
@@ -1494,12 +1494,12 @@ article.timeline__item {
   align-items: center;
 }
 
-article.timeline__item:last-child {
+article.timeline-item:last-child {
   padding-bottom: 0;
 }
 
 /* Dot on the central line */
-article.timeline__item::before {
+article.timeline-item::before {
   content: "";
   position: absolute;
   left: 50%;
@@ -1515,7 +1515,7 @@ article.timeline__item::before {
 }
 
 /* ─── Content Box ───────────────────────────────────────────── */
-.timeline__content {
+.timeline-content {
   background: linear-gradient(135deg, rgba(15, 35, 80, 0.85), rgba(10, 25, 60, 0.9));
   border: 1px solid rgba(37, 99, 235, 0.3);
   border-radius: 1rem;
@@ -1527,14 +1527,14 @@ article.timeline__item::before {
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.timeline__content:hover {
+.timeline-content:hover {
   border-color: rgba(37, 99, 235, 0.7);
   box-shadow:
     0 8px 32px rgba(37, 99, 235, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
 
-.timeline__content .label {
+.timeline-content .timeline-label {
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.15em;
@@ -1543,7 +1543,7 @@ article.timeline__item::before {
   margin-bottom: 0.4rem;
 }
 
-.timeline__content h2 {
+.timeline-content h2 {
   font-size: 1.15rem;
   font-weight: 700;
   color: #e8f0ff;
@@ -1551,7 +1551,7 @@ article.timeline__item::before {
   margin-bottom: 0.75rem;
 }
 
-.timeline__content time {
+.timeline-content time {
   display: block;
   font-family: monospace;
   font-weight: 700;
@@ -1561,26 +1561,26 @@ article.timeline__item::before {
   margin-bottom: 0.75rem;
 }
 
-.timeline__content hr {
+.timeline-content hr {
   border: none;
   border-top: 1px solid rgba(37, 99, 235, 0.25);
   margin-bottom: 0.75rem;
 }
 
-.timeline__content p {
+.timeline-content p {
   font-size: 0.9rem;
   line-height: 1.65;
   color: #9db4d8;
 }
 
 /* Timeline icon box */
-.timeline__icon {
+.timeline-icon {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.icon-card {
+.timeline-icon-box {
   width: min(100%, 11rem);
   aspect-ratio: 1;
   border-radius: 1.25rem;
@@ -1595,38 +1595,38 @@ article.timeline__item::before {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.icon-card:hover {
+.timeline-icon-box:hover {
   transform: translateY(-4px) scale(1.03);
   box-shadow:
     0 12px 36px rgba(37, 99, 235, 0.25),
     0 0 60px rgba(37, 99, 235, 0.15);
 }
 
-.icon-card svg {
+.timeline-icon-box svg {
   width: 56%;
   height: 56%;
 }
 
 /* ─── Alternating Layout ────────────────────────────────────── */
 /* Odd items: content LEFT, icon RIGHT */
-article.timeline__item:nth-child(odd) .timeline__content {
+article.timeline-item:nth-child(odd) .timeline-content {
   grid-column: 1;
   grid-row: 1;
 }
 
-article.timeline__item:nth-child(odd) .timeline__icon {
+article.timeline-item:nth-child(odd) .timeline-icon {
   grid-column: 2;
   grid-row: 1;
   justify-content: flex-start;
 }
 
 /* Even items: icon LEFT, content RIGHT */
-article.timeline__item:nth-child(even) .timeline__content {
+article.timeline-item:nth-child(even) .timeline-content {
   grid-column: 2;
   grid-row: 1;
 }
 
-article.timeline__item:nth-child(even) .timeline__icon {
+article.timeline-item:nth-child(even) .timeline-icon {
   grid-column: 1;
   grid-row: 1;
   justify-content: flex-end;
@@ -1638,32 +1638,32 @@ article.timeline__item:nth-child(even) .timeline__icon {
     left: 1.5rem;
   }
 
-  article.timeline__item {
+  article.timeline-item {
     grid-template-columns: 1fr;
     padding-left: 3.5rem;
     gap: 1rem;
   }
 
-  article.timeline__item::before {
+  article.timeline-item::before {
     left: 1.5rem;
     top: 1.5rem;
     transform: translateX(-50%);
   }
 
-  article.timeline__item:nth-child(odd) .timeline__content,
-  article.timeline__item:nth-child(even) .timeline__content {
+  article.timeline-item:nth-child(odd) .timeline-content,
+  article.timeline-item:nth-child(even) .timeline-content {
     grid-column: 1;
     grid-row: 2;
   }
 
-  article.timeline__item:nth-child(odd) .timeline__icon,
-  article.timeline__item:nth-child(even) .timeline__icon {
+  article.timeline-item:nth-child(odd) .timeline-icon,
+  article.timeline-item:nth-child(even) .timeline-icon {
     grid-column: 1;
     grid-row: 1;
     justify-content: flex-start;
   }
 
-  .icon-card {
+  .timeline-icon-box {
     width: 5rem;
     aspect-ratio: 1;
     border-radius: 0.75rem;
@@ -1671,7 +1671,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* ── Tech stack title and grid ─────────────────────────────── */
-.tech-stack-title {
+.toolbox-title {
   font-weight: 700;
   font-size: 1.5rem;
   color: #ffffff;
@@ -1680,7 +1680,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* Flex + wrap so an incomplete last row is centered instead of stuck to the left */
-.tech-grid {
+.toolbox-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -1691,7 +1691,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
   margin: 0 auto;
 }
 
-.tech-item {
+.toolbox-item {
   width: 120px;
   display: flex;
   flex-direction: column;
@@ -1703,19 +1703,19 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* svg = the inline GitHub logo, sized like the other icons */
-.tech-item img,
-.tech-item svg {
+.toolbox-item img,
+.toolbox-item svg {
   width: 64px;
   height: 64px;
   margin-bottom: 0.75rem;
 }
 
-.tech-item:hover {
+.toolbox-item:hover {
   transform: translateY(-10px);
   filter: drop-shadow(0 0 8px var(--card-primary));
 }
 
-.tech-item span {
+.toolbox-item span {
   font-weight: 500;
   font-size: 0.9rem;
 }
@@ -1738,7 +1738,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* ── Flip cards: base and 3D flip ──────────────────────────── */
-.elite-card {
+.skill-card {
   height: 380px;
   perspective: 1500px;
   margin-bottom: 30px;
@@ -1746,7 +1746,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
   transition: transform 300ms ease-out, box-shadow 300ms ease-out;
 }
 
-.elite-card-inner {
+.skill-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
@@ -1757,13 +1757,13 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* Turned by a click (main.js adds .is-flipped) */
-.elite-card.is-flipped .elite-card-inner {
+.skill-card.is-flipped .skill-card-inner {
   transform: rotateY(180deg);
 }
 
 /* Front and back faces */
-.elite-card-front,
-.elite-card-back {
+.skill-front,
+.skill-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -1781,16 +1781,16 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* ── Flip cards: 3D tilt and light that follows the mouse ──── */
-/* main.js tilts .elite-card toward the mouse and
+/* main.js tilts .skill-card toward the mouse and
    sets --glow-x / --glow-y (the light position, in %). */
-.elite-card.is-tilting {
+.skill-card.is-tilting {
   transition-duration: 150ms;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
 }
 
 /* The light: a soft white spot on top of each face */
-.elite-card-front::after,
-.elite-card-back::after {
+.skill-front::after,
+.skill-back::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -1803,7 +1803,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* The back is turned around, so its light is mirrored left-right */
-.elite-card-back::after {
+.skill-back::after {
   background: radial-gradient(circle at calc(100% - var(--glow-x, 50%)) var(--glow-y, -20%),
       rgba(255, 255, 255, 0.2),
       rgba(0, 0, 0, 0.06) 60%);
@@ -1811,7 +1811,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 
 /* ── Flip cards: front side ────────────────────────────────── */
 /* Breathing glow in the card's color (--card-color is set in the HTML) */
-.elite-card-front::before {
+.skill-front::before {
   content: "";
   position: absolute;
   inset: -2px;
@@ -1829,7 +1829,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* Keep content above the glow */
-.elite-card-front>* {
+.skill-front>* {
   position: relative;
   z-index: 1;
 }
@@ -1853,12 +1853,12 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* --- Parallax Content --- */
-.parallax-content {
+.skill-main {
   transform: translateZ(50px);
   text-align: center;
 }
 
-.elite-logo {
+.skill-logo {
   width: 110px;
   height: auto;
   margin-bottom: 20px;
@@ -1866,7 +1866,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* Card with two logos (Git & GitHub): smaller logos side by side */
-.elite-logo-pair {
+.skill-logo-pair {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1874,12 +1874,12 @@ article.timeline__item:nth-child(even) .timeline__icon {
   margin-bottom: 20px;
 }
 
-.elite-logo-pair .elite-logo {
+.skill-logo-pair .skill-logo {
   width: 80px;
   margin-bottom: 0;
 }
 
-.elite-logo-icon {
+.skill-logo-icon {
   font-size: 80px;
   line-height: 1;
   color: #fff;
@@ -1888,7 +1888,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 
 /* Only as wide as its text and centered (otherwise it stretches to the widest
    element in the card, e.g. the two logos on Git & GitHub, and looks off-center) */
-.elite-badge {
+.skill-level {
   display: flex;
   width: fit-content;
   margin: 0 auto;
@@ -1905,7 +1905,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
   letter-spacing: 1px;
 }
 
-.pulse-dot {
+.level-dot {
   width: 6px;
   height: 6px;
   background: var(--card-color);
@@ -1926,7 +1926,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* ── Flip cards: back side ─────────────────────────────────── */
-.elite-card-back {
+.skill-back {
   transform: rotateY(180deg);
   padding: 25px;
   align-items: flex-start;
@@ -1934,7 +1934,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
   border-top: 3px solid var(--card-color);
 }
 
-.back-title {
+.skill-back-title {
   font-size: 1.25rem;
   font-weight: 800;
   color: white;
@@ -1942,7 +1942,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
   padding-bottom: 5px;
 }
 
-.elite-tags span {
+.skill-tags span {
   display: inline-block;
   padding: 4px 10px;
   background: rgba(255, 255, 255, 0.05);
@@ -1955,18 +1955,18 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* Subtle hover effect on tags using card color */
-.elite-tags span:hover {
+.skill-tags span:hover {
   border-color: var(--card-color);
   color: white;
 }
 
-.elite-list {
+.skill-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.elite-list li {
+.skill-list li {
   font-size: 0.8rem;
   color: #aaa;
   margin-bottom: 10px;
@@ -1976,12 +1976,12 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* Fixed: The icons now use the specific card color */
-.elite-list li i {
+.skill-list li i {
   color: var(--card-color);
 }
 
 /* ── Flip cards: "click to see more" hint (front) ──────────── */
-.interaction-guide {
+.flip-hint {
   position: absolute;
   bottom: 18px;
   left: 50%;
@@ -1996,11 +1996,11 @@ article.timeline__item:nth-child(even) .timeline__icon {
   z-index: 5;
 }
 
-.elite-card:hover .interaction-guide {
+.skill-card:hover .flip-hint {
   opacity: 1;
 }
 
-.guide-icon {
+.flip-hint-icon {
   font-size: 1rem;
   color: var(--card-color);
   animation: tapHint 1.8s ease-in-out infinite;
@@ -2019,7 +2019,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
   }
 }
 
-.guide-text {
+.flip-hint-text {
   font-size: 0.6rem;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -2033,7 +2033,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
   transition: color 0.3s ease;
 }
 
-.elite-card:hover .flip-back-hint {
+.skill-card:hover .flip-back-hint {
   color: var(--card-color);
 }
 
@@ -2108,8 +2108,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
   border-radius: 4px;
 }
 
-.resume .resume-item article .institution,
-.resume .resume-item article .company {
+.resume .resume-item article .org {
   font-size: 1rem;
   margin-bottom: 1rem;
   color: color-mix(in srgb, var(--default-color), transparent 25%);
@@ -2191,25 +2190,25 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* ── "View / Download CV" button ───────────────────────────── */
-.cv-section {
+.cv {
   text-align: center;
   margin: 40px 0 10px;
 }
 
-.cv-section h3 {
+.cv h3 {
   font-size: 1.3rem;
   font-weight: 600;
   color: #ffffff;
   margin-bottom: 6px;
 }
 
-.cv-subtitle {
+.cv-text {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.4);
   margin-bottom: 24px;
 }
 
-.cv-btn-pill {
+.cv-btn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -2229,7 +2228,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
     transform 0.2s ease;
 }
 
-.cv-btn-pill i {
+.cv-btn i {
   font-size: 15px;
   color: var(--accent-color);
   /* Uses your portfolio's cyan accent */
@@ -2237,7 +2236,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* Hover: border and text brighten, button lifts slightly */
-.cv-btn-pill:hover {
+.cv-btn:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.35);
   color: #ffffff;
@@ -2245,7 +2244,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* Press feedback */
-.cv-btn-pill:active {
+.cv-btn:active {
   transform: translateY(0);
 }
 
@@ -2256,13 +2255,13 @@ article.timeline__item:nth-child(even) .timeline__icon {
 
 /* ── Grid ──────────────────────────────────────────────────── */
 /* --- Page wrapper: outer padding and default font --- */
-.wrap {
+.projects {
   padding: 2rem 0.5rem 3rem;
   font-family: sans-serif
 }
 
 /* --- Responsive grid: auto-fits columns, min 300px each --- */
-.grid {
+.project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem
@@ -2271,7 +2270,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 /* --- Card wrapper: establishes the 3D perspective context.
      perspective:1200px controls how "deep" the tilt feels —
      lower value = more dramatic, higher = more subtle. --- */
-.cw {
+.project {
   perspective: 1200px
 }
 
@@ -2279,7 +2278,13 @@ article.timeline__item:nth-child(even) .timeline__icon {
 /* ========================
    CARD BASE + 3D SETUP
    ======================== */
-.card {
+/* (These used to come from Bootstrap's .card class) */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow-wrap: break-word;
+  color: var(--bs-body-color);
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
@@ -2304,15 +2309,15 @@ article.timeline__item:nth-child(even) .timeline__icon {
 
 /* ========================
    PROJECT COLORS
-   Each card (.cw) and its preview window set two variables
+   Each card (.project) and its preview window set two variables
    in the HTML: --accent-rgb (e.g. 245,158,11) and --accent-light.
    ======================== */
-.cat-label,
+.project-category,
 .portfolio .modal-title {
   color: var(--accent-light);
 }
 
-.img-badge .dot {
+.project-badge .dot {
   background: rgb(var(--accent-rgb));
 }
 
@@ -2341,12 +2346,12 @@ article.timeline__item:nth-child(even) .timeline__icon {
   z-index: 0
 }
 
-.card:hover .glow-border {
+.project-card:hover .glow-border {
   opacity: 1
 }
 
 /* Content sits above the glow border overlay */
-.card-content {
+.project-content {
   position: relative;
   z-index: 1
 }
@@ -2369,7 +2374,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
   transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1)
 }
 
-.card:hover .shimmer {
+.project-card:hover .shimmer {
   left: 160%
 }
 
@@ -2380,7 +2385,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 
 /* Container with fixed height and overflow hidden for zoom effect;
    the image is centered inside it */
-.img-wrap {
+.project-img {
   position: relative;
   height: 200px;
   overflow: hidden;
@@ -2390,7 +2395,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* Gradient overlay: fades image bottom into card background */
-.img-wrap::after {
+.project-img::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -2400,7 +2405,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* Image: zooms in and darkens on card hover */
-.img-wrap img {
+.project-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -2409,13 +2414,13 @@ article.timeline__item:nth-child(even) .timeline__icon {
   filter: brightness(0.65) saturate(0.8);
 }
 
-.card:hover .img-wrap img {
+.project-card:hover .project-img img {
   transform: scale(1.09);
   filter: brightness(0.4) saturate(1.15)
 }
 
 /* Category badge overlaid on the image (top-left) */
-.img-badge {
+.project-badge {
   position: absolute;
   top: 14px;
   left: 14px;
@@ -2448,7 +2453,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
    Pill expand animation on hover:
    starts as a circle icon, expands to show label text.
    ======================== */
-.gh-btn {
+.github-btn {
   position: absolute;
   top: 12px;
   right: 12px;
@@ -2473,14 +2478,14 @@ article.timeline__item:nth-child(even) .timeline__icon {
   white-space: nowrap;
 }
 
-.gh-btn i {
+.github-btn i {
   font-size: 18px;
   flex-shrink: 0;
   transition: color 0.25s
 }
 
 /* Hidden label — revealed by expanding max-width on hover */
-.gh-btn-label {
+.github-btn-text {
   font-size: 12px;
   font-weight: 600;
   font-family: sans-serif;
@@ -2493,7 +2498,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* Hover state: circle → pill, dark → white, show label */
-.gh-btn:hover {
+.github-btn:hover {
   width: 130px;
   border-radius: 50px;
   background: rgba(255, 255, 255, 0.95);
@@ -2502,11 +2507,11 @@ article.timeline__item:nth-child(even) .timeline__icon {
   padding: 0 14px 0 10px;
 }
 
-.gh-btn:hover i {
+.github-btn:hover i {
   color: #0a0f1a
 }
 
-.gh-btn:hover .gh-btn-label {
+.github-btn:hover .github-btn-text {
   max-width: 100px;
   opacity: 1;
   margin-left: 7px
@@ -2517,14 +2522,14 @@ article.timeline__item:nth-child(even) .timeline__icon {
    CARD TITLE AREA
    Overlaps the image bottom via negative margin-top.
    ======================== */
-.title-area {
+.project-head {
   padding: 0 18px 14px;
   margin-top: -32px;
   position: relative;
   z-index: 3
 }
 
-.cat-label {
+.project-category {
   font-size: 10.5px;
   font-weight: 500;
   letter-spacing: 0.1em;
@@ -2533,7 +2538,8 @@ article.timeline__item:nth-child(even) .timeline__icon {
   margin-bottom: 5px
 }
 
-.card-title {
+.project-title {
+  margin-bottom: 0.5rem;
   font-size: 17px;
   font-weight: 600;
   color: #edf2ff;
@@ -2577,30 +2583,30 @@ article.timeline__item:nth-child(even) .timeline__icon {
   transition: transform 0.22s ease, background 0.2s
 }
 
-.toggle-btn .h {
+.toggle-btn .bar-h {
   transform: rotate(0)
 }
 
 /* Vertical bar: rotated 90° to form the + cross */
-.toggle-btn .v {
+.toggle-btn .bar-v {
   transform: rotate(90deg)
 }
 
 /* When card is open: button turns red and bars form × */
-.card.open .toggle-btn {
+.project-card.open .toggle-btn {
   background: rgba(239, 68, 68, 0.15);
   border-color: rgba(239, 68, 68, 0.3)
 }
 
-.card.open .toggle-btn span {
+.project-card.open .toggle-btn span {
   background: #f87171
 }
 
-.card.open .toggle-btn .h {
+.project-card.open .toggle-btn .bar-h {
   transform: rotate(45deg)
 }
 
-.card.open .toggle-btn .v {
+.project-card.open .toggle-btn .bar-v {
   transform: rotate(135deg)
 }
 
@@ -2617,14 +2623,14 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* Outer: clips content and animates from 0 → max-height */
-.flap-outer {
+.details {
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1)
 }
 
 /* Inner: fades in with a slight upward slide (staggered delay) */
-.flap-inner {
+.details-inner {
   opacity: 0;
   transform: translateY(-8px);
   transition: opacity 0.25s 0.12s, transform 0.25s 0.12s;
@@ -2632,11 +2638,11 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* .open class triggers both layers */
-.card.open .flap-outer {
+.project-card.open .details {
   max-height: 260px
 }
 
-.card.open .flap-inner {
+.project-card.open .details-inner {
   opacity: 1;
   transform: translateY(0)
 }
@@ -2645,7 +2651,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 /* ========================
    PANEL CONTENT: description and tags
    ======================== */
-.desc {
+.project-desc {
   font-size: 12.5px;
   line-height: 1.7;
   color: rgba(180, 195, 225, 0.55);
@@ -2653,12 +2659,12 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* Tag colors: --tag-rgb sets the background and border tint */
-.card .tag {
+.project-card .tag {
   background: rgba(var(--tag-rgb), 0.1);
   border: 1px solid rgba(var(--tag-rgb), 0.2);
 }
 
-.card .tag i {
+.project-card .tag i {
   font-size: 11px;
 }
 
@@ -2678,7 +2684,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
    STATS ROW
    Quick-glance metrics at the bottom of the card.
    ======================== */
-.stat-row {
+.stats {
   display: flex;
   gap: 20px;
   padding: 10px 18px;
@@ -2689,13 +2695,13 @@ article.timeline__item:nth-child(even) .timeline__icon {
   text-align: center
 }
 
-.stat-val {
+.stat-value {
   font-size: 14px;
   font-weight: 600;
   font-family: monospace
 }
 
-.stat-lbl {
+.stat-label {
   font-size: 9.5px;
   color: rgba(148, 163, 184, 0.4);
   letter-spacing: 0.06em;
@@ -2708,7 +2714,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
    CARD FOOTER
    Repo meta (branch, language)
    ======================== */
-.foot {
+.project-foot {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -2716,12 +2722,12 @@ article.timeline__item:nth-child(even) .timeline__icon {
   border-top: 1px solid rgba(255, 255, 255, 0.05)
 }
 
-.foot-meta {
+.project-meta {
   display: flex;
   gap: 16px
 }
 
-.meta-i {
+.meta-item {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -2729,17 +2735,17 @@ article.timeline__item:nth-child(even) .timeline__icon {
   color: rgba(148, 163, 184, 0.38)
 }
 
-.meta-i i {
+.meta-item i {
   font-size: 12px
 }
 
 /* Icon colors: branch, language, notebook, Streamlit */
-.meta-i .bi-git { color: #d41c03; }
-.meta-i .bi-code-slash { color: #38bdf8; }
-.meta-i .bi-journal-code { color: #f57c00; }
-.meta-i .bi-bar-chart-line-fill { color: #ff4b4b; }
-.meta-i .bi-file-earmark-bar-graph { color: #f2c811; }
-.meta-i .bi-filetype-js { color: #f7df1e; }
+.meta-item .bi-git { color: #d41c03; }
+.meta-item .bi-code-slash { color: #38bdf8; }
+.meta-item .bi-journal-code { color: #f57c00; }
+.meta-item .bi-bar-chart-line-fill { color: #ff4b4b; }
+.meta-item .bi-file-earmark-bar-graph { color: #f2c811; }
+.meta-item .bi-filetype-js { color: #f7df1e; }
 
 /* "Live site" link in the card footer */
 .meta-link {
@@ -2757,7 +2763,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 
 /* ── Background and title ──────────────────────────────────── */
 /* Mesh Gradient Background */
-.mesh-gradient {
+.bg-glow {
   position: absolute;
   top: 0;
   left: 0;
@@ -2782,7 +2788,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 
 /* ── Info cards (location, email, hours, socials) ──────────── */
 /* Refined Cards */
-.refined-card {
+.glass-card {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 20px;
@@ -2791,14 +2797,14 @@ article.timeline__item:nth-child(even) .timeline__icon {
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.refined-card:hover {
+.glass-card:hover {
   transform: translateY(-8px);
   border-color: rgba(79, 70, 229, 0.3);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 /* Icon Box */
-.icon-box-refined {
+.icon-box {
   width: 45px;
   height: 45px;
   background: rgba(79, 70, 229, 0.1);
@@ -2811,7 +2817,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* Smaller icon box (Working Hours title) */
-.icon-box-refined.icon-box-sm {
+.icon-box.icon-box-sm {
   width: 35px;
   height: 35px;
   font-size: 1rem;
@@ -2826,7 +2832,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
   font-size: 0.95rem;
 }
 
-.small-hours {
+.hours-text {
   font-size: 0.85rem;
 }
 
@@ -2867,14 +2873,14 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* ── Social icons ──────────────────────────────────────────── */
-.social-grid-row {
+.social-row {
   gap: 20px;
   flex-wrap: wrap;
   margin-top: 25px;
 }
 
 /* Round Icon Buttons - IMPROVED */
-.social-icon-only {
+.social-btn {
   width: 50px;
   height: 50px;
   display: flex;
@@ -2889,26 +2895,26 @@ article.timeline__item:nth-child(even) .timeline__icon {
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.social-icon-only:hover {
+.social-btn:hover {
   transform: translateY(-8px);
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Brand colors on hover */
-.social-icon-only.whatsapp:hover {
+.social-btn.whatsapp:hover {
   color: #25D366;
   border-color: rgba(37, 211, 102, 0.5);
   box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
 }
 
-.social-icon-only.linkedin:hover {
+.social-btn.linkedin:hover {
   color: #0077B5;
   border-color: rgba(0, 119, 181, 0.5);
   box-shadow: 0 10px 20px rgba(0, 119, 181, 0.2);
 }
 
-.social-icon-only.github:hover {
+.social-btn.github:hover {
   color: #fff;
   border-color: rgba(255, 255, 255, 0.3);
   box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
@@ -2916,13 +2922,13 @@ article.timeline__item:nth-child(even) .timeline__icon {
 
 /* ── Contact form ──────────────────────────────────────────── */
 /* Custom Input Groups */
-.input-group-refined {
+.field {
   position: relative;
   width: 100%;
 }
 
-.input-group-refined input,
-.input-group-refined textarea {
+.field input,
+.field textarea {
   width: 100%;
   padding: 12px 0;
   background: transparent;
@@ -2933,11 +2939,11 @@ article.timeline__item:nth-child(even) .timeline__icon {
   transition: 0.3s;
 }
 
-.input-group-refined textarea {
+.field textarea {
   min-height: 150px;
 }
 
-.input-group-refined label {
+.field label {
   position: absolute;
   left: 0;
   top: 12px;
@@ -2946,16 +2952,16 @@ article.timeline__item:nth-child(even) .timeline__icon {
   transition: 0.3s;
 }
 
-.input-group-refined input:focus~label,
-.input-group-refined input:not(:placeholder-shown)~label,
-.input-group-refined textarea:focus~label,
-.input-group-refined textarea:not(:placeholder-shown)~label {
+.field input:focus~label,
+.field input:not(:placeholder-shown)~label,
+.field textarea:focus~label,
+.field textarea:not(:placeholder-shown)~label {
   top: -12px;
   font-size: 0.8rem;
   color: #4f46e5;
 }
 
-.focus-border {
+.field-line {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -2965,14 +2971,14 @@ article.timeline__item:nth-child(even) .timeline__icon {
   transition: 0.4s;
 }
 
-.input-group-refined input:focus~.focus-border,
-.input-group-refined textarea:focus~.focus-border {
+.field input:focus~.field-line,
+.field textarea:focus~.field-line {
   width: 100%;
 }
 
 
 /* Submit button */
-.refined-submit-btn {
+.submit-btn {
   background: #4f46e5;
   border: none;
   padding: 15px 35px;
@@ -2988,16 +2994,16 @@ article.timeline__item:nth-child(even) .timeline__icon {
   overflow: hidden;
 }
 
-.refined-submit-btn:hover {
+.submit-btn:hover {
   background: #4338ca;
   transform: scale(1.05);
 }
 
-.refined-submit-btn .btn-icon {
+.submit-btn .btn-icon {
   transition: 0.3s;
 }
 
-.refined-submit-btn:hover .btn-icon {
+.submit-btn:hover .btn-icon {
   transform: translateX(5px);
 }
 
@@ -3027,7 +3033,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 --------------------------------------------------------------*/
 
 /* Project image that opens the preview window: a <button> styled like the plain image */
-.img-preview-btn {
+.preview-btn {
   display: block;
   width: 100%;
   padding: 0;
@@ -3037,14 +3043,14 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 /* Visible outline when moving with the keyboard (Tab) */
-.mobile-nav-toggle:focus-visible,
-.elite-card:focus-visible,
-.img-preview-btn:focus-visible,
+.menu-btn:focus-visible,
+.skill-card:focus-visible,
+.preview-btn:focus-visible,
 .toggle-btn:focus-visible,
-.gh-btn:focus-visible,
+.github-btn:focus-visible,
 .copy-btn:focus-visible,
-.sleek-glow:focus-visible,
-.social-icon-only:focus-visible,
+.footer-icon:focus-visible,
+.social-btn:focus-visible,
 .scroll-top:focus-visible {
   outline: 2px solid var(--accent-color, #1387c1);
   outline-offset: 3px;

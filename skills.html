@@ -45,7 +45,7 @@
   </style>
 </head>
 
-<body class="skills-page">
+<body>
 
   <!-- ======= Header / Navigation Bar ======= -->
   <header id="header" class="header d-flex align-items-center sticky-top">
@@ -53,8 +53,8 @@
 
       <!-- icon Navigation Bar -->
       <a href="index.html" class="d-flex align-items-center">
-        <div class="logo-3d-scene">
-          <div class="logo-3d-cube">
+        <div class="cube-scene">
+          <div class="cube">
             <div class="cube-core"></div>
 
             <div class="cube-face face-front"><i class="bi bi-bar-chart-fill"></i></div>
@@ -77,7 +77,7 @@
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-        <button type="button" class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"></button>
+        <button type="button" class="menu-btn d-xl-none bi bi-list" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"></button>
       </nav>
 
       <div class="header-spacer d-none d-xl-block"></div>
@@ -103,26 +103,26 @@
 
           <!-- Python Card -->
           <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in" style="--card-color: #3776AB;">
-            <div class="elite-card">
-              <div class="elite-card-inner">
-                <div class="elite-card-front">
-                  <div class="parallax-content">
+            <div class="skill-card">
+              <div class="skill-card-inner">
+                <div class="skill-front">
+                  <div class="skill-main">
                     <img src="assets/img/logos/python.svg" width="96" height="96"
-                      alt="Python" class="elite-logo">
+                      alt="Python" class="skill-logo">
                     <h2>Python</h2>
-                    <div class="elite-badge"><span class="pulse-dot"></span>Advanced</div>
+                    <div class="skill-level"><span class="level-dot"></span>Advanced</div>
                   </div>
-                  <div class="interaction-guide">
-                    <i class="bi bi-hand-index-thumb guide-icon"></i>
-                    <span class="guide-text">Click to see more</span>
+                  <div class="flip-hint">
+                    <i class="bi bi-hand-index-thumb flip-hint-icon"></i>
+                    <span class="flip-hint-text">Click to see more</span>
                   </div>
                 </div>
-                <div class="elite-card-back">
+                <div class="skill-back">
                   <div>
-                    <h3 class="back-title mb-4">Python Stack</h3>
+                    <h3 class="skill-back-title mb-4">Python Stack</h3>
                     <div>
                       <p>Libraries</p>
-                      <div class="elite-tags">
+                      <div class="skill-tags">
                         <span>PySpark</span>
                         <span>Pandas</span>
                         <span>NumPy</span>
@@ -135,7 +135,7 @@
                     </div>
                     <div class="mt-4">
                       <p>Expertise</p>
-                      <ul class="elite-list">
+                      <ul class="skill-list">
                         <li><i class="bi bi-graph-up-arrow"></i>EDA & Data Cleaning</li>
                         <li><i class="bi bi-sliders"></i>Feature Engineering</li>
                         <li><i class="bi bi-activity"></i>Statistical Analysis</li>
@@ -152,34 +152,34 @@
 
           <!-- Git & GitHub Card -->
           <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in" style="--card-color: #F05032;">
-            <div class="elite-card">
-              <div class="elite-card-inner">
-                <div class="elite-card-front">
-                  <div class="parallax-content">
+            <div class="skill-card">
+              <div class="skill-card-inner">
+                <div class="skill-front">
+                  <div class="skill-main">
                     <!-- Two logos side by side: Git + GitHub (GitHub's logo is black, so it uses the white Bootstrap icon) -->
-                    <div class="elite-logo-pair">
-                      <img src="assets/img/logos/git.png" width="96" height="96" alt="Git" class="elite-logo">
-                      <i class="bi bi-github elite-logo-icon" role="img" aria-label="GitHub"></i>
+                    <div class="skill-logo-pair">
+                      <img src="assets/img/logos/git.png" width="96" height="96" alt="Git" class="skill-logo">
+                      <i class="bi bi-github skill-logo-icon" role="img" aria-label="GitHub"></i>
                     </div>
                     <h2>Git &amp; GitHub</h2>
-                    <div class="elite-badge"><span class="pulse-dot"></span>Intermediate</div>
+                    <div class="skill-level"><span class="level-dot"></span>Intermediate</div>
                   </div>
-                  <div class="interaction-guide">
-                    <i class="bi bi-hand-index-thumb guide-icon"></i>
-                    <span class="guide-text">Click to see more</span>
+                  <div class="flip-hint">
+                    <i class="bi bi-hand-index-thumb flip-hint-icon"></i>
+                    <span class="flip-hint-text">Click to see more</span>
                   </div>
                 </div>
-                <div class="elite-card-back">
+                <div class="skill-back">
                   <div>
-                    <h3 class="back-title mb-4">Version Control</h3>
+                    <h3 class="skill-back-title mb-4">Version Control</h3>
                     <div>
                       <p>Tools</p>
-                      <div class="elite-tags"><span>Git Bash</span><span>Branching</span><span>Merging</span><span>Pull
+                      <div class="skill-tags"><span>Git Bash</span><span>Branching</span><span>Merging</span><span>Pull
                           Requests</span><span>GitHub Pages</span></div>
                     </div>
                     <div class="mt-4">
                       <p>Expertise</p>
-                      <ul class="elite-list">
+                      <ul class="skill-list">
                         <li><i class="bi bi-git"></i> Version Tracking</li>
                         <li><i class="bi bi-people-fill"></i> Collaboration</li>
                         <li><i class="bi bi-exclamation-triangle-fill"></i> Conflict Resolution</li>
@@ -195,33 +195,33 @@
 
           <!-- PostgreSQL Card -->
           <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in" style="--card-color: #336791;">
-            <div class="elite-card">
-              <div class="elite-card-inner">
+            <div class="skill-card">
+              <div class="skill-card-inner">
 
                 <!-- CARD FRONT -->
-                <div class="elite-card-front">
-                  <div class="parallax-content">
+                <div class="skill-front">
+                  <div class="skill-main">
                     <!-- Official PostgreSQL Elephant Logo -->
                     <img src="assets/img/logos/postgresql.svg" width="96" height="96"
-                      alt="PostgreSQL" class="elite-logo">
+                      alt="PostgreSQL" class="skill-logo">
                     <h2>PostgreSQL</h2>
-                    <div class="elite-badge"><span class="pulse-dot"></span>Intermediate</div>
+                    <div class="skill-level"><span class="level-dot"></span>Intermediate</div>
                   </div>
-                  <div class="interaction-guide">
-                    <i class="bi bi-hand-index-thumb guide-icon"></i>
-                    <span class="guide-text">Click to see more</span>
+                  <div class="flip-hint">
+                    <i class="bi bi-hand-index-thumb flip-hint-icon"></i>
+                    <span class="flip-hint-text">Click to see more</span>
                   </div>
                 </div>
 
                 <!-- CARD BACK -->
-                <div class="elite-card-back">
+                <div class="skill-back">
                   <div>
-                    <h3 class="back-title mb-4">Relational Database</h3>
+                    <h3 class="skill-back-title mb-4">Relational Database</h3>
 
                     <!-- Tools & Client Tags -->
                     <div>
                       <p>Tools & RDBMS</p>
-                      <div class="elite-tags">
+                      <div class="skill-tags">
                         <span>PostgreSQL</span>
                         <span>pgAdmin 4</span>
                         <span>DBeaver</span>
@@ -231,7 +231,7 @@
                     <!-- Expertise List -->
                     <div class="mt-4">
                       <p>Expertise</p>
-                      <ul class="elite-list">
+                      <ul class="skill-list">
                         <li><i class="bi bi-diagram-3"></i> Complex Joins & CTEs</li>
                         <li><i class="bi bi-funnel"></i> Data Filtering & Indexing</li>
                         <li><i class="bi bi-calculator"></i> Aggregations & Subqueries</li>
@@ -249,31 +249,31 @@
 
           <!-- Machine Learning Card -->
           <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in" style="--card-color: #61DAFB;">
-            <div class="elite-card">
-              <div class="elite-card-inner">
-                <div class="elite-card-front">
-                  <div class="parallax-content">
+            <div class="skill-card">
+              <div class="skill-card-inner">
+                <div class="skill-front">
+                  <div class="skill-main">
                     <img src="assets/img/logos/machine-learning.png" width="96" height="96" alt="ML"
-                      class="elite-logo">
+                      class="skill-logo">
                     <h2>ML Modeling</h2>
-                    <div class="elite-badge"><span class="pulse-dot"></span>Intermediate</div>
+                    <div class="skill-level"><span class="level-dot"></span>Intermediate</div>
                   </div>
-                  <div class="interaction-guide">
-                    <i class="bi bi-hand-index-thumb guide-icon"></i>
-                    <span class="guide-text">Click to see more</span>
+                  <div class="flip-hint">
+                    <i class="bi bi-hand-index-thumb flip-hint-icon"></i>
+                    <span class="flip-hint-text">Click to see more</span>
                   </div>
                 </div>
-                <div class="elite-card-back">
+                <div class="skill-back">
                   <div>
-                    <h3 class="back-title mb-4">AI Expertise</h3>
+                    <h3 class="skill-back-title mb-4">AI Expertise</h3>
                     <div>
                       <p>Algorithms</p>
-                      <div class="elite-tags"><span>XGBoost</span><span>LightGBM</span><span>Random
+                      <div class="skill-tags"><span>XGBoost</span><span>LightGBM</span><span>Random
                           Forest</span><span>K-Means</span><span>Linear Reg</span><span>SHAP</span></div>
                     </div>
                     <div class="mt-4">
                       <p>Workflows</p>
-                      <ul class="elite-list">
+                      <ul class="skill-list">
                         <li><i class="bi bi-check-circle"></i> Model Evaluation</li>
                         <li><i class="bi bi-gear-wide-connected"></i> Hyperparameter Tuning</li>
                         <li><i class="bi bi-box-arrow-in-right"></i> Deployment Ready</li>
@@ -289,31 +289,31 @@
 
           <!-- Data Analytics Card -->
           <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in" style="--card-color: #4CAF50;">
-            <div class="elite-card">
-              <div class="elite-card-inner">
-                <div class="elite-card-front">
-                  <div class="parallax-content">
-                    <img src="assets/img/logos/analytics-color.png" width="96" height="96" alt="Analytics" class="elite-logo">
+            <div class="skill-card">
+              <div class="skill-card-inner">
+                <div class="skill-front">
+                  <div class="skill-main">
+                    <img src="assets/img/logos/analytics-color.png" width="96" height="96" alt="Analytics" class="skill-logo">
                     <h2>Analytics</h2>
-                    <div class="elite-badge"><span class="pulse-dot"></span>Advanced</div>
+                    <div class="skill-level"><span class="level-dot"></span>Advanced</div>
                   </div>
-                  <div class="interaction-guide">
-                    <i class="bi bi-hand-index-thumb guide-icon"></i>
-                    <span class="guide-text">Click to see more</span>
+                  <div class="flip-hint">
+                    <i class="bi bi-hand-index-thumb flip-hint-icon"></i>
+                    <span class="flip-hint-text">Click to see more</span>
                   </div>
                 </div>
-                <div class="elite-card-back">
+                <div class="skill-back">
                   <div>
-                    <h3 class="back-title mb-4">Insights & Strategy</h3>
+                    <h3 class="skill-back-title mb-4">Insights & Strategy</h3>
                     <div>
                       <p>Focus</p>
-                      <div class="elite-tags">
+                      <div class="skill-tags">
                         <span>EDA</span><span>Statistics</span><span>Storytelling</span><span>Cleaning</span>
                       </div>
                     </div>
                     <div class="mt-4">
                       <p>Deliverables</p>
-                      <ul class="elite-list">
+                      <ul class="skill-list">
                         <li><i class="bi bi-search"></i> Exploratory Analysis</li>
                         <li><i class="bi bi-pie-chart-fill"></i> Statistical Insights</li>
                         <li><i class="bi bi-file-earmark-bar-graph"></i> Reporting</li>
@@ -329,26 +329,26 @@
 
           <!-- Power BI Card -->
           <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in" style="--card-color: #F2C811;">
-            <div class="elite-card">
-              <div class="elite-card-inner">
-                <div class="elite-card-front">
-                  <div class="parallax-content">
-                    <img src="assets/img/logos/power-bi.png" width="96" height="96" alt="Power BI" class="elite-logo">
+            <div class="skill-card">
+              <div class="skill-card-inner">
+                <div class="skill-front">
+                  <div class="skill-main">
+                    <img src="assets/img/logos/power-bi.png" width="96" height="96" alt="Power BI" class="skill-logo">
                     <h2>Power BI</h2>
-                    <div class="elite-badge"><span class="pulse-dot"></span>Intermediate</div>
+                    <div class="skill-level"><span class="level-dot"></span>Intermediate</div>
                   </div>
-                  <div class="interaction-guide">
-                    <i class="bi bi-hand-index-thumb guide-icon"></i>
-                    <span class="guide-text">Click to see more</span>
+                  <div class="flip-hint">
+                    <i class="bi bi-hand-index-thumb flip-hint-icon"></i>
+                    <span class="flip-hint-text">Click to see more</span>
                   </div>
                 </div>
-                <div class="elite-card-back">
+                <div class="skill-back">
                   <div>
-                    <h3 class="back-title mb-4">Data Visualization</h3>
+                    <h3 class="skill-back-title mb-4">Data Visualization</h3>
 
                     <div>
                       <p>Capabilities</p>
-                      <div class="elite-tags">
+                      <div class="skill-tags">
                         <span>DAX</span>
                         <span>Power Query & ETL</span>
                         <span>Data Modeling (Relationships)</span>
@@ -357,7 +357,7 @@
                     </div>
                     <div class="mt-4">
                       <p>Expertise</p>
-                      <ul class="elite-list">
+                      <ul class="skill-list">
                         <li><i class="bi bi-kanban"></i> Dashboard Creation</li>
                         <li><i class="bi bi-database-fill-up"></i> Data Integration (Multiple Sources)</li>
                         <li><i class="bi bi-lightbulb"></i> Business Insights (Reporting)</li>
@@ -373,32 +373,32 @@
 
           <!-- Jupyter Notebook Card -->
           <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in" style="--card-color: #F37626;">
-            <div class="elite-card">
-              <div class="elite-card-inner">
-                <div class="elite-card-front">
-                  <div class="parallax-content">
+            <div class="skill-card">
+              <div class="skill-card-inner">
+                <div class="skill-front">
+                  <div class="skill-main">
                     <img src="assets/img/logos/jupyter.svg" width="96" height="96"
-                      alt="Jupyter" class="elite-logo">
+                      alt="Jupyter" class="skill-logo">
                     <h2>Jupyter</h2>
-                    <div class="elite-badge"><span class="pulse-dot"></span>Advanced</div>
+                    <div class="skill-level"><span class="level-dot"></span>Advanced</div>
                   </div>
-                  <div class="interaction-guide">
-                    <i class="bi bi-hand-index-thumb guide-icon"></i>
-                    <span class="guide-text">Click to see more</span>
+                  <div class="flip-hint">
+                    <i class="bi bi-hand-index-thumb flip-hint-icon"></i>
+                    <span class="flip-hint-text">Click to see more</span>
                   </div>
                 </div>
-                <div class="elite-card-back">
+                <div class="skill-back">
                   <div>
-                    <h3 class="back-title mb-4">Interactive Analysis</h3>
+                    <h3 class="skill-back-title mb-4">Interactive Analysis</h3>
                     <div>
                       <p>Environment</p>
-                      <div class="elite-tags">
+                      <div class="skill-tags">
                         <span>IPython</span><span>Notebooks</span><span>Markdown</span><span>Widgets</span>
                       </div>
                     </div>
                     <div class="mt-4">
                       <p>Workflows</p>
-                      <ul class="elite-list">
+                      <ul class="skill-list">
                         <li><i class="bi bi-journal-code"></i> Reproducible Research</li>
                         <li><i class="bi bi-eye"></i> Visual Data Exploration</li>
                         <li><i class="bi bi-file-earmark-pdf"></i> Technical Reporting</li>
@@ -414,32 +414,32 @@
 
           <!-- R Programming Card -->
           <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in" style="--card-color: #276BBE;">
-            <div class="elite-card">
-              <div class="elite-card-inner">
-                <div class="elite-card-front">
-                  <div class="parallax-content">
+            <div class="skill-card">
+              <div class="skill-card-inner">
+                <div class="skill-front">
+                  <div class="skill-main">
                     <img src="assets/img/logos/r.svg" width="96" height="96" alt="R"
-                      class="elite-logo">
+                      class="skill-logo">
                     <h2>R Language</h2>
-                    <div class="elite-badge"><span class="pulse-dot"></span>Intermediate</div>
+                    <div class="skill-level"><span class="level-dot"></span>Intermediate</div>
                   </div>
-                  <div class="interaction-guide">
-                    <i class="bi bi-hand-index-thumb guide-icon"></i>
-                    <span class="guide-text">Click to see more</span>
+                  <div class="flip-hint">
+                    <i class="bi bi-hand-index-thumb flip-hint-icon"></i>
+                    <span class="flip-hint-text">Click to see more</span>
                   </div>
                 </div>
-                <div class="elite-card-back">
+                <div class="skill-back">
                   <div>
-                    <h3 class="back-title mb-4">Statistical Stack</h3>
+                    <h3 class="skill-back-title mb-4">Statistical Stack</h3>
                     <div>
                       <p>Ecosystem</p>
-                      <div class="elite-tags">
+                      <div class="skill-tags">
                         <span>Tidyverse</span><span>ggplot2</span><span>dplyr</span><span>tidyr</span>
                       </div>
                     </div>
                     <div class="mt-4">
                       <p>Expertise</p>
-                      <ul class="elite-list">
+                      <ul class="skill-list">
                         <li><i class="bi bi-clipboard-data"></i> Hypothesis Testing</li>
                         <li><i class="bi bi-palette"></i> Advanced Visualization</li>
                         <li><i class="bi bi-file-earmark-medical"></i> R Markdown Reports</li>
@@ -455,30 +455,30 @@
 
           <!-- Google Colab Card -->
           <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in" style="--card-color: #F9AB00;">
-            <div class="elite-card">
-              <div class="elite-card-inner">
-                <div class="elite-card-front">
-                  <div class="parallax-content">
-                    <img src="assets/img/logos/google-colab.png" width="96" height="96" alt="Colab" class="elite-logo">
+            <div class="skill-card">
+              <div class="skill-card-inner">
+                <div class="skill-front">
+                  <div class="skill-main">
+                    <img src="assets/img/logos/google-colab.png" width="96" height="96" alt="Colab" class="skill-logo">
                     <h2>Google Colab</h2>
-                    <div class="elite-badge"><span class="pulse-dot"></span>Intermediate</div>
+                    <div class="skill-level"><span class="level-dot"></span>Intermediate</div>
                   </div>
-                  <div class="interaction-guide">
-                    <i class="bi bi-hand-index-thumb guide-icon"></i>
-                    <span class="guide-text">Click to see more</span>
+                  <div class="flip-hint">
+                    <i class="bi bi-hand-index-thumb flip-hint-icon"></i>
+                    <span class="flip-hint-text">Click to see more</span>
                   </div>
                 </div>
-                <div class="elite-card-back">
+                <div class="skill-back">
                   <div>
-                    <h3 class="back-title mb-4">Cloud Computing</h3>
+                    <h3 class="skill-back-title mb-4">Cloud Computing</h3>
                     <div>
                       <p>Features</p>
-                      <div class="elite-tags"><span>GPU</span><span>TPU</span><span>Drive Sync</span><span>Cloud
+                      <div class="skill-tags"><span>GPU</span><span>TPU</span><span>Drive Sync</span><span>Cloud
                           Kernels</span></div>
                     </div>
                     <div class="mt-4">
                       <p>Workflows</p>
-                      <ul class="elite-list">
+                      <ul class="skill-list">
                         <li><i class="bi bi-cloud-check"></i> Cloud Execution</li>
                         <li><i class="bi bi-cpu-fill"></i> HPC</li>
                         <li><i class="bi bi-share-fill"></i> Collaboration</li>
@@ -500,7 +500,7 @@
       <!-- CTA Section -->
       <div class="row mt-5">
         <div class="col-12 d-flex gap-3 flex-wrap justify-content-center" data-aos="fade-up">
-          <a href="resume.html" class="btn-elite">
+          <a href="resume.html" class="btn-next">
             Resume
             <i class="bi bi-file-earmark-person"></i> <!-- Data Science / Tech Icon -->
           </a>
@@ -511,12 +511,12 @@
   </main>
 
   <!-- Ultra‑compact footer -->
-  <footer id="footer" class="footer-sleek">
+  <footer id="footer" class="site-footer">
     <div class="container">
       <div class="d-flex flex-column align-items-center py-3">
 
         <!-- Compact Roles -->
-        <p class="sleek-roles mb-2">
+        <p class="footer-roles mb-2">
           Data Scientist <span class="dot">•</span> Data Analyst <span class="dot">•</span> Power BI <span
             class="dot">•</span> SQL
         </p>
@@ -524,19 +524,19 @@
         <!-- Vibrant Social Links (Compact) -->
         <div class="d-flex gap-2 mb-3">
           <a href="https://www.linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" rel="noopener"
-            class="sleek-glow linkedin" title="LinkedIn" aria-label="LinkedIn">
+            class="footer-icon linkedin" title="LinkedIn" aria-label="LinkedIn">
             <i class="bi bi-linkedin"></i>
           </a>
-          <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="sleek-glow github" title="GitHub" aria-label="GitHub">
+          <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="footer-icon github" title="GitHub" aria-label="GitHub">
             <i class="bi bi-github"></i>
           </a>
-          <a href="contact.html" class="sleek-glow email" title="Email" aria-label="Contact by email">
+          <a href="contact.html" class="footer-icon email" title="Email" aria-label="Contact by email">
             <i class="bi bi-envelope-at-fill"></i>
           </a>
         </div>
 
         <!-- Single-Line Legal & Credits -->
-        <div class="sleek-legal">
+        <div class="footer-legal">
           <span>© 2026 Maykon Jonattan</span>
           <span class="dot">•</span>
           <span>Some icons by <a href="https://icons8.com" target="_blank" rel="noopener">Icons8</a></span>

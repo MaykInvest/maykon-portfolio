@@ -37,7 +37,7 @@
   <link href="assets/css/main.css" rel="stylesheet">
 </head>
 
-<body class="portfolio-page">
+<body>
 
   <!-- ======= Header / Navigation Bar ======= -->
   <header id="header" class="header d-flex align-items-center sticky-top">
@@ -45,8 +45,8 @@
 
       <!-- icon Navigation Bar -->
       <a href="index.html" class="d-flex align-items-center">
-        <div class="logo-3d-scene">
-          <div class="logo-3d-cube">
+        <div class="cube-scene">
+          <div class="cube">
             <div class="cube-core"></div>
 
             <div class="cube-face face-front"><i class="bi bi-bar-chart-fill"></i></div>
@@ -69,7 +69,7 @@
           <li><a href="portfolio.html" class="active">Portfolio</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-        <button type="button" class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"></button>
+        <button type="button" class="menu-btn d-xl-none bi bi-list" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"></button>
       </nav>
 
       <div class="header-spacer d-none d-xl-block"></div> <!-- Keeps the menu centered on desktop; hidden on mobile so the menu button sits at the right edge -->
@@ -91,45 +91,45 @@
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <!-- Project GitHub Card -->
-        <div class="wrap">
-          <div class="grid">
+        <div class="projects">
+          <div class="project-grid">
 
             <!-- ── Energy consumption forecasting ── -->
-            <div class="cw" style="--accent-rgb: 245,158,11; --accent-light: #fbbf24">
-              <div class="card">
+            <div class="project" style="--accent-rgb: 245,158,11; --accent-light: #fbbf24">
+              <div class="project-card">
 
                 <div class="shimmer"></div>
                 <div class="glow-border"></div>
 
-                <div class="card-content">
+                <div class="project-content">
 
-                  <div class="img-wrap">
-                    <div class="img-badge"><span class="dot"></span> Big Data · Forecasting</div>
-                    <a class="gh-btn" href="https://github.com/MaykInvest/Forecasting_Energy_Consumption"
+                  <div class="project-img">
+                    <div class="project-badge"><span class="dot"></span> Big Data · Forecasting</div>
+                    <a class="github-btn" href="https://github.com/MaykInvest/Forecasting_Energy_Consumption"
                       target="_blank" rel="noopener" aria-label="View Energy Consumption Forecasting on GitHub">
                       <i class="bi bi-github"></i>
-                      <span class="gh-btn-label">GitHub</span>
+                      <span class="github-btn-text">GitHub</span>
                     </a>
 
-                    <button type="button" class="img-preview-btn" data-bs-toggle="modal" data-bs-target="#energyForecastingModal"
+                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#modal-energy"
                       aria-label="Open preview: Energy Consumption Forecasting project">
                       <img src="assets/img/portfolio/Energy_consumption.webp" width="1200" height="800" loading="lazy" decoding="async"
                         alt="Energy Consumption Forecasting project">
                     </button>
                   </div>
 
-                  <div class="title-area">
-                    <div class="cat-label">Forecasting Energy Consumption</div>
-                    <div class="card-title">
+                  <div class="project-head">
+                    <div class="project-category">Forecasting Energy Consumption</div>
+                    <div class="project-title">
                       <span>Distributed ML with PySpark</span>
-                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="h"></span><span
-                          class="v"></span></button>
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="bar-h"></span><span
+                          class="bar-v"></span></button>
                     </div>
                   </div>
 
-                  <div class="flap-outer">
-                    <div class="flap-inner">
-                      <p class="desc">A distributed Apache PySpark pipeline that forecasts hourly electricity demand from
+                  <div class="details">
+                    <div class="details-inner">
+                      <p class="project-desc">A distributed Apache PySpark pipeline that forecasts hourly electricity demand from
                         time-series and weather data. A Random Forest outperformed the Linear Regression baseline
                         (compared by RMSE).</p>
                       <div class="tags">
@@ -142,22 +142,22 @@
 
                   <div class="divider"></div>
 
-                  <div class="stat-row">
+                  <div class="stats">
                     <div class="stat">
-                      <div class="stat-val" style="color:#fbbf24">Hourly</div>
-                      <div class="stat-lbl">Forecasts</div>
+                      <div class="stat-value" style="color:#fbbf24">Hourly</div>
+                      <div class="stat-label">Forecasts</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-val" style="color:#bae6fd">RF</div>
-                      <div class="stat-lbl">Best Model</div>
+                      <div class="stat-value" style="color:#bae6fd">RF</div>
+                      <div class="stat-label">Best Model</div>
                     </div>
                   </div>
 
-                  <div class="foot">
-                    <div class="foot-meta">
-                      <span class="meta-i"> <i class="bi bi-git me-1"></i> main </span>
-                      <span class="meta-i"> <i class="bi bi-code-slash me-1"></i> Python </span>
-                      <span class="meta-i"> <i class="bi bi-journal-code me-1"></i> Jupyter
+                  <div class="project-foot">
+                    <div class="project-meta">
+                      <span class="meta-item"> <i class="bi bi-git me-1"></i> main </span>
+                      <span class="meta-item"> <i class="bi bi-code-slash me-1"></i> Python </span>
+                      <span class="meta-item"> <i class="bi bi-journal-code me-1"></i> Jupyter
                         Notebook </span>
                     </div>
                   </div>
@@ -166,11 +166,11 @@
               </div>
             </div>
 
-            <div class="modal fade" id="energyForecastingModal" style="--accent-rgb: 245,158,11; --accent-light: #fbbf24" tabindex="-1" aria-labelledby="energyForecastingModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modal-energy" style="--accent-rgb: 245,158,11; --accent-light: #fbbf24" tabindex="-1" aria-labelledby="modal-energy-title" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="energyForecastingModalLabel">Energy Forecasting Project Preview</h2>
+                    <h2 class="modal-title fs-5" id="modal-energy-title">Energy Forecasting Project Preview</h2>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
@@ -184,42 +184,42 @@
             <!-- ── END CARD ── -->
 
             <!-- ── Titanic Survival Prediction ── -->
-            <div class="cw" style="--accent-rgb: 56,189,248; --accent-light: #7dd3fc">
-              <div class="card">
+            <div class="project" style="--accent-rgb: 56,189,248; --accent-light: #7dd3fc">
+              <div class="project-card">
 
                 <div class="shimmer"></div>
                 <div class="glow-border"></div>
 
-                <div class="card-content">
+                <div class="project-content">
 
-                  <div class="img-wrap">
-                    <div class="img-badge"><span class="dot"></span> ML · Classification
+                  <div class="project-img">
+                    <div class="project-badge"><span class="dot"></span> ML · Classification
                     </div>
 
-                    <a class="gh-btn" href="https://github.com/MaykInvest/Titanic-analysis.git" target="_blank"
+                    <a class="github-btn" href="https://github.com/MaykInvest/Titanic-analysis.git" target="_blank"
                       rel="noopener" aria-label="View Titanic Survival Prediction on GitHub">
                       <i class="bi bi-github"></i>
-                      <span class="gh-btn-label">GitHub</span>
+                      <span class="github-btn-text">GitHub</span>
                     </a>
 
-                    <button type="button" class="img-preview-btn" data-bs-toggle="modal" data-bs-target="#titanicMlModal"
+                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#modal-titanic"
                       aria-label="Open preview: Titanic ML project">
                       <img src="assets/img/portfolio/Titanic.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Titanic ML project">
                     </button>
                   </div>
 
-                  <div class="title-area">
-                    <div class="cat-label">Titanic Survival Prediction</div>
-                    <div class="card-title">
+                  <div class="project-head">
+                    <div class="project-category">Titanic Survival Prediction</div>
+                    <div class="project-title">
                       <span>Titanic Classification Models</span>
-                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="h"></span><span
-                          class="v"></span></button>
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="bar-h"></span><span
+                          class="bar-v"></span></button>
                     </div>
                   </div>
 
-                  <div class="flap-outer">
-                    <div class="flap-inner">
-                      <p class="desc">A leakage-free classification pipeline on the classic Titanic passenger dataset,
+                  <div class="details">
+                    <div class="details-inner">
+                      <p class="project-desc">A leakage-free classification pipeline on the classic Titanic passenger dataset,
                         with feature engineering (title extraction, family grouping) and a Gradient Boosting model
                         tuned with Bayesian search. 83% accuracy on unseen passengers (baseline 61.7%), explained
                         with SHAP.</p>
@@ -236,22 +236,22 @@
 
                   <div class="divider"></div>
 
-                  <div class="stat-row">
+                  <div class="stats">
                     <div class="stat">
-                      <div class="stat-val" style="color:#38bdf8">83%</div>
-                      <div class="stat-lbl">Accuracy</div>
+                      <div class="stat-value" style="color:#38bdf8">83%</div>
+                      <div class="stat-label">Accuracy</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-val" style="color:#bae6fd">891</div>
-                      <div class="stat-lbl">Passengers</div>
+                      <div class="stat-value" style="color:#bae6fd">891</div>
+                      <div class="stat-label">Passengers</div>
                     </div>
                   </div>
 
-                  <div class="foot">
-                    <div class="foot-meta">
-                      <span class="meta-i"> <i class="bi bi-git me-1"></i> main </span>
-                      <span class="meta-i"> <i class="bi bi-code-slash me-1"></i> Python </span>
-                      <span class="meta-i"> <i class="bi bi-journal-code me-1"></i> Jupyter
+                  <div class="project-foot">
+                    <div class="project-meta">
+                      <span class="meta-item"> <i class="bi bi-git me-1"></i> main </span>
+                      <span class="meta-item"> <i class="bi bi-code-slash me-1"></i> Python </span>
+                      <span class="meta-item"> <i class="bi bi-journal-code me-1"></i> Jupyter
                         Notebook </span>
                     </div>
                   </div>
@@ -260,11 +260,11 @@
               </div>
             </div>
 
-            <div class="modal fade" id="titanicMlModal" style="--accent-rgb: 56,189,248; --accent-light: #7dd3fc" tabindex="-1" aria-labelledby="titanicMlModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modal-titanic" style="--accent-rgb: 56,189,248; --accent-light: #7dd3fc" tabindex="-1" aria-labelledby="modal-titanic-title" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="titanicMlModalLabel">Titanic Classification Project Preview</h2>
+                    <h2 class="modal-title fs-5" id="modal-titanic-title">Titanic Classification Project Preview</h2>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
@@ -278,42 +278,42 @@
             <!-- END OF THE CARD -->
 
             <!-- ── House Prices Prediction ── -->
-            <div class="cw" style="--accent-rgb: 255,193,7; --accent-light: #ffc107">
-              <div class="card">
+            <div class="project" style="--accent-rgb: 255,193,7; --accent-light: #ffc107">
+              <div class="project-card">
 
                 <div class="shimmer"></div>
                 <div class="glow-border"></div>
 
-                <div class="card-content">
+                <div class="project-content">
 
-                  <div class="img-wrap">
-                    <div class="img-badge"><span class="dot"></span> ML · Regression</div>
+                  <div class="project-img">
+                    <div class="project-badge"><span class="dot"></span> ML · Regression</div>
 
-                    <a class="gh-btn" href="https://github.com/MaykInvest/House_Prices_Prediction.git" target="_blank"
+                    <a class="github-btn" href="https://github.com/MaykInvest/House_Prices_Prediction.git" target="_blank"
                       rel="noopener" aria-label="View House Prices Prediction on GitHub">
                       <i class="bi bi-github"></i>
-                      <span class="gh-btn-label">GitHub</span>
+                      <span class="github-btn-text">GitHub</span>
                     </a>
 
-                    <button type="button" class="img-preview-btn" data-bs-toggle="modal" data-bs-target="#housePricesModal"
+                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#modal-house"
                       aria-label="Open preview: House Prices Prediction project">
                       <img src="assets/img/portfolio/House_prices_prediction.webp" width="1200" height="800" loading="lazy" decoding="async"
                         alt="House Prices Prediction project">
                     </button>
                   </div>
 
-                  <div class="title-area">
-                    <div class="cat-label">House Prices Prediction</div>
-                    <div class="card-title">
+                  <div class="project-head">
+                    <div class="project-category">House Prices Prediction</div>
+                    <div class="project-title">
                       <span>Regression Model Comparison</span>
-                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="h"></span><span
-                          class="v"></span></button>
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="bar-h"></span><span
+                          class="bar-v"></span></button>
                     </div>
                   </div>
 
-                  <div class="flap-outer">
-                    <div class="flap-inner">
-                      <p class="desc">An end-to-end regression pipeline on 4,140 Seattle-area home sales, comparing
+                  <div class="details">
+                    <div class="details-inner">
+                      <p class="project-desc">An end-to-end regression pipeline on 4,140 Seattle-area home sales, comparing
                         Ridge, Random Forest, XGBoost and LightGBM with 5-fold cross-validation. The tuned LightGBM
                         model cut the mean absolute error by 59% versus the baseline.</p>
 
@@ -328,22 +328,22 @@
 
                   <div class="divider"></div>
 
-                  <div class="stat-row">
+                  <div class="stats">
                     <div class="stat">
-                      <div class="stat-val" style="color:#ffc107">−59%</div>
-                      <div class="stat-lbl">Error vs Baseline</div>
+                      <div class="stat-value" style="color:#ffc107">−59%</div>
+                      <div class="stat-label">Error vs Baseline</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-val" style="color:#ffe082">4,140</div>
-                      <div class="stat-lbl">Home Sales</div>
+                      <div class="stat-value" style="color:#ffe082">4,140</div>
+                      <div class="stat-label">Home Sales</div>
                     </div>
                   </div>
 
-                  <div class="foot">
-                    <div class="foot-meta">
-                      <span class="meta-i"> <i class="bi bi-git me-1"></i> main </span>
-                      <span class="meta-i"> <i class="bi bi-code-slash me-1"></i> Python </span>
-                      <span class="meta-i"> <i class="bi bi-journal-code me-1"></i> Jupyter
+                  <div class="project-foot">
+                    <div class="project-meta">
+                      <span class="meta-item"> <i class="bi bi-git me-1"></i> main </span>
+                      <span class="meta-item"> <i class="bi bi-code-slash me-1"></i> Python </span>
+                      <span class="meta-item"> <i class="bi bi-journal-code me-1"></i> Jupyter
                         Notebook </span>
                     </div>
                   </div>
@@ -352,11 +352,11 @@
               </div>
             </div>
 
-            <div class="modal fade" id="housePricesModal" style="--accent-rgb: 255,193,7; --accent-light: #ffc107" tabindex="-1" aria-labelledby="housePricesModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modal-house" style="--accent-rgb: 255,193,7; --accent-light: #ffc107" tabindex="-1" aria-labelledby="modal-house-title" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="housePricesModalLabel">House Prices Prediction Project Preview</h2>
+                    <h2 class="modal-title fs-5" id="modal-house-title">House Prices Prediction Project Preview</h2>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
@@ -370,41 +370,41 @@
             <!-- END OF THE CARD -->
 
             <!-- ── Car Market Segmentation ── -->
-            <div class="cw" style="--accent-rgb: 236,72,153; --accent-light: #f472b6">
-              <div class="card">
+            <div class="project" style="--accent-rgb: 236,72,153; --accent-light: #f472b6">
+              <div class="project-card">
 
                 <div class="shimmer"></div>
                 <div class="glow-border"></div>
 
-                <div class="card-content">
+                <div class="project-content">
 
-                  <div class="img-wrap">
-                    <div class="img-badge"><span class="dot"></span> ML · Clustering</div>
-                    <a class="gh-btn" href="https://github.com/MaykInvest/car_clustering_kmeans"
+                  <div class="project-img">
+                    <div class="project-badge"><span class="dot"></span> ML · Clustering</div>
+                    <a class="github-btn" href="https://github.com/MaykInvest/car_clustering_kmeans"
                       target="_blank" rel="noopener" aria-label="View Car Market Segmentation on GitHub">
                       <i class="bi bi-github"></i>
-                      <span class="gh-btn-label">GitHub</span>
+                      <span class="github-btn-text">GitHub</span>
                     </a>
 
-                    <button type="button" class="img-preview-btn" data-bs-toggle="modal" data-bs-target="#carSegmentationModal"
+                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#modal-car"
                       aria-label="Open preview: Car Market Segmentation project">
                       <img src="assets/img/portfolio/Car_segmentation.svg" width="1200" height="800" loading="lazy" decoding="async"
                         alt="Car Market Segmentation project">
                     </button>
                   </div>
 
-                  <div class="title-area">
-                    <div class="cat-label">Car Market Segmentation</div>
-                    <div class="card-title">
+                  <div class="project-head">
+                    <div class="project-category">Car Market Segmentation</div>
+                    <div class="project-title">
                       <span>Unsupervised K-Means</span>
-                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="h"></span><span
-                          class="v"></span></button>
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="bar-h"></span><span
+                          class="bar-v"></span></button>
                     </div>
                   </div>
 
-                  <div class="flap-outer">
-                    <div class="flap-inner">
-                      <p class="desc">Groups 11,121 car models into natural market segments (Mainstream, Performance /
+                  <div class="details">
+                    <div class="details-inner">
+                      <p class="project-desc">Groups 11,121 car models into natural market segments (Mainstream, Performance /
                         Luxury and Older Models) with K-Means, choosing K by silhouette score. The model is served
                         through a FastAPI endpoint.</p>
                       <div class="tags">
@@ -418,22 +418,22 @@
 
                   <div class="divider"></div>
 
-                  <div class="stat-row">
+                  <div class="stats">
                     <div class="stat">
-                      <div class="stat-val" style="color:#f472b6">11K+</div>
-                      <div class="stat-lbl">Car Models</div>
+                      <div class="stat-value" style="color:#f472b6">11K+</div>
+                      <div class="stat-label">Car Models</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-val" style="color:#bae6fd">K = 3</div>
-                      <div class="stat-lbl">Segments</div>
+                      <div class="stat-value" style="color:#bae6fd">K = 3</div>
+                      <div class="stat-label">Segments</div>
                     </div>
                   </div>
 
-                  <div class="foot">
-                    <div class="foot-meta">
-                      <span class="meta-i"> <i class="bi bi-git me-1"></i> main </span>
-                      <span class="meta-i"> <i class="bi bi-code-slash me-1"></i> Python </span>
-                      <span class="meta-i"> <i class="bi bi-journal-code me-1"></i> Jupyter
+                  <div class="project-foot">
+                    <div class="project-meta">
+                      <span class="meta-item"> <i class="bi bi-git me-1"></i> main </span>
+                      <span class="meta-item"> <i class="bi bi-code-slash me-1"></i> Python </span>
+                      <span class="meta-item"> <i class="bi bi-journal-code me-1"></i> Jupyter
                         Notebook </span>
                     </div>
                   </div>
@@ -442,11 +442,11 @@
               </div>
             </div>
 
-            <div class="modal fade" id="carSegmentationModal" style="--accent-rgb: 236,72,153; --accent-light: #f472b6" tabindex="-1" aria-labelledby="carSegmentationModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modal-car" style="--accent-rgb: 236,72,153; --accent-light: #f472b6" tabindex="-1" aria-labelledby="modal-car-title" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="carSegmentationModalLabel">Car Market Segmentation Preview</h2>
+                    <h2 class="modal-title fs-5" id="modal-car-title">Car Market Segmentation Preview</h2>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
@@ -460,40 +460,40 @@
             <!-- ── END CARD ── -->
 
             <!-- ── Python Programming Assistant ── -->
-            <div class="cw" style="--accent-rgb: 168,85,247; --accent-light: #c084fc">
-              <div class="card">
+            <div class="project" style="--accent-rgb: 168,85,247; --accent-light: #c084fc">
+              <div class="project-card">
 
                 <div class="shimmer"></div>
                 <div class="glow-border"></div>
 
-                <div class="card-content">
+                <div class="project-content">
 
-                  <div class="img-wrap">
-                    <div class="img-badge"><span class="dot"></span> AI </div>
-                    <a class="gh-btn" href="https://github.com/MaykInvest/Python-Programming-Assistant.git"
+                  <div class="project-img">
+                    <div class="project-badge"><span class="dot"></span> AI </div>
+                    <a class="github-btn" href="https://github.com/MaykInvest/Python-Programming-Assistant.git"
                       target="_blank" rel="noopener" aria-label="View Python Programming Assistant on GitHub">
                       <i class="bi bi-github"></i>
-                      <span class="gh-btn-label">GitHub</span>
+                      <span class="github-btn-text">GitHub</span>
                     </a>
 
-                    <button type="button" class="img-preview-btn" data-bs-toggle="modal" data-bs-target="#pythonAssistantModal"
+                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#modal-assistant"
                       aria-label="Open preview: Python Assistant project">
                       <img src="assets/img/portfolio/Python_bot.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Python Assistant project">
                     </button>
                   </div>
 
-                  <div class="title-area">
-                    <div class="cat-label">Python Programming Assistant</div>
-                    <div class="card-title">
+                  <div class="project-head">
+                    <div class="project-category">Python Programming Assistant</div>
+                    <div class="project-title">
                       <span>AI Coding </span>
-                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="h"></span><span
-                          class="v"></span></button>
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="bar-h"></span><span
+                          class="bar-v"></span></button>
                     </div>
                   </div>
 
-                  <div class="flap-outer">
-                    <div class="flap-inner">
-                      <p class="desc">An AI chat app built with Streamlit on the Groq LLM API that answers Python
+                  <div class="details">
+                    <div class="details-inner">
+                      <p class="project-desc">An AI chat app built with Streamlit on the Groq LLM API that answers Python
                         questions with clear explanations and code examples, using custom prompt engineering.</p>
                       <div class="tags">
                         <span class="tag tag-purple"><i class="bi bi-filetype-py me-1"></i>Python</span>
@@ -506,22 +506,22 @@
 
                   <div class="divider"></div>
 
-                  <div class="stat-row">
+                  <div class="stats">
                     <div class="stat">
-                      <div class="stat-val" style="color:#c084fc">LLM</div>
-                      <div class="stat-lbl">Powered</div>
+                      <div class="stat-value" style="color:#c084fc">LLM</div>
+                      <div class="stat-label">Powered</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-val" style="color:#f9a8d4">NLP</div>
-                      <div class="stat-lbl">Engine</div>
+                      <div class="stat-value" style="color:#f9a8d4">NLP</div>
+                      <div class="stat-label">Engine</div>
                     </div>
                   </div>
 
-                  <div class="foot">
-                    <div class="foot-meta">
-                      <span class="meta-i"> <i class="bi bi-git me-1"></i> main </span>
-                      <span class="meta-i"> <i class="bi bi-code-slash me-1"></i> Python </span>
-                      <span class="meta-i"> <i class="bi bi-bar-chart-line-fill me-1"></i>
+                  <div class="project-foot">
+                    <div class="project-meta">
+                      <span class="meta-item"> <i class="bi bi-git me-1"></i> main </span>
+                      <span class="meta-item"> <i class="bi bi-code-slash me-1"></i> Python </span>
+                      <span class="meta-item"> <i class="bi bi-bar-chart-line-fill me-1"></i>
                         Streamlit </span>
                     </div>
                   </div>
@@ -530,11 +530,11 @@
               </div>
             </div>
 
-            <div class="modal fade" id="pythonAssistantModal" style="--accent-rgb: 168,85,247; --accent-light: #c084fc" tabindex="-1" aria-labelledby="pythonAssistantModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modal-assistant" style="--accent-rgb: 168,85,247; --accent-light: #c084fc" tabindex="-1" aria-labelledby="modal-assistant-title" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="pythonAssistantModalLabel">Python Assistant Project Preview</h2>
+                    <h2 class="modal-title fs-5" id="modal-assistant-title">Python Assistant Project Preview</h2>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
@@ -548,40 +548,40 @@
             <!-- ── END CARD ── -->
 
             <!-- ── Sentiment Analysis Model ── -->
-            <div class="cw" style="--accent-rgb: 20,184,166; --accent-light: #2dd4bf">
-              <div class="card">
+            <div class="project" style="--accent-rgb: 20,184,166; --accent-light: #2dd4bf">
+              <div class="project-card">
 
                 <div class="shimmer"></div>
                 <div class="glow-border"></div>
 
-                <div class="card-content">
+                <div class="project-content">
 
-                  <div class="img-wrap">
-                    <div class="img-badge"><span class="dot"></span> NLP · Classification</div>
-                    <a class="gh-btn" href="https://github.com/MaykInvest/Sentiment_Analysis_Airline.git"
+                  <div class="project-img">
+                    <div class="project-badge"><span class="dot"></span> NLP · Classification</div>
+                    <a class="github-btn" href="https://github.com/MaykInvest/Sentiment_Analysis_Airline.git"
                       target="_blank" rel="noopener" aria-label="View Sentiment Analysis on GitHub">
                       <i class="bi bi-github"></i>
-                      <span class="gh-btn-label">GitHub</span>
+                      <span class="github-btn-text">GitHub</span>
                     </a>
 
-                    <button type="button" class="img-preview-btn" data-bs-toggle="modal" data-bs-target="#sentimentAnalysisModal"
+                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#modal-sentiment"
                       aria-label="Open preview: Sentiment Analysis project">
                       <img src="assets/img/portfolio/Sentimental.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Sentiment Analysis project">
                     </button>
                   </div>
 
-                  <div class="title-area">
-                    <div class="cat-label">Classification For Sentiment Analysis</div>
-                    <div class="card-title">
+                  <div class="project-head">
+                    <div class="project-category">Classification For Sentiment Analysis</div>
+                    <div class="project-title">
                       <span>Sentiment AI </span>
-                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="h"></span><span
-                          class="v"></span></button>
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="bar-h"></span><span
+                          class="bar-v"></span></button>
                     </div>
                   </div>
 
-                  <div class="flap-outer">
-                    <div class="flap-inner">
-                      <p class="desc">Classifies 14,640 airline tweets as negative, neutral or positive. Text is
+                  <div class="details">
+                    <div class="details-inner">
+                      <p class="project-desc">Classifies 14,640 airline tweets as negative, neutral or positive. Text is
                         cleaned and turned into TF-IDF features, then five models are compared with cross-validation
                         against a baseline;
                         Logistic Regression won with 79% accuracy.</p>
@@ -595,22 +595,22 @@
 
                   <div class="divider"></div>
 
-                  <div class="stat-row">
+                  <div class="stats">
                     <div class="stat">
-                      <div class="stat-val" style="color:#2dd4bf">79%</div>
-                      <div class="stat-lbl">Accuracy</div>
+                      <div class="stat-value" style="color:#2dd4bf">79%</div>
+                      <div class="stat-label">Accuracy</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-val" style="color:#bae6fd">14.6K</div>
-                      <div class="stat-lbl">Tweets</div>
+                      <div class="stat-value" style="color:#bae6fd">14.6K</div>
+                      <div class="stat-label">Tweets</div>
                     </div>
                   </div>
 
-                  <div class="foot">
-                    <div class="foot-meta">
-                      <span class="meta-i"> <i class="bi bi-git me-1"></i> main </span>
-                      <span class="meta-i"> <i class="bi bi-code-slash me-1"></i> Python </span>
-                      <span class="meta-i"> <i class="bi bi-journal-code me-1"></i> Jupyter
+                  <div class="project-foot">
+                    <div class="project-meta">
+                      <span class="meta-item"> <i class="bi bi-git me-1"></i> main </span>
+                      <span class="meta-item"> <i class="bi bi-code-slash me-1"></i> Python </span>
+                      <span class="meta-item"> <i class="bi bi-journal-code me-1"></i> Jupyter
                         Notebook </span>
                     </div>
                   </div>
@@ -619,11 +619,11 @@
               </div>
             </div>
 
-            <div class="modal fade" id="sentimentAnalysisModal" style="--accent-rgb: 20,184,166; --accent-light: #2dd4bf" tabindex="-1" aria-labelledby="sentimentAnalysisModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modal-sentiment" style="--accent-rgb: 20,184,166; --accent-light: #2dd4bf" tabindex="-1" aria-labelledby="modal-sentiment-title" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="sentimentAnalysisModalLabel">Sentiment AI Project Preview</h2>
+                    <h2 class="modal-title fs-5" id="modal-sentiment-title">Sentiment AI Project Preview</h2>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
@@ -637,44 +637,44 @@
             <!-- ── END CARD  ── -->
 
             <!-- ── Traffic Accident Analysis  ── -->
-            <div class="cw" style="--accent-rgb: 249,115,22; --accent-light: #fb923c">
-              <div class="card">
+            <div class="project" style="--accent-rgb: 249,115,22; --accent-light: #fb923c">
+              <div class="project-card">
 
                 <div class="shimmer"></div>
                 <div class="glow-border"></div>
 
-                <div class="card-content">
+                <div class="project-content">
 
-                  <div class="img-wrap">
-                    <div class="img-badge">
+                  <div class="project-img">
+                    <div class="project-badge">
                       <span class="dot"></span> Data Analysis · EDA
                     </div>
 
-                    <a class="gh-btn" href="https://github.com/MaykInvest/Traffic-Accident-Analysis-in-Porto-Alegre"
+                    <a class="github-btn" href="https://github.com/MaykInvest/Traffic-Accident-Analysis-in-Porto-Alegre"
                       target="_blank" rel="noopener" aria-label="View Traffic Accident Analysis on GitHub">
                       <i class="bi bi-github"></i>
-                      <span class="gh-btn-label">GitHub</span>
+                      <span class="github-btn-text">GitHub</span>
                     </a>
 
-                    <button type="button" class="img-preview-btn" data-bs-toggle="modal" data-bs-target="#trafficAnalysisModal"
+                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#modal-traffic"
                       aria-label="Open preview: Traffic Accident Analysis project">
                       <img src="assets/img/portfolio/Traffic_Accident.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Traffic Accident Analysis project">
                     </button>
                   </div>
 
-                  <div class="title-area">
-                    <div class="cat-label">Traffic Accident Analysis</div>
-                    <div class="card-title">
+                  <div class="project-head">
+                    <div class="project-category">Traffic Accident Analysis</div>
+                    <div class="project-title">
                       <span>Urban Safety Insights - Porto Alegre</span>
                       <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false">
-                        <span class="h"></span><span class="v"></span>
+                        <span class="bar-h"></span><span class="bar-v"></span>
                       </button>
                     </div>
                   </div>
 
-                  <div class="flap-outer">
-                    <div class="flap-inner">
-                      <p class="desc">
+                  <div class="details">
+                    <div class="details-inner">
+                      <p class="project-desc">
                         Exploratory data analysis of traffic accidents in Porto Alegre. Focused on identifying high-risk
                         zones, temporal patterns, and key contributing factors to support data-driven urban safety
                         decisions.
@@ -693,26 +693,26 @@
 
                   <div class="divider"></div>
 
-                  <div class="stat-row">
+                  <div class="stats">
                     <div class="stat">
-                      <div class="stat-val" style="color:#fb923c">75K+</div>
-                      <div class="stat-lbl">Records</div>
+                      <div class="stat-value" style="color:#fb923c">75K+</div>
+                      <div class="stat-label">Records</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-val" style="color:#a5b4fc">34</div>
-                      <div class="stat-lbl">Variables</div>
+                      <div class="stat-value" style="color:#a5b4fc">34</div>
+                      <div class="stat-label">Variables</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-val" style="color:#6ee7b7">Insights</div>
-                      <div class="stat-lbl">Patterns Found</div>
+                      <div class="stat-value" style="color:#6ee7b7">Insights</div>
+                      <div class="stat-label">Patterns Found</div>
                     </div>
                   </div>
 
-                  <div class="foot">
-                    <div class="foot-meta">
-                      <span class="meta-i"> <i class="bi bi-git me-1"></i> main </span>
-                      <span class="meta-i"> <i class="bi bi-code-slash me-1"></i> Python </span>
-                      <span class="meta-i"> <i class="bi bi-journal-code me-1"></i> Jupyter
+                  <div class="project-foot">
+                    <div class="project-meta">
+                      <span class="meta-item"> <i class="bi bi-git me-1"></i> main </span>
+                      <span class="meta-item"> <i class="bi bi-code-slash me-1"></i> Python </span>
+                      <span class="meta-item"> <i class="bi bi-journal-code me-1"></i> Jupyter
                         Notebook </span>
                     </div>
                   </div>
@@ -721,11 +721,11 @@
               </div>
             </div>
 
-            <div class="modal fade" id="trafficAnalysisModal" style="--accent-rgb: 249,115,22; --accent-light: #fb923c" tabindex="-1" aria-labelledby="trafficAnalysisModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modal-traffic" style="--accent-rgb: 249,115,22; --accent-light: #fb923c" tabindex="-1" aria-labelledby="modal-traffic-title" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="trafficAnalysisModalLabel">Traffic Analytics Project Preview</h2>
+                    <h2 class="modal-title fs-5" id="modal-traffic-title">Traffic Analytics Project Preview</h2>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
@@ -739,41 +739,41 @@
             <!-- ── END CARD  ── -->
 
             <!-- ── AI Dependency in Students ── -->
-            <div class="cw" style="--accent-rgb: 99,102,241; --accent-light: #a5b4fc">
-              <div class="card">
+            <div class="project" style="--accent-rgb: 99,102,241; --accent-light: #a5b4fc">
+              <div class="project-card">
 
                 <div class="shimmer"></div>
                 <div class="glow-border"></div>
 
-                <div class="card-content">
+                <div class="project-content">
 
-                  <div class="img-wrap">
-                    <div class="img-badge"><span class="dot"></span> ML · Classification</div>
-                    <a class="gh-btn" href="https://github.com/MaykInvest/AI_Dependency"
+                  <div class="project-img">
+                    <div class="project-badge"><span class="dot"></span> ML · Classification</div>
+                    <a class="github-btn" href="https://github.com/MaykInvest/AI_Dependency"
                       target="_blank" rel="noopener" aria-label="View AI Dependency Classifier on GitHub">
                       <i class="bi bi-github"></i>
-                      <span class="gh-btn-label">GitHub</span>
+                      <span class="github-btn-text">GitHub</span>
                     </a>
 
-                    <button type="button" class="img-preview-btn" data-bs-toggle="modal" data-bs-target="#aiDependencyModal"
+                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#modal-ai-dependency"
                       aria-label="Open preview: AI Dependency Classifier project">
                       <img src="assets/img/portfolio/AI_dependency.jpg" width="1000" height="800" loading="lazy" decoding="async"
                         alt="AI Dependency Classifier project">
                     </button>
                   </div>
 
-                  <div class="title-area">
-                    <div class="cat-label">AI Dependency in Students</div>
-                    <div class="card-title">
+                  <div class="project-head">
+                    <div class="project-category">AI Dependency in Students</div>
+                    <div class="project-title">
                       <span>Multi-class Classifier</span>
-                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="h"></span><span
-                          class="v"></span></button>
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="bar-h"></span><span
+                          class="bar-v"></span></button>
                     </div>
                   </div>
 
-                  <div class="flap-outer">
-                    <div class="flap-inner">
-                      <p class="desc">Predicts students' AI dependency level (Low / Medium / High) from survey data on 15,000
+                  <div class="details">
+                    <div class="details-inner">
+                      <p class="project-desc">Predicts students' AI dependency level (Low / Medium / High) from survey data on 15,000
                         students. Six models are compared in a leakage-safe, cross-validated pipeline; the tuned
                         Logistic Regression reached 0.66 F1, +0.40 over the baseline.</p>
                       <div class="tags">
@@ -787,22 +787,22 @@
 
                   <div class="divider"></div>
 
-                  <div class="stat-row">
+                  <div class="stats">
                     <div class="stat">
-                      <div class="stat-val" style="color:#a5b4fc">66%</div>
-                      <div class="stat-lbl">Accuracy</div>
+                      <div class="stat-value" style="color:#a5b4fc">66%</div>
+                      <div class="stat-label">Accuracy</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-val" style="color:#bae6fd">15K</div>
-                      <div class="stat-lbl">Students</div>
+                      <div class="stat-value" style="color:#bae6fd">15K</div>
+                      <div class="stat-label">Students</div>
                     </div>
                   </div>
 
-                  <div class="foot">
-                    <div class="foot-meta">
-                      <span class="meta-i"> <i class="bi bi-git me-1"></i> main </span>
-                      <span class="meta-i"> <i class="bi bi-code-slash me-1"></i> Python </span>
-                      <span class="meta-i"> <i class="bi bi-journal-code me-1"></i> Jupyter
+                  <div class="project-foot">
+                    <div class="project-meta">
+                      <span class="meta-item"> <i class="bi bi-git me-1"></i> main </span>
+                      <span class="meta-item"> <i class="bi bi-code-slash me-1"></i> Python </span>
+                      <span class="meta-item"> <i class="bi bi-journal-code me-1"></i> Jupyter
                         Notebook </span>
                     </div>
                   </div>
@@ -811,11 +811,11 @@
               </div>
             </div>
 
-            <div class="modal fade" id="aiDependencyModal" style="--accent-rgb: 99,102,241; --accent-light: #a5b4fc" tabindex="-1" aria-labelledby="aiDependencyModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modal-ai-dependency" style="--accent-rgb: 99,102,241; --accent-light: #a5b4fc" tabindex="-1" aria-labelledby="modal-ai-dependency-title" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="aiDependencyModalLabel">AI Dependency Classifier Preview</h2>
+                    <h2 class="modal-title fs-5" id="modal-ai-dependency-title">AI Dependency Classifier Preview</h2>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
@@ -829,41 +829,41 @@
             <!-- ── END CARD ── -->
 
             <!-- ── TechStore Sales Dashboard ── -->
-            <div class="cw" style="--accent-rgb: 16,185,129; --accent-light: #34d399">
-              <div class="card">
+            <div class="project" style="--accent-rgb: 16,185,129; --accent-light: #34d399">
+              <div class="project-card">
 
                 <div class="shimmer"></div>
                 <div class="glow-border"></div>
 
-                <div class="card-content">
+                <div class="project-content">
 
-                  <div class="img-wrap">
-                    <div class="img-badge"><span class="dot"></span> BI · Dashboard</div>
-                    <a class="gh-btn" href="https://github.com/MaykInvest/Hardware_Store_PowerBI_Project"
+                  <div class="project-img">
+                    <div class="project-badge"><span class="dot"></span> BI · Dashboard</div>
+                    <a class="github-btn" href="https://github.com/MaykInvest/Hardware_Store_PowerBI_Project"
                       target="_blank" rel="noopener" aria-label="View TechStore Power BI Dashboard on GitHub">
                       <i class="bi bi-github"></i>
-                      <span class="gh-btn-label">GitHub</span>
+                      <span class="github-btn-text">GitHub</span>
                     </a>
 
-                    <button type="button" class="img-preview-btn" data-bs-toggle="modal" data-bs-target="#techStoreModal"
+                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#modal-techstore"
                       aria-label="Open preview: TechStore Power BI dashboard project">
                       <img src="assets/img/portfolio/PowerBI_TechStore.jpg" width="979" height="555" loading="lazy" decoding="async"
                         alt="TechStore Power BI dashboard project">
                     </button>
                   </div>
 
-                  <div class="title-area">
-                    <div class="cat-label">TechStore Sales Dashboard</div>
-                    <div class="card-title">
+                  <div class="project-head">
+                    <div class="project-category">TechStore Sales Dashboard</div>
+                    <div class="project-title">
                       <span>Power BI Executive Report</span>
-                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="h"></span><span
-                          class="v"></span></button>
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="bar-h"></span><span
+                          class="bar-v"></span></button>
                     </div>
                   </div>
 
-                  <div class="flap-outer">
-                    <div class="flap-inner">
-                      <p class="desc">An executive dashboard for a fictional Brazilian PC-hardware retailer. Star-schema model
+                  <div class="details">
+                    <div class="details-inner">
+                      <p class="project-desc">An executive dashboard for a fictional Brazilian PC-hardware retailer. Star-schema model
                         with a Calendar table and DAX measures for revenue, margin, return rate and customer
                         satisfaction, each tracked against a target.</p>
                       <div class="tags">
@@ -877,21 +877,21 @@
 
                   <div class="divider"></div>
 
-                  <div class="stat-row">
+                  <div class="stats">
                     <div class="stat">
-                      <div class="stat-val" style="color:#34d399">5,000</div>
-                      <div class="stat-lbl">Order Lines</div>
+                      <div class="stat-value" style="color:#34d399">5,000</div>
+                      <div class="stat-label">Order Lines</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-val" style="color:#bae6fd">2022–24</div>
-                      <div class="stat-lbl">Sales Period</div>
+                      <div class="stat-value" style="color:#bae6fd">2022–24</div>
+                      <div class="stat-label">Sales Period</div>
                     </div>
                   </div>
 
-                  <div class="foot">
-                    <div class="foot-meta">
-                      <span class="meta-i"> <i class="bi bi-git me-1"></i> main </span>
-                      <span class="meta-i"> <i class="bi bi-file-earmark-bar-graph me-1"></i> Power BI </span>
+                  <div class="project-foot">
+                    <div class="project-meta">
+                      <span class="meta-item"> <i class="bi bi-git me-1"></i> main </span>
+                      <span class="meta-item"> <i class="bi bi-file-earmark-bar-graph me-1"></i> Power BI </span>
                     </div>
                   </div>
 
@@ -899,11 +899,11 @@
               </div>
             </div>
 
-            <div class="modal fade" id="techStoreModal" style="--accent-rgb: 16,185,129; --accent-light: #34d399" tabindex="-1" aria-labelledby="techStoreModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modal-techstore" style="--accent-rgb: 16,185,129; --accent-light: #34d399" tabindex="-1" aria-labelledby="modal-techstore-title" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="techStoreModalLabel">TechStore Dashboard Preview</h2>
+                    <h2 class="modal-title fs-5" id="modal-techstore-title">TechStore Dashboard Preview</h2>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
@@ -917,41 +917,41 @@
             <!-- ── END CARD ── -->
 
             <!-- ── Amazon Best Sellers 2024 ── -->
-            <div class="cw" style="--accent-rgb: 244,63,94; --accent-light: #fb7185">
-              <div class="card">
+            <div class="project" style="--accent-rgb: 244,63,94; --accent-light: #fb7185">
+              <div class="project-card">
 
                 <div class="shimmer"></div>
                 <div class="glow-border"></div>
 
-                <div class="card-content">
+                <div class="project-content">
 
-                  <div class="img-wrap">
-                    <div class="img-badge"><span class="dot"></span> Data Analysis · EDA</div>
-                    <a class="gh-btn" href="https://github.com/MaykInvest/Data-Analysis-Amazon-Best-Sellers-in-2024"
+                  <div class="project-img">
+                    <div class="project-badge"><span class="dot"></span> Data Analysis · EDA</div>
+                    <a class="github-btn" href="https://github.com/MaykInvest/Data-Analysis-Amazon-Best-Sellers-in-2024"
                       target="_blank" rel="noopener" aria-label="View Amazon Best Sellers Analysis on GitHub">
                       <i class="bi bi-github"></i>
-                      <span class="gh-btn-label">GitHub</span>
+                      <span class="github-btn-text">GitHub</span>
                     </a>
 
-                    <button type="button" class="img-preview-btn" data-bs-toggle="modal" data-bs-target="#amazonModal"
+                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#modal-amazon"
                       aria-label="Open preview: Amazon Best Sellers 2024 analysis project">
                       <img src="assets/img/portfolio/Amazon_valentine.svg" width="1200" height="800" loading="lazy" decoding="async"
                         alt="Amazon Best Sellers 2024 analysis project">
                     </button>
                   </div>
 
-                  <div class="title-area">
-                    <div class="cat-label">Amazon Best Sellers 2024</div>
-                    <div class="card-title">
+                  <div class="project-head">
+                    <div class="project-category">Amazon Best Sellers 2024</div>
+                    <div class="project-title">
                       <span>Valentine Gift Trends</span>
-                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="h"></span><span
-                          class="v"></span></button>
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="bar-h"></span><span
+                          class="bar-v"></span></button>
                     </div>
                   </div>
 
-                  <div class="flap-outer">
-                    <div class="flap-inner">
-                      <p class="desc">Exploratory analysis of 218 Amazon best-selling Valentine gifts. Food &amp; Sweets and
+                  <div class="details">
+                    <div class="details-inner">
+                      <p class="project-desc">Exploratory analysis of 218 Amazon best-selling Valentine gifts. Food &amp; Sweets and
                         Jewelry draw the most reviews, while a correlation of just 0.07 shows that higher ratings
                         barely predict popularity.</p>
                       <div class="tags">
@@ -965,22 +965,22 @@
 
                   <div class="divider"></div>
 
-                  <div class="stat-row">
+                  <div class="stats">
                     <div class="stat">
-                      <div class="stat-val" style="color:#fb7185">218</div>
-                      <div class="stat-lbl">Products</div>
+                      <div class="stat-value" style="color:#fb7185">218</div>
+                      <div class="stat-label">Products</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-val" style="color:#bae6fd">r = 0.07</div>
-                      <div class="stat-lbl">Rating vs Reviews</div>
+                      <div class="stat-value" style="color:#bae6fd">r = 0.07</div>
+                      <div class="stat-label">Rating vs Reviews</div>
                     </div>
                   </div>
 
-                  <div class="foot">
-                    <div class="foot-meta">
-                      <span class="meta-i"> <i class="bi bi-git me-1"></i> main </span>
-                      <span class="meta-i"> <i class="bi bi-code-slash me-1"></i> Python </span>
-                      <span class="meta-i"> <i class="bi bi-journal-code me-1"></i> Jupyter
+                  <div class="project-foot">
+                    <div class="project-meta">
+                      <span class="meta-item"> <i class="bi bi-git me-1"></i> main </span>
+                      <span class="meta-item"> <i class="bi bi-code-slash me-1"></i> Python </span>
+                      <span class="meta-item"> <i class="bi bi-journal-code me-1"></i> Jupyter
                         Notebook </span>
                     </div>
                   </div>
@@ -989,11 +989,11 @@
               </div>
             </div>
 
-            <div class="modal fade" id="amazonModal" style="--accent-rgb: 244,63,94; --accent-light: #fb7185" tabindex="-1" aria-labelledby="amazonModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modal-amazon" style="--accent-rgb: 244,63,94; --accent-light: #fb7185" tabindex="-1" aria-labelledby="modal-amazon-title" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="amazonModalLabel">Amazon Best Sellers Preview</h2>
+                    <h2 class="modal-title fs-5" id="modal-amazon-title">Amazon Best Sellers Preview</h2>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
@@ -1007,41 +1007,41 @@
             <!-- ── END CARD ── -->
 
             <!-- ── Virtual Library (Senac) ── -->
-            <div class="cw" style="--accent-rgb: 132,204,22; --accent-light: #a3e635">
-              <div class="card">
+            <div class="project" style="--accent-rgb: 132,204,22; --accent-light: #a3e635">
+              <div class="project-card">
 
                 <div class="shimmer"></div>
                 <div class="glow-border"></div>
 
-                <div class="card-content">
+                <div class="project-content">
 
-                  <div class="img-wrap">
-                    <div class="img-badge"><span class="dot"></span> Web · Front-End</div>
-                    <a class="gh-btn" href="https://github.com/MaykInvest/Projeto-Biblioteca-virtual"
+                  <div class="project-img">
+                    <div class="project-badge"><span class="dot"></span> Web · Front-End</div>
+                    <a class="github-btn" href="https://github.com/MaykInvest/Projeto-Biblioteca-virtual"
                       target="_blank" rel="noopener" aria-label="View Virtual Library on GitHub">
                       <i class="bi bi-github"></i>
-                      <span class="gh-btn-label">GitHub</span>
+                      <span class="github-btn-text">GitHub</span>
                     </a>
 
-                    <button type="button" class="img-preview-btn" data-bs-toggle="modal" data-bs-target="#virtualLibraryModal"
+                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#modal-library"
                       aria-label="Open preview: Virtual Library web app project">
                       <img src="assets/img/portfolio/Virtual_library.jpg" width="1200" height="655" loading="lazy" decoding="async"
                         alt="Virtual Library web app project">
                     </button>
                   </div>
 
-                  <div class="title-area">
-                    <div class="cat-label">Virtual Library (Senac)</div>
-                    <div class="card-title">
+                  <div class="project-head">
+                    <div class="project-category">Virtual Library (Senac)</div>
+                    <div class="project-title">
                       <span>Book Catalog Web App</span>
-                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="h"></span><span
-                          class="v"></span></button>
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="bar-h"></span><span
+                          class="bar-v"></span></button>
                     </div>
                   </div>
 
-                  <div class="flap-outer">
-                    <div class="flap-inner">
-                      <p class="desc">A responsive book catalog with search, 8 categories, favorites and a light/dark theme.
+                  <div class="details">
+                    <div class="details-inner">
+                      <p class="project-desc">A responsive book catalog with search, 8 categories, favorites and a light/dark theme.
                         Books and their files are stored in Supabase, so users can add and delete titles from the
                         browser.</p>
                       <div class="tags">
@@ -1055,22 +1055,22 @@
 
                   <div class="divider"></div>
 
-                  <div class="stat-row">
+                  <div class="stats">
                     <div class="stat">
-                      <div class="stat-val" style="color:#a3e635">8</div>
-                      <div class="stat-lbl">Categories</div>
+                      <div class="stat-value" style="color:#a3e635">8</div>
+                      <div class="stat-label">Categories</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-val" style="color:#bae6fd">Live</div>
-                      <div class="stat-lbl">on GitHub Pages</div>
+                      <div class="stat-value" style="color:#bae6fd">Live</div>
+                      <div class="stat-label">on GitHub Pages</div>
                     </div>
                   </div>
 
-                  <div class="foot">
-                    <div class="foot-meta">
-                      <span class="meta-i"> <i class="bi bi-git me-1"></i> main </span>
-                      <span class="meta-i"> <i class="bi bi-filetype-js me-1"></i> JavaScript </span>
-                      <a class="meta-i meta-link" href="https://maykinvest.github.io/Projeto-Biblioteca-virtual/" target="_blank" rel="noopener"> <i class="bi bi-box-arrow-up-right me-1"></i> Live site </a>
+                  <div class="project-foot">
+                    <div class="project-meta">
+                      <span class="meta-item"> <i class="bi bi-git me-1"></i> main </span>
+                      <span class="meta-item"> <i class="bi bi-filetype-js me-1"></i> JavaScript </span>
+                      <a class="meta-item meta-link" href="https://maykinvest.github.io/Projeto-Biblioteca-virtual/" target="_blank" rel="noopener"> <i class="bi bi-box-arrow-up-right me-1"></i> Live site </a>
                     </div>
                   </div>
 
@@ -1078,11 +1078,11 @@
               </div>
             </div>
 
-            <div class="modal fade" id="virtualLibraryModal" style="--accent-rgb: 132,204,22; --accent-light: #a3e635" tabindex="-1" aria-labelledby="virtualLibraryModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modal-library" style="--accent-rgb: 132,204,22; --accent-light: #a3e635" tabindex="-1" aria-labelledby="modal-library-title" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="virtualLibraryModalLabel">Virtual Library Preview</h2>
+                    <h2 class="modal-title fs-5" id="modal-library-title">Virtual Library Preview</h2>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
@@ -1102,7 +1102,7 @@
           <!-- Button to the next page -->
           <div class="row mt-5">
             <div class="col-12 d-flex gap-3 flex-wrap justify-content-center" data-aos="fade-up">
-              <a href="contact.html" class="btn-elite">
+              <a href="contact.html" class="btn-next">
                 Contact me
                 <i class="bi bi-person-lines-fill"></i> <!-- Tech Icon -->
               </a>
@@ -1119,12 +1119,12 @@
   </main>
 
   <!-- Ultra‑compact footer -->
-  <footer id="footer" class="footer-sleek">
+  <footer id="footer" class="site-footer">
     <div class="container">
       <div class="d-flex flex-column align-items-center py-3">
 
         <!-- Compact Roles -->
-        <p class="sleek-roles mb-2">
+        <p class="footer-roles mb-2">
           Data Scientist <span class="dot">•</span> Data Analyst <span class="dot">•</span> Power BI <span
             class="dot">•</span> SQL
         </p>
@@ -1132,19 +1132,19 @@
         <!-- Vibrant Social Links (Compact) -->
         <div class="d-flex gap-2 mb-3">
           <a href="https://www.linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" rel="noopener"
-            class="sleek-glow linkedin" title="LinkedIn" aria-label="LinkedIn">
+            class="footer-icon linkedin" title="LinkedIn" aria-label="LinkedIn">
             <i class="bi bi-linkedin"></i>
           </a>
-          <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="sleek-glow github" title="GitHub" aria-label="GitHub">
+          <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="footer-icon github" title="GitHub" aria-label="GitHub">
             <i class="bi bi-github"></i>
           </a>
-          <a href="contact.html" class="sleek-glow email" title="Email" aria-label="Contact by email">
+          <a href="contact.html" class="footer-icon email" title="Email" aria-label="Contact by email">
             <i class="bi bi-envelope-at-fill"></i>
           </a>
         </div>
 
         <!-- Single-Line Legal & Credits -->
-        <div class="sleek-legal">
+        <div class="footer-legal">
           <span>© 2026 Maykon Jonattan</span>
         </div>
 
