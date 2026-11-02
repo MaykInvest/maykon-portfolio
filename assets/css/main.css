@@ -1543,7 +1543,7 @@ article.timeline__item::before {
   margin-bottom: 0.4rem;
 }
 
-.timeline__content h3 {
+.timeline__content h2 {
   font-size: 1.15rem;
   font-weight: 700;
   color: #e8f0ff;
@@ -1724,7 +1724,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 /*--------------------------------------------------------------
   # 4.3 Skills (skills.html)
 --------------------------------------------------------------*/
-.skills h3 {
+.skills h2 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
   font-weight: 600;
@@ -1860,6 +1860,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 
 .elite-logo {
   width: 110px;
+  height: auto;
   margin-bottom: 20px;
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
 }
@@ -1885,8 +1886,12 @@ article.timeline__item:nth-child(even) .timeline__icon {
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
 }
 
+/* Only as wide as its text and centered (otherwise it stretches to the widest
+   element in the card, e.g. the two logos on Git & GitHub, and looks off-center) */
 .elite-badge {
   display: flex;
+  width: fit-content;
+  margin: 0 auto;
   align-items: center;
   gap: 8px;
   background: rgba(255, 255, 255, 0.05);
@@ -1930,6 +1935,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 }
 
 .back-title {
+  font-size: 1.25rem;
   font-weight: 800;
   color: white;
   border-bottom: 2px solid var(--card-color);
@@ -2084,14 +2090,14 @@ article.timeline__item:nth-child(even) .timeline__icon {
   border: 2px solid var(--accent-color);
 }
 
-.resume .resume-item article h4 {
+.resume .resume-item article h3 {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: var(--heading-color);
 }
 
-.resume .resume-item article h5 {
+.resume .resume-item article h4 {
   font-size: 1rem;
   background: color-mix(in srgb, var(--accent-color), transparent 92%);
   padding: 0.375rem 0.75rem;
@@ -2732,6 +2738,17 @@ article.timeline__item:nth-child(even) .timeline__icon {
 .meta-i .bi-code-slash { color: #38bdf8; }
 .meta-i .bi-journal-code { color: #f57c00; }
 .meta-i .bi-bar-chart-line-fill { color: #ff4b4b; }
+.meta-i .bi-file-earmark-bar-graph { color: #f2c811; }
+.meta-i .bi-filetype-js { color: #f7df1e; }
+
+/* "Live site" link in the card footer */
+.meta-link {
+  text-decoration: none;
+}
+
+.meta-link:hover {
+  color: var(--accent-light);
+}
 
 
 /*--------------------------------------------------------------
@@ -2750,6 +2767,11 @@ article.timeline__item:nth-child(even) .timeline__icon {
     radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.15) 0, transparent 50%),
     radial-gradient(at 100% 100%, rgba(219, 39, 119, 0.1) 0, transparent 50%);
   pointer-events: none;
+}
+
+/* Contact section spacing (more room at the bottom for the mesh glow) */
+.contact.section {
+  padding: 60px 0 100px;
 }
 
 .text-gradient {
@@ -2788,8 +2810,33 @@ article.timeline__item:nth-child(even) .timeline__icon {
   font-size: 1.2rem;
 }
 
-/* Copy-email button */
+/* Smaller icon box (Working Hours title) */
+.icon-box-refined.icon-box-sm {
+  width: 35px;
+  height: 35px;
+  font-size: 1rem;
+}
+
+/* Location and email values */
+.contact-value {
+  font-size: 1.1rem;
+}
+
+.contact-value.contact-email {
+  font-size: 0.95rem;
+}
+
+.small-hours {
+  font-size: 0.85rem;
+}
+
+/* Copy-email button: at least 32px so it is easy to tap */
 .copy-btn {
+  min-width: 32px;
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: transform 0.2s ease;
   text-decoration: none !important;
   box-shadow: none !important;
@@ -2806,6 +2853,7 @@ article.timeline__item:nth-child(even) .timeline__icon {
 
 /* "Working hours" open/closed badge */
 #status-badge {
+  font-size: 0.65rem;
   padding: 6px 12px;
   letter-spacing: 0.5px;
   transition: all 0.5s ease;
@@ -2885,6 +2933,10 @@ article.timeline__item:nth-child(even) .timeline__icon {
   transition: 0.3s;
 }
 
+.input-group-refined textarea {
+  min-height: 150px;
+}
+
 .input-group-refined label {
   position: absolute;
   left: 0;
@@ -2947,6 +2999,26 @@ article.timeline__item:nth-child(even) .timeline__icon {
 
 .refined-submit-btn:hover .btn-icon {
   transform: translateX(5px);
+}
+
+/* "Message sent" window */
+.success-modal {
+  background: var(--surface-color);
+  border-radius: 20px;
+}
+
+.success-icon {
+  font-size: 4rem;
+}
+
+.text-accent {
+  color: var(--accent-color);
+}
+
+.success-btn {
+  border-radius: 12px;
+  background: linear-gradient(135deg, #4f46e5 0%, #db2777 100%);
+  border: none;
 }
 
 

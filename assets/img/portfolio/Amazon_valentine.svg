@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+<defs><radialGradient id="bg" cx="80%" cy="10%" r="95%"><stop offset="0" stop-color="#2a1424"/><stop offset="1" stop-color="#0a0f1a"/></radialGradient></defs>
+<rect width="1200" height="800" fill="url(#bg)"/>
+<text x="80" y="110" fill="#e2e8f0" font-size="40" font-weight="700" font-family="Segoe UI, Roboto, Arial, sans-serif">Valentine best-sellers 2024</text>
+<text x="80" y="160" fill="#94a3b8" font-size="26" font-family="Segoe UI, Roboto, Arial, sans-serif">Total customer reviews by gift category · 218 products</text>
+<text x="306" y="275.0" fill="#e2e8f0" font-size="28" text-anchor="end" font-family="Segoe UI, Roboto, Arial, sans-serif">Food &amp; Sweets</text>
+<rect x="330" y="230" width="730" height="70" rx="12" fill="#ffffff" fill-opacity="0.04"/>
+<rect x="330" y="230" width="730" height="70" rx="12" fill="#f472b6" fill-opacity="0.85"/>
+<text x="1042" y="275.0" fill="#0a0f1a" font-size="28" font-weight="700" text-anchor="end" font-family="Segoe UI, Roboto, Arial, sans-serif">158K</text>
+<text x="306" y="395.0" fill="#e2e8f0" font-size="28" text-anchor="end" font-family="Segoe UI, Roboto, Arial, sans-serif">Jewelry</text>
+<rect x="330" y="350" width="730" height="70" rx="12" fill="#ffffff" fill-opacity="0.04"/>
+<rect x="330" y="350" width="580" height="70" rx="12" fill="#fbbf24" fill-opacity="0.85"/>
+<text x="892" y="395.0" fill="#0a0f1a" font-size="28" font-weight="700" text-anchor="end" font-family="Segoe UI, Roboto, Arial, sans-serif">126K</text>
+<text x="306" y="515.0" fill="#e2e8f0" font-size="28" text-anchor="end" font-family="Segoe UI, Roboto, Arial, sans-serif">Gifts &amp; Decor</text>
+<rect x="330" y="470" width="730" height="70" rx="12" fill="#ffffff" fill-opacity="0.04"/>
+<rect x="330" y="470" width="275" height="70" rx="12" fill="#38bdf8" fill-opacity="0.85"/>
+<text x="587" y="515.0" fill="#0a0f1a" font-size="28" font-weight="700" text-anchor="end" font-family="Segoe UI, Roboto, Arial, sans-serif">60K</text>
+<text x="306" y="635.0" fill="#e2e8f0" font-size="28" text-anchor="end" font-family="Segoe UI, Roboto, Arial, sans-serif">Home &amp; Decor</text>
+<rect x="330" y="590" width="730" height="70" rx="12" fill="#ffffff" fill-opacity="0.04"/>
+<rect x="330" y="590" width="11" height="70" rx="12" fill="#a78bfa" fill-opacity="0.85"/>
+<text x="357" y="635.0" fill="#a78bfa" font-size="28" font-weight="700" text-anchor="start" font-family="Segoe UI, Roboto, Arial, sans-serif">2K</text>
+<text x="80" y="750" fill="#64748b" font-size="22" font-family="Segoe UI, Roboto, Arial, sans-serif">Products outside these categories are grouped as "Other" and not shown.</text>
+</svg>

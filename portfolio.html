@@ -25,7 +25,7 @@
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&family=Poppins:wght@400;500&family=Raleway:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
@@ -104,7 +104,7 @@
                 <div class="card-content">
 
                   <div class="img-wrap">
-                    <div class="img-badge"><span class="dot"></span> Time Series </div>
+                    <div class="img-badge"><span class="dot"></span> Big Data · Forecasting</div>
                     <a class="gh-btn" href="https://github.com/MaykInvest/Forecasting_Energy_Consumption"
                       target="_blank" rel="noopener" aria-label="View Energy Consumption Forecasting on GitHub">
                       <i class="bi bi-github"></i>
@@ -121,7 +121,7 @@
                   <div class="title-area">
                     <div class="cat-label">Forecasting Energy Consumption</div>
                     <div class="card-title">
-                      <span>Predictive Analytics </span>
+                      <span>Distributed ML with PySpark</span>
                       <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="h"></span><span
                           class="v"></span></button>
                     </div>
@@ -129,14 +129,13 @@
 
                   <div class="flap-outer">
                     <div class="flap-inner">
-                      <p class="desc">A data science solution leveraging advanced time series modeling techniques to
-                        analyze historical consumption patterns and accurately forecast future electrical energy grid
-                        demands.</p>
+                      <p class="desc">A distributed Apache PySpark pipeline that forecasts hourly electricity demand from
+                        time-series and weather data. A Random Forest outperformed the Linear Regression baseline
+                        (compared by RMSE).</p>
                       <div class="tags">
                         <span class="tag tag-amber"><i class="bi bi-clock-history me-1"></i>Forecasting</span>
-                        <span class="tag tag-sky">Data
-                          Science</span>
-                        <span class="tag tag-purple">Python</span>
+                        <span class="tag tag-sky">PySpark</span>
+                        <span class="tag tag-purple">Random Forest</span>
                       </div>
                     </div>
                   </div>
@@ -145,12 +144,12 @@
 
                   <div class="stat-row">
                     <div class="stat">
-                      <div class="stat-val" style="color:#fbbf24">Time</div>
-                      <div class="stat-lbl">Series</div>
+                      <div class="stat-val" style="color:#fbbf24">Hourly</div>
+                      <div class="stat-lbl">Forecasts</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-val" style="color:#bae6fd">Grid</div>
-                      <div class="stat-lbl">Analytics</div>
+                      <div class="stat-val" style="color:#bae6fd">RF</div>
+                      <div class="stat-lbl">Best Model</div>
                     </div>
                   </div>
 
@@ -171,7 +170,7 @@
               <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="energyForecastingModalLabel">Energy Forecasting Project Preview</h5>
+                    <h2 class="modal-title fs-5" id="energyForecastingModalLabel">Energy Forecasting Project Preview</h2>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
@@ -220,13 +219,14 @@
 
                   <div class="flap-outer">
                     <div class="flap-inner">
-                      <p class="desc">An end-to-end predictive model built on the classic Titanic passenger dataset.
-                        Features meticulous handling of missing data, advanced feature engineering (Title extraction,
-                        family grouping), and tuned Random Forest and XGBoost algorithms.</p>
+                      <p class="desc">A leakage-free classification pipeline on the classic Titanic passenger dataset,
+                        with feature engineering (title extraction, family grouping) and a Gradient Boosting model
+                        tuned with Bayesian search. 83% accuracy on unseen passengers (baseline 61.7%), explained
+                        with SHAP.</p>
 
                       <div class="tags">
                         <span class="tag tag-cyan"><i class="bi bi-filetype-py me-1"></i>Python</span>
-                        <span class="tag tag-violet">XGBoost</span>
+                        <span class="tag tag-violet">SHAP</span>
                         <span class="tag tag-teal">Feature
                           Eng.</span>
                         <span class="tag tag-emerald">Scikit-Learn</span>
@@ -238,8 +238,8 @@
 
                   <div class="stat-row">
                     <div class="stat">
-                      <div class="stat-val" style="color:#38bdf8">82.4%</div>
-                      <div class="stat-lbl">Score</div>
+                      <div class="stat-val" style="color:#38bdf8">83%</div>
+                      <div class="stat-lbl">Accuracy</div>
                     </div>
                     <div class="stat">
                       <div class="stat-val" style="color:#bae6fd">891</div>
@@ -264,7 +264,7 @@
               <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="titanicMlModalLabel">Titanic Classification Project Preview</h5>
+                    <h2 class="modal-title fs-5" id="titanicMlModalLabel">Titanic Classification Project Preview</h2>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
@@ -305,7 +305,7 @@
                   <div class="title-area">
                     <div class="cat-label">House Prices Prediction</div>
                     <div class="card-title">
-                      <span>Advanced Regression Models</span>
+                      <span>Regression Model Comparison</span>
                       <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="h"></span><span
                           class="v"></span></button>
                     </div>
@@ -313,17 +313,15 @@
 
                   <div class="flap-outer">
                     <div class="flap-inner">
-                      <p class="desc">A comprehensive machine learning project to predict house prices using various
-                        regression techniques. Includes extensive data cleaning, feature engineering from raw data, and
-                        comparative analysis of models like Gradient Boosting and Ridge Regression for optimal
-                        performance.</p>
+                      <p class="desc">An end-to-end regression pipeline on 4,140 Seattle-area home sales, comparing
+                        Ridge, Random Forest, XGBoost and LightGBM with 5-fold cross-validation. The tuned LightGBM
+                        model cut the mean absolute error by 59% versus the baseline.</p>
 
                       <div class="tags">
                         <span class="tag tag-yellow">Python</span>
                         <span class="tag tag-yellow">Scikit-Learn</span>
-                        <span class="tag tag-yellow">Pandas</span>
-                        <span class="tag tag-yellow">Data
-                          Viz</span>
+                        <span class="tag tag-yellow">LightGBM</span>
+                        <span class="tag tag-yellow">XGBoost</span>
                       </div>
                     </div>
                   </div>
@@ -332,12 +330,12 @@
 
                   <div class="stat-row">
                     <div class="stat">
-                      <div class="stat-val" style="color:#ffc107">0.92</div>
-                      <div class="stat-lbl">R² Score</div>
+                      <div class="stat-val" style="color:#ffc107">−59%</div>
+                      <div class="stat-lbl">Error vs Baseline</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-val" style="color:#ffe082">81</div>
-                      <div class="stat-lbl">Features</div>
+                      <div class="stat-val" style="color:#ffe082">4,140</div>
+                      <div class="stat-lbl">Home Sales</div>
                     </div>
                   </div>
 
@@ -358,7 +356,7 @@
               <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="housePricesModalLabel">House Prices Prediction Project Preview</h5>
+                    <h2 class="modal-title fs-5" id="housePricesModalLabel">House Prices Prediction Project Preview</h2>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
@@ -370,6 +368,96 @@
               </div>
             </div>
             <!-- END OF THE CARD -->
+
+            <!-- ── Car Market Segmentation ── -->
+            <div class="cw" style="--accent-rgb: 236,72,153; --accent-light: #f472b6">
+              <div class="card">
+
+                <div class="shimmer"></div>
+                <div class="glow-border"></div>
+
+                <div class="card-content">
+
+                  <div class="img-wrap">
+                    <div class="img-badge"><span class="dot"></span> ML · Clustering</div>
+                    <a class="gh-btn" href="https://github.com/MaykInvest/car_clustering_kmeans"
+                      target="_blank" rel="noopener" aria-label="View Car Market Segmentation on GitHub">
+                      <i class="bi bi-github"></i>
+                      <span class="gh-btn-label">GitHub</span>
+                    </a>
+
+                    <button type="button" class="img-preview-btn" data-bs-toggle="modal" data-bs-target="#carSegmentationModal"
+                      aria-label="Open preview: Car Market Segmentation project">
+                      <img src="assets/img/portfolio/Car_segmentation.svg" width="1200" height="800" loading="lazy" decoding="async"
+                        alt="Car Market Segmentation project">
+                    </button>
+                  </div>
+
+                  <div class="title-area">
+                    <div class="cat-label">Car Market Segmentation</div>
+                    <div class="card-title">
+                      <span>Unsupervised K-Means</span>
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="h"></span><span
+                          class="v"></span></button>
+                    </div>
+                  </div>
+
+                  <div class="flap-outer">
+                    <div class="flap-inner">
+                      <p class="desc">Groups 11,121 car models into natural market segments (Mainstream, Performance /
+                        Luxury and Older Models) with K-Means, choosing K by silhouette score. The model is served
+                        through a FastAPI endpoint.</p>
+                      <div class="tags">
+                        <span class="tag tag-pink"><i class="bi bi-filetype-py me-1"></i>Python</span>
+                        <span class="tag tag-emerald">Scikit-Learn</span>
+                        <span class="tag tag-sky">K-Means</span>
+                        <span class="tag tag-violet">FastAPI</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="divider"></div>
+
+                  <div class="stat-row">
+                    <div class="stat">
+                      <div class="stat-val" style="color:#f472b6">11K+</div>
+                      <div class="stat-lbl">Car Models</div>
+                    </div>
+                    <div class="stat">
+                      <div class="stat-val" style="color:#bae6fd">K = 3</div>
+                      <div class="stat-lbl">Segments</div>
+                    </div>
+                  </div>
+
+                  <div class="foot">
+                    <div class="foot-meta">
+                      <span class="meta-i"> <i class="bi bi-git me-1"></i> main </span>
+                      <span class="meta-i"> <i class="bi bi-code-slash me-1"></i> Python </span>
+                      <span class="meta-i"> <i class="bi bi-journal-code me-1"></i> Jupyter
+                        Notebook </span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="carSegmentationModal" style="--accent-rgb: 236,72,153; --accent-light: #f472b6" tabindex="-1" aria-labelledby="carSegmentationModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="carSegmentationModalLabel">Car Market Segmentation Preview</h2>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                      aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body text-center p-2">
+                    <img src="assets/img/portfolio/Car_segmentation.svg" width="1200" height="800" loading="lazy" decoding="async" class="img-fluid rounded w-100"
+                      alt="Three K-Means car market segments plotted by horsepower and price">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ── END CARD ── -->
 
             <!-- ── Python Programming Assistant ── -->
             <div class="cw" style="--accent-rgb: 168,85,247; --accent-light: #c084fc">
@@ -405,14 +493,13 @@
 
                   <div class="flap-outer">
                     <div class="flap-inner">
-                      <p class="desc">Conversational AI assistant that interprets natural language goals, generates
-                        optimized Python scripts, and debugs code on the fly — powered by LLM integration and custom
-                        prompt engineering.</p>
+                      <p class="desc">An AI chat app built with Streamlit on the Groq LLM API that answers Python
+                        questions with clear explanations and code examples, using custom prompt engineering.</p>
                       <div class="tags">
                         <span class="tag tag-purple"><i class="bi bi-filetype-py me-1"></i>Python</span>
                         <span class="tag tag-pink">LLM
                           API</span>
-                        <span class="tag tag-amber">Automation</span>
+                        <span class="tag tag-amber">Streamlit</span>
                       </div>
                     </div>
                   </div>
@@ -447,7 +534,7 @@
               <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="pythonAssistantModalLabel">Python Assistant Project Preview</h5>
+                    <h2 class="modal-title fs-5" id="pythonAssistantModalLabel">Python Assistant Project Preview</h2>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
@@ -470,7 +557,7 @@
                 <div class="card-content">
 
                   <div class="img-wrap">
-                    <div class="img-badge"><span class="dot"></span> ML Model </div>
+                    <div class="img-badge"><span class="dot"></span> NLP · Classification</div>
                     <a class="gh-btn" href="https://github.com/MaykInvest/Sentiment_Analysis_Airline.git"
                       target="_blank" rel="noopener" aria-label="View Sentiment Analysis on GitHub">
                       <i class="bi bi-github"></i>
@@ -494,9 +581,10 @@
 
                   <div class="flap-outer">
                     <div class="flap-inner">
-                      <p class="desc">A supervised machine learning model engineered to classify textual data into
-                        distinct sentiment polarities. Integrates natural language processing techniques for text
-                        vectorization and feature extraction.</p>
+                      <p class="desc">Classifies 14,640 airline tweets as negative, neutral or positive. Text is
+                        cleaned and turned into TF-IDF features, then five models are compared with cross-validation
+                        against a baseline;
+                        Logistic Regression won with 79% accuracy.</p>
                       <div class="tags">
                         <span class="tag tag-teal"><i class="bi bi-diagram-3 me-1"></i>Scikit-Learn</span>
                         <span class="tag tag-sky">NLP</span>
@@ -509,12 +597,12 @@
 
                   <div class="stat-row">
                     <div class="stat">
-                      <div class="stat-val" style="color:#2dd4bf">90%+</div>
+                      <div class="stat-val" style="color:#2dd4bf">79%</div>
                       <div class="stat-lbl">Accuracy</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-val" style="color:#bae6fd">NLP</div>
-                      <div class="stat-lbl">Pipeline</div>
+                      <div class="stat-val" style="color:#bae6fd">14.6K</div>
+                      <div class="stat-lbl">Tweets</div>
                     </div>
                   </div>
 
@@ -535,7 +623,7 @@
               <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="sentimentAnalysisModalLabel">Sentiment AI Project Preview</h5>
+                    <h2 class="modal-title fs-5" id="sentimentAnalysisModalLabel">Sentiment AI Project Preview</h2>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
@@ -597,7 +685,7 @@
                           <i class="bi bi-filetype-py me-1"></i>Python
                         </span>
                         <span class="tag tag-blue">Pandas</span>
-                        <span class="tag tag-violet">Matplotlib</span>
+                        <span class="tag tag-violet">Folium</span>
                         <span class="tag tag-emerald">EDA</span>
                       </div>
                     </div>
@@ -607,11 +695,11 @@
 
                   <div class="stat-row">
                     <div class="stat">
-                      <div class="stat-val" style="color:#fb923c">10K+</div>
+                      <div class="stat-val" style="color:#fb923c">75K+</div>
                       <div class="stat-lbl">Records</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-val" style="color:#a5b4fc">20+</div>
+                      <div class="stat-val" style="color:#a5b4fc">34</div>
                       <div class="stat-lbl">Variables</div>
                     </div>
                     <div class="stat">
@@ -637,7 +725,7 @@
               <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="trafficAnalysisModalLabel">Traffic Analytics Project Preview</h5>
+                    <h2 class="modal-title fs-5" id="trafficAnalysisModalLabel">Traffic Analytics Project Preview</h2>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
@@ -649,6 +737,363 @@
               </div>
             </div>
             <!-- ── END CARD  ── -->
+
+            <!-- ── AI Dependency in Students ── -->
+            <div class="cw" style="--accent-rgb: 99,102,241; --accent-light: #a5b4fc">
+              <div class="card">
+
+                <div class="shimmer"></div>
+                <div class="glow-border"></div>
+
+                <div class="card-content">
+
+                  <div class="img-wrap">
+                    <div class="img-badge"><span class="dot"></span> ML · Classification</div>
+                    <a class="gh-btn" href="https://github.com/MaykInvest/AI_Dependency"
+                      target="_blank" rel="noopener" aria-label="View AI Dependency Classifier on GitHub">
+                      <i class="bi bi-github"></i>
+                      <span class="gh-btn-label">GitHub</span>
+                    </a>
+
+                    <button type="button" class="img-preview-btn" data-bs-toggle="modal" data-bs-target="#aiDependencyModal"
+                      aria-label="Open preview: AI Dependency Classifier project">
+                      <img src="assets/img/portfolio/AI_dependency.jpg" width="1000" height="800" loading="lazy" decoding="async"
+                        alt="AI Dependency Classifier project">
+                    </button>
+                  </div>
+
+                  <div class="title-area">
+                    <div class="cat-label">AI Dependency in Students</div>
+                    <div class="card-title">
+                      <span>Multi-class Classifier</span>
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="h"></span><span
+                          class="v"></span></button>
+                    </div>
+                  </div>
+
+                  <div class="flap-outer">
+                    <div class="flap-inner">
+                      <p class="desc">Predicts students' AI dependency level (Low / Medium / High) from survey data on 15,000
+                        students. Six models are compared in a leakage-safe, cross-validated pipeline; the tuned
+                        Logistic Regression reached 0.66 F1, +0.40 over the baseline.</p>
+                      <div class="tags">
+                        <span class="tag tag-violet"><i class="bi bi-filetype-py me-1"></i>Python</span>
+                        <span class="tag tag-blue">Scikit-Learn</span>
+                        <span class="tag tag-sky">Logistic Reg.</span>
+                        <span class="tag tag-purple">BayesSearchCV</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="divider"></div>
+
+                  <div class="stat-row">
+                    <div class="stat">
+                      <div class="stat-val" style="color:#a5b4fc">66%</div>
+                      <div class="stat-lbl">Accuracy</div>
+                    </div>
+                    <div class="stat">
+                      <div class="stat-val" style="color:#bae6fd">15K</div>
+                      <div class="stat-lbl">Students</div>
+                    </div>
+                  </div>
+
+                  <div class="foot">
+                    <div class="foot-meta">
+                      <span class="meta-i"> <i class="bi bi-git me-1"></i> main </span>
+                      <span class="meta-i"> <i class="bi bi-code-slash me-1"></i> Python </span>
+                      <span class="meta-i"> <i class="bi bi-journal-code me-1"></i> Jupyter
+                        Notebook </span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="aiDependencyModal" style="--accent-rgb: 99,102,241; --accent-light: #a5b4fc" tabindex="-1" aria-labelledby="aiDependencyModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="aiDependencyModalLabel">AI Dependency Classifier Preview</h2>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                      aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body text-center p-2">
+                    <img src="assets/img/portfolio/AI_dependency.jpg" width="1000" height="800" loading="lazy" decoding="async" class="img-fluid rounded w-100"
+                      alt="Illustration of a student relying on AI tools">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ── END CARD ── -->
+
+            <!-- ── TechStore Sales Dashboard ── -->
+            <div class="cw" style="--accent-rgb: 16,185,129; --accent-light: #34d399">
+              <div class="card">
+
+                <div class="shimmer"></div>
+                <div class="glow-border"></div>
+
+                <div class="card-content">
+
+                  <div class="img-wrap">
+                    <div class="img-badge"><span class="dot"></span> BI · Dashboard</div>
+                    <a class="gh-btn" href="https://github.com/MaykInvest/Hardware_Store_PowerBI_Project"
+                      target="_blank" rel="noopener" aria-label="View TechStore Power BI Dashboard on GitHub">
+                      <i class="bi bi-github"></i>
+                      <span class="gh-btn-label">GitHub</span>
+                    </a>
+
+                    <button type="button" class="img-preview-btn" data-bs-toggle="modal" data-bs-target="#techStoreModal"
+                      aria-label="Open preview: TechStore Power BI dashboard project">
+                      <img src="assets/img/portfolio/PowerBI_TechStore.jpg" width="979" height="555" loading="lazy" decoding="async"
+                        alt="TechStore Power BI dashboard project">
+                    </button>
+                  </div>
+
+                  <div class="title-area">
+                    <div class="cat-label">TechStore Sales Dashboard</div>
+                    <div class="card-title">
+                      <span>Power BI Executive Report</span>
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="h"></span><span
+                          class="v"></span></button>
+                    </div>
+                  </div>
+
+                  <div class="flap-outer">
+                    <div class="flap-inner">
+                      <p class="desc">An executive dashboard for a fictional Brazilian PC-hardware retailer. Star-schema model
+                        with a Calendar table and DAX measures for revenue, margin, return rate and customer
+                        satisfaction, each tracked against a target.</p>
+                      <div class="tags">
+                        <span class="tag tag-emerald"><i class="bi bi-bar-chart-fill me-1"></i>Power BI</span>
+                        <span class="tag tag-yellow">DAX</span>
+                        <span class="tag tag-sky">Star Schema</span>
+                        <span class="tag tag-violet">Power Query</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="divider"></div>
+
+                  <div class="stat-row">
+                    <div class="stat">
+                      <div class="stat-val" style="color:#34d399">5,000</div>
+                      <div class="stat-lbl">Order Lines</div>
+                    </div>
+                    <div class="stat">
+                      <div class="stat-val" style="color:#bae6fd">2022–24</div>
+                      <div class="stat-lbl">Sales Period</div>
+                    </div>
+                  </div>
+
+                  <div class="foot">
+                    <div class="foot-meta">
+                      <span class="meta-i"> <i class="bi bi-git me-1"></i> main </span>
+                      <span class="meta-i"> <i class="bi bi-file-earmark-bar-graph me-1"></i> Power BI </span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="techStoreModal" style="--accent-rgb: 16,185,129; --accent-light: #34d399" tabindex="-1" aria-labelledby="techStoreModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="techStoreModalLabel">TechStore Dashboard Preview</h2>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                      aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body text-center p-2">
+                    <img src="assets/img/portfolio/PowerBI_TechStore.jpg" width="979" height="555" loading="lazy" decoding="async" class="img-fluid rounded w-100"
+                      alt="TechStore executive summary dashboard in Power BI">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ── END CARD ── -->
+
+            <!-- ── Amazon Best Sellers 2024 ── -->
+            <div class="cw" style="--accent-rgb: 244,63,94; --accent-light: #fb7185">
+              <div class="card">
+
+                <div class="shimmer"></div>
+                <div class="glow-border"></div>
+
+                <div class="card-content">
+
+                  <div class="img-wrap">
+                    <div class="img-badge"><span class="dot"></span> Data Analysis · EDA</div>
+                    <a class="gh-btn" href="https://github.com/MaykInvest/Data-Analysis-Amazon-Best-Sellers-in-2024"
+                      target="_blank" rel="noopener" aria-label="View Amazon Best Sellers Analysis on GitHub">
+                      <i class="bi bi-github"></i>
+                      <span class="gh-btn-label">GitHub</span>
+                    </a>
+
+                    <button type="button" class="img-preview-btn" data-bs-toggle="modal" data-bs-target="#amazonModal"
+                      aria-label="Open preview: Amazon Best Sellers 2024 analysis project">
+                      <img src="assets/img/portfolio/Amazon_valentine.svg" width="1200" height="800" loading="lazy" decoding="async"
+                        alt="Amazon Best Sellers 2024 analysis project">
+                    </button>
+                  </div>
+
+                  <div class="title-area">
+                    <div class="cat-label">Amazon Best Sellers 2024</div>
+                    <div class="card-title">
+                      <span>Valentine Gift Trends</span>
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="h"></span><span
+                          class="v"></span></button>
+                    </div>
+                  </div>
+
+                  <div class="flap-outer">
+                    <div class="flap-inner">
+                      <p class="desc">Exploratory analysis of 218 Amazon best-selling Valentine gifts. Food &amp; Sweets and
+                        Jewelry draw the most reviews, while a correlation of just 0.07 shows that higher ratings
+                        barely predict popularity.</p>
+                      <div class="tags">
+                        <span class="tag tag-pink"><i class="bi bi-filetype-py me-1"></i>Python</span>
+                        <span class="tag tag-blue">Pandas</span>
+                        <span class="tag tag-violet">Seaborn</span>
+                        <span class="tag tag-emerald">EDA</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="divider"></div>
+
+                  <div class="stat-row">
+                    <div class="stat">
+                      <div class="stat-val" style="color:#fb7185">218</div>
+                      <div class="stat-lbl">Products</div>
+                    </div>
+                    <div class="stat">
+                      <div class="stat-val" style="color:#bae6fd">r = 0.07</div>
+                      <div class="stat-lbl">Rating vs Reviews</div>
+                    </div>
+                  </div>
+
+                  <div class="foot">
+                    <div class="foot-meta">
+                      <span class="meta-i"> <i class="bi bi-git me-1"></i> main </span>
+                      <span class="meta-i"> <i class="bi bi-code-slash me-1"></i> Python </span>
+                      <span class="meta-i"> <i class="bi bi-journal-code me-1"></i> Jupyter
+                        Notebook </span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="amazonModal" style="--accent-rgb: 244,63,94; --accent-light: #fb7185" tabindex="-1" aria-labelledby="amazonModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="amazonModalLabel">Amazon Best Sellers Preview</h2>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                      aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body text-center p-2">
+                    <img src="assets/img/portfolio/Amazon_valentine.svg" width="1200" height="800" loading="lazy" decoding="async" class="img-fluid rounded w-100"
+                      alt="Bar chart of total reviews per Valentine gift category">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ── END CARD ── -->
+
+            <!-- ── Virtual Library (Senac) ── -->
+            <div class="cw" style="--accent-rgb: 132,204,22; --accent-light: #a3e635">
+              <div class="card">
+
+                <div class="shimmer"></div>
+                <div class="glow-border"></div>
+
+                <div class="card-content">
+
+                  <div class="img-wrap">
+                    <div class="img-badge"><span class="dot"></span> Web · Front-End</div>
+                    <a class="gh-btn" href="https://github.com/MaykInvest/Projeto-Biblioteca-virtual"
+                      target="_blank" rel="noopener" aria-label="View Virtual Library on GitHub">
+                      <i class="bi bi-github"></i>
+                      <span class="gh-btn-label">GitHub</span>
+                    </a>
+
+                    <button type="button" class="img-preview-btn" data-bs-toggle="modal" data-bs-target="#virtualLibraryModal"
+                      aria-label="Open preview: Virtual Library web app project">
+                      <img src="assets/img/portfolio/Virtual_library.jpg" width="1200" height="655" loading="lazy" decoding="async"
+                        alt="Virtual Library web app project">
+                    </button>
+                  </div>
+
+                  <div class="title-area">
+                    <div class="cat-label">Virtual Library (Senac)</div>
+                    <div class="card-title">
+                      <span>Book Catalog Web App</span>
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="h"></span><span
+                          class="v"></span></button>
+                    </div>
+                  </div>
+
+                  <div class="flap-outer">
+                    <div class="flap-inner">
+                      <p class="desc">A responsive book catalog with search, 8 categories, favorites and a light/dark theme.
+                        Books and their files are stored in Supabase, so users can add and delete titles from the
+                        browser.</p>
+                      <div class="tags">
+                        <span class="tag tag-yellow"><i class="bi bi-filetype-js me-1"></i>JavaScript</span>
+                        <span class="tag tag-emerald">Supabase</span>
+                        <span class="tag tag-orange">HTML</span>
+                        <span class="tag tag-blue">CSS</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="divider"></div>
+
+                  <div class="stat-row">
+                    <div class="stat">
+                      <div class="stat-val" style="color:#a3e635">8</div>
+                      <div class="stat-lbl">Categories</div>
+                    </div>
+                    <div class="stat">
+                      <div class="stat-val" style="color:#bae6fd">Live</div>
+                      <div class="stat-lbl">on GitHub Pages</div>
+                    </div>
+                  </div>
+
+                  <div class="foot">
+                    <div class="foot-meta">
+                      <span class="meta-i"> <i class="bi bi-git me-1"></i> main </span>
+                      <span class="meta-i"> <i class="bi bi-filetype-js me-1"></i> JavaScript </span>
+                      <a class="meta-i meta-link" href="https://maykinvest.github.io/Projeto-Biblioteca-virtual/" target="_blank" rel="noopener"> <i class="bi bi-box-arrow-up-right me-1"></i> Live site </a>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="virtualLibraryModal" style="--accent-rgb: 132,204,22; --accent-light: #a3e635" tabindex="-1" aria-labelledby="virtualLibraryModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="virtualLibraryModalLabel">Virtual Library Preview</h2>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                      aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body text-center p-2">
+                    <img src="assets/img/portfolio/Virtual_library.jpg" width="1200" height="655" loading="lazy" decoding="async" class="img-fluid rounded w-100"
+                      alt="Virtual Library banner with bookshelves">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ── END CARD ── -->
 
             <!-- End Project Card -->
 
