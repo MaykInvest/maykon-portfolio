@@ -1119,14 +1119,31 @@ section,
   margin: 0 auto;
 }
 
+/* Round photo, edge to edge (no border), with a deep shadow underneath */
 .hero .hero-image .image-wrapper img {
-  border-radius: 20px;
-  box-shadow: 0 5px 15px color-mix(in srgb, var(--default-color), transparent 95%);
-  transition: transform 0.3s ease;
+  display: block;
+  width: min(340px, 70vw);
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center 30%;
+  border-radius: 50%;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55), 0 0 60px rgba(0, 123, 255, 0.12);
 }
 
-.hero .hero-image .image-wrapper img:hover {
-  transform: scale(1.02);
+/* Static depth: soft light at the top-left and a darker edge, so the photo
+   looks slightly rounded like a sphere (nothing moves) */
+.hero .hero-image .image-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.18), transparent 45%),
+    radial-gradient(circle at 50% 50%, transparent 62%, rgba(0, 0, 0, 0.35) 100%);
 }
 
 /* ── Hero: floating skill badges around the photo ──────────── */
@@ -1157,16 +1174,15 @@ section,
   .floating-badge {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 6px;
     position: absolute;
     background: var(--surface-color, #121212);
     /* Adapts to your portfolio's dark theme surface */
-    padding: 10px 16px;
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-    /* Strong shadow depth layer separation */
+    padding: 6px 12px;
+    border-radius: 50px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     border: 1px solid color-mix(in srgb, var(--accent-color, #0d6efd), transparent 75%);
     white-space: nowrap;
     z-index: 3;
@@ -1175,36 +1191,29 @@ section,
 
   /* Target inside elements to give uniform sizing context to Bootstrap Icons */
   .floating-badge i {
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
 
-  /* Symmetric Layout Positioning:
-     Negative coordinate boundaries project the badges slightly outside the picture box frame.
-  */
+  /* Around the circle: two badges on each side, slightly outside the photo */
   .floating-badge.python {
-    top: 12%;
-    left: -15%;
+    top: 10%;
+    left: -6%;
   }
 
-  /* Python - Upper Left Position */
   .floating-badge.sql {
-    bottom: 20%;
-    left: -15%;
+    bottom: 14%;
+    left: -10%;
   }
 
-  /* SQL - Lower Left Position */
   .floating-badge.power-bi {
-    top: 35%;
-    right: -19%;
+    top: 26%;
+    right: -12%;
   }
 
-  /* Power BI - Upper Right Position */
   .floating-badge.data-science {
-    bottom: 4%;
-    right: -21%;
+    bottom: 6%;
+    right: -8%;
   }
-
-  /* Data science - Lower Right Position */
 
   /* Safe Core Animation Engine Implementation */
   @media (prefers-reduced-motion: no-preference) {
@@ -1285,16 +1294,9 @@ section,
     min-height: calc(100vh - 200px) !important;
   }
 
-  /* 2. Scale down the image box so it takes up less vertical real estate */
-  .hero-image img {
-    max-height: 48vh !important;
-    width: auto !important;
-    object-fit: contain !important;
-  }
-
-  /* 3. Keep the floating background badge elements from breaking bounds */
-  .image-wrapper {
-    max-height: 42vh;
+  /* 2. Size the round photo by screen height so the hero fits on one screen */
+  .hero .hero-image .image-wrapper img {
+    width: min(340px, 48vh);
   }
 
   /* Safety Net: If the screen is very short, slightly shrink the text and image spacing */
@@ -1308,8 +1310,8 @@ section,
       margin-bottom: 15px !important;
     }
 
-    .hero-image img {
-      max-height: 30vh !important;
+    .hero .hero-image .image-wrapper img {
+      width: min(260px, 40vh);
     }
   }
 
