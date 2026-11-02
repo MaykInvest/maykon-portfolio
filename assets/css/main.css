@@ -20,13 +20,12 @@
   3. SHARED COMPONENTS (used on every page)
      3.1  Header
      3.2  3D cube logo
-     3.3  Navigation – desktop
-     3.4  Navigation – mobile
-     3.5  "Next page" button (.btn-next)
-     3.6  Tags / pills
-     3.7  Footer
-     3.8  Scroll-to-top button
-     3.9  Preloader
+     3.3  Navigation – desktop (mobile menu: see 5.2)
+     3.4  "Next page" button (.btn-next)
+     3.5  Tags / pills
+     3.6  Footer
+     3.7  Scroll-to-top button
+     3.8  Preloader
 
   4. PAGES
      4.1  Home      (index.html)
@@ -36,6 +35,13 @@
      4.5  Portfolio (portfolio.html)
      4.6  Contact   (contact.html)
      4.7  Accessibility helpers
+
+  5. MOBILE (every small-screen rule lives here)
+     5.1  Shared (sections, titles)
+     5.2  Navigation menu
+     5.3  Home
+     5.4  About
+     5.5  Resume
 ==============================================================*/
 
 
@@ -232,15 +238,6 @@ section,
   overflow: clip;
 }
 
-@media (max-width: 1199px) {
-
-  section,
-  .section {
-    scroll-margin-top: 66px;
-  }
-}
-
-
 /*--------------------------------------------------------------
   # 2.5 Section titles
   The big title + subtitle at the top of each page,
@@ -280,6 +277,7 @@ section,
 .section-title h1:after {
   margin-left: 15px;
 }
+
 
 .section-title p {
   font-size: 1.125rem;
@@ -519,7 +517,7 @@ section,
 
 
 /*--------------------------------------------------------------
-  # 3.3 Navigation – desktop (1200px and wider)
+  # 3.3 Navigation – desktop (1200px and wider, mobile menu is in 5.2)
 --------------------------------------------------------------*/
 @media (min-width: 1200px) {
   .navmenu {
@@ -591,134 +589,7 @@ section,
 
 
 /*--------------------------------------------------------------
-  # 3.4 Navigation – mobile (up to 1199px)
---------------------------------------------------------------*/
-
-/* ── Open menu: full-screen dark overlay ───────────────────── */
-@media (max-width: 1199px) {
-  .menu-open {
-    overflow: hidden;
-    /* Locks body scroll while menu is open */
-  }
-
-  .menu-open .navmenu {
-    position: fixed;
-    inset: 0;
-    /* Deep dark background — full screen */
-    background: #0a0f1a;
-    z-index: 9997;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-/* ── Open menu: centered column of links ───────────────────── */
-@media (max-width: 1199px) {
-  .menu-open .navmenu ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* Separator lines handle spacing */
-    padding: 0;
-    margin: 0;
-    width: 100%;
-  }
-}
-
-
-/* ── Individual nav items ───────────────────────────────────── */
-@media (max-width: 1199px) {
-  .menu-open .navmenu ul li {
-    width: 100%;
-    text-align: center;
-    /* Thin separator line between items (matches the reference) */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  }
-
-  .menu-open .navmenu ul li:last-child {
-    border-bottom: none;
-  }
-}
-
-
-/* ── Nav links ──────────────────────────────────────────────── */
-@media (max-width: 1199px) {
-  .menu-open .navmenu a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* Center text horizontally */
-    padding: 22px 20px;
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 1.15rem;
-    font-weight: 500;
-    font-family: var(--nav-font, 'Poppins', sans-serif);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: color 0.2s ease, background 0.2s ease;
-    width: 100%;
-  }
-
-  /* Hover: accent color highlight */
-  .menu-open .navmenu a:hover,
-  .menu-open .navmenu .active {
-    color: var(--accent-color, #1387c1);
-    background: rgba(255, 255, 255, 0.03);
-  }
-}
-
-/* ── Open menu: close button (×) ───────────────────────────── */
-@media (max-width: 1199px) {
-
-  /* Position the toggle button at the top of the overlay */
-  .menu-open .menu-btn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 32px;
-    z-index: 9999;
-    transition: color 0.2s, transform 0.2s;
-  }
-
-  .menu-open .menu-btn:hover {
-    color: #fff;
-    transform: scale(1.1);
-  }
-}
-
-/* ── Base mobile styles: hamburger button, hidden link list ── */
-@media (max-width: 1199px) {
-  .menu-btn {
-    background: none;
-    border: 0;
-    padding: 0;
-    color: var(--nav-color);
-    font-size: 28px;
-    line-height: 0;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: color 0.3s;
-    z-index: 9999;
-  }
-
-  .navmenu {
-    padding: 0;
-    z-index: 9997;
-  }
-
-  .navmenu ul {
-    display: none;
-    list-style: none;
-  }
-}
-
-
-/*--------------------------------------------------------------
-  # 3.5 "Next page" button (.btn-next)
+  # 3.4 "Next page" button (.btn-next)
   Glass button at the bottom of a page that leads to the next one.
 --------------------------------------------------------------*/
 .btn-next {
@@ -830,7 +701,7 @@ section,
 
 
 /*--------------------------------------------------------------
-  # 3.6 Tags / pills
+  # 3.5 Tags / pills
   Small rounded labels (About timeline and Portfolio cards).
   Portfolio cards set their own colors with inline styles.
 --------------------------------------------------------------*/
@@ -859,7 +730,7 @@ section,
 
 
 /*--------------------------------------------------------------
-  # 3.7 Footer
+  # 3.6 Footer
 --------------------------------------------------------------*/
 /* Sleek Footer Base */
 .site-footer {
@@ -935,7 +806,7 @@ section,
 
 
 /*--------------------------------------------------------------
-  # 3.8 Scroll-to-top button
+  # 3.7 Scroll-to-top button
 --------------------------------------------------------------*/
 .scroll-top {
   position: fixed;
@@ -970,7 +841,7 @@ section,
 
 
 /*--------------------------------------------------------------
-  # 3.9 Preloader
+  # 3.8 Preloader
   Full-screen loading animation shown until the page has loaded.
 --------------------------------------------------------------*/
 #preloader {
@@ -1034,32 +905,26 @@ section,
 
 .hero .hero-content h1 {
   font-size: 3.5rem;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: -0.5px;
   margin-bottom: 1rem;
   line-height: 1.2;
 }
 
+/* "I'm" stays quieter so the name stands out */
+.hero .hero-content h1 .intro {
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* Name: white-to-blue gradient text with a soft blue glow (static) */
 .hero .hero-content h1 .highlight {
-  color: var(--accent-color);
-  position: relative;
   white-space: nowrap;
-}
-
-.hero .hero-content h1 .highlight::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent-color), color-mix(in srgb, var(--accent-color), transparent 50%));
-  border-radius: 2px;
-}
-
-@media (max-width: 768px) {
-  .hero .hero-content h1 {
-    font-size: 2.5rem;
-  }
+  background: linear-gradient(90deg, #ffffff 0%, #8cc4ff 45%, var(--accent-color) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 18px rgba(0, 123, 255, 0.35));
 }
 
 /* 4. Responsive adjustments for very large screens */
@@ -1082,17 +947,14 @@ section,
   font-weight: 600;
 }
 
-@media (max-width: 768px) {
-  .hero .hero-content h2 {
-    font-size: 1.25rem;
-  }
-}
-
 .hero .hero-content p {
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 2.5rem;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
+  /* Straight left and right edges */
+  text-align: justify;
+  hyphens: auto;
 }
 
 .hero .hero-actions {
@@ -1100,13 +962,6 @@ section,
   gap: 1rem;
   margin-bottom: 3rem;
 }
-
-@media (max-width: 576px) {
-  .hero .hero-actions {
-    flex-direction: column;
-  }
-}
-
 
 /* ── Hero: profile image ───────────────────────────────────── */
 .hero .hero-image {
@@ -1256,22 +1111,11 @@ section,
   }
 }
 
-
-@media (max-width: 992px) {
-  .hero .hero-content {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-
-  .hero-actions {
-    justify-content: center;
-  }
-}
-
 /* ── Hero: buttons (Resume / Projects / Let's Talk) ────────── */
 .hero-actions .hero-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   position: relative;
   overflow: hidden;
@@ -1634,43 +1478,6 @@ article.timeline-item:nth-child(even) .timeline-icon {
   justify-content: flex-end;
 }
 
-/* ─── Responsive ────────────────────────────────────────────── */
-@media (max-width: 640px) {
-  section.timeline::before {
-    left: 1.5rem;
-  }
-
-  article.timeline-item {
-    grid-template-columns: 1fr;
-    padding-left: 3.5rem;
-    gap: 1rem;
-  }
-
-  article.timeline-item::before {
-    left: 1.5rem;
-    top: 1.5rem;
-    transform: translateX(-50%);
-  }
-
-  article.timeline-item:nth-child(odd) .timeline-content,
-  article.timeline-item:nth-child(even) .timeline-content {
-    grid-column: 1;
-    grid-row: 2;
-  }
-
-  article.timeline-item:nth-child(odd) .timeline-icon,
-  article.timeline-item:nth-child(even) .timeline-icon {
-    grid-column: 1;
-    grid-row: 1;
-    justify-content: flex-start;
-  }
-
-  .timeline-icon-box {
-    width: 5rem;
-    aspect-ratio: 1;
-    border-radius: 0.75rem;
-  }
-}
 
 /* ── Tech stack title and grid ─────────────────────────────── */
 .toolbox-title {
@@ -2132,22 +1939,6 @@ article.timeline-item:nth-child(even) .timeline-icon {
 
 .resume .resume-item article ul li:last-child {
   padding-bottom: 0;
-}
-
-@media (max-width: 991.98px) {
-  .resume .resume-item {
-    margin-bottom: 2rem;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .resume .resume-content {
-    padding-left: 1rem !important;
-  }
-
-  .resume article::before {
-    left: -2rem !important;
-  }
 }
 
 /* ── Soft skills list ──────────────────────────────────────── */
@@ -3067,4 +2858,247 @@ article.timeline-item:nth-child(even) .timeline-icon {
   color: #fca5a5;
   background: rgba(239, 68, 68, 0.1);
   border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/*==============================================================
+  # 5. MOBILE
+  Every rule for small screens, grouped by page.
+  Phones are up to 576px, tablets up to 992px, the menu turns
+  into the hamburger below 1200px.
+==============================================================*/
+
+/*--------------------------------------------------------------
+  # 5.1 Shared (sections, titles)
+--------------------------------------------------------------*/
+
+@media (max-width: 1199px) {
+  section,
+  .section {
+    scroll-margin-top: 66px;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Phones: smaller title and side lines so the title stays on one line */
+  .section-title h1 {
+    font-size: 26px;
+  }
+
+  .section-title h1:before,
+  .section-title h1:after {
+    width: 24px;
+  }
+
+  .section-title h1:before {
+    margin-right: 10px;
+  }
+
+  .section-title h1:after {
+    margin-left: 10px;
+  }
+}
+
+/*--------------------------------------------------------------
+  # 5.2 Navigation menu (hamburger + full-screen menu)
+--------------------------------------------------------------*/
+
+@media (max-width: 1199px) {
+  /* ── Open menu: full-screen dark overlay ───────────────────── */
+  .menu-open {
+    overflow: hidden;
+    /* Locks body scroll while menu is open */
+  }
+
+  .menu-open .navmenu {
+    position: fixed;
+    inset: 0;
+    /* Deep dark background — full screen */
+    background: #0a0f1a;
+    z-index: 9997;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── Open menu: centered column of links ───────────────────── */
+  .menu-open .navmenu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Separator lines handle spacing */
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  /* ── Individual nav items ───────────────────────────────────── */
+  .menu-open .navmenu ul li {
+    width: 100%;
+    text-align: center;
+    /* Thin separator line between items (matches the reference) */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .menu-open .navmenu ul li:last-child {
+    border-bottom: none;
+  }
+
+  /* ── Nav links ──────────────────────────────────────────────── */
+  .menu-open .navmenu a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Center text horizontally */
+    padding: 22px 20px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.15rem;
+    font-weight: 500;
+    font-family: var(--nav-font, 'Poppins', sans-serif);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.2s ease, background 0.2s ease;
+    width: 100%;
+  }
+
+  /* Hover: accent color highlight */
+  .menu-open .navmenu a:hover,
+  .menu-open .navmenu .active {
+    color: var(--accent-color, #1387c1);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  /* ── Open menu: close button (×) ───────────────────────────── */
+  /* Position the toggle button at the top of the overlay */
+  .menu-open .menu-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 32px;
+    z-index: 9999;
+    transition: color 0.2s, transform 0.2s;
+  }
+
+  .menu-open .menu-btn:hover {
+    color: #fff;
+    transform: scale(1.1);
+  }
+
+  /* ── Base mobile styles: hamburger button, hidden link list ── */
+  .menu-btn {
+    background: none;
+    border: 0;
+    padding: 0;
+    color: var(--nav-color);
+    font-size: 28px;
+    line-height: 0;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 9999;
+  }
+
+  .navmenu {
+    padding: 0;
+    z-index: 9997;
+  }
+
+  .navmenu ul {
+    display: none;
+    list-style: none;
+  }
+}
+
+/*--------------------------------------------------------------
+  # 5.3 Home (index.html)
+--------------------------------------------------------------*/
+
+@media (max-width: 992px) {
+  .hero .hero-content {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero .hero-content h2 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero .hero-actions {
+    flex-direction: column;
+  }
+}
+
+/*--------------------------------------------------------------
+  # 5.4 About (about.html)
+--------------------------------------------------------------*/
+
+@media (max-width: 640px) {
+  section.timeline::before {
+    left: 1.5rem;
+  }
+
+  article.timeline-item {
+    grid-template-columns: 1fr;
+    padding-left: 3.5rem;
+    gap: 1rem;
+  }
+
+  article.timeline-item::before {
+    left: 1.5rem;
+    top: 1.5rem;
+    transform: translateX(-50%);
+  }
+
+  article.timeline-item:nth-child(odd) .timeline-content,
+  article.timeline-item:nth-child(even) .timeline-content {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  article.timeline-item:nth-child(odd) .timeline-icon,
+  article.timeline-item:nth-child(even) .timeline-icon {
+    grid-column: 1;
+    grid-row: 1;
+    justify-content: flex-start;
+  }
+
+  .timeline-icon-box {
+    width: 5rem;
+    aspect-ratio: 1;
+    border-radius: 0.75rem;
+  }
+}
+
+/*--------------------------------------------------------------
+  # 5.5 Resume (resume.html)
+--------------------------------------------------------------*/
+
+@media (max-width: 991.98px) {
+  .resume .resume-item {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .resume .resume-content {
+    padding-left: 1rem !important;
+  }
+
+  .resume article::before {
+    left: -2rem !important;
+  }
 }
