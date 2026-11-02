@@ -1202,17 +1202,17 @@ section,
 
   .floating-badge.sql {
     bottom: 14%;
-    left: -10%;
+    left: -3%;
   }
 
   .floating-badge.power-bi {
     top: 26%;
-    right: -12%;
+    right: -16%;
   }
 
   .floating-badge.data-science {
-    bottom: 6%;
-    right: -8%;
+    bottom: 16%;
+    right: -12%;
   }
 
   /* Safe Core Animation Engine Implementation */
