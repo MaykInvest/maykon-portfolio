@@ -76,144 +76,109 @@
 
   <main class="main">
 
-    <!-- START OF CONTACT SECTION -->
-    <section id="contact" class="contact section position-relative overflow-hidden">
+    <section id="contact" class="contact section">
 
-      <div class="container section-title text-center mb-5 mt-0" data-aos="fade-up">
-        <h1 class="display-5 fw-bold text-white mb-3">
-          <span class="text-gradient">Let's Talk</span>
-          <i class="bi bi-chat-dots ms-2"></i>
-        </h1>
-        <p class="text-muted mx-auto">
-          Whether you have a project proposal, or just want to say hi, my inbox is always open.
-        </p>
+      <div class="container section-title" data-aos="fade-up">
+        <h1><span class="text-gradient">Let's Talk</span> <i class="bi bi-chat-dots title-icon"></i></h1>
+        <p>Open to Data Scientist and Data Analyst roles, freelance projects and collaborations.
+          Send me a message and I'll get back to you.</p>
       </div>
 
-      <div class="container position-relative" data-aos="fade-up">
-        <!-- Row with 'align-items-stretch' makes the Left and Right columns equal height -->
-        <div class="row g-4 justify-content-center align-items-stretch">
+      <!-- One animation for both columns, so the whole page appears at once -->
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row g-4">
 
-          <!-- LEFT COLUMN: Contact Details -->
-          <div class="col-lg-4 d-flex flex-column">
-            <!-- 'h-100' ensures this wrapper fills the column height -->
-            <div class="h-100 d-flex flex-column gap-3">
+          <!-- Left column: hours, contact details, social links -->
+          <div class="col-lg-5 d-flex flex-column gap-4">
 
-              <!-- 1. Location Card -->
-              <div class="glass-card p-3" data-aos="fade-up" data-aos-delay="100">
-                <a href="https://www.google.com/maps/search/?api=1&query=Natal+RN+Brazil" target="_blank" rel="noopener"
-                  class="text-decoration-none">
-                  <div class="d-flex align-items-center">
-                    <div class="icon-box"><i class="bi bi-geo-alt-fill"></i></div>
-                    <div class="ms-3">
-                      <p class="text-uppercase small fw-bold text-primary mb-1">Location</p>
-                      <h2 class="h5 text-white mb-0 contact-value">Natal / RN - Brazil</h2>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <!-- 2. Email Card with Copy Feature -->
-              <div class="glass-card p-3" data-aos="fade-up" data-aos-delay="150">
-                <div class="d-flex align-items-center justify-content-between">
-                  <div class="d-flex align-items-center">
-                    <div class="icon-box"><i class="bi bi-envelope-paper-heart" aria-hidden="true"></i></div>
-                    <div class="ms-3 text-break">
-                      <p class="text-uppercase small fw-bold text-primary mb-1">Email Me</p>
-                      <h2 class="h5 text-white mb-0 contact-value contact-email" id="email-text">maykinvest@outlook.com</h2>
-                    </div>
-                  </div>
-                  <button class="btn btn-link text-primary p-0 ms-2 copy-btn" id="copy-email" type="button"
-                    title="Copy to clipboard" aria-label="Copy email address">
-                    <i class="bi bi-clipboard" id="copy-icon"></i>
-                  </button>
-                </div>
-              </div>
-
-              <!-- 3. Working Hours Card -->
-              <div class="glass-card p-4 text-center" data-aos="fade-up" data-aos-delay="200">
-                <div class="d-flex align-items-center justify-content-center mb-2">
-                  <div class="icon-box icon-box-sm me-2">
-                    <i class="bi bi-clock-fill"></i>
-                  </div>
-                  <h2 class="h6 text-white mb-0">Working Hours</h2>
-                </div>
-                <p class="text-primary small fw-bold mb-1">Monday to Friday</p>
-                <p class="text-white mb-2 hours-text">08:00 AM — 06:00 PM (Brasília time, UTC−3)</p>
-                <div class="d-flex justify-content-center">
-                  <span id="status-badge" class="badge rounded-pill bg-opacity-10 border" role="status" aria-live="polite">
-                    <span id="status-spinner" class="spinner-grow spinner-grow-sm me-1" aria-hidden="true"></span>
-                    <span id="status-text">Checking Status...</span>
-                  </span>
-                </div>
-              </div>
-
-              <!-- 4. Socials Card -->
-              <!-- 'mt-auto' keeps this card at the bottom so the column lines up with the form -->
-              <div class="glass-card py-4 px-2 text-center mt-auto" data-aos="fade-up" data-aos-delay="250">
-                <h2 class="h6 text-white mb-3">Connect Socially</h2>
-                <div class="social-row d-flex gap-3 justify-content-center">
-                  <a href="https://wa.me/5584987257836" target="_blank" rel="noopener" class="social-btn whatsapp"
-                    title="WhatsApp" aria-label="WhatsApp">
-                    <i class="bi bi-whatsapp"></i>
-                  </a>
-                  <a href="https://linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" rel="noopener"
-                    class="social-btn linkedin" title="LinkedIn" aria-label="LinkedIn">
-                    <i class="bi bi-linkedin"></i>
-                  </a>
-                  <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="social-btn github"
-                    title="GitHub" aria-label="GitHub">
-                    <i class="bi bi-github"></i>
-                  </a>
-                </div>
-              </div>
-
+            <!-- Working hours + live open/closed badge (main.js) -->
+            <div class="glass-card hours-card">
+              <div class="round-icon round-icon-lg"><i class="bi bi-clock-fill"></i></div>
+              <h2 class="card-title-sm">Working Hours</h2>
+              <p class="hours-days">Monday to Friday</p>
+              <p class="hours-time">08:00 – 18:00 <span>Brasília time (UTC−3)</span></p>
+              <span id="status-badge" class="badge rounded-pill border" role="status" aria-live="polite">
+                <span id="status-spinner" class="spinner-grow spinner-grow-sm me-1" aria-hidden="true"></span>
+                <span id="status-text">Checking status...</span>
+              </span>
             </div>
+
+            <!-- Email and location -->
+            <div class="glass-card contact-card">
+              <div class="contact-row">
+                <div class="round-icon"><i class="bi bi-envelope-fill"></i></div>
+                <div class="contact-item">
+                  <span class="contact-label">Email</span>
+                  <a href="mailto:maykinvest@outlook.com" id="email-text" class="contact-value">maykinvest@outlook.com</a>
+                </div>
+                <button type="button" class="copy-btn" id="copy-email" title="Copy email"
+                  aria-label="Copy email address"><i class="bi bi-clipboard" id="copy-icon"></i></button>
+              </div>
+              <a class="contact-row" href="https://www.google.com/maps/search/?api=1&query=Natal+RN+Brazil"
+                target="_blank" rel="noopener">
+                <div class="round-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                <div class="contact-item">
+                  <span class="contact-label">Location</span>
+                  <span class="contact-value">Natal, RN, Brazil</span>
+                </div>
+              </a>
+            </div>
+
+            <!-- Social links -->
+            <div class="glass-card social-card">
+              <h2 class="card-title-sm">Find me online</h2>
+              <div class="social-row">
+                <a href="https://www.linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" rel="noopener"
+                  class="social-btn linkedin" title="LinkedIn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="https://github.com/MaykInvest" target="_blank" rel="noopener" class="social-btn github"
+                  title="GitHub" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                <a href="https://wa.me/5584987257836" target="_blank" rel="noopener" class="social-btn whatsapp"
+                  title="WhatsApp" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+              </div>
+            </div>
+
           </div>
 
-          <!-- RIGHT COLUMN: Contact Form -->
-          <div class="col-lg-8">
-            <!-- 'h-100' makes the form card fill the height to match the left side -->
-            <div class="glass-card p-4 p-lg-5 h-100" data-aos="fade-up" data-aos-delay="400">
-              <form action="https://formspree.io/f/xreypzpl" method="POST" class="row g-4">
+          <!-- Right column: the form (sent to Formspree by main.js) -->
+          <div class="col-lg-7">
+            <div class="glass-card form-card h-100">
+              <h2 class="form-title">Send a message</h2>
+              <p class="form-subtitle">Tell me about the role or project. I'll reply by email.</p>
+
+              <form action="https://formspree.io/f/xreypzpl" method="POST" class="contact-form row g-3">
                 <!-- Spam trap: hidden from people, bots fill it in and Formspree drops the message -->
                 <input type="text" name="_gotcha" class="d-none" tabindex="-1" autocomplete="off" aria-hidden="true">
+
                 <div class="col-md-6">
-                  <div class="field">
-                    <input type="text" id="contact-name" name="name" autocomplete="name" required placeholder=" ">
-                    <label for="contact-name">Full Name</label>
-                    <span class="field-line"></span>
-                  </div>
+                  <label for="contact-name" class="form-label">Name</label>
+                  <input type="text" id="contact-name" name="name" class="form-control" autocomplete="name"
+                    placeholder="Your name" required>
                 </div>
                 <div class="col-md-6">
-                  <div class="field">
-                    <input type="email" id="contact-email" name="email" autocomplete="email" required placeholder=" ">
-                    <label for="contact-email">Email Address</label>
-                    <span class="field-line"></span>
-                  </div>
+                  <label for="contact-email" class="form-label">Email</label>
+                  <input type="email" id="contact-email" name="email" class="form-control" autocomplete="email"
+                    placeholder="you@company.com" required>
                 </div>
                 <div class="col-12">
-                  <div class="field">
-                    <input type="text" id="contact-subject" name="subject" required placeholder=" ">
-                    <label for="contact-subject">Subject</label>
-                    <span class="field-line"></span>
-                  </div>
+                  <label for="contact-subject" class="form-label">Subject</label>
+                  <input type="text" id="contact-subject" name="subject" class="form-control"
+                    placeholder="Job opportunity, project, question..." required>
                 </div>
                 <div class="col-12">
-                  <div class="field">
-                    <textarea id="contact-message" name="message" required placeholder=" "></textarea>
-                    <label for="contact-message">Your Message</label>
-                    <span class="field-line"></span>
-                  </div>
+                  <label for="contact-message" class="form-label">Message</label>
+                  <textarea id="contact-message" name="message" class="form-control" rows="6"
+                    placeholder="Write your message here" required></textarea>
                 </div>
-                <!-- Error message (filled in by main.js if sending fails) -->
+
+                <!-- Filled in by main.js if sending fails -->
                 <div class="col-12">
                   <p id="form-error" class="form-error d-none" role="alert"></p>
                 </div>
-                <!-- Submit Button aligned to bottom -->
-                <div class="col-12 mt-5">
-                  <button type="submit" class="submit-btn w-100 justify-content-center">
+
+                <div class="col-12">
+                  <button type="submit" class="submit-btn">
                     <span>Send Message</span>
-                    <span class="btn-icon ms-2"><i class="bi bi-arrow-right"></i></span>
+                    <i class="bi bi-send-fill"></i>
                   </button>
                 </div>
               </form>
@@ -222,24 +187,20 @@
 
         </div>
       </div>
-
-      <div class="bg-glow"></div>
     </section>
 
   </main>
 
-  <!-- Success Modal -->
-  <div class="modal fade" id="sent-modal" tabindex="-1" aria-hidden="true">
+  <!-- "Message sent" window -->
+  <div class="modal fade" id="sent-modal" tabindex="-1" aria-labelledby="sent-title" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content success-modal border-0 shadow-lg">
+      <div class="modal-content success-modal">
         <div class="modal-body text-center p-5">
-          <div class="mb-4">
-            <i class="bi bi-check-circle-fill text-success success-icon"></i>
-          </div>
-          <h2 class="h3 fw-bold mb-2">Message Sent!</h2>
-          <p class="opacity-75">Thank you, <span id="sender-name" class="fw-bold text-accent"></span>! Your message has been received. I'll get back to you shortly.
-          </p>
-          <button type="button" class="btn btn-primary success-btn w-100 mt-3" data-bs-dismiss="modal">Great!</button>
+          <div class="round-icon round-icon-lg success-icon"><i class="bi bi-check-lg"></i></div>
+          <h2 class="h4 fw-bold mb-2" id="sent-title">Message Sent!</h2>
+          <p class="success-text">Thank you, <span id="sender-name"></span>! Your message has been received.
+            I'll get back to you soon.</p>
+          <button type="button" class="submit-btn mt-3" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
