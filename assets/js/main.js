@@ -36,13 +36,6 @@
   });
 
   /**
-   * Preloader
-   */
-  window.addEventListener('load', () => {
-    document.querySelector('#preloader').remove();
-  });
-
-  /**
    * Animation on scroll.
    * Runs now (this script is at the end of <body>), not on 'load':
    * 'load' waits for every image, and until AOS runs the content stays invisible
@@ -207,6 +200,29 @@
       card.style.transform = 'rotateX(0) rotateY(0) translateZ(10px)';
     });
   });
+
+  /**
+   * Portfolio page: one preview window for every project.
+   * Before it opens, it takes the image, title and colors of the clicked card.
+   */
+  const previewModal = document.getElementById('preview-modal');
+
+  if (previewModal) {
+    previewModal.addEventListener('show.bs.modal', (event) => {
+      const button = event.relatedTarget; // the clicked image button
+      const cardImg = button.querySelector('img');
+      const modalImg = previewModal.querySelector('img');
+
+      modalImg.src = cardImg.src;
+      modalImg.alt = cardImg.alt;
+      previewModal.querySelector('.modal-title').textContent = button.dataset.title;
+      // Same border and title color as the card
+      const project = button.closest('.project');
+      for (const name of ['--accent-rgb', '--accent-light']) {
+        previewModal.style.setProperty(name, project.style.getPropertyValue(name));
+      }
+    });
+  }
 
   /**
    * Contact page: send the form to Formspree without leaving the page,

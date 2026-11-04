@@ -39,12 +39,11 @@
 
 <body>
 
-  <!-- ======= Header / Navigation Bar ======= -->
+  <!-- Header -->
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <!-- icon Navigation Bar -->
-      <a href="index.html" class="d-flex align-items-center">
+      <a href="index.html" class="d-flex align-items-center" aria-label="Home">
         <div class="cube-scene">
           <div class="cube">
             <div class="cube-core"></div>
@@ -58,7 +57,6 @@
           </div>
         </div>
       </a>
-      <!-- End icon Navigation Bar -->
 
       <nav id="navmenu" class="navmenu">
         <ul>
@@ -73,7 +71,6 @@
       </nav>
 
       <div class="header-spacer d-none d-xl-block"></div> <!-- Keeps the menu centered on desktop; hidden on mobile so the menu button sits at the right edge -->
-
     </div>
   </header>
 
@@ -86,7 +83,7 @@
       <div class="container section-title" data-aos="fade-up">
         <h1>Portfolio</h1>
         <p>Here you can explore some of the projects I have worked on and the skills I have developed.</p>
-      </div><!-- End Section Title -->
+      </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -111,7 +108,7 @@
                       <span class="github-btn-text">GitHub</span>
                     </a>
 
-                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#modal-energy"
+                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#preview-modal" data-title="Energy Forecasting Project Preview"
                       aria-label="Open preview: Energy Consumption Forecasting project">
                       <img src="assets/img/portfolio/Energy_consumption.webp" width="1200" height="800" loading="lazy" decoding="async"
                         alt="Energy Consumption Forecasting project">
@@ -144,11 +141,11 @@
 
                   <div class="stats">
                     <div class="stat">
-                      <div class="stat-value" style="color:#fbbf24">Hourly</div>
+                      <div class="stat-value">Hourly</div>
                       <div class="stat-label">Forecasts</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-value" style="color:#bae6fd">RF</div>
+                      <div class="stat-value">RF</div>
                       <div class="stat-label">Best Model</div>
                     </div>
                   </div>
@@ -165,23 +162,6 @@
                 </div>
               </div>
             </div>
-
-            <div class="modal fade" id="modal-energy" style="--accent-rgb: 245,158,11; --accent-light: #fbbf24" tabindex="-1" aria-labelledby="modal-energy-title" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="modal-energy-title">Energy Forecasting Project Preview</h2>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                      aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body text-center p-2">
-                    <img src="assets/img/portfolio/Energy_consumption.webp" width="1200" height="800" loading="lazy" decoding="async" class="img-fluid rounded w-100"
-                      alt="Energy consumption forecasting graphs preview">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- ── END CARD ── -->
 
             <!-- ── Titanic Survival Prediction ── -->
             <div class="project" style="--accent-rgb: 56,189,248; --accent-light: #7dd3fc">
@@ -202,7 +182,7 @@
                       <span class="github-btn-text">GitHub</span>
                     </a>
 
-                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#modal-titanic"
+                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#preview-modal" data-title="Titanic Classification Project Preview"
                       aria-label="Open preview: Titanic ML project">
                       <img src="assets/img/portfolio/Titanic.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Titanic ML project">
                     </button>
@@ -242,7 +222,7 @@
                       <div class="stat-label">Accuracy</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-value" style="color:#bae6fd">891</div>
+                      <div class="stat-value">891</div>
                       <div class="stat-label">Passengers</div>
                     </div>
                   </div>
@@ -259,23 +239,6 @@
                 </div>
               </div>
             </div>
-
-            <div class="modal fade" id="modal-titanic" style="--accent-rgb: 56,189,248; --accent-light: #7dd3fc" tabindex="-1" aria-labelledby="modal-titanic-title" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="modal-titanic-title">Titanic Classification Project Preview</h2>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                      aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body text-center p-2">
-                    <img src="assets/img/portfolio/Titanic.webp" width="1200" height="800" loading="lazy" decoding="async" class="img-fluid rounded w-100"
-                      alt="Titanic project analysis and feature correlations preview">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- END OF THE CARD -->
 
             <!-- ── House Prices Prediction ── -->
             <div class="project" style="--accent-rgb: 255,193,7; --accent-light: #ffc107">
@@ -295,7 +258,7 @@
                       <span class="github-btn-text">GitHub</span>
                     </a>
 
-                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#modal-house"
+                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#preview-modal" data-title="House Prices Prediction Project Preview"
                       aria-label="Open preview: House Prices Prediction project">
                       <img src="assets/img/portfolio/House_prices_prediction.webp" width="1200" height="800" loading="lazy" decoding="async"
                         alt="House Prices Prediction project">
@@ -330,7 +293,7 @@
 
                   <div class="stats">
                     <div class="stat">
-                      <div class="stat-value" style="color:#ffc107">−59%</div>
+                      <div class="stat-value">−59%</div>
                       <div class="stat-label">Error vs Baseline</div>
                     </div>
                     <div class="stat">
@@ -352,23 +315,6 @@
               </div>
             </div>
 
-            <div class="modal fade" id="modal-house" style="--accent-rgb: 255,193,7; --accent-light: #ffc107" tabindex="-1" aria-labelledby="modal-house-title" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="modal-house-title">House Prices Prediction Project Preview</h2>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                      aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body text-center p-2">
-                    <img src="assets/img/portfolio/House_prices_prediction.webp" width="1200" height="800" loading="lazy" decoding="async" class="img-fluid rounded w-100"
-                      alt="House Prices Prediction analysis and model results preview">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- END OF THE CARD -->
-
             <!-- ── Car Market Segmentation ── -->
             <div class="project" style="--accent-rgb: 236,72,153; --accent-light: #f472b6">
               <div class="project-card">
@@ -386,7 +332,7 @@
                       <span class="github-btn-text">GitHub</span>
                     </a>
 
-                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#modal-car"
+                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#preview-modal" data-title="Car Market Segmentation Preview"
                       aria-label="Open preview: Car Market Segmentation project">
                       <img src="assets/img/portfolio/Car_segmentation.svg" width="1200" height="800" loading="lazy" decoding="async"
                         alt="Car Market Segmentation project">
@@ -420,11 +366,11 @@
 
                   <div class="stats">
                     <div class="stat">
-                      <div class="stat-value" style="color:#f472b6">11K+</div>
+                      <div class="stat-value">11K+</div>
                       <div class="stat-label">Car Models</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-value" style="color:#bae6fd">K = 3</div>
+                      <div class="stat-value">K = 3</div>
                       <div class="stat-label">Segments</div>
                     </div>
                   </div>
@@ -441,23 +387,6 @@
                 </div>
               </div>
             </div>
-
-            <div class="modal fade" id="modal-car" style="--accent-rgb: 236,72,153; --accent-light: #f472b6" tabindex="-1" aria-labelledby="modal-car-title" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="modal-car-title">Car Market Segmentation Preview</h2>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                      aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body text-center p-2">
-                    <img src="assets/img/portfolio/Car_segmentation.svg" width="1200" height="800" loading="lazy" decoding="async" class="img-fluid rounded w-100"
-                      alt="Three K-Means car market segments plotted by horsepower and price">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- ── END CARD ── -->
 
             <!-- ── Python Programming Assistant ── -->
             <div class="project" style="--accent-rgb: 168,85,247; --accent-light: #c084fc">
@@ -476,7 +405,7 @@
                       <span class="github-btn-text">GitHub</span>
                     </a>
 
-                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#modal-assistant"
+                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#preview-modal" data-title="Python Assistant Project Preview"
                       aria-label="Open preview: Python Assistant project">
                       <img src="assets/img/portfolio/Python_bot.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Python Assistant project">
                     </button>
@@ -508,7 +437,7 @@
 
                   <div class="stats">
                     <div class="stat">
-                      <div class="stat-value" style="color:#c084fc">LLM</div>
+                      <div class="stat-value">LLM</div>
                       <div class="stat-label">Powered</div>
                     </div>
                     <div class="stat">
@@ -530,23 +459,6 @@
               </div>
             </div>
 
-            <div class="modal fade" id="modal-assistant" style="--accent-rgb: 168,85,247; --accent-light: #c084fc" tabindex="-1" aria-labelledby="modal-assistant-title" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="modal-assistant-title">Python Assistant Project Preview</h2>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                      aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body text-center p-2">
-                    <img src="assets/img/portfolio/Python_bot.webp" width="1200" height="800" loading="lazy" decoding="async" class="img-fluid rounded w-100"
-                      alt="Python Assistant project preview snapshot">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- ── END CARD ── -->
-
             <!-- ── Sentiment Analysis Model ── -->
             <div class="project" style="--accent-rgb: 20,184,166; --accent-light: #2dd4bf">
               <div class="project-card">
@@ -564,7 +476,7 @@
                       <span class="github-btn-text">GitHub</span>
                     </a>
 
-                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#modal-sentiment"
+                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#preview-modal" data-title="Sentiment AI Project Preview"
                       aria-label="Open preview: Sentiment Analysis project">
                       <img src="assets/img/portfolio/Sentimental.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Sentiment Analysis project">
                     </button>
@@ -597,11 +509,11 @@
 
                   <div class="stats">
                     <div class="stat">
-                      <div class="stat-value" style="color:#2dd4bf">79%</div>
+                      <div class="stat-value">79%</div>
                       <div class="stat-label">Accuracy</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-value" style="color:#bae6fd">14.6K</div>
+                      <div class="stat-value">14.6K</div>
                       <div class="stat-label">Tweets</div>
                     </div>
                   </div>
@@ -618,23 +530,6 @@
                 </div>
               </div>
             </div>
-
-            <div class="modal fade" id="modal-sentiment" style="--accent-rgb: 20,184,166; --accent-light: #2dd4bf" tabindex="-1" aria-labelledby="modal-sentiment-title" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="modal-sentiment-title">Sentiment AI Project Preview</h2>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                      aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body text-center p-2">
-                    <img src="assets/img/portfolio/Sentimental.webp" width="1200" height="800" loading="lazy" decoding="async" class="img-fluid rounded w-100"
-                      alt="Sentiment AI metrics and visualization preview">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- ── END CARD  ── -->
 
             <!-- ── Traffic Accident Analysis  ── -->
             <div class="project" style="--accent-rgb: 249,115,22; --accent-light: #fb923c">
@@ -656,7 +551,7 @@
                       <span class="github-btn-text">GitHub</span>
                     </a>
 
-                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#modal-traffic"
+                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#preview-modal" data-title="Traffic Analytics Project Preview"
                       aria-label="Open preview: Traffic Accident Analysis project">
                       <img src="assets/img/portfolio/Traffic_Accident.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Traffic Accident Analysis project">
                     </button>
@@ -695,7 +590,7 @@
 
                   <div class="stats">
                     <div class="stat">
-                      <div class="stat-value" style="color:#fb923c">75K+</div>
+                      <div class="stat-value">75K+</div>
                       <div class="stat-label">Records</div>
                     </div>
                     <div class="stat">
@@ -721,23 +616,6 @@
               </div>
             </div>
 
-            <div class="modal fade" id="modal-traffic" style="--accent-rgb: 249,115,22; --accent-light: #fb923c" tabindex="-1" aria-labelledby="modal-traffic-title" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="modal-traffic-title">Traffic Analytics Project Preview</h2>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                      aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body text-center p-2">
-                    <img src="assets/img/portfolio/Traffic_Accident.webp" width="1200" height="800" loading="lazy" decoding="async" class="img-fluid rounded w-100"
-                      alt="Traffic analysis geographical map charts preview">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- ── END CARD  ── -->
-
             <!-- ── AI Dependency in Students ── -->
             <div class="project" style="--accent-rgb: 99,102,241; --accent-light: #a5b4fc">
               <div class="project-card">
@@ -755,7 +633,7 @@
                       <span class="github-btn-text">GitHub</span>
                     </a>
 
-                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#modal-ai-dependency"
+                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#preview-modal" data-title="AI Dependency Classifier Preview"
                       aria-label="Open preview: AI Dependency Classifier project">
                       <img src="assets/img/portfolio/AI_dependency.jpg" width="1000" height="800" loading="lazy" decoding="async"
                         alt="AI Dependency Classifier project">
@@ -789,11 +667,11 @@
 
                   <div class="stats">
                     <div class="stat">
-                      <div class="stat-value" style="color:#a5b4fc">66%</div>
+                      <div class="stat-value">66%</div>
                       <div class="stat-label">Accuracy</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-value" style="color:#bae6fd">15K</div>
+                      <div class="stat-value">15K</div>
                       <div class="stat-label">Students</div>
                     </div>
                   </div>
@@ -810,23 +688,6 @@
                 </div>
               </div>
             </div>
-
-            <div class="modal fade" id="modal-ai-dependency" style="--accent-rgb: 99,102,241; --accent-light: #a5b4fc" tabindex="-1" aria-labelledby="modal-ai-dependency-title" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="modal-ai-dependency-title">AI Dependency Classifier Preview</h2>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                      aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body text-center p-2">
-                    <img src="assets/img/portfolio/AI_dependency.jpg" width="1000" height="800" loading="lazy" decoding="async" class="img-fluid rounded w-100"
-                      alt="Illustration of a student relying on AI tools">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- ── END CARD ── -->
 
             <!-- ── TechStore Sales Dashboard ── -->
             <div class="project" style="--accent-rgb: 16,185,129; --accent-light: #34d399">
@@ -845,7 +706,7 @@
                       <span class="github-btn-text">GitHub</span>
                     </a>
 
-                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#modal-techstore"
+                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#preview-modal" data-title="TechStore Dashboard Preview"
                       aria-label="Open preview: TechStore Power BI dashboard project">
                       <img src="assets/img/portfolio/PowerBI_TechStore.jpg" width="979" height="555" loading="lazy" decoding="async"
                         alt="TechStore Power BI dashboard project">
@@ -879,11 +740,11 @@
 
                   <div class="stats">
                     <div class="stat">
-                      <div class="stat-value" style="color:#34d399">5,000</div>
+                      <div class="stat-value">5,000</div>
                       <div class="stat-label">Order Lines</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-value" style="color:#bae6fd">2022–24</div>
+                      <div class="stat-value">2022–24</div>
                       <div class="stat-label">Sales Period</div>
                     </div>
                   </div>
@@ -898,23 +759,6 @@
                 </div>
               </div>
             </div>
-
-            <div class="modal fade" id="modal-techstore" style="--accent-rgb: 16,185,129; --accent-light: #34d399" tabindex="-1" aria-labelledby="modal-techstore-title" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="modal-techstore-title">TechStore Dashboard Preview</h2>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                      aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body text-center p-2">
-                    <img src="assets/img/portfolio/PowerBI_TechStore.jpg" width="979" height="555" loading="lazy" decoding="async" class="img-fluid rounded w-100"
-                      alt="TechStore executive summary dashboard in Power BI">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- ── END CARD ── -->
 
             <!-- ── Amazon Best Sellers 2024 ── -->
             <div class="project" style="--accent-rgb: 244,63,94; --accent-light: #fb7185">
@@ -933,7 +777,7 @@
                       <span class="github-btn-text">GitHub</span>
                     </a>
 
-                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#modal-amazon"
+                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#preview-modal" data-title="Amazon Best Sellers Preview"
                       aria-label="Open preview: Amazon Best Sellers 2024 analysis project">
                       <img src="assets/img/portfolio/Amazon_valentine.svg" width="1200" height="800" loading="lazy" decoding="async"
                         alt="Amazon Best Sellers 2024 analysis project">
@@ -967,11 +811,11 @@
 
                   <div class="stats">
                     <div class="stat">
-                      <div class="stat-value" style="color:#fb7185">218</div>
+                      <div class="stat-value">218</div>
                       <div class="stat-label">Products</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-value" style="color:#bae6fd">r = 0.07</div>
+                      <div class="stat-value">r = 0.07</div>
                       <div class="stat-label">Rating vs Reviews</div>
                     </div>
                   </div>
@@ -988,23 +832,6 @@
                 </div>
               </div>
             </div>
-
-            <div class="modal fade" id="modal-amazon" style="--accent-rgb: 244,63,94; --accent-light: #fb7185" tabindex="-1" aria-labelledby="modal-amazon-title" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="modal-amazon-title">Amazon Best Sellers Preview</h2>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                      aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body text-center p-2">
-                    <img src="assets/img/portfolio/Amazon_valentine.svg" width="1200" height="800" loading="lazy" decoding="async" class="img-fluid rounded w-100"
-                      alt="Bar chart of total reviews per Valentine gift category">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- ── END CARD ── -->
 
             <!-- ── Virtual Library (Senac) ── -->
             <div class="project" style="--accent-rgb: 132,204,22; --accent-light: #a3e635">
@@ -1023,7 +850,7 @@
                       <span class="github-btn-text">GitHub</span>
                     </a>
 
-                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#modal-library"
+                    <button type="button" class="preview-btn" data-bs-toggle="modal" data-bs-target="#preview-modal" data-title="Virtual Library Preview"
                       aria-label="Open preview: Virtual Library web app project">
                       <img src="assets/img/portfolio/Virtual_library.jpg" width="1200" height="655" loading="lazy" decoding="async"
                         alt="Virtual Library web app project">
@@ -1057,11 +884,11 @@
 
                   <div class="stats">
                     <div class="stat">
-                      <div class="stat-value" style="color:#a3e635">8</div>
+                      <div class="stat-value">8</div>
                       <div class="stat-label">Categories</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-value" style="color:#bae6fd">Live</div>
+                      <div class="stat-value">Live</div>
                       <div class="stat-label">on GitHub Pages</div>
                     </div>
                   </div>
@@ -1078,25 +905,22 @@
               </div>
             </div>
 
-            <div class="modal fade" id="modal-library" style="--accent-rgb: 132,204,22; --accent-light: #a3e635" tabindex="-1" aria-labelledby="modal-library-title" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="modal-library-title">Virtual Library Preview</h2>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                      aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body text-center p-2">
-                    <img src="assets/img/portfolio/Virtual_library.jpg" width="1200" height="655" loading="lazy" decoding="async" class="img-fluid rounded w-100"
-                      alt="Virtual Library banner with bookshelves">
-                  </div>
+          </div>
+
+          <!-- Project preview: one window for every card, filled by main.js -->
+          <div class="modal fade" id="preview-modal" tabindex="-1" aria-labelledby="preview-title" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h2 class="modal-title fs-5" id="preview-title"></h2>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-2">
+                  <img class="img-fluid rounded w-100" alt="">
                 </div>
               </div>
             </div>
-            <!-- ── END CARD ── -->
-
-            <!-- End Project Card -->
-
           </div>
 
           <!-- Button to the next page -->
@@ -1104,32 +928,30 @@
             <div class="col-12 d-flex gap-3 flex-wrap justify-content-center" data-aos="fade-up">
               <a href="contact.html" class="btn-next">
                 Contact me
-                <i class="bi bi-person-lines-fill"></i> <!-- Tech Icon -->
+                <i class="bi bi-person-lines-fill"></i>
               </a>
             </div>
           </div>
-          <!-- End button to the next page -->
 
         </div>
 
-      </div><!-- End container -->
+      </div>
 
-    </section><!-- /Portfolio Section -->
+    </section>
 
   </main>
 
-  <!-- Ultra‑compact footer -->
+  <!-- Footer -->
   <footer id="footer" class="site-footer">
     <div class="container">
       <div class="d-flex flex-column align-items-center py-3">
 
-        <!-- Compact Roles -->
         <p class="footer-roles mb-2">
           Data Scientist <span class="dot">•</span> Data Analyst <span class="dot">•</span> Power BI <span
             class="dot">•</span> SQL
         </p>
 
-        <!-- Vibrant Social Links (Compact) -->
+        <!-- Social links -->
         <div class="d-flex gap-2 mb-3">
           <a href="https://www.linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" rel="noopener"
             class="footer-icon linkedin" title="LinkedIn" aria-label="LinkedIn">
@@ -1143,7 +965,6 @@
           </a>
         </div>
 
-        <!-- Single-Line Legal & Credits -->
         <div class="footer-legal">
           <span>© 2026 Maykon Jonattan</span>
         </div>
@@ -1151,14 +972,10 @@
       </div>
     </div>
   </footer>
-  <!-- End of the compact footer -->
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"
     aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

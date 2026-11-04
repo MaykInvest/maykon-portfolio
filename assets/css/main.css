@@ -25,7 +25,6 @@
      3.5  Tags / pills
      3.6  Footer
      3.7  Scroll-to-top button
-     3.8  Preloader
 
   4. PAGES
      4.1  Home      (index.html)
@@ -34,7 +33,7 @@
      4.4  Resume    (resume.html)
      4.5  Portfolio (portfolio.html)
      4.6  Contact   (contact.html)
-     4.7  Accessibility helpers
+     4.7  Keyboard focus
 
   5. MOBILE (every small-screen rule lives here)
      5.1  Shared (sections, titles)
@@ -68,18 +67,12 @@
   --nav-font: "Poppins", sans-serif;
 
   /* Global colors */
-  --background-color: #101a20;
-  /* page background */
-  --default-color: #e7f2f7;
-  /* body text */
-  --heading-color: #ffffff;
-  /* headings */
-  --accent-color: #007bff;
-  /* brand blue: buttons, links, highlights */
-  --surface-color: #14243f;
-  /* background of boxed elements (cards, badges) */
-  --contrast-color: #ffffff;
-  /* text on top of accent-colored backgrounds */
+  --background-color: #101a20; /* page background */
+  --default-color: #e7f2f7;    /* body text */
+  --heading-color: #ffffff;    /* headings */
+  --accent-color: #007bff;     /* brand blue: buttons, links, highlights */
+  --surface-color: #14243f;    /* background of boxed elements (cards, badges) */
+  --contrast-color: #ffffff;   /* text on top of accent-colored backgrounds */
 
   /* Text shades */
   --text-main: #ffffff;
@@ -88,10 +81,8 @@
   --text-secondary: #94a3b8;
 
   /* Navigation menu */
-  --nav-color: #ffffff;
-  /* menu links */
-  --nav-hover-color: #1387c1;
-  /* menu links on hover / active page */
+  --nav-color: #ffffff;        /* menu links */
+  --nav-hover-color: #1387c1;  /* menu links on hover / active page */
 
   /* Neon accents */
   --neon-blue: #06b6d4;
@@ -115,8 +106,7 @@
   --cube-hover-accent: #4f46e5;
   --cube-glass-bg: rgba(10, 25, 47, 0.6);
   --cube-speed-normal: 12s;
-  --cube-speed-fast: 3s;
-  /* spin speed on hover */
+  --cube-speed-fast: 3s;       /* spin speed on hover */
 
   /* Tech grid hover glow (About page) */
   --card-primary: #00d4ff;
@@ -146,11 +136,10 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0
+  padding: 0;
 }
 
-/* Smooth scroll */
-:root {
+html {
   scroll-behavior: smooth;
 }
 
@@ -158,45 +147,32 @@
 /*--------------------------------------------------------------
   # 2.2 Page body & background glow
 --------------------------------------------------------------*/
-/* Universal Body Styling */
+/* Full-height column so the footer always sits at the bottom */
 body {
   color: var(--default-color);
   font-family: var(--default-font);
   background-color: #0a1118;
-  /* Solid dark base for your dark theme */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  /* Ensures the page is at least the full height of the screen */
-  margin: 0;
   position: relative;
-  /* Necessary to position the background gradient behind it */
   overflow-x: hidden;
-  /* Prevents unwanted horizontal scrolling */
 }
 
-/* The Mesh Gradient Background */
+/* Blue and pink glows in the corners, fixed behind everything */
 body::before {
   content: "";
   position: fixed;
-  /* Stays fixed so it doesn't move when you scroll */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* This creates the blue and pink "glows" in the corners */
+  inset: 0;
   background:
     radial-gradient(circle at 20% 30%, rgba(79, 70, 229, 0.12) 0%, transparent 45%),
     radial-gradient(circle at 80% 70%, rgba(219, 39, 119, 0.08) 0%, transparent 45%);
   z-index: -1;
-  /* Keeps the glow behind your cards and text */
   pointer-events: none;
-  /* Allows you to click on elements "through" the background */
 }
 
 .main {
   flex: 1 0 auto;
-  /* This tells the main content to grow and fill all available space */
 }
 
 
@@ -211,15 +187,9 @@ a {
 
 a:hover {
   color: color-mix(in srgb, var(--accent-color), transparent 25%);
-  text-decoration: none;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   color: var(--heading-color);
   font-family: var(--heading-font);
 }
@@ -254,7 +224,7 @@ section,
   font-weight: 700;
   line-height: 1.2;
   color: var(--text-main);
-  margin-top: 0 !important;
+  margin-top: 0;
   margin-bottom: 1.5rem;
   letter-spacing: -1px;
   position: relative;
@@ -292,7 +262,6 @@ section,
 /*--------------------------------------------------------------
   # 2.6 Utility classes
 --------------------------------------------------------------*/
-/* Adds a bit of space between letters for a modern, professional look */
 .letter-spacing-2 {
   letter-spacing: 2px;
 }
@@ -355,21 +324,16 @@ section,
   position: relative;
   transform-style: preserve-3d;
 
-  /* Main Animation */
   animation: rotateDataCube var(--cube-speed-normal) infinite linear;
   will-change: transform;
-
-  /* Smooth transition for the animation speed change */
-  transition: animation-duration 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* --- Speed Boost on Hover --- */
+/* Spins faster on hover */
 .cube-scene:hover .cube {
   animation-duration: var(--cube-speed-fast);
-  /* Optional: we removed animation-play-state: paused to let it spin */
 }
 
-/* The Core - Volumetric light source */
+/* Glowing light in the middle of the cube */
 .cube-core {
   position: absolute;
   width: 40%;
@@ -410,49 +374,27 @@ section,
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   backface-visibility: visible;
-  transition:
-    border-color 0.4s,
-    background 0.4s,
-    box-shadow 0.4s,
-    transform 0.4s;
-
+  transition: border-color 0.4s, background 0.4s, box-shadow 0.4s, transform 0.4s;
   box-shadow: inset 0 0 12px rgba(6, 182, 212, 0.1);
+  transform: var(--face) translateZ(var(--cube-half));
 }
 
-/* Positioning */
-.face-front {
-  transform: rotateY(0deg) translateZ(var(--cube-half));
-}
-
-.face-back {
-  transform: rotateY(180deg) translateZ(var(--cube-half));
-}
-
-.face-right {
-  transform: rotateY(90deg) translateZ(var(--cube-half));
-}
-
-.face-left {
-  transform: rotateY(-90deg) translateZ(var(--cube-half));
-}
-
-.face-top {
-  transform: rotateX(90deg) translateZ(var(--cube-half));
-}
-
-.face-bottom {
-  transform: rotateX(-90deg) translateZ(var(--cube-half));
-}
+/* Each face is turned to its side of the cube */
+.face-front { --face: rotateY(0deg); }
+.face-back { --face: rotateY(180deg); }
+.face-right { --face: rotateY(90deg); }
+.face-left { --face: rotateY(-90deg); }
+.face-top { --face: rotateX(90deg); }
+.face-bottom { --face: rotateX(-90deg); }
 
 
-/* --- "Eternal" Random Rotation --- */
+/* Endless rotation; odd angles make the spin look less mechanical */
 @keyframes rotateDataCube {
   0% {
     transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   }
 
   25% {
-    /* Using non-round numbers (like 107 and 193) makes the movement look less mechanical */
     transform: rotateX(107deg) rotateY(193deg) rotateZ(41deg);
   }
 
@@ -465,12 +407,11 @@ section,
   }
 
   100% {
-    /* We end at high, non-matching numbers to ensure the loop is invisible */
     transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg);
   }
 }
 
-/* Interaction: Visual Feedback + Hyper-Glow */
+/* Hover: purple glow */
 .cube-scene:hover {
   filter: drop-shadow(0 0 25px rgba(79, 70, 229, 0.6));
 }
@@ -479,33 +420,8 @@ section,
   border-color: var(--cube-hover-accent);
   background: rgba(79, 70, 229, 0.25);
   box-shadow: inset 0 0 20px rgba(79, 70, 229, 0.5);
-  /* Slight expansion for "charged" feel */
-  transform: scale(1.1) rotateX(inherit) rotateY(inherit);
-}
-
-/* Re-adjusting faces during scale to maintain cube integrity */
-.cube-scene:hover .face-front {
-  transform: scale(1.1) rotateY(0deg) translateZ(calc(var(--cube-half) * 1.1));
-}
-
-.cube-scene:hover .face-back {
-  transform: scale(1.1) rotateY(180deg) translateZ(calc(var(--cube-half) * 1.1));
-}
-
-.cube-scene:hover .face-right {
-  transform: scale(1.1) rotateY(90deg) translateZ(calc(var(--cube-half) * 1.1));
-}
-
-.cube-scene:hover .face-left {
-  transform: scale(1.1) rotateY(-90deg) translateZ(calc(var(--cube-half) * 1.1));
-}
-
-.cube-scene:hover .face-top {
-  transform: scale(1.1) rotateX(90deg) translateZ(calc(var(--cube-half) * 1.1));
-}
-
-.cube-scene:hover .face-bottom {
-  transform: scale(1.1) rotateX(-90deg) translateZ(calc(var(--cube-half) * 1.1));
+  /* Slightly bigger cube on hover */
+  transform: scale(1.1) var(--face) translateZ(calc(var(--cube-half) * 1.1));
 }
 
 .cube-scene:hover .cube-core {
@@ -732,7 +648,6 @@ section,
 /*--------------------------------------------------------------
   # 3.6 Footer
 --------------------------------------------------------------*/
-/* Sleek Footer Base */
 .site-footer {
   background: rgba(10, 17, 24, 0.9);
   backdrop-filter: blur(10px);
@@ -740,7 +655,6 @@ section,
   margin-top: auto;
 }
 
-/* Compact Roles */
 .footer-roles {
   font-size: 0.65rem;
   text-transform: uppercase;
@@ -754,7 +668,6 @@ section,
   margin: 0 5px;
 }
 
-/* Compact Glow Icons */
 .footer-icon {
   width: 36px;
   height: 36px;
@@ -774,7 +687,7 @@ section,
   color: white;
 }
 
-/* Brand Glows (Optimized) */
+/* Brand colors on hover */
 .footer-icon.linkedin:hover {
   background: #0077B5;
   box-shadow: 0 5px 15px rgba(0, 119, 181, 0.4);
@@ -790,7 +703,6 @@ section,
   box-shadow: 0 5px 15px rgba(234, 67, 53, 0.4);
 }
 
-/* Compact Legal Line */
 .footer-legal {
   font-size: 0.65rem;
   color: rgba(255, 255, 255, 0.3);
@@ -840,53 +752,6 @@ section,
 }
 
 
-/*--------------------------------------------------------------
-  # 3.8 Preloader
-  Full-screen loading animation shown until the page has loaded.
---------------------------------------------------------------*/
-#preloader {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  overflow: hidden;
-  background-color: var(--background-color);
-  transition: all 0.6s ease-out;
-  width: 100%;
-  height: 100vh;
-}
-
-#preloader:before,
-#preloader:after {
-  content: "";
-  position: absolute;
-  border: 4px solid var(--accent-color);
-  border-radius: 50%;
-  animation: animate-preloader 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
-}
-
-#preloader:after {
-  animation-delay: -0.5s;
-}
-
-@keyframes animate-preloader {
-  0% {
-    width: 10px;
-    height: 10px;
-    top: calc(50% - 5px);
-    left: calc(50% - 5px);
-    opacity: 1;
-  }
-
-  100% {
-    width: 72px;
-    height: 72px;
-    top: calc(50% - 36px);
-    left: calc(50% - 36px);
-    opacity: 0;
-  }
-}
-
-
 /*==============================================================
   # 4. PAGES
 ==============================================================*/
@@ -927,11 +792,10 @@ section,
   filter: drop-shadow(0 0 18px rgba(0, 123, 255, 0.35));
 }
 
-/* 4. Responsive adjustments for very large screens */
+/* More breathing room on very tall screens */
 @media (min-height: 1000px) {
   .hero {
     padding: 100px 0;
-    /* Adds more breathing room on massive monitors */
   }
 }
 
@@ -968,7 +832,9 @@ section,
   position: relative;
 }
 
+/* inline-block: shrinks to the photo, so the badges stay around it */
 .hero .hero-image .image-wrapper {
+  display: inline-block;
   position: relative;
   max-width: 400px;
   margin: 0 auto;
@@ -1005,51 +871,37 @@ section,
 /* (shown from 768px up, hidden on phones) */
 .floating-badges {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   pointer-events: none;
 }
 
-/* Forces the wrapper to shrink-wrap strictly to the image width, 
-   preventing absolute badges from wandering across the screen row width */
-.image-wrapper {
-  display: inline-block;
-}
-
-/* Base Configuration: Hide elements on mobile to prevent layout 
-   cluttering, overflows, or overlapping with typography sections */
 .floating-badge {
   display: none;
 }
 
-/* Media Query: Desktop Viewports (768px and up) */
 @media (min-width: 768px) {
   .floating-badge {
     display: flex;
     align-items: center;
     gap: 6px;
     position: absolute;
-    background: var(--surface-color, #121212);
-    /* Adapts to your portfolio's dark theme surface */
+    background: var(--surface-color);
     padding: 6px 12px;
     border-radius: 50px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
     font-weight: 600;
     font-size: 0.75rem;
-    border: 1px solid color-mix(in srgb, var(--accent-color, #0d6efd), transparent 75%);
+    border: 1px solid color-mix(in srgb, var(--accent-color), transparent 75%);
     white-space: nowrap;
     z-index: 3;
-    /* Keeps badges floating visually over any image overlay masks */
   }
 
-  /* Target inside elements to give uniform sizing context to Bootstrap Icons */
   .floating-badge i {
     font-size: 0.85rem;
   }
 
-  /* Around the circle: two badges on each side, slightly outside the photo */
+  /* Two badges on each side, slightly outside the photo.
+     Different delays so they don't float in sync. */
   .floating-badge.python {
     top: 10%;
     left: -6%;
@@ -1058,56 +910,40 @@ section,
   .floating-badge.sql {
     bottom: 14%;
     left: -3%;
+    animation-delay: 1.5s;
   }
 
   .floating-badge.power-bi {
     top: 26%;
     right: -16%;
+    animation-delay: 1s;
   }
 
   .floating-badge.data-science {
     bottom: 16%;
     right: -12%;
+    animation-delay: 2.2s;
   }
 
-  /* Safe Core Animation Engine Implementation */
   @media (prefers-reduced-motion: no-preference) {
     .floating-badge {
-      animation: ambientFloat 3.5s ease-in-out infinite;
-    }
-
-    /* Asynchronous animation delay offsets to simulate real float dynamics */
-    .floating-badge.python {
-      animation-delay: 0.0s;
-    }
-
-    .floating-badge.power-bi {
-      animation-delay: 1.0s;
-    }
-
-    .floating-badge.sql {
-      animation-delay: 1.5s;
-    }
-
-    .floating-badge.data-science {
-      animation-delay: 2.2s;
+      animation-name: ambientFloat;
+      animation-duration: 3.5s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
     }
   }
 }
 
-/* Smooth ambient floating keyframes vector mapping */
+/* Gentle up-and-down float */
 @keyframes ambientFloat {
-  0% {
-    transform: translateY(0px);
+  0%,
+  100% {
+    transform: translateY(0);
   }
 
   50% {
     transform: translateY(-8px);
-    /* Moves up smoothly by 8px at midpoints */
-  }
-
-  100% {
-    transform: translateY(0px);
   }
 }
 
@@ -1130,41 +966,36 @@ section,
   transition: all 0.3s ease;
 }
 
+/* Desktop: the whole hero fits on one screen */
 @media (min-width: 992px) {
-
-  /* 1. Safely reduce default section paddings so it doesn't push into the footer */
   #hero {
-    padding: 20px 0 !important;
-    min-height: calc(100vh - 200px) !important;
+    padding: 20px 0;
+    min-height: calc(100vh - 200px);
   }
 
-  /* 2. Size the round photo by screen height so the hero fits on one screen */
+  /* Photo sized by the screen height */
   .hero .hero-image .image-wrapper img {
     width: min(340px, 48vh);
   }
 
-  /* Safety Net: If the screen is very short, slightly shrink the text and image spacing */
+  /* Short screens: smaller text and photo */
   @media (max-height: 700px) {
     #hero h1 {
-      font-size: 2.2rem !important;
+      font-size: 2.2rem;
     }
 
     #hero p {
-      font-size: 0.9rem !important;
-      margin-bottom: 15px !important;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
     }
 
     .hero .hero-image .image-wrapper img {
       width: min(260px, 40vh);
     }
   }
-
-
 }
 
-
-/* Hover colors */
-/* White version */
+/* Hover: the button turns white */
 .hero-btn:hover {
   background: #f8fafc !important;
   border-color: #f8fafc !important;
@@ -1172,7 +1003,7 @@ section,
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
 }
 
-/* --- ICON MICRO-ANIMATION --- */
+/* The icon grows slightly on hover */
 .hero-btn i {
   font-size: 0.9rem;
   transition: transform 0.2s ease;
@@ -1180,7 +1011,6 @@ section,
 
 .hero-btn:hover i {
   transform: scale(1.2);
-  /* The icon just grows slightly */
 }
 
 
@@ -1189,7 +1019,6 @@ section,
 --------------------------------------------------------------*/
 
 /* ── Profile card ──────────────────────────────────────────── */
-/* Profile Card - Futuristic Upgrade */
 .profile-card {
   position: relative;
   background: var(--glass-bg);
@@ -1197,8 +1026,7 @@ section,
   border: 1px solid var(--glass-border);
   border-radius: 24px;
   padding: 3rem 2rem;
-  overflow: visible;
-  /* Required for floating image effect */
+  overflow: visible; /* the photo sticks out above the card */
   transition: var(--transition-smooth);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
@@ -1225,7 +1053,7 @@ section,
   border-color: rgba(79, 70, 229, 0.4);
 }
 
-/* Profile Image - The "Aura" Effect */
+/* Round photo with a purple-to-blue ring and a soft glow */
 .profile-photo {
   position: relative;
   width: 180px;
@@ -1255,10 +1083,8 @@ section,
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid #0f172a;
-  /* Creates a separation ring */
 }
 
-/* Typography Enhancements */
 .profile-name {
   font-size: 1.5rem;
   font-weight: 700;
@@ -1298,12 +1124,12 @@ section,
   color: var(--text-primary);
 }
 
-.signature {
+.about-text .signature {
   margin-top: 3rem;
   padding-top: 2rem;
   border-top: 1px solid var(--glass-border);
-  font-family: 'Raleway', sans-serif;
-  color: var(--neon-blue) !important;
+  font-family: var(--heading-font);
+  color: var(--neon-blue);
   font-weight: 600;
 }
 
@@ -1330,7 +1156,7 @@ section.timeline::before {
   transform: translateX(-50%);
 }
 
-/* ─── Individual Article ────────────────────────────────────── */
+/* One timeline entry: text on one side, icon on the other */
 article.timeline-item {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1360,7 +1186,7 @@ article.timeline-item::before {
   z-index: 2;
 }
 
-/* ─── Content Box ───────────────────────────────────────────── */
+/* Text box */
 .timeline-content {
   background: linear-gradient(135deg, rgba(15, 35, 80, 0.85), rgba(10, 25, 60, 0.9));
   border: 1px solid rgba(37, 99, 235, 0.3);
@@ -1453,7 +1279,6 @@ article.timeline-item::before {
   height: 56%;
 }
 
-/* ─── Alternating Layout ────────────────────────────────────── */
 /* Odd items: content LEFT, icon RIGHT */
 article.timeline-item:nth-child(odd) .timeline-content {
   grid-column: 1;
@@ -1484,7 +1309,6 @@ article.timeline-item:nth-child(even) .timeline-icon {
   font-weight: 700;
   font-size: 1.5rem;
   color: #ffffff;
-  /* White text for dark theme */
   margin-bottom: 0.5rem;
 }
 
@@ -1495,8 +1319,7 @@ article.timeline-item:nth-child(even) .timeline-icon {
   justify-content: center;
   gap: 2rem;
   padding: 2rem 0;
-  max-width: 760px;
-  /* at most 5 icons per row: 9 icons -> balanced 5 + 4 */
+  max-width: 760px; /* at most 5 icons per row: 9 icons -> 5 + 4 */
   margin: 0 auto;
 }
 
@@ -1578,7 +1401,7 @@ article.timeline-item:nth-child(even) .timeline-icon {
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  border-radius: 25px !important;
+  border-radius: 25px;
   background: rgba(10, 20, 30, 0.95);
   backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -1625,12 +1448,7 @@ article.timeline-item:nth-child(even) .timeline-icon {
   position: absolute;
   inset: -2px;
   border-radius: 25px;
-
-  /* IMPROVEMENT: Uses the --card-color variable from your HTML */
-  background: radial-gradient(circle at center,
-      var(--card-color) 0%,
-      transparent 70%);
-
+  background: radial-gradient(circle at center, var(--card-color) 0%, transparent 70%);
   filter: blur(20px);
   opacity: 0.35;
   z-index: 0;
@@ -1643,9 +1461,9 @@ article.timeline-item:nth-child(even) .timeline-icon {
   z-index: 1;
 }
 
-/* Universal animation for all card colors */
 @keyframes dynamicPulse {
-  0% {
+  0%,
+  100% {
     opacity: 0.15;
     transform: scale(0.92);
   }
@@ -1654,14 +1472,9 @@ article.timeline-item:nth-child(even) .timeline-icon {
     opacity: 0.45;
     transform: scale(1.05);
   }
-
-  100% {
-    opacity: 0.15;
-    transform: scale(0.92);
-  }
 }
 
-/* --- Parallax Content --- */
+/* Logo and title float slightly above the card */
 .skill-main {
   transform: translateZ(50px);
   text-align: center;
@@ -1763,7 +1576,6 @@ article.timeline-item:nth-child(even) .timeline-icon {
   transition: all 0.3s ease;
 }
 
-/* Subtle hover effect on tags using card color */
 .skill-tags span:hover {
   border-color: var(--card-color);
   color: white;
@@ -1784,7 +1596,6 @@ article.timeline-item:nth-child(even) .timeline-icon {
   gap: 10px;
 }
 
-/* Fixed: The icons now use the specific card color */
 .skill-list li i {
   color: var(--card-color);
 }
@@ -1944,9 +1755,7 @@ article.timeline-item:nth-child(even) .timeline-icon {
 /* ── Soft skills list ──────────────────────────────────────── */
 .resume-item .list-group-item {
   padding: 15px 20px;
-  border-left: none;
-  border-right: none;
-  border-top: none;
+  border: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
   text-align: justify;
@@ -1959,27 +1768,23 @@ article.timeline-item:nth-child(even) .timeline-icon {
 
 .resume-item .list-group-item:last-child {
   border-bottom: none;
-  /* Removes the line from the last item */
 }
 
+/* min-width keeps the text lined up after icons of different widths */
 .resume-item .list-group-item i {
   font-size: 1.2rem;
-  /* Makes icons slightly larger */
   min-width: 30px;
-  /* Ensures icons are perfectly aligned vertically */
 }
 
 .resume-item .list-group-item strong {
   color: var(--accent-color);
-  /* Uses your blue/highlight color for the skill name */
   margin-right: 5px;
 }
 
-/* Hover effect to make the list interactive */
+/* Hover: light background and a small slide */
 .resume-item .list-group-item:hover {
   background-color: rgba(255, 255, 255, 0.05) !important;
   padding-left: 10px;
-  /* Slight slide effect on hover */
 }
 
 /* ── "View / Download CV" button ───────────────────────────── */
@@ -2024,7 +1829,6 @@ article.timeline-item:nth-child(even) .timeline-icon {
 .cv-btn i {
   font-size: 15px;
   color: var(--accent-color);
-  /* Uses your portfolio's cyan accent */
   transition: color 0.25s ease;
 }
 
@@ -2046,32 +1850,24 @@ article.timeline-item:nth-child(even) .timeline-icon {
   # 4.5 Portfolio (portfolio.html)
 --------------------------------------------------------------*/
 
-/* ── Grid ──────────────────────────────────────────────────── */
-/* --- Page wrapper: outer padding and default font --- */
+/* ── Grid: as many 300px+ columns as fit ───────────────────── */
 .projects {
   padding: 2rem 0.5rem 3rem;
-  font-family: sans-serif
+  font-family: sans-serif;
 }
 
-/* --- Responsive grid: auto-fits columns, min 300px each --- */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem
+  gap: 2rem;
 }
 
-/* --- Card wrapper: establishes the 3D perspective context.
-     perspective:1200px controls how "deep" the tilt feels —
-     lower value = more dramatic, higher = more subtle. --- */
+/* Lower perspective = stronger 3D tilt (main.js tilts the card) */
 .project {
-  perspective: 1200px
+  perspective: 1200px;
 }
 
 /* ── Project card ──────────────────────────────────────────── */
-/* ========================
-   CARD BASE + 3D SETUP
-   ======================== */
-/* (These used to come from Bootstrap's .card class) */
 .project-card {
   display: flex;
   flex-direction: column;
@@ -2082,19 +1878,10 @@ article.timeline-item:nth-child(even) .timeline-icon {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.07);
-
-  /* Allows children to participate in the 3D space */
   transform-style: preserve-3d;
-
-  /* Smooth return to flat after mouse leaves */
   transition: transform 0.07s linear, box-shadow 0.35s ease;
-
-  /* Subtle inner highlight + deep outer shadow */
   box-shadow: 0 2px 0 rgba(255, 255, 255, 0.04) inset, 0 16px 48px rgba(0, 0, 0, 0.6);
-
-  /* GPU hint: only transform and opacity will change */
   will-change: transform;
-
   overflow: hidden;
   position: relative;
 }
@@ -2102,8 +1889,9 @@ article.timeline-item:nth-child(even) .timeline-icon {
 
 /* ========================
    PROJECT COLORS
-   Each card (.project) and its preview window set two variables
-   in the HTML: --accent-rgb (e.g. 245,158,11) and --accent-light.
+   Each card (.project) sets two variables in the HTML:
+   --accent-rgb (e.g. 245,158,11) and --accent-light.
+   main.js copies them to the preview window.
    ======================== */
 .project-category,
 .portfolio .modal-title {
@@ -2136,17 +1924,17 @@ article.timeline-item:nth-child(even) .timeline-icon {
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
-  z-index: 0
+  z-index: 0;
 }
 
 .project-card:hover .glow-border {
-  opacity: 1
+  opacity: 1;
 }
 
 /* Content sits above the glow border overlay */
 .project-content {
   position: relative;
-  z-index: 1
+  z-index: 1;
 }
 
 
@@ -2164,20 +1952,18 @@ article.timeline-item:nth-child(even) .timeline-icon {
   background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.045) 50%, transparent 65%);
   pointer-events: none;
   z-index: 20;
-  transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1)
+  transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-card:hover .shimmer {
-  left: 160%
+  left: 160%;
 }
 
 
 /* ========================
    CARD IMAGE AREA
+   Fixed height; the image zooms inside it on hover.
    ======================== */
-
-/* Container with fixed height and overflow hidden for zoom effect;
-   the image is centered inside it */
 .project-img {
   position: relative;
   height: 200px;
@@ -2194,7 +1980,17 @@ article.timeline-item:nth-child(even) .timeline-icon {
   inset: 0;
   background: linear-gradient(to bottom, transparent 40%, rgba(10, 15, 26, 0.95) 100%);
   z-index: 2;
-  pointer-events: none
+  pointer-events: none;
+}
+
+/* Project image that opens the preview window: a <button> styled like the plain image */
+.preview-btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
 }
 
 /* Image: zooms in and darkens on card hover */
@@ -2209,7 +2005,7 @@ article.timeline-item:nth-child(even) .timeline-icon {
 
 .project-card:hover .project-img img {
   transform: scale(1.09);
-  filter: brightness(0.4) saturate(1.15)
+  filter: brightness(0.4) saturate(1.15);
 }
 
 /* Category badge overlaid on the image (top-left) */
@@ -2230,14 +2026,14 @@ article.timeline-item:nth-child(even) .timeline-icon {
   backdrop-filter: blur(8px);
   background: rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.8)
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* Colored dot inside the badge */
 .dot {
   width: 6px;
   height: 6px;
-  border-radius: 50%
+  border-radius: 50%;
 }
 
 
@@ -2274,7 +2070,7 @@ article.timeline-item:nth-child(even) .timeline-icon {
 .github-btn i {
   font-size: 18px;
   flex-shrink: 0;
-  transition: color 0.25s
+  transition: color 0.25s;
 }
 
 /* Hidden label — revealed by expanding max-width on hover */
@@ -2301,13 +2097,13 @@ article.timeline-item:nth-child(even) .timeline-icon {
 }
 
 .github-btn:hover i {
-  color: #0a0f1a
+  color: #0a0f1a;
 }
 
 .github-btn:hover .github-btn-text {
   max-width: 100px;
   opacity: 1;
-  margin-left: 7px
+  margin-left: 7px;
 }
 
 
@@ -2319,7 +2115,7 @@ article.timeline-item:nth-child(even) .timeline-icon {
   padding: 0 18px 14px;
   margin-top: -32px;
   position: relative;
-  z-index: 3
+  z-index: 3;
 }
 
 .project-category {
@@ -2328,7 +2124,7 @@ article.timeline-item:nth-child(even) .timeline-icon {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-family: monospace;
-  margin-bottom: 5px
+  margin-bottom: 5px;
 }
 
 .project-title {
@@ -2340,7 +2136,7 @@ article.timeline-item:nth-child(even) .timeline-icon {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px
+  gap: 8px;
 }
 
 
@@ -2362,7 +2158,7 @@ article.timeline-item:nth-child(even) .timeline-icon {
   transition: background 0.25s;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  position: relative
+  position: relative;
 }
 
 /* Horizontal bar of the + */
@@ -2373,34 +2169,34 @@ article.timeline-item:nth-child(even) .timeline-icon {
   border-radius: 2px;
   background: rgba(200, 210, 230, 0.7);
   position: absolute;
-  transition: transform 0.22s ease, background 0.2s
+  transition: transform 0.22s ease, background 0.2s;
 }
 
 .toggle-btn .bar-h {
-  transform: rotate(0)
+  transform: rotate(0);
 }
 
 /* Vertical bar: rotated 90° to form the + cross */
 .toggle-btn .bar-v {
-  transform: rotate(90deg)
+  transform: rotate(90deg);
 }
 
 /* When card is open: button turns red and bars form × */
 .project-card.open .toggle-btn {
   background: rgba(239, 68, 68, 0.15);
-  border-color: rgba(239, 68, 68, 0.3)
+  border-color: rgba(239, 68, 68, 0.3);
 }
 
 .project-card.open .toggle-btn span {
-  background: #f87171
+  background: #f87171;
 }
 
 .project-card.open .toggle-btn .bar-h {
-  transform: rotate(45deg)
+  transform: rotate(45deg);
 }
 
 .project-card.open .toggle-btn .bar-v {
-  transform: rotate(135deg)
+  transform: rotate(135deg);
 }
 
 
@@ -2412,14 +2208,14 @@ article.timeline-item:nth-child(even) .timeline-icon {
 .divider {
   height: 1px;
   background: rgba(255, 255, 255, 0.06);
-  margin: 0 18px
+  margin: 0 18px;
 }
 
 /* Outer: clips content and animates from 0 → max-height */
 .details {
   overflow: hidden;
   max-height: 0;
-  transition: max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1)
+  transition: max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Inner: fades in with a slight upward slide (staggered delay) */
@@ -2427,17 +2223,17 @@ article.timeline-item:nth-child(even) .timeline-icon {
   opacity: 0;
   transform: translateY(-8px);
   transition: opacity 0.25s 0.12s, transform 0.25s 0.12s;
-  padding: 16px 18px 0
+  padding: 16px 18px 0;
 }
 
 /* .open class triggers both layers */
 .project-card.open .details {
-  max-height: 260px
+  max-height: 260px;
 }
 
 .project-card.open .details-inner {
   opacity: 1;
-  transform: translateY(0)
+  transform: translateY(0);
 }
 
 
@@ -2448,7 +2244,7 @@ article.timeline-item:nth-child(even) .timeline-icon {
   font-size: 12.5px;
   line-height: 1.7;
   color: rgba(180, 195, 225, 0.55);
-  margin-bottom: 14px
+  margin-bottom: 14px;
 }
 
 /* Tag colors: --tag-rgb sets the background and border tint */
@@ -2481,17 +2277,23 @@ article.timeline-item:nth-child(even) .timeline-icon {
   display: flex;
   gap: 20px;
   padding: 10px 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05)
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .stat {
-  text-align: center
+  text-align: center;
 }
 
 .stat-value {
   font-size: 14px;
   font-weight: 600;
-  font-family: monospace
+  font-family: monospace;
+  color: #bae6fd;
+}
+
+/* The first number takes the card's color */
+.stat:first-child .stat-value {
+  color: var(--accent-light);
 }
 
 .stat-label {
@@ -2499,7 +2301,7 @@ article.timeline-item:nth-child(even) .timeline-icon {
   color: rgba(148, 163, 184, 0.4);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-top: 1px
+  margin-top: 1px;
 }
 
 
@@ -2512,12 +2314,12 @@ article.timeline-item:nth-child(even) .timeline-icon {
   align-items: center;
   justify-content: space-between;
   padding: 10px 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05)
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .project-meta {
   display: flex;
-  gap: 16px
+  gap: 16px;
 }
 
 .meta-item {
@@ -2525,11 +2327,11 @@ article.timeline-item:nth-child(even) .timeline-icon {
   align-items: center;
   gap: 4px;
   font-size: 11px;
-  color: rgba(148, 163, 184, 0.38)
+  color: rgba(148, 163, 184, 0.38);
 }
 
 .meta-item i {
-  font-size: 12px
+  font-size: 12px;
 }
 
 /* Icon colors: branch, language, notebook, Streamlit */
@@ -2555,7 +2357,6 @@ article.timeline-item:nth-child(even) .timeline-icon {
 --------------------------------------------------------------*/
 
 /* ── Background and title ──────────────────────────────────── */
-/* Mesh Gradient Background */
 .bg-glow {
   position: absolute;
   top: 0;
@@ -2580,7 +2381,6 @@ article.timeline-item:nth-child(even) .timeline-icon {
 }
 
 /* ── Info cards (location, email, hours, socials) ──────────── */
-/* Refined Cards */
 .glass-card {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -2656,7 +2456,6 @@ article.timeline-item:nth-child(even) .timeline-icon {
   padding: 6px 12px;
   letter-spacing: 0.5px;
   transition: all 0.5s ease;
-  /* Smooth transition when status changes */
   display: flex;
   align-items: center;
 }
@@ -2672,7 +2471,6 @@ article.timeline-item:nth-child(even) .timeline-icon {
   margin-top: 25px;
 }
 
-/* Round Icon Buttons - IMPROVED */
 .social-btn {
   width: 50px;
   height: 50px;
@@ -2714,7 +2512,6 @@ article.timeline-item:nth-child(even) .timeline-icon {
 }
 
 /* ── Contact form ──────────────────────────────────────────── */
-/* Custom Input Groups */
 .field {
   position: relative;
   width: 100%;
@@ -2800,6 +2597,17 @@ article.timeline-item:nth-child(even) .timeline-icon {
   transform: translateX(5px);
 }
 
+/* Contact form: error shown above the send button */
+.form-error {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: #fca5a5;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
 /* "Message sent" window */
 .success-modal {
   background: var(--surface-color);
@@ -2822,18 +2630,8 @@ article.timeline-item:nth-child(even) .timeline-icon {
 
 
 /*--------------------------------------------------------------
-  # 4.7 Accessibility helpers
+  # 4.7 Keyboard focus
 --------------------------------------------------------------*/
-
-/* Project image that opens the preview window: a <button> styled like the plain image */
-.preview-btn {
-  display: block;
-  width: 100%;
-  padding: 0;
-  border: 0;
-  background: none;
-  cursor: pointer;
-}
 
 /* Visible outline when moving with the keyboard (Tab) */
 .menu-btn:focus-visible,
@@ -2849,16 +2647,6 @@ article.timeline-item:nth-child(even) .timeline-icon {
   outline-offset: 3px;
 }
 
-/* Contact form: error shown above the send button */
-.form-error {
-  margin: 0;
-  padding: 10px 14px;
-  border-radius: 10px;
-  font-size: 0.9rem;
-  color: #fca5a5;
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.3);
-}
 
 /*==============================================================
   # 5. MOBILE
@@ -3094,11 +2882,11 @@ article.timeline-item:nth-child(even) .timeline-icon {
 }
 
 @media (max-width: 767.98px) {
-  .resume .resume-content {
-    padding-left: 1rem !important;
+  .resume .resume-item .resume-content {
+    padding-left: 1rem;
   }
 
-  .resume article::before {
-    left: -2rem !important;
+  .resume .resume-item article::before {
+    left: -2rem;
   }
 }

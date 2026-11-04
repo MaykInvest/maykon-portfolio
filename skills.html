@@ -25,7 +25,7 @@
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -40,19 +40,15 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <style>
-
-  </style>
 </head>
 
 <body>
 
-  <!-- ======= Header / Navigation Bar ======= -->
+  <!-- Header -->
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <!-- icon Navigation Bar -->
-      <a href="index.html" class="d-flex align-items-center">
+      <a href="index.html" class="d-flex align-items-center" aria-label="Home">
         <div class="cube-scene">
           <div class="cube">
             <div class="cube-core"></div>
@@ -66,7 +62,6 @@
           </div>
         </div>
       </a>
-      <!-- End icon Navigation Bar -->
 
       <nav id="navmenu" class="navmenu">
         <ul>
@@ -82,7 +77,6 @@
 
       <div class="header-spacer d-none d-xl-block"></div>
       <!-- Keeps the menu centered on desktop; hidden on mobile so the menu button sits at the right edge -->
-
     </div>
   </header>
 
@@ -94,11 +88,9 @@
         <h1>Skills</h1>
         <p>A comprehensive look at my technical toolkit and areas of expertise</p>
       </div>
-      <!-- End Section Title -->
 
       <!-- Detailed Skills (3D Cards) -->
       <div class="container my-5">
-        <!-- Use one main row with gutters (g-4) -->
         <div class="row g-4 justify-content-center">
 
           <!-- Python Card -->
@@ -201,7 +193,6 @@
                 <!-- CARD FRONT -->
                 <div class="skill-front">
                   <div class="skill-main">
-                    <!-- Official PostgreSQL Elephant Logo -->
                     <img src="assets/img/logos/postgresql.svg" width="96" height="96"
                       alt="PostgreSQL" class="skill-logo">
                     <h2>PostgreSQL</h2>
@@ -494,15 +485,14 @@
 
         </div>
 
-      </div> <!-- End of Container -->
-      <!-- End 3D cards  -->
+      </div>
 
       <!-- CTA Section -->
       <div class="row mt-5">
         <div class="col-12 d-flex gap-3 flex-wrap justify-content-center" data-aos="fade-up">
           <a href="resume.html" class="btn-next">
             Resume
-            <i class="bi bi-file-earmark-person"></i> <!-- Data Science / Tech Icon -->
+            <i class="bi bi-file-earmark-person"></i>
           </a>
         </div>
       </div>
@@ -510,18 +500,17 @@
     </section>
   </main>
 
-  <!-- Ultra‑compact footer -->
+  <!-- Footer -->
   <footer id="footer" class="site-footer">
     <div class="container">
       <div class="d-flex flex-column align-items-center py-3">
 
-        <!-- Compact Roles -->
         <p class="footer-roles mb-2">
           Data Scientist <span class="dot">•</span> Data Analyst <span class="dot">•</span> Power BI <span
             class="dot">•</span> SQL
         </p>
 
-        <!-- Vibrant Social Links (Compact) -->
+        <!-- Social links -->
         <div class="d-flex gap-2 mb-3">
           <a href="https://www.linkedin.com/in/maykon-oliveira-maykinvest/" target="_blank" rel="noopener"
             class="footer-icon linkedin" title="LinkedIn" aria-label="LinkedIn">
@@ -535,7 +524,6 @@
           </a>
         </div>
 
-        <!-- Single-Line Legal & Credits -->
         <div class="footer-legal">
           <span>© 2026 Maykon Jonattan</span>
           <span class="dot">•</span>
@@ -545,11 +533,9 @@
       </div>
     </div>
   </footer>
-  <!-- End of the compact footer -->
 
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"
     aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
-  <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
