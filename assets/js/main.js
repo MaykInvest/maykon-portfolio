@@ -61,6 +61,24 @@
   }
 
   /**
+   * "Next page" buttons: on hover the colored layer drifts away from the mouse.
+   * The position is measured from the button itself (not event.offsetX,
+   * which jumps when the mouse is over the text or the icon).
+   */
+  document.querySelectorAll('.btn-next').forEach(button => {
+    button.addEventListener('mousemove', (event) => {
+      const box = button.getBoundingClientRect();
+      button.style.setProperty('--x-motion', `${event.clientX - box.left - box.width / 2}px`);
+      button.style.setProperty('--y-motion', `${event.clientY - box.top - box.height / 2}px`);
+    });
+
+    button.addEventListener('mouseleave', () => {
+      button.style.removeProperty('--x-motion');
+      button.style.removeProperty('--y-motion');
+    });
+  });
+
+  /**
    * 3D cube logo (header, every page): turns to follow the mouse
    */
   const cubeScene = document.querySelector('.cube-scene');

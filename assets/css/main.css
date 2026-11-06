@@ -91,14 +91,11 @@
 
   /* Glass effect */
   --glass-bg: rgba(15, 23, 42, 0.6);
-  --glass-hover: rgba(255, 255, 255, 0.08);
   --glass-border: rgba(255, 255, 255, 0.1);
   --glass-border-hover: rgba(255, 255, 255, 0.25);
-  --shimmer-color: rgba(255, 255, 255, 0.4);
 
   /* Motion */
   --transition-smooth: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  --transition-fast: 0.15s ease;
 
   /* 3D cube logo */
   --cube-size: 52px;
@@ -507,112 +504,137 @@ section,
 
 /*--------------------------------------------------------------
   # 3.4 "Next page" button (.btn-next)
-  Glass button at the bottom of a page that leads to the next one.
+  Glassy button at the bottom of a page that leads to the next one.
+  Inspired by "Glass Buttons" by Patrick Hill (Dribbble).
+
+  Two layers:
+  - ::after = the colored surface (--btn-surface)
+  - <span>  = the label; on hover it lifts and turns into frosted glass,
+              while the colored surface shrinks and drifts away from
+              the mouse (main.js sets --x-motion / --y-motion).
 --------------------------------------------------------------*/
 .btn-next {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
+  --btn-surface: hsl(197, 88%, 58%);
+  --btn-text: hsl(200, 60%, 12%);
+  --x-motion: 0px;
+  --y-motion: 0px;
 
-  padding: 0.9rem 2.4rem;
-  cursor: pointer;
-  text-decoration: none;
   position: relative;
-  overflow: hidden;
-
-  font-family: system-ui, sans-serif;
+  isolation: isolate; /* keeps the colored layer (z-index: -1) inside the button */
+  display: inline-block;
+  border-radius: 14px;
+  font-family: var(--nav-font);
+  font-size: 0.95rem;
   font-weight: 500;
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #fff;
-
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  border-radius: 10px;
-  border: 1px solid var(--glass-border);
-
-  box-shadow:
-    0 4px 12px -6px rgba(0, 0, 0, 0.4),
-    inset 0 1px 1px rgba(255, 255, 255, 0.03);
-
-  transition:
-    transform var(--transition-smooth),
-    background-color var(--transition-smooth),
-    border-color var(--transition-smooth),
-    box-shadow var(--transition-smooth);
-
-  will-change: transform;
+  color: var(--btn-text);
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* Shimmer layer */
-.btn-next::before {
-  content: '';
+.btn-next:hover,
+.btn-next:focus {
+  color: var(--btn-text);
+}
+
+/* Second color (e.g. the 404 page's second button) */
+.btn-next.btn-next-amber {
+  --btn-surface: hsl(41, 96%, 56%);
+  --btn-text: hsl(30, 60%, 12%);
+}
+
+/* The label */
+.btn-next span {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: inherit;
+  background-color: hsl(0 0% 100% / 0);
+  -webkit-backdrop-filter: blur(0);
+  backdrop-filter: blur(0);
+  transition: background-color 200ms, backdrop-filter 200ms, -webkit-backdrop-filter 200ms, translate 200ms;
+}
+
+/* Grain texture, shown on the frosted glass */
+.btn-next span::before {
+  content: "";
   position: absolute;
   inset: 0;
-  transform: translateX(-100%);
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(255, 255, 255, 0.05),
-      var(--shimmer-color),
-      rgba(255, 255, 255, 0.05),
-      transparent);
-  transition: transform 0.6s ease;
-  pointer-events: none;
+  z-index: -1;
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 171 171' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3.74' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0;
+  transition: opacity 200ms;
 }
 
-/* Hover */
-.btn-next:hover {
-  transform: translateY(-4px) scale(1.02);
-  background: var(--glass-hover);
-  border-color: var(--glass-border-hover);
-
-  box-shadow:
-    0 20px 40px -15px rgba(0, 0, 0, 0.6),
-    inset 0 1px 2px rgba(255, 255, 255, 0.1);
+/* The colored surface */
+.btn-next::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background-color: var(--btn-surface);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--btn-surface), transparent 65%);
+  transition: scale 200ms, translate 200ms, transform 200ms, box-shadow 200ms;
 }
 
-.btn-next:hover::before {
-  transform: translateX(100%);
+.btn-next i {
+  font-size: 1.05em;
+  transition: transform 200ms;
 }
 
-/* Active */
-.btn-next:active {
-  transform: translateY(-1px) scale(0.98);
-  transition: transform var(--transition-fast);
+/* Hover and keyboard focus (only on devices with a real mouse, so it doesn't stick on phones) */
+@media (hover: hover) {
+  .btn-next:hover span {
+    outline: 1px solid hsl(0 0% 100% / 0.7);
+    background-color: hsl(0 0% 100% / 0.4);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    translate: 0 -0.5rem;
+  }
+
+  .btn-next:hover span::before {
+    opacity: 0.3;
+  }
+
+  .btn-next:hover::after {
+    scale: 0.95;
+    translate: 0 0.125rem;
+    transform: translate(calc(var(--x-motion) * -0.1), calc(var(--y-motion) * -0.1));
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--btn-surface), transparent 75%);
+  }
+
+  .btn-next:hover i {
+    transform: translateX(3px);
+  }
 }
 
-/* Focus */
 .btn-next:focus-visible {
   outline: 2px solid #fff;
   outline-offset: 4px;
 }
 
-/* Icons */
-.btn-next i {
-  font-size: 1.1em;
-  opacity: 0.6;
-  transition:
-    transform var(--transition-smooth),
-    opacity var(--transition-smooth);
+/* Pressed */
+.btn-next:active span {
+  background-color: hsl(0 0% 100% / 0.15);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  translate: 0 -0.25rem;
 }
 
-.btn-next:hover i {
-  opacity: 1;
-  transform: translateX(3px) rotate(-12deg);
+.btn-next:active::after {
+  scale: 0.875;
+  translate: 0 0.25rem;
 }
 
-/* Accessibility: Reduced Motion */
+/* No lifting or drifting for people who turn animations off */
 @media (prefers-reduced-motion: reduce) {
-
-  .btn-next,
-  .btn-next::before,
+  .btn-next span,
+  .btn-next::after,
   .btn-next i {
-    transition: none !important;
+    translate: none !important;
     transform: none !important;
+    transition: none;
   }
 }
 
