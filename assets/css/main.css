@@ -1135,35 +1135,45 @@ section,
 }
 
 /* ── Timeline (2023 → today) ───────────────────────────────── */
+/* main.js sets --progress (0 to 1) while you scroll and adds
+   .is-reached to each year once the bright line gets to it. */
 section.timeline {
+  --progress: 0;
   display: grid;
   position: relative;
 }
 
-/* Central vertical line */
-section.timeline::before {
+/* Dim track in the middle */
+section.timeline::before,
+section.timeline::after {
   content: "";
   position: absolute;
   left: 50%;
   top: 0;
-  bottom: 0;
   width: 2px;
-  background: linear-gradient(to bottom,
-      transparent,
-      #1a4fa0 8%,
-      #2563eb 50%,
-      #1a4fa0 92%,
-      transparent);
+  border-radius: 2px;
   transform: translateX(-50%);
+}
+
+section.timeline::before {
+  bottom: 0;
+  background: rgba(37, 99, 235, 0.18);
+}
+
+/* Bright line that fills the track as you scroll */
+section.timeline::after {
+  height: calc(var(--progress) * 100%);
+  background: linear-gradient(to bottom, #2563eb, #22d3ee);
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.6);
 }
 
 /* One timeline entry: text on one side, icon on the other */
 article.timeline-item {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0 3rem;
+  gap: 0 3.5rem;
   position: relative;
-  padding-bottom: 3.5rem;
+  padding-bottom: 4rem;
   align-items: center;
 }
 
@@ -1171,43 +1181,85 @@ article.timeline-item:last-child {
   padding-bottom: 0;
 }
 
-/* Dot on the central line */
+/* Dot on the line: dim until the bright line reaches it */
 article.timeline-item::before {
   content: "";
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
-  width: 14px;
-  height: 14px;
+  transform: translate(-50%, -50%) scale(0.8);
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background: #2563eb;
-  border: 3px solid #93c5fd;
-  box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.2), 0 0 16px rgba(37, 99, 235, 0.5);
+  background: #0b1220;
+  border: 2px solid rgba(37, 99, 235, 0.5);
   z-index: 2;
+  transition: transform 0.4s, background 0.4s, border-color 0.4s, box-shadow 0.4s;
 }
 
-/* Text box */
+article.timeline-item.is-reached::before {
+  transform: translate(-50%, -50%) scale(1);
+  background: #22d3ee;
+  border-color: #cffafe;
+  box-shadow: 0 0 0 6px rgba(34, 211, 238, 0.15), 0 0 18px rgba(34, 211, 238, 0.7);
+}
+
+/* Current year: a ring keeps pulsing around the dot */
+article.timeline-item.is-current.is-reached::before {
+  animation: nowPulse 2s ease-out infinite;
+}
+
+@keyframes nowPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.5), 0 0 18px rgba(34, 211, 238, 0.7);
+  }
+
+  100% {
+    box-shadow: 0 0 0 16px rgba(34, 211, 238, 0), 0 0 18px rgba(34, 211, 238, 0.7);
+  }
+}
+
+/* Text box: rounded glass card that lifts on hover */
 .timeline-content {
-  background: linear-gradient(135deg, rgba(15, 35, 80, 0.85), rgba(10, 25, 60, 0.9));
-  border: 1px solid rgba(37, 99, 235, 0.3);
-  border-radius: 1rem;
-  padding: 1.5rem 1.75rem;
-  backdrop-filter: blur(8px);
-  box-shadow:
-    0 4px 24px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  transition: border-color 0.3s, box-shadow 0.3s;
+  position: relative;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(10, 25, 60, 0.6));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 1.75rem 2rem;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: translate 0.35s, border-color 0.35s, box-shadow 0.35s;
 }
 
+/* "translate" (not "transform"), so it doesn't fight the slide-in animation */
 .timeline-content:hover {
-  border-color: rgba(37, 99, 235, 0.7);
-  box-shadow:
-    0 8px 32px rgba(37, 99, 235, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  translate: 0 -6px;
+  border-color: rgba(34, 211, 238, 0.4);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), 0 0 30px rgba(34, 211, 238, 0.12);
+}
+
+/* Once its year is reached, the card's top edge lights up */
+.timeline-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  right: 2rem;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, #22d3ee, transparent);
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+
+.is-reached .timeline-content::before {
+  opacity: 1;
 }
 
 .timeline-content .timeline-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.15em;
@@ -1216,28 +1268,44 @@ article.timeline-item::before {
   margin-bottom: 0.4rem;
 }
 
+/* "Now" pill on the current year */
+.now-badge {
+  padding: 2px 10px;
+  border-radius: 50px;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: #22d3ee;
+  background: rgba(34, 211, 238, 0.12);
+  border: 1px solid rgba(34, 211, 238, 0.4);
+}
+
 .timeline-content h2 {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #e8f0ff;
   line-height: 1.3;
   margin-bottom: 0.75rem;
 }
 
+/* Big year in blue-to-cyan gradient text */
 .timeline-content time {
   display: block;
   font-family: monospace;
   font-weight: 700;
-  font-size: 2.2rem;
-  color: #2563eb;
+  font-size: 2.6rem;
   line-height: 1;
   margin-bottom: 0.75rem;
+  background: linear-gradient(90deg, #3b82f6, #22d3ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .timeline-content hr {
   border: none;
-  border-top: 1px solid rgba(37, 99, 235, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   margin-bottom: 0.75rem;
+  opacity: 1;
 }
 
 .timeline-content p {
@@ -1246,7 +1314,11 @@ article.timeline-item::before {
   color: #9db4d8;
 }
 
-/* Timeline icon box */
+.timeline-content .tag {
+  border-radius: 50px;
+}
+
+/* Icon: round glass tile that gently floats */
 .timeline-icon {
   display: flex;
   align-items: center;
@@ -1254,30 +1326,47 @@ article.timeline-item::before {
 }
 
 .timeline-icon-box {
-  width: min(100%, 11rem);
+  width: min(100%, 10rem);
   aspect-ratio: 1;
-  border-radius: 1.25rem;
-  background: linear-gradient(135deg, #0f2350, #0a1940);
-  border: 1px solid rgba(37, 99, 235, 0.35);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, rgba(59, 130, 246, 0.25), rgba(10, 25, 64, 0.9) 70%);
+  border: 1px solid rgba(59, 130, 246, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow:
-    0 4px 24px rgba(0, 0, 0, 0.4),
-    0 0 40px rgba(37, 99, 235, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 0 10px rgba(37, 99, 235, 0.05), 0 12px 30px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.4s, border-color 0.4s;
 }
 
-.timeline-icon-box:hover {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow:
-    0 12px 36px rgba(37, 99, 235, 0.25),
-    0 0 60px rgba(37, 99, 235, 0.15);
+.is-reached .timeline-icon-box {
+  border-color: rgba(34, 211, 238, 0.45);
+  box-shadow: 0 0 0 10px rgba(34, 211, 238, 0.06), 0 0 40px rgba(34, 211, 238, 0.18), 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .timeline-icon-box {
+    animation: iconFloat 5s ease-in-out infinite;
+  }
+
+  article.timeline-item:nth-child(even) .timeline-icon-box {
+    animation-delay: -2.5s;
+  }
+}
+
+@keyframes iconFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .timeline-icon-box svg {
-  width: 56%;
-  height: 56%;
+  width: 52%;
+  height: 52%;
 }
 
 /* Odd items: content LEFT, icon RIGHT */
@@ -2887,7 +2976,8 @@ a.contact-value:hover {
 --------------------------------------------------------------*/
 
 @media (max-width: 640px) {
-  section.timeline::before {
+  section.timeline::before,
+  section.timeline::after {
     left: 1.5rem;
   }
 
@@ -2897,10 +2987,19 @@ a.contact-value:hover {
     gap: 1rem;
   }
 
+  /* Dot lined up with the middle of the 5rem icon */
   article.timeline-item::before {
     left: 1.5rem;
-    top: 1.5rem;
-    transform: translateX(-50%);
+    top: calc(2.5rem - 8px);
+    transform: translateX(-50%) scale(0.8);
+  }
+
+  article.timeline-item.is-reached::before {
+    transform: translateX(-50%) scale(1);
+  }
+
+  .timeline-content {
+    padding: 1.5rem 1.25rem;
   }
 
   article.timeline-item:nth-child(odd) .timeline-content,
@@ -2918,8 +3017,8 @@ a.contact-value:hover {
 
   .timeline-icon-box {
     width: 5rem;
-    aspect-ratio: 1;
-    border-radius: 0.75rem;
+    box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.05);
+    animation: none;
   }
 }
 

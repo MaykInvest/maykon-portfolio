@@ -83,6 +83,45 @@
   }
 
   /**
+   * About page: timeline.
+   * The bright line fills up while you scroll (--progress, 0 to 1),
+   * and each year gets .is-reached once the line gets to its dot.
+   */
+  const timeline = document.querySelector('section.timeline');
+
+  if (timeline) {
+    const items = timeline.querySelectorAll('.timeline-item');
+    const phone = window.matchMedia('(max-width: 640px)');
+    let ticking = false;
+
+    function updateTimeline() {
+      ticking = false;
+      const lineEnd = window.innerHeight * 0.6; // the line reaches 60% down the screen
+      const box = timeline.getBoundingClientRect();
+      const progress = Math.min(Math.max((lineEnd - box.top) / box.height, 0), 1);
+      timeline.style.setProperty('--progress', progress.toFixed(3));
+
+      items.forEach(item => {
+        const r = item.getBoundingClientRect();
+        // Where the dot is: middle of the item on desktop, next to the icon on phones
+        const dotY = phone.matches ? r.top + 40 : r.top + r.height / 2;
+        item.classList.toggle('is-reached', dotY <= lineEnd);
+      });
+    }
+
+    function requestUpdate() {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(updateTimeline);
+      }
+    }
+
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+    updateTimeline();
+  }
+
+  /**
    * Skills page: flip cards
    * Click (or tap, or Enter/Space on the keyboard) turns the card:
    * front = icon, back = details.
