@@ -508,10 +508,10 @@ section,
   Inspired by "Glass Buttons" by Patrick Hill (Dribbble).
 
   Two layers:
-  - ::after = the colored surface (--btn-surface)
-  - <span>  = the label; on hover it lifts and turns into frosted glass,
-              while the colored surface shrinks and drifts away from
-              the mouse (main.js sets --x-motion / --y-motion).
+  - ::after = white, almost transparent frosted glass
+  - <span>  = the label; on hover it pops up in solid color
+              (--btn-surface), while the glass shrinks and drifts away
+              from the mouse (main.js sets --x-motion / --y-motion).
 --------------------------------------------------------------*/
 .btn-next {
   --btn-surface: hsl(197, 88%, 58%);
@@ -541,20 +541,19 @@ section,
   --btn-text: hsl(30, 60%, 12%);
 }
 
-/* The label */
+/* The label: see-through at rest; on hover it pops up in solid color */
 .btn-next span {
   display: flex;
   align-items: center;
   gap: 0.6rem;
   padding: 0.85rem 1.75rem;
   border-radius: inherit;
-  background-color: hsl(0 0% 100% / 0);
-  -webkit-backdrop-filter: blur(0);
-  backdrop-filter: blur(0);
-  transition: background-color 200ms, backdrop-filter 200ms, -webkit-backdrop-filter 200ms, translate 200ms;
+  color: #fff;
+  background-color: transparent;
+  transition: background-color 200ms, color 200ms, box-shadow 200ms, translate 200ms;
 }
 
-/* Grain texture, shown on the frosted glass */
+/* Grain texture on the white glass */
 .btn-next span::before {
   content: "";
   position: absolute;
@@ -562,20 +561,22 @@ section,
   z-index: -1;
   border-radius: inherit;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 171 171' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3.74' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  opacity: 0;
+  opacity: 0.15;
   transition: opacity 200ms;
 }
 
-/* The colored surface */
+/* The bottom layer: white, almost transparent frosted glass */
 .btn-next::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   border-radius: inherit;
-  background-color: var(--btn-surface);
-  box-shadow: 0 8px 24px color-mix(in srgb, var(--btn-surface), transparent 65%);
-  transition: scale 200ms, translate 200ms, transform 200ms, box-shadow 200ms;
+  background-color: hsl(0 0% 100% / 0.12);
+  outline: 1px solid hsl(0 0% 100% / 0.45);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  transition: scale 200ms, translate 200ms, transform 200ms;
 }
 
 .btn-next i {
@@ -583,25 +584,25 @@ section,
   transition: transform 200ms;
 }
 
-/* Hover and keyboard focus (only on devices with a real mouse, so it doesn't stick on phones) */
+/* Hover: the label pops up in solid color, the glass stays behind and
+   drifts away from the mouse (main.js sets --x-motion / --y-motion).
+   Only on devices with a real mouse, so it doesn't stick on phones. */
 @media (hover: hover) {
   .btn-next:hover span {
-    outline: 1px solid hsl(0 0% 100% / 0.7);
-    background-color: hsl(0 0% 100% / 0.4);
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
+    color: var(--btn-text);
+    background-color: var(--btn-surface);
+    box-shadow: 0 10px 24px color-mix(in srgb, var(--btn-surface), transparent 60%);
     translate: 0 -0.5rem;
   }
 
   .btn-next:hover span::before {
-    opacity: 0.3;
+    opacity: 0;
   }
 
   .btn-next:hover::after {
     scale: 0.95;
     translate: 0 0.125rem;
     transform: translate(calc(var(--x-motion) * -0.1), calc(var(--y-motion) * -0.1));
-    box-shadow: 0 4px 12px color-mix(in srgb, var(--btn-surface), transparent 75%);
   }
 
   .btn-next:hover i {
@@ -614,11 +615,10 @@ section,
   outline-offset: 4px;
 }
 
-/* Pressed */
+/* Pressed: solid color, pushed halfway down */
 .btn-next:active span {
-  background-color: hsl(0 0% 100% / 0.15);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  color: var(--btn-text);
+  background-color: var(--btn-surface);
   translate: 0 -0.25rem;
 }
 

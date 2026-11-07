@@ -61,7 +61,7 @@
   }
 
   /**
-   * "Next page" buttons: on hover the colored layer drifts away from the mouse.
+   * "Next page" buttons: on hover the glass layer drifts away from the mouse.
    * The position is measured from the button itself (not event.offsetX,
    * which jumps when the mouse is over the text or the icon).
    */
