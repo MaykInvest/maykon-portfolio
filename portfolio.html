@@ -82,17 +82,40 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h1>Portfolio</h1>
-        <p>Here you can explore some of the projects I have worked on and the skills I have developed.</p>
+        <p>Real projects with real data: machine learning, data analysis, dashboards and web.
+          Pick an area below, or open a card to see the details.</p>
       </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <!-- Project GitHub Card -->
         <div class="projects">
+
+          <!-- Category filters (main.js shows only the projects of the chosen category) -->
+          <div class="project-filters" role="group" aria-label="Filter projects by category">
+            <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">
+              <i class="bi bi-grid-3x3-gap"></i> All <span class="filter-count">11</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="ml" aria-pressed="false">
+              <i class="bi bi-cpu"></i> Machine Learning <span class="filter-count">5</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="ai" aria-pressed="false">
+              <i class="bi bi-stars"></i> AI &amp; NLP <span class="filter-count">2</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="analysis" aria-pressed="false">
+              <i class="bi bi-bar-chart-line"></i> Data Analysis <span class="filter-count">2</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="bi" aria-pressed="false">
+              <i class="bi bi-pie-chart"></i> Power BI <span class="filter-count">1</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="web" aria-pressed="false">
+              <i class="bi bi-globe2"></i> Web <span class="filter-count">1</span>
+            </button>
+          </div>
+
           <div class="project-grid">
 
             <!-- ── Energy consumption forecasting ── -->
-            <div class="project" style="--accent-rgb: 245,158,11; --accent-light: #fbbf24">
+            <div class="project" data-category="ml" style="--accent-rgb: 245,158,11; --accent-light: #fbbf24">
               <div class="project-card">
 
                 <div class="shimmer"></div>
@@ -164,7 +187,7 @@
             </div>
 
             <!-- ── Titanic Survival Prediction ── -->
-            <div class="project" style="--accent-rgb: 56,189,248; --accent-light: #7dd3fc">
+            <div class="project" data-category="ml" style="--accent-rgb: 56,189,248; --accent-light: #7dd3fc">
               <div class="project-card">
 
                 <div class="shimmer"></div>
@@ -241,7 +264,7 @@
             </div>
 
             <!-- ── House Prices Prediction ── -->
-            <div class="project" style="--accent-rgb: 255,193,7; --accent-light: #ffc107">
+            <div class="project" data-category="ml" style="--accent-rgb: 255,193,7; --accent-light: #ffc107">
               <div class="project-card">
 
                 <div class="shimmer"></div>
@@ -316,7 +339,7 @@
             </div>
 
             <!-- ── Car Market Segmentation ── -->
-            <div class="project" style="--accent-rgb: 236,72,153; --accent-light: #f472b6">
+            <div class="project" data-category="ml" style="--accent-rgb: 236,72,153; --accent-light: #f472b6">
               <div class="project-card">
 
                 <div class="shimmer"></div>
@@ -389,7 +412,7 @@
             </div>
 
             <!-- ── Python Programming Assistant ── -->
-            <div class="project" style="--accent-rgb: 168,85,247; --accent-light: #c084fc">
+            <div class="project" data-category="ai" style="--accent-rgb: 168,85,247; --accent-light: #c084fc">
               <div class="project-card">
 
                 <div class="shimmer"></div>
@@ -460,7 +483,7 @@
             </div>
 
             <!-- ── Sentiment Analysis Model ── -->
-            <div class="project" style="--accent-rgb: 20,184,166; --accent-light: #2dd4bf">
+            <div class="project" data-category="ai" style="--accent-rgb: 20,184,166; --accent-light: #2dd4bf">
               <div class="project-card">
 
                 <div class="shimmer"></div>
@@ -532,7 +555,7 @@
             </div>
 
             <!-- ── Traffic Accident Analysis  ── -->
-            <div class="project" style="--accent-rgb: 249,115,22; --accent-light: #fb923c">
+            <div class="project" data-category="analysis" style="--accent-rgb: 249,115,22; --accent-light: #fb923c">
               <div class="project-card">
 
                 <div class="shimmer"></div>
@@ -617,7 +640,7 @@
             </div>
 
             <!-- ── AI Dependency in Students ── -->
-            <div class="project" style="--accent-rgb: 99,102,241; --accent-light: #a5b4fc">
+            <div class="project" data-category="ml" style="--accent-rgb: 99,102,241; --accent-light: #a5b4fc">
               <div class="project-card">
 
                 <div class="shimmer"></div>
@@ -690,7 +713,7 @@
             </div>
 
             <!-- ── TechStore Sales Dashboard ── -->
-            <div class="project" style="--accent-rgb: 16,185,129; --accent-light: #34d399">
+            <div class="project" data-category="bi" style="--accent-rgb: 16,185,129; --accent-light: #34d399">
               <div class="project-card">
 
                 <div class="shimmer"></div>
@@ -761,7 +784,7 @@
             </div>
 
             <!-- ── Amazon Best Sellers 2024 ── -->
-            <div class="project" style="--accent-rgb: 244,63,94; --accent-light: #fb7185">
+            <div class="project" data-category="analysis" style="--accent-rgb: 244,63,94; --accent-light: #fb7185">
               <div class="project-card">
 
                 <div class="shimmer"></div>
@@ -834,7 +857,7 @@
             </div>
 
             <!-- ── Virtual Library (Senac) ── -->
-            <div class="project" style="--accent-rgb: 132,204,22; --accent-light: #a3e635">
+            <div class="project" data-category="web" style="--accent-rgb: 132,204,22; --accent-light: #a3e635">
               <div class="project-card">
 
                 <div class="shimmer"></div>

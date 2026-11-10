@@ -238,15 +238,15 @@
       }
     });
 
-    // 3D tilt: dx/dy go from -1 to 1 (center of the card = 0), max ±11deg.
-    // The shadow moves the opposite way to give depth.
+    // 3D tilt: dx/dy go from -1 to 1 (center of the card = 0), max ±7deg.
+    // The shadow moves the opposite way to give depth, plus a glow in the project's color.
     wrap.addEventListener('mousemove', (e) => {
       const r = card.getBoundingClientRect();
       const dx = (e.clientX - r.left - r.width / 2) / (r.width / 2);
       const dy = (e.clientY - r.top - r.height / 2) / (r.height / 2);
 
-      card.style.transform = `rotateX(${-dy * 11}deg) rotateY(${dx * 11}deg) translateZ(10px)`;
-      card.style.boxShadow = `${-dx * 20}px ${-dy * 20}px 60px rgba(0,0,0,0.65), inset 0 2px 0 rgba(255,255,255,0.05)`;
+      card.style.transform = `rotateX(${-dy * 7}deg) rotateY(${dx * 7}deg) translateZ(10px)`;
+      card.style.boxShadow = `${-dx * 20}px ${-dy * 20}px 60px rgba(0,0,0,0.6), 0 0 40px rgba(var(--accent-rgb),0.18), inset 0 2px 0 rgba(255,255,255,0.05)`;
     });
 
     wrap.addEventListener('mouseleave', () => {
@@ -260,6 +260,42 @@
     });
     wrap.addEventListener('mouseup', () => {
       card.style.transform = 'rotateX(0) rotateY(0) translateZ(10px)';
+    });
+  });
+
+  /**
+   * Portfolio page: category filters.
+   * Shows only the projects whose data-category matches the chosen pill;
+   * the cards that stay pop in one after another.
+   */
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projects = document.querySelectorAll('.project[data-category]');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+
+      filterBtns.forEach(b => {
+        b.classList.toggle('active', b === btn);
+        b.setAttribute('aria-pressed', b === btn);
+      });
+
+      let shown = 0;
+      projects.forEach(project => {
+        const match = filter === 'all' || project.dataset.category === filter;
+        project.hidden = !match;
+
+        // Close the details of a card that gets hidden
+        const card = project.querySelector('.project-card');
+        if (!match && card.classList.contains('open')) card.querySelector('.toggle-btn').click();
+
+        project.classList.remove('is-entering');
+        if (match) {
+          void project.offsetWidth; // restart the animation
+          project.style.setProperty('--i', shown++);
+          project.classList.add('is-entering');
+        }
+      });
     });
   });
 

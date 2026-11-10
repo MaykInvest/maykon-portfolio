@@ -42,6 +42,7 @@
      5.4  About
      5.5  Resume
      5.6  Contact
+     5.7  Portfolio
 ==============================================================*/
 
 
@@ -1971,6 +1972,82 @@ article.timeline-item:nth-child(even) .timeline-icon {
   # 4.5 Portfolio (portfolio.html)
 --------------------------------------------------------------*/
 
+/* ── Category filters ──────────────────────────────────────── */
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 2.5rem;
+}
+
+.filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  color: var(--text-secondary);
+  font-family: var(--nav-font);
+  font-size: 0.85rem;
+  transition: color 0.25s, border-color 0.25s, background 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+
+.filter-btn:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* The chosen category */
+.filter-btn.active {
+  color: #fff;
+  background: linear-gradient(135deg, #4f46e5, var(--accent-color));
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.35);
+}
+
+/* How many projects are in each category */
+.filter-count {
+  min-width: 22px;
+  padding: 1px 7px;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.filter-btn.active .filter-count {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Cards that come back after a filter pop in one after another (--i is set by main.js) */
+.project.is-entering {
+  animation: projectIn 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 60ms);
+}
+
+@keyframes projectIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project.is-entering {
+    animation: none;
+  }
+}
+
 /* ── Grid: as many 300px+ columns as fit ───────────────────── */
 .projects {
   padding: 2rem 0.5rem 3rem;
@@ -1979,7 +2056,7 @@ article.timeline-item:nth-child(even) .timeline-icon {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
 }
 
@@ -1995,12 +2072,12 @@ article.timeline-item:nth-child(even) .timeline-icon {
   min-width: 0;
   overflow-wrap: break-word;
   color: var(--bs-body-color);
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 28px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015) 45%);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   transform-style: preserve-3d;
-  transition: transform 0.07s linear, box-shadow 0.35s ease;
+  transition: transform 0.07s linear, box-shadow 0.35s ease, border-color 0.35s ease;
   box-shadow: 0 2px 0 rgba(255, 255, 255, 0.04) inset, 0 16px 48px rgba(0, 0, 0, 0.6);
   will-change: transform;
   overflow: hidden;
@@ -2040,12 +2117,18 @@ article.timeline-item:nth-child(even) .timeline-icon {
 .glow-border {
   position: absolute;
   inset: 0;
-  border-radius: 22px;
-  box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb), 0.35), 0 0 60px rgba(var(--accent-rgb), 0.08);
+  border-radius: 28px;
+  /* Soft light in the project's color coming from the top */
+  background: radial-gradient(120% 60% at 50% 0%, rgba(var(--accent-rgb), 0.16), transparent 60%);
+  box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb), 0.35);
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
   z-index: 0;
+}
+
+.project-card:hover {
+  border-color: rgba(var(--accent-rgb), 0.45);
 }
 
 .project-card:hover .glow-border {
@@ -3090,5 +3173,30 @@ a.contact-value:hover {
 
   .contact-value {
     font-size: 0.9rem;
+  }
+}
+
+
+/*--------------------------------------------------------------
+  # 5.7 Portfolio (portfolio.html)
+--------------------------------------------------------------*/
+
+/* Phones: the filters become one row you can swipe sideways */
+@media (max-width: 576px) {
+  .project-filters {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    margin: 0 -0.5rem 2rem;
+    padding: 4px 0.5rem 10px;
+    scrollbar-width: none;
+  }
+
+  .project-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    flex-shrink: 0;
   }
 }
