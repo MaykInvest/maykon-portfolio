@@ -141,6 +141,15 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Safety net: if the animation library (AOS) is blocked or fails to load,
+   show everything instead of leaving it invisible. main.js adds .aos-on
+   only when AOS really runs. */
+html:not(.aos-on) [data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
 
 /*--------------------------------------------------------------
   # 2.2 Page body & background glow

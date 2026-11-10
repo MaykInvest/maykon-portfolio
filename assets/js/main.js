@@ -38,19 +38,24 @@
   /**
    * Animation on scroll.
    * Runs now (this script is at the end of <body>), not on 'load':
-   * 'load' waits for every image, and until AOS runs the content stays invisible
+   * 'load' waits for every image, and until AOS runs the content stays invisible.
+   * .aos-on tells main.css that AOS is working; without it (library blocked or
+   * failed to load) main.css shows everything instead of leaving it hidden.
    */
-  AOS.init({
-    duration: 600,
-    easing: 'ease-in-out',
-    once: true
-  });
+  if (window.AOS) {
+    document.documentElement.classList.add('aos-on');
+    AOS.init({
+      duration: 600,
+      easing: 'ease-in-out',
+      once: true
+    });
+  }
 
   /**
    * Init typed.js (home page only)
    */
   const selectTyped = document.querySelector('.typed');
-  if (selectTyped) {
+  if (selectTyped && window.Typed) {
     new Typed('.typed', {
       strings: selectTyped.dataset.typedItems.split(',').map(item => item.trim()),
       loop: true,
@@ -288,7 +293,7 @@
   const contactForm = document.querySelector('.contact form');
   const successModalEl = document.getElementById('sent-modal');
 
-  if (contactForm && successModalEl) {
+  if (contactForm && successModalEl && window.bootstrap) {
     const successModal = new bootstrap.Modal(successModalEl);
     const userNameSpan = document.getElementById('sender-name');
     const submitBtn = contactForm.querySelector('.submit-btn');
@@ -396,7 +401,11 @@
    */
   const copyEmailBtn = document.getElementById('copy-email');
 
-  if (copyEmailBtn) {
+  // navigator.clipboard is missing on some locked-down or old browsers:
+  // there the button is hidden (the email link still works)
+  if (copyEmailBtn && !navigator.clipboard) {
+    copyEmailBtn.style.display = 'none';
+  } else if (copyEmailBtn) {
     copyEmailBtn.addEventListener('click', () => {
       const email = document.getElementById('email-text').innerText;
       const icon = document.getElementById('copy-icon');
