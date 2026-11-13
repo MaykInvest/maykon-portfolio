@@ -1497,7 +1497,7 @@ article.timeline-item:nth-child(even) .timeline-icon {
   perspective: 1500px;
   margin-bottom: 30px;
   border-radius: 25px;
-  transition: transform 300ms ease-out, box-shadow 300ms ease-out;
+  transition: transform 300ms ease-out;
 }
 
 .skill-card-inner {
@@ -1524,9 +1524,9 @@ article.timeline-item:nth-child(even) .timeline-icon {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-radius: 25px;
-  background: rgba(10, 20, 30, 0.95);
-  backdrop-filter: blur(15px);
+  background: rgba(10, 20, 30, 0.95); /* no backdrop-filter: it breaks backface-visibility and leaves a ghost card while flipping */
   border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: box-shadow 300ms ease-out;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -1539,6 +1539,13 @@ article.timeline-item:nth-child(even) .timeline-icon {
    sets --glow-x / --glow-y (the light position, in %). */
 .skill-card.is-tilting {
   transition-duration: 150ms;
+}
+
+/* The shadow is on the faces, not on .skill-card: the faces turn with the flip
+   (and hide their back), while a shadow on .skill-card would stay flat and show
+   the card's shape behind it mid-flip */
+.skill-card.is-tilting .skill-front,
+.skill-card.is-tilting .skill-back {
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
 }
 
