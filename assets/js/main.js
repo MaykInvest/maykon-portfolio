@@ -274,25 +274,33 @@
   });
 
   /**
-   * Portfolio page: one preview window for every project.
-   * Before it opens, it takes the image, title and colors of the clicked card.
+   * Portfolio page: one lightbox (<dialog>) for every project.
+   * Before it opens, it takes the image, texts, link and colors of the clicked card.
+   * Esc, the X button or a click outside the image closes it.
    */
-  const previewModal = document.getElementById('preview-modal');
+  const preview = document.getElementById('preview');
 
-  if (previewModal) {
-    previewModal.addEventListener('show.bs.modal', (event) => {
-      const button = event.relatedTarget; // the clicked image button
-      const cardImg = button.querySelector('img');
-      const modalImg = previewModal.querySelector('img');
+  if (preview) {
+    const previewImg = preview.querySelector('img');
 
-      modalImg.src = cardImg.src;
-      modalImg.alt = cardImg.alt;
-      previewModal.querySelector('.modal-title').textContent = button.dataset.title;
-      // Same border and title color as the card
-      const project = button.closest('.project');
-      for (const name of ['--accent-rgb', '--accent-light']) {
-        previewModal.style.setProperty(name, project.style.getPropertyValue(name));
-      }
+    document.querySelectorAll('.preview-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const project = button.closest('.project');
+        const cardImg = button.querySelector('img');
+
+        previewImg.src = cardImg.src;
+        previewImg.alt = cardImg.alt;
+        preview.querySelector('.preview-category').textContent = project.querySelector('.project-category').textContent;
+        preview.querySelector('.preview-title').textContent = project.querySelector('.project-title span').textContent;
+        preview.querySelector('.preview-link').href = project.querySelector('.github-btn').href;
+        preview.style.cssText = project.style.cssText; // same --accent-rgb / --accent-light as the card
+        preview.showModal();
+      });
+    });
+
+    // A click on the dark area around the image lands on the <dialog> itself
+    preview.addEventListener('click', (e) => {
+      if (e.target === preview) preview.close();
     });
   }
 

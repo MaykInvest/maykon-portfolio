@@ -2102,10 +2102,10 @@ article.timeline-item:nth-child(even) .timeline-icon {
    PROJECT COLORS
    Each card (.project) sets two variables in the HTML:
    --accent-rgb (e.g. 245,158,11) and --accent-light.
-   main.js copies them to the preview window.
+   main.js copies them to the preview lightbox.
    ======================== */
 .project-category,
-.portfolio .modal-title {
+.preview-category {
   color: var(--accent-light);
 }
 
@@ -2113,13 +2113,134 @@ article.timeline-item:nth-child(even) .timeline-icon {
   background: rgb(var(--accent-rgb));
 }
 
-.portfolio .modal-content {
-  background: #121214;
-  border: 1px solid rgba(var(--accent-rgb), 0.35);
+
+/* ========================
+   PREVIEW LIGHTBOX (<dialog>)
+   The image floats over a blurred page,
+   with the project name and GitHub link under it.
+   ======================== */
+.preview {
+  margin: auto; /* centers it (the global reset sets margin: 0) */
+  padding: 0;
+  border: 0;
+  background: none;
+  overflow: visible;
+  color: #edf2ff;
 }
 
-.portfolio .modal-header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.preview::backdrop {
+  background: rgba(5, 10, 15, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.preview[open] {
+  animation: previewIn 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.preview[open]::backdrop {
+  animation: previewFade 0.3s ease;
+}
+
+@keyframes previewIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.96); }
+}
+
+@keyframes previewFade {
+  from { opacity: 0; }
+}
+
+.preview figure {
+  margin: 0;
+}
+
+/* Fits the screen whatever the image size */
+.preview img {
+  display: block;
+  max-width: min(1000px, 92vw);
+  max-height: 75vh;
+  border-radius: 16px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(var(--accent-rgb), 0.35);
+}
+
+/* contain: the caption never makes the box wider than the image */
+.preview figcaption {
+  contain: inline-size;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.preview-category {
+  font-family: monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.preview-title {
+  margin: 2px 0 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #edf2ff;
+}
+
+.preview-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #0a0f1a;
+  background: rgba(255, 255, 255, 0.95);
+  text-decoration: none;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.preview-link:hover {
+  color: #0a0f1a;
+  background: var(--accent-light);
+  transform: translateY(-2px);
+}
+
+/* Round X on the image's top-right corner */
+.preview-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(15, 20, 30, 0.85);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.preview-close:hover {
+  background: rgba(239, 68, 68, 0.85);
+  transform: rotate(90deg);
+}
+
+/* On phones the X goes inside the image so it doesn't touch the screen edge */
+@media (max-width: 576px) {
+  .preview-close {
+    top: 8px;
+    right: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preview[open],
+  .preview[open]::backdrop {
+    animation: none;
+  }
 }
 
 
