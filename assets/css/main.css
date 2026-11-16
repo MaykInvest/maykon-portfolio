@@ -1791,187 +1791,297 @@ article.timeline-item:nth-child(even) .timeline-icon {
   # 4.4 Resume (resume.html)
 --------------------------------------------------------------*/
 
-/* ── Education / Experience timeline ───────────────────────── */
+/* ── Section titles: icon chip + text ──────────────────────── */
 .resume .resume-item {
   margin-bottom: 3rem;
 }
 
-.resume .resume-item .resume-title {
-  font-size: 1.75rem;
+.resume .resume-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  padding-bottom: 1.5rem;
-  position: relative;
   color: var(--heading-color);
 }
 
-.resume .resume-item .resume-title::after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 50px;
-  height: 3px;
-  background: var(--accent-color);
-  bottom: 0;
-  left: 0;
+.resume .resume-title i {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  font-size: 1.25rem;
+  color: #fff;
+  background: linear-gradient(135deg, #4f46e5, var(--accent-color));
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.35);
 }
 
-.resume .resume-item .resume-content {
-  padding-left: 1.25rem;
-  border-left: 2px solid color-mix(in srgb, var(--accent-color), transparent 85%);
-  text-align: justify;
+/* Glass card shared by the timeline, soft skills and certifications */
+.resume .resume-card,
+.resume .soft-skills li,
+.resume .cert {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
 }
 
-.resume .resume-item article {
+.resume .resume-card:hover,
+.resume .soft-skills li:hover,
+.resume .cert:hover {
+  transform: translateY(-3px);
+  border-color: rgba(79, 70, 229, 0.45);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.resume .org {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* ── Timeline (Education / Experience) ─────────────────────── */
+/* A line that fades out at the bottom, with a dot for each card */
+.resume-timeline {
   position: relative;
-  margin-bottom: 2.5rem;
+  padding-left: 28px;
 }
 
-.resume .resume-item article::before {
+.resume-timeline::before {
   content: "";
   position: absolute;
-  width: 16px;
-  height: 16px;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(var(--accent-color), rgba(79, 70, 229, 0.4), transparent);
+}
+
+.resume .resume-card {
+  position: relative;
+  padding: 20px 22px;
+  margin-bottom: 16px;
+}
+
+.resume .resume-card::before {
+  content: "";
+  position: absolute;
+  left: -27px;
+  top: 26px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  left: -1.8rem;
-  top: 0.25rem;
   background: var(--background-color);
   border: 2px solid var(--accent-color);
+  box-shadow: 0 0 12px rgba(0, 123, 255, 0.6);
+  transition: background 0.3s;
 }
 
-.resume .resume-item article h3 {
-  font-size: 1.25rem;
+.resume .resume-card:hover::before {
+  background: var(--accent-color);
+}
+
+.resume-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.8rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  color: #93c5fd;
+  background: rgba(0, 123, 255, 0.12);
+}
+
+/* Current job: green dot before the date */
+.resume-date.now::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+.resume .resume-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 12px 0 4px;
   color: var(--heading-color);
 }
 
-.resume .resume-item article h4 {
-  font-size: 1rem;
-  background: color-mix(in srgb, var(--accent-color), transparent 92%);
-  padding: 0.375rem 0.75rem;
-  display: inline-block;
-  font-weight: 600;
-  margin: 0.5rem 0;
-  color: var(--accent-color);
-  border-radius: 4px;
+.resume .resume-card .org {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
 }
 
-.resume .resume-item article .org {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  color: color-mix(in srgb, var(--default-color), transparent 25%);
+.resume .resume-card p:not(.org),
+.resume .resume-card li {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(231, 242, 247, 0.75);
 }
 
-.resume .resume-item article p {
-  margin-bottom: 1rem;
-}
-
-.resume .resume-item article ul {
-  padding-left: 1.25rem;
+.resume .resume-card p:last-child {
   margin-bottom: 0;
 }
 
-.resume .resume-item article ul li {
-  padding-bottom: 0.75rem;
-  position: relative;
+.resume .resume-card ul {
+  padding-left: 1.1rem;
+  margin: 0;
 }
 
-.resume .resume-item article ul li:last-child {
-  padding-bottom: 0;
+.resume .resume-card li {
+  padding-bottom: 6px;
 }
 
-/* ── Soft skills list ──────────────────────────────────────── */
-.resume-item .list-group-item {
-  padding: 15px 20px;
-  border: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-  text-align: justify;
-}
-
-.resume-item .list-group-item span {
-  width: 100%;
-  padding-right: 5px;
-}
-
-.resume-item .list-group-item:last-child {
-  border-bottom: none;
-}
-
-/* min-width keeps the text lined up after icons of different widths */
-.resume-item .list-group-item i {
-  font-size: 1.2rem;
-  min-width: 30px;
-}
-
-.resume-item .list-group-item strong {
+.resume .resume-card li::marker {
   color: var(--accent-color);
-  margin-right: 5px;
 }
 
-/* Hover: light background and a small slide */
-.resume-item .list-group-item:hover {
-  background-color: rgba(255, 255, 255, 0.05) !important;
-  padding-left: 10px;
+/* ── Soft skills ───────────────────────────────────────────── */
+.soft-skills {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
 }
 
-/* ── "View / Download CV" button ───────────────────────────── */
+.resume .soft-skills li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 16px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Icon chip tinted with the icon's own color */
+.soft-skills i {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  background: color-mix(in srgb, currentColor 15%, transparent);
+}
+
+.soft-skills strong {
+  display: block;
+  color: var(--heading-color);
+  font-weight: 600;
+}
+
+/* ── Certifications ────────────────────────────────────────── */
+.certs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.resume .cert {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+}
+
+.cert i {
+  font-size: 1.4rem;
+  color: #fbbf24;
+}
+
+.cert h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--heading-color);
+}
+
+.cert .org {
+  margin: 0;
+}
+
+/* ── "View / Download CV" call to action ───────────────────── */
+/* Soft Skills and Resume both fill the rest of their column, so the
+   Adaptability card and the Resume box always end on the same line */
+.resume-fill {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-fill .soft-skills {
+  flex: 1;
+  align-content: space-between;
+}
+
 .cv {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
   text-align: center;
-  margin: 40px 0 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(79, 70, 229, 0.35);
+  background: radial-gradient(circle at top, rgba(79, 70, 229, 0.2), transparent 70%), rgba(255, 255, 255, 0.03);
+}
+
+.cv-icon {
+  font-size: 2.2rem;
+  color: #a5b4fc;
 }
 
 .cv h3 {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #ffffff;
-  margin-bottom: 6px;
+  color: #fff;
+  margin: 8px 0 6px;
 }
 
 .cv-text {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.4);
-  margin-bottom: 24px;
+  color: var(--text-secondary);
+  margin-bottom: 22px;
 }
 
 .cv-btn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 11px 28px;
+  padding: 12px 28px;
   border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.04);
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 13.5px;
+  color: #fff;
+  font-size: 0.9rem;
   font-weight: 500;
-  letter-spacing: 0.04em;
   text-decoration: none;
-  backdrop-filter: blur(8px);
-  transition: background 0.25s ease,
-    border-color 0.25s ease,
-    color 0.25s ease,
-    transform 0.2s ease;
+  background: linear-gradient(135deg, #4f46e5, var(--accent-color));
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.cv-btn i {
-  font-size: 15px;
-  color: var(--accent-color);
-  transition: color 0.25s ease;
-}
-
-/* Hover: border and text brighten, button lifts slightly */
 .cv-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.35);
-  color: #ffffff;
+  color: #fff;
   transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(79, 70, 229, 0.5);
 }
 
-/* Press feedback */
-.cv-btn:active {
-  transform: translateY(0);
+@media (prefers-reduced-motion: reduce) {
+  .resume .resume-card:hover,
+  .resume .soft-skills li:hover,
+  .resume .cert:hover,
+  .cv-btn:hover {
+    transform: none;
+  }
 }
 
 
@@ -3225,13 +3335,9 @@ a.contact-value:hover {
   }
 }
 
-@media (max-width: 767.98px) {
-  .resume .resume-item .resume-content {
-    padding-left: 1rem;
-  }
-
-  .resume .resume-item article::before {
-    left: -2rem;
+@media (max-width: 575.98px) {
+  .resume .resume-card {
+    padding: 16px 18px;
   }
 }
 
