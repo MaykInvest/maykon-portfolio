@@ -2067,28 +2067,34 @@ article.timeline-item:nth-child(even) .timeline-icon {
   gap: 2rem;
 }
 
-/* Lower perspective = stronger 3D tilt (main.js tilts the card) */
-.project {
-  perspective: 1200px;
-}
-
 /* ── Project card ──────────────────────────────────────────── */
+/* On hover it lifts a little and takes the project's color */
 .project-card {
   display: flex;
   flex-direction: column;
   min-width: 0;
   overflow-wrap: break-word;
   color: var(--bs-body-color);
-  border-radius: 28px;
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015) 45%);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  transform-style: preserve-3d;
-  transition: transform 0.07s linear, box-shadow 0.35s ease, border-color 0.35s ease;
-  box-shadow: 0 2px 0 rgba(255, 255, 255, 0.04) inset, 0 16px 48px rgba(0, 0, 0, 0.6);
-  will-change: transform;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   overflow: hidden;
   position: relative;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(var(--accent-rgb), 0.45);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45), 0 0 30px rgba(var(--accent-rgb), 0.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card:hover {
+    transform: none;
+  }
 }
 
 
@@ -2114,60 +2120,6 @@ article.timeline-item:nth-child(even) .timeline-icon {
 
 .portfolio .modal-header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-
-/* ========================
-   GLOW BORDER (hover only)
-   Absolute overlay that fades in on hover.
-   ======================== */
-.glow-border {
-  position: absolute;
-  inset: 0;
-  border-radius: 28px;
-  /* Soft light in the project's color coming from the top */
-  background: radial-gradient(120% 60% at 50% 0%, rgba(var(--accent-rgb), 0.16), transparent 60%);
-  box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb), 0.35);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.project-card:hover {
-  border-color: rgba(var(--accent-rgb), 0.45);
-}
-
-.project-card:hover .glow-border {
-  opacity: 1;
-}
-
-/* Content sits above the glow border overlay */
-.project-content {
-  position: relative;
-  z-index: 1;
-}
-
-
-/* ========================
-   SHIMMER SWEEP (hover)
-   A diagonal light streak that slides across on hover.
-   Starts off-screen left, travels to off-screen right.
-   ======================== */
-.shimmer {
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.045) 50%, transparent 65%);
-  pointer-events: none;
-  z-index: 20;
-  transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.project-card:hover .shimmer {
-  left: 160%;
 }
 
 
@@ -2204,19 +2156,18 @@ article.timeline-item:nth-child(even) .timeline-icon {
   cursor: pointer;
 }
 
-/* Image: zooms in and darkens on card hover */
+/* Image: zooms in a little on card hover */
 .project-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;
-  filter: brightness(0.65) saturate(0.8);
+  transition: transform 0.5s ease;
+  filter: brightness(0.75);
 }
 
 .project-card:hover .project-img img {
-  transform: scale(1.09);
-  filter: brightness(0.4) saturate(1.15);
+  transform: scale(1.05);
 }
 
 /* Category badge overlaid on the image (top-left) */

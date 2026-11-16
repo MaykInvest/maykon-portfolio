@@ -211,14 +211,12 @@
 
   /**
    * Portfolio page: project cards
-   * The "+" button opens the details (one card open at a time),
-   * and the card tilts in 3D following the mouse.
+   * The "+" button opens the details (one card open at a time).
    */
   const projectCards = document.querySelectorAll('.project > .project-card');
   let topLayer = 10; // the last opened card is drawn on top
 
   projectCards.forEach(card => {
-    const wrap = card.parentElement; // .project, the perspective container
     const toggleBtn = card.querySelector('.toggle-btn');
 
     // Open / close the details
@@ -236,30 +234,6 @@
         toggleBtn.setAttribute('aria-expanded', 'true'); // tells screen readers the details are open
         card.style.zIndex = topLayer++;
       }
-    });
-
-    // 3D tilt: dx/dy go from -1 to 1 (center of the card = 0), max ±7deg.
-    // The shadow moves the opposite way to give depth, plus a glow in the project's color.
-    wrap.addEventListener('mousemove', (e) => {
-      const r = card.getBoundingClientRect();
-      const dx = (e.clientX - r.left - r.width / 2) / (r.width / 2);
-      const dy = (e.clientY - r.top - r.height / 2) / (r.height / 2);
-
-      card.style.transform = `rotateX(${-dy * 7}deg) rotateY(${dx * 7}deg) translateZ(10px)`;
-      card.style.boxShadow = `${-dx * 20}px ${-dy * 20}px 60px rgba(0,0,0,0.6), 0 0 40px rgba(var(--accent-rgb),0.18), inset 0 2px 0 rgba(255,255,255,0.05)`;
-    });
-
-    wrap.addEventListener('mouseleave', () => {
-      card.style.transform = 'rotateX(0) rotateY(0) translateZ(0)';
-      card.style.boxShadow = '0 2px 0 rgba(255,255,255,0.04) inset, 0 16px 48px rgba(0,0,0,0.6)';
-    });
-
-    // Small "press" effect on click
-    wrap.addEventListener('mousedown', () => {
-      card.style.transform = 'rotateX(0) rotateY(0) translateZ(2px) scale(0.985)';
-    });
-    wrap.addEventListener('mouseup', () => {
-      card.style.transform = 'rotateX(0) rotateY(0) translateZ(10px)';
     });
   });
 
