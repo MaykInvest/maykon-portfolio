@@ -16,7 +16,7 @@ You can view the live website here:
 
 * **HTML5 & CSS3** – Core structure and custom styling
 * **JavaScript** – Interactive elements and functionality
-* **Bootstrap 5** – Responsive layout, typography, and components
+* **Bootstrap 5** – Responsive grid, layout, and typography (CSS only)
 * **GitHub Pages** – Hosting and continuous deployment
 
 ---
@@ -47,15 +47,18 @@ skills.html       # Technical skills & tools
 resume.html       # Experience and education
 portfolio.html    # Project showcase
 contact.html      # Contact form and links
+404.html          # "Page not found" page (GitHub Pages)
+sitemap.xml       # Page list for search engines
 ```
 
 ### Assets Directory (`/assets`)
 
 ```
-/css              # Custom styles and overrides
-/js               # Scripts and interactivity
-/img              # Images and assets
-/vendor           # Third-party libraries (Bootstrap, Icons, etc.)
+/css/main.css     # All custom styles (table of contents at the top)
+/js/main.js       # All scripts: shared code first, then one block per page
+/img              # Images (logos, project previews, profile photo)
+/files            # Downloadable resume (PDF)
+/vendor           # Third-party libraries (Bootstrap CSS, Bootstrap Icons, AOS, Typed.js)
 ```
 
 ---

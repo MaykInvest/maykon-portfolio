@@ -192,19 +192,15 @@
   </main>
 
   <!-- "Message sent" window -->
-  <div class="modal fade" id="sent-modal" tabindex="-1" aria-labelledby="sent-title" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content success-modal">
-        <div class="modal-body text-center p-5">
-          <div class="round-icon round-icon-lg success-icon"><i class="bi bi-check-lg"></i></div>
-          <h2 class="h4 fw-bold mb-2" id="sent-title">Message Sent!</h2>
-          <p class="success-text">Thank you, <span id="sender-name"></span>! Your message has been received.
-            I'll get back to you soon.</p>
-          <button type="button" class="submit-btn mt-3" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  <dialog class="success-modal text-center p-5" id="sent-modal" aria-labelledby="sent-title">
+    <div class="round-icon round-icon-lg success-icon"><i class="bi bi-check-lg"></i></div>
+    <h2 class="h4 fw-bold mb-2" id="sent-title">Message Sent!</h2>
+    <p class="success-text">Thank you, <span id="sender-name"></span>! Your message has been received.
+      I'll get back to you soon.</p>
+    <form method="dialog">
+      <button class="submit-btn mt-3">Close</button>
+    </form>
+  </dialog>
 
   <!-- Footer -->
   <footer id="footer" class="site-footer">
@@ -243,7 +239,6 @@
     aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
 
   <!-- Main JS File -->

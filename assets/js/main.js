@@ -1,8 +1,8 @@
-(function( ) {
+(function () {
   "use strict";
 
   /**
-   * Once the page is scrolled down: darker header (.scrolled on <body>)
+   * Every page: once the page is scrolled down, darker header (.scrolled on <body>)
    * and the scroll-to-top button appears
    */
   const scrollTop = document.querySelector('.scroll-top');
@@ -22,7 +22,7 @@
   });
 
   /**
-   * Mobile nav toggle
+   * Every page: mobile menu button (hamburger)
    */
   const mobileNavToggleBtn = document.querySelector('.menu-btn');
 
@@ -36,7 +36,7 @@
   });
 
   /**
-   * Animation on scroll.
+   * Every page: animation on scroll (AOS).
    * Runs now (this script is at the end of <body>), not on 'load':
    * 'load' waits for every image, and until AOS runs the content stays invisible.
    * .aos-on tells main.css that AOS is working; without it (library blocked or
@@ -52,21 +52,7 @@
   }
 
   /**
-   * Init typed.js (home page only)
-   */
-  const selectTyped = document.querySelector('.typed');
-  if (selectTyped && window.Typed) {
-    new Typed('.typed', {
-      strings: selectTyped.dataset.typedItems.split(',').map(item => item.trim()),
-      loop: true,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000
-    });
-  }
-
-  /**
-   * "Next page" buttons: on hover the glass layer drifts away from the mouse.
+   * Every page: "next page" buttons: on hover the glass layer drifts away from the mouse.
    * The position is measured from the button itself (not event.offsetX,
    * which jumps when the mouse is over the text or the icon).
    */
@@ -84,7 +70,7 @@
   });
 
   /**
-   * 3D cube logo (header, every page): turns to follow the mouse
+   * Every page: 3D cube logo in the header turns to follow the mouse
    */
   const cubeScene = document.querySelector('.cube-scene');
   const cube = document.querySelector('.cube');
@@ -102,6 +88,20 @@
 
     cubeScene.addEventListener('mouseleave', () => {
       cube.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    });
+  }
+
+  /**
+   * Home page: typing effect (typed.js) under the name
+   */
+  const selectTyped = document.querySelector('.typed');
+  if (selectTyped && window.Typed) {
+    new Typed('.typed', {
+      strings: selectTyped.dataset.typedItems.split(',').map(item => item.trim()),
+      loop: true,
+      typeSpeed: 100,
+      backSpeed: 50,
+      backDelay: 2000
     });
   }
 
@@ -214,14 +214,12 @@
    * The "+" button opens the details (one card open at a time).
    */
   const projectCards = document.querySelectorAll('.project > .project-card');
-  let topLayer = 10; // the last opened card is drawn on top
 
   projectCards.forEach(card => {
     const toggleBtn = card.querySelector('.toggle-btn');
 
     // Open / close the details
-    toggleBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
+    toggleBtn.addEventListener('click', () => {
       const wasOpen = card.classList.contains('open');
 
       projectCards.forEach(c => {
@@ -232,7 +230,6 @@
       if (!wasOpen) {
         card.classList.add('open');
         toggleBtn.setAttribute('aria-expanded', 'true'); // tells screen readers the details are open
-        card.style.zIndex = topLayer++;
       }
     });
   });
@@ -306,13 +303,12 @@
 
   /**
    * Contact page: send the form to Formspree without leaving the page,
-   * then show the "thank you" window (Bootstrap modal)
+   * then show the "thank you" window (<dialog>)
    */
   const contactForm = document.querySelector('.contact form');
-  const successModalEl = document.getElementById('sent-modal');
+  const successModal = document.getElementById('sent-modal');
 
-  if (contactForm && successModalEl && window.bootstrap) {
-    const successModal = new bootstrap.Modal(successModalEl);
+  if (contactForm && successModal) {
     const userNameSpan = document.getElementById('sender-name');
     const submitBtn = contactForm.querySelector('.submit-btn');
     const formError = document.getElementById('form-error');
@@ -344,7 +340,7 @@
 
         if (response.ok) {
           userNameSpan.textContent = formData.get('name');
-          successModal.show();
+          successModal.showModal();
           contactForm.reset();
         } else {
           showFormError("Oops! There was a problem sending your message. Please try again or email me directly.");

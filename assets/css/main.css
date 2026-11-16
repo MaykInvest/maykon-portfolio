@@ -16,6 +16,7 @@
      2.4  Sections & glass surfaces
      2.5  Section titles
      2.6  Utility classes
+     2.7  Keyboard focus
 
   3. SHARED COMPONENTS (used on every page)
      3.1  Header
@@ -25,6 +26,7 @@
      3.5  Tags / pills
      3.6  Footer
      3.7  Scroll-to-top button
+     3.8  Pop-up windows (<dialog>)
 
   4. PAGES
      4.1  Home      (index.html)
@@ -33,7 +35,6 @@
      4.4  Resume    (resume.html)
      4.5  Portfolio (portfolio.html)
      4.6  Contact   (contact.html)
-     4.7  Keyboard focus
 
   5. MOBILE (every small-screen rule lives here)
      5.1  Shared (sections, titles)
@@ -93,7 +94,6 @@
   /* Glass effect */
   --glass-bg: rgba(15, 23, 42, 0.6);
   --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-border-hover: rgba(255, 255, 255, 0.25);
 
   /* Motion */
   --transition-smooth: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
@@ -278,6 +278,28 @@ section,
 .text-muted {
   color: #6c757d !important;
   font-style: italic;
+}
+
+
+/*--------------------------------------------------------------
+  # 2.7 Keyboard focus
+--------------------------------------------------------------*/
+
+/* Visible outline when moving with the keyboard (Tab) */
+.menu-btn:focus-visible,
+.skill-card:focus-visible,
+.preview-btn:focus-visible,
+.preview-close:focus-visible,
+.preview-link:focus-visible,
+.toggle-btn:focus-visible,
+.github-btn:focus-visible,
+.copy-btn:focus-visible,
+.footer-icon:focus-visible,
+.submit-btn:focus-visible,
+.social-btn:focus-visible,
+.scroll-top:focus-visible {
+  outline: 2px solid var(--accent-color, #1387c1);
+  outline-offset: 3px;
 }
 
 
@@ -782,6 +804,53 @@ section,
   visibility: visible;
   opacity: 1;
   bottom: 15px;
+}
+
+
+/*--------------------------------------------------------------
+  # 3.8 Pop-up windows (<dialog>)
+  The portfolio preview and the contact "Message sent" window:
+  the page behind gets dark and blurred, and the window pops in.
+--------------------------------------------------------------*/
+
+/* margin: auto centers them (the global reset sets margin: 0) */
+.preview,
+.success-modal {
+  margin: auto;
+}
+
+.preview::backdrop,
+.success-modal::backdrop {
+  background: rgba(5, 10, 15, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.preview[open],
+.success-modal[open] {
+  animation: dialogIn 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.preview[open]::backdrop,
+.success-modal[open]::backdrop {
+  animation: dialogFade 0.3s ease;
+}
+
+@keyframes dialogIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.96); }
+}
+
+@keyframes dialogFade {
+  from { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preview[open],
+  .success-modal[open],
+  .preview[open]::backdrop,
+  .success-modal[open]::backdrop {
+    animation: none;
+  }
 }
 
 
@@ -2208,12 +2277,10 @@ article.timeline-item:nth-child(even) .timeline-icon {
 }
 
 
-/* ========================
-   PROJECT COLORS
-   Each card (.project) sets two variables in the HTML:
+/* ── Project colors ────────────────────────────────────────── */
+/* Each card (.project) sets two variables in the HTML:
    --accent-rgb (e.g. 245,158,11) and --accent-light.
-   main.js copies them to the preview lightbox.
-   ======================== */
+   main.js copies them to the preview lightbox. */
 .project-category,
 .preview-category {
   color: var(--accent-light);
@@ -2224,40 +2291,390 @@ article.timeline-item:nth-child(even) .timeline-icon {
 }
 
 
-/* ========================
-   PREVIEW LIGHTBOX (<dialog>)
-   The image floats over a blurred page,
-   with the project name and GitHub link under it.
-   ======================== */
+/* ── Card image area ───────────────────────────────────────── */
+/* Fixed height; the image zooms inside it on hover. */
+.project-img {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Gradient overlay: fades image bottom into card background */
+.project-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(10, 15, 26, 0.95) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Project image that opens the preview window: a <button> styled like the plain image */
+.preview-btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+/* Image: zooms in a little on card hover */
+.project-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+  filter: brightness(0.75);
+}
+
+.project-card:hover .project-img img {
+  transform: scale(1.05);
+}
+
+/* Category badge overlaid on the image (top-left) */
+.project-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 50px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  font-family: monospace;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Colored dot inside the badge */
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+
+/* ── GitHub button (top-right of image) ────────────────────── */
+/* Pill expand animation on hover:
+   starts as a circle icon, expands to show label text. */
+.github-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(15, 20, 30, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+  /* Animate: width, border-radius, bg, color, padding */
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    border-radius 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.25s, border-color 0.25s, color 0.25s,
+    padding 0.35s;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.github-btn i {
+  font-size: 18px;
+  flex-shrink: 0;
+  transition: color 0.25s;
+}
+
+/* Hidden label — revealed by expanding max-width on hover */
+.github-btn-text {
+  font-size: 12px;
+  font-weight: 600;
+  font-family: sans-serif;
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-width 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s 0.1s, margin 0.35s;
+  margin-left: 0;
+  letter-spacing: 0.01em;
+}
+
+/* Hover state: circle → pill, dark → white, show label */
+.github-btn:hover {
+  width: 130px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.95);
+  border-color: transparent;
+  color: #0a0f1a;
+  padding: 0 14px 0 10px;
+}
+
+.github-btn:hover i {
+  color: #0a0f1a;
+}
+
+.github-btn:hover .github-btn-text {
+  max-width: 100px;
+  opacity: 1;
+  margin-left: 7px;
+}
+
+
+/* ── Card title area ───────────────────────────────────────── */
+/* Overlaps the image bottom via negative margin-top. */
+.project-head {
+  padding: 0 18px 14px;
+  margin-top: -32px;
+  position: relative;
+  z-index: 3;
+}
+
+.project-category {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: monospace;
+  margin-bottom: 5px;
+}
+
+.project-title {
+  margin-bottom: 0.5rem;
+  font-size: 17px;
+  font-weight: 600;
+  color: #edf2ff;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+
+/* ── Toggle button (+ / ×) ─────────────────────────────────── */
+/* The two <span> elements form a "+" shape.
+   When .open is added to the card, they rotate
+   into an "×" shape via CSS transforms. */
+.toggle-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.25s;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+/* Horizontal bar of the + */
+.toggle-btn span {
+  display: block;
+  width: 10px;
+  height: 1.5px;
+  border-radius: 2px;
+  background: rgba(200, 210, 230, 0.7);
+  position: absolute;
+  transition: transform 0.22s ease, background 0.2s;
+}
+
+.toggle-btn .bar-h {
+  transform: rotate(0);
+}
+
+/* Vertical bar: rotated 90° to form the + cross */
+.toggle-btn .bar-v {
+  transform: rotate(90deg);
+}
+
+/* When card is open: button turns red and bars form × */
+.project-card.open .toggle-btn {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.project-card.open .toggle-btn span {
+  background: #f87171;
+}
+
+.project-card.open .toggle-btn .bar-h {
+  transform: rotate(45deg);
+}
+
+.project-card.open .toggle-btn .bar-v {
+  transform: rotate(135deg);
+}
+
+
+/* ── Expandable detail panel (flap) ────────────────────────── */
+/* Uses max-height trick for smooth CSS height animation.
+   Inner element fades + slides up after the container opens. */
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  margin: 0 18px;
+}
+
+/* Outer: clips content and animates from 0 → max-height */
+.details {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Inner: fades in with a slight upward slide (staggered delay) */
+.details-inner {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.25s 0.12s, transform 0.25s 0.12s;
+  padding: 16px 18px 0;
+}
+
+/* .open class triggers both layers */
+.project-card.open .details {
+  max-height: 260px;
+}
+
+.project-card.open .details-inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ── Panel content: description and tags ───────────────────── */
+.project-desc {
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: rgba(180, 195, 225, 0.55);
+  margin-bottom: 14px;
+}
+
+/* Tag colors: --tag-rgb sets the background and border tint */
+.project-card .tag {
+  background: rgba(var(--tag-rgb), 0.1);
+  border: 1px solid rgba(var(--tag-rgb), 0.2);
+}
+
+.project-card .tag i {
+  font-size: 11px;
+}
+
+.tag-yellow { --tag-rgb: 255, 193, 7; color: #ffc107; }
+.tag-purple { --tag-rgb: 168, 85, 247; color: #d8b4fe; }
+.tag-sky { --tag-rgb: 56, 189, 248; color: #bae6fd; }
+.tag-cyan { --tag-rgb: 56, 189, 248; color: #7dd3fc; }
+.tag-amber { --tag-rgb: 245, 158, 11; color: #fcd34d; }
+.tag-teal { --tag-rgb: 20, 184, 166; color: #99f6e4; }
+.tag-emerald { --tag-rgb: 16, 185, 129; color: #6ee7b7; }
+.tag-violet { --tag-rgb: 139, 92, 246; color: #c4b5fd; }
+.tag-blue { --tag-rgb: 59, 130, 246; color: #93c5fd; }
+.tag-orange { --tag-rgb: 249, 115, 22; color: #fdba74; }
+.tag-pink { --tag-rgb: 236, 72, 153; color: #f9a8d4; }
+
+/* ── Stats row ─────────────────────────────────────────────── */
+/* Quick-glance metrics at the bottom of the card. */
+.stats {
+  display: flex;
+  gap: 20px;
+  padding: 10px 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: monospace;
+  color: #bae6fd;
+}
+
+/* The first number takes the card's color */
+.stat:first-child .stat-value {
+  color: var(--accent-light);
+}
+
+.stat-label {
+  font-size: 9.5px;
+  color: rgba(148, 163, 184, 0.4);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 1px;
+}
+
+
+/* ── Card footer ───────────────────────────────────────────── */
+/* Repo meta (branch, language) */
+.project-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-meta {
+  display: flex;
+  gap: 16px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: rgba(148, 163, 184, 0.38);
+}
+
+.meta-item i {
+  font-size: 12px;
+}
+
+/* Icon colors: branch, language, notebook, Streamlit */
+.meta-item .bi-git { color: #d41c03; }
+.meta-item .bi-code-slash { color: #38bdf8; }
+.meta-item .bi-journal-code { color: #f57c00; }
+.meta-item .bi-bar-chart-line-fill { color: #ff4b4b; }
+.meta-item .bi-file-earmark-bar-graph { color: #f2c811; }
+.meta-item .bi-filetype-js { color: #f7df1e; }
+
+/* "Live site" link in the card footer */
+.meta-link {
+  text-decoration: none;
+}
+
+.meta-link:hover {
+  color: var(--accent-light);
+}
+
+
+/* ── Preview lightbox (<dialog>) ───────────────────────────── */
+/* The image floats over a blurred page,
+   with the project name and GitHub link under it. */
 .preview {
-  margin: auto; /* centers it (the global reset sets margin: 0) */
   padding: 0;
   border: 0;
   background: none;
   overflow: visible;
   color: #edf2ff;
-}
-
-.preview::backdrop {
-  background: rgba(5, 10, 15, 0.75);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.preview[open] {
-  animation: previewIn 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.preview[open]::backdrop {
-  animation: previewFade 0.3s ease;
-}
-
-@keyframes previewIn {
-  from { opacity: 0; transform: translateY(16px) scale(0.96); }
-}
-
-@keyframes previewFade {
-  from { opacity: 0; }
 }
 
 .preview figure {
@@ -2336,412 +2753,6 @@ article.timeline-item:nth-child(even) .timeline-icon {
 .preview-close:hover {
   background: rgba(239, 68, 68, 0.85);
   transform: rotate(90deg);
-}
-
-/* On phones the X goes inside the image so it doesn't touch the screen edge */
-@media (max-width: 576px) {
-  .preview-close {
-    top: 8px;
-    right: 8px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .preview[open],
-  .preview[open]::backdrop {
-    animation: none;
-  }
-}
-
-
-/* ========================
-   CARD IMAGE AREA
-   Fixed height; the image zooms inside it on hover.
-   ======================== */
-.project-img {
-  position: relative;
-  height: 200px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Gradient overlay: fades image bottom into card background */
-.project-img::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, transparent 40%, rgba(10, 15, 26, 0.95) 100%);
-  z-index: 2;
-  pointer-events: none;
-}
-
-/* Project image that opens the preview window: a <button> styled like the plain image */
-.preview-btn {
-  display: block;
-  width: 100%;
-  padding: 0;
-  border: 0;
-  background: none;
-  cursor: pointer;
-}
-
-/* Image: zooms in a little on card hover */
-.project-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s ease;
-  filter: brightness(0.75);
-}
-
-.project-card:hover .project-img img {
-  transform: scale(1.05);
-}
-
-/* Category badge overlaid on the image (top-left) */
-.project-badge {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  z-index: 6;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 4px 10px;
-  border-radius: 50px;
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.07em;
-  font-family: monospace;
-  backdrop-filter: blur(8px);
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.8);
-}
-
-/* Colored dot inside the badge */
-.dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-}
-
-
-/* ========================
-   GITHUB BUTTON (top-right of image)
-   Pill expand animation on hover:
-   starts as a circle icon, expands to show label text.
-   ======================== */
-.github-btn {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  z-index: 10;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: rgba(15, 20, 30, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.5);
-  /* Animate: width, border-radius, bg, color, padding */
-  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-    border-radius 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-    background 0.25s, border-color 0.25s, color 0.25s,
-    padding 0.35s;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.github-btn i {
-  font-size: 18px;
-  flex-shrink: 0;
-  transition: color 0.25s;
-}
-
-/* Hidden label — revealed by expanding max-width on hover */
-.github-btn-text {
-  font-size: 12px;
-  font-weight: 600;
-  font-family: sans-serif;
-  max-width: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-width 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s 0.1s, margin 0.35s;
-  margin-left: 0;
-  letter-spacing: 0.01em;
-}
-
-/* Hover state: circle → pill, dark → white, show label */
-.github-btn:hover {
-  width: 130px;
-  border-radius: 50px;
-  background: rgba(255, 255, 255, 0.95);
-  border-color: transparent;
-  color: #0a0f1a;
-  padding: 0 14px 0 10px;
-}
-
-.github-btn:hover i {
-  color: #0a0f1a;
-}
-
-.github-btn:hover .github-btn-text {
-  max-width: 100px;
-  opacity: 1;
-  margin-left: 7px;
-}
-
-
-/* ========================
-   CARD TITLE AREA
-   Overlaps the image bottom via negative margin-top.
-   ======================== */
-.project-head {
-  padding: 0 18px 14px;
-  margin-top: -32px;
-  position: relative;
-  z-index: 3;
-}
-
-.project-category {
-  font-size: 10.5px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-family: monospace;
-  margin-bottom: 5px;
-}
-
-.project-title {
-  margin-bottom: 0.5rem;
-  font-size: 17px;
-  font-weight: 600;
-  color: #edf2ff;
-  line-height: 1.3;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-
-/* ========================
-   TOGGLE BUTTON (+ / ×)
-   The two <span> elements form a "+" shape.
-   When .open is added to the card, they rotate
-   into an "×" shape via CSS transforms.
-   ======================== */
-.toggle-btn {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: background 0.25s;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  position: relative;
-}
-
-/* Horizontal bar of the + */
-.toggle-btn span {
-  display: block;
-  width: 10px;
-  height: 1.5px;
-  border-radius: 2px;
-  background: rgba(200, 210, 230, 0.7);
-  position: absolute;
-  transition: transform 0.22s ease, background 0.2s;
-}
-
-.toggle-btn .bar-h {
-  transform: rotate(0);
-}
-
-/* Vertical bar: rotated 90° to form the + cross */
-.toggle-btn .bar-v {
-  transform: rotate(90deg);
-}
-
-/* When card is open: button turns red and bars form × */
-.project-card.open .toggle-btn {
-  background: rgba(239, 68, 68, 0.15);
-  border-color: rgba(239, 68, 68, 0.3);
-}
-
-.project-card.open .toggle-btn span {
-  background: #f87171;
-}
-
-.project-card.open .toggle-btn .bar-h {
-  transform: rotate(45deg);
-}
-
-.project-card.open .toggle-btn .bar-v {
-  transform: rotate(135deg);
-}
-
-
-/* ========================
-   EXPANDABLE DETAIL PANEL (flap)
-   Uses max-height trick for smooth CSS height animation.
-   Inner element fades + slides up after the container opens.
-   ======================== */
-.divider {
-  height: 1px;
-  background: rgba(255, 255, 255, 0.06);
-  margin: 0 18px;
-}
-
-/* Outer: clips content and animates from 0 → max-height */
-.details {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Inner: fades in with a slight upward slide (staggered delay) */
-.details-inner {
-  opacity: 0;
-  transform: translateY(-8px);
-  transition: opacity 0.25s 0.12s, transform 0.25s 0.12s;
-  padding: 16px 18px 0;
-}
-
-/* .open class triggers both layers */
-.project-card.open .details {
-  max-height: 260px;
-}
-
-.project-card.open .details-inner {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-/* ========================
-   PANEL CONTENT: description and tags
-   ======================== */
-.project-desc {
-  font-size: 12.5px;
-  line-height: 1.7;
-  color: rgba(180, 195, 225, 0.55);
-  margin-bottom: 14px;
-}
-
-/* Tag colors: --tag-rgb sets the background and border tint */
-.project-card .tag {
-  background: rgba(var(--tag-rgb), 0.1);
-  border: 1px solid rgba(var(--tag-rgb), 0.2);
-}
-
-.project-card .tag i {
-  font-size: 11px;
-}
-
-.tag-yellow { --tag-rgb: 255, 193, 7; color: #ffc107; }
-.tag-purple { --tag-rgb: 168, 85, 247; color: #d8b4fe; }
-.tag-sky { --tag-rgb: 56, 189, 248; color: #bae6fd; }
-.tag-cyan { --tag-rgb: 56, 189, 248; color: #7dd3fc; }
-.tag-amber { --tag-rgb: 245, 158, 11; color: #fcd34d; }
-.tag-teal { --tag-rgb: 20, 184, 166; color: #99f6e4; }
-.tag-emerald { --tag-rgb: 16, 185, 129; color: #6ee7b7; }
-.tag-violet { --tag-rgb: 139, 92, 246; color: #c4b5fd; }
-.tag-blue { --tag-rgb: 59, 130, 246; color: #93c5fd; }
-.tag-orange { --tag-rgb: 249, 115, 22; color: #fdba74; }
-.tag-pink { --tag-rgb: 236, 72, 153; color: #f9a8d4; }
-
-/* ========================
-   STATS ROW
-   Quick-glance metrics at the bottom of the card.
-   ======================== */
-.stats {
-  display: flex;
-  gap: 20px;
-  padding: 10px 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.stat {
-  text-align: center;
-}
-
-.stat-value {
-  font-size: 14px;
-  font-weight: 600;
-  font-family: monospace;
-  color: #bae6fd;
-}
-
-/* The first number takes the card's color */
-.stat:first-child .stat-value {
-  color: var(--accent-light);
-}
-
-.stat-label {
-  font-size: 9.5px;
-  color: rgba(148, 163, 184, 0.4);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-top: 1px;
-}
-
-
-/* ========================
-   CARD FOOTER
-   Repo meta (branch, language)
-   ======================== */
-.project-foot {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.project-meta {
-  display: flex;
-  gap: 16px;
-}
-
-.meta-item {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 11px;
-  color: rgba(148, 163, 184, 0.38);
-}
-
-.meta-item i {
-  font-size: 12px;
-}
-
-/* Icon colors: branch, language, notebook, Streamlit */
-.meta-item .bi-git { color: #d41c03; }
-.meta-item .bi-code-slash { color: #38bdf8; }
-.meta-item .bi-journal-code { color: #f57c00; }
-.meta-item .bi-bar-chart-line-fill { color: #ff4b4b; }
-.meta-item .bi-file-earmark-bar-graph { color: #f2c811; }
-.meta-item .bi-filetype-js { color: #f7df1e; }
-
-/* "Live site" link in the card footer */
-.meta-link {
-  text-decoration: none;
-}
-
-.meta-link:hover {
-  color: var(--accent-light);
 }
 
 
@@ -3051,6 +3062,8 @@ a.contact-value:hover {
 
 /* ── "Message sent" window ─────────────────────────────────── */
 .success-modal {
+  width: min(500px, calc(100% - 32px));
+  color: var(--default-color);
   background: #0f172a;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 28px;
@@ -3069,26 +3082,6 @@ a.contact-value:hover {
 .success-text span {
   color: var(--text-primary);
   font-weight: 700;
-}
-
-
-/*--------------------------------------------------------------
-  # 4.7 Keyboard focus
---------------------------------------------------------------*/
-
-/* Visible outline when moving with the keyboard (Tab) */
-.menu-btn:focus-visible,
-.skill-card:focus-visible,
-.preview-btn:focus-visible,
-.toggle-btn:focus-visible,
-.github-btn:focus-visible,
-.copy-btn:focus-visible,
-.footer-icon:focus-visible,
-.submit-btn:focus-visible,
-.social-btn:focus-visible,
-.scroll-top:focus-visible {
-  outline: 2px solid var(--accent-color, #1387c1);
-  outline-offset: 3px;
 }
 
 
@@ -3383,5 +3376,13 @@ a.contact-value:hover {
 
   .filter-btn {
     flex-shrink: 0;
+  }
+}
+
+/* On phones the X goes inside the image so it doesn't touch the screen edge */
+@media (max-width: 576px) {
+  .preview-close {
+    top: 8px;
+    right: 8px;
   }
 }
