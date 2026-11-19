@@ -84,7 +84,6 @@
   --text-secondary: #94a3b8;
 
   /* Navigation menu */
-  --nav-color: #ffffff;        /* menu links */
   --nav-hover-color: #1387c1;  /* menu links on hover / active page */
 
   /* Neon accents */
@@ -103,7 +102,7 @@
   --cube-half: calc(var(--cube-size) / 2);
   --cube-accent: #06b6d4;
   --cube-hover-accent: #4f46e5;
-  --cube-glass-bg: rgba(10, 25, 47, 0.6);
+  --cube-glass-bg: rgba(10, 25, 47, 0.9);
   --cube-speed-normal: 12s;
   --cube-speed-fast: 3s;       /* spin speed on hover */
 
@@ -311,35 +310,32 @@ section,
   # 3.1 Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: rgba(255, 255, 255, 0);
   color: var(--default-color);
-  background-color: var(--background-color);
+  background-color: transparent;
   padding: 15px 0;
-  transition: all 0.5s;
+  transition: background-color 0.4s, border-color 0.4s, backdrop-filter 0.4s;
   z-index: 997;
-  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+  border-bottom: 1px solid transparent;
 }
 
-/* Header background once the page is scrolled */
+/* Once the page is scrolled: dark frosted glass with a hairline at the bottom */
 .scrolled .header {
-  --background-color: rgba(16, 26, 32, 0.9);
+  background-color: rgba(10, 15, 24, 0.7);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
 }
 
-/* Empty block on the right that balances the logo, so the menu stays centered (desktop only) */
-.header .header-spacer {
-  width: 100px;
-}
 
 
 /*--------------------------------------------------------------
   # 3.2 3D cube logo
-  The spinning cube in the top-left corner of the header.
+  The spinning cube next to the menu.
 --------------------------------------------------------------*/
 .cube-scene {
   width: var(--cube-size);
   height: var(--cube-size);
   perspective: 600px;
-  margin-left: clamp(20px, 15vw, 200px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -361,6 +357,11 @@ section,
 /* Spins faster on hover */
 .cube-scene:hover .cube {
   animation-duration: var(--cube-speed-fast);
+}
+
+/* main.js turns the cube itself (a path that never repeats): the CSS spin is the fallback */
+.cube.js-driven {
+  animation: none;
 }
 
 /* Glowing light in the middle of the cube */
@@ -390,23 +391,53 @@ section,
   }
 }
 
+/* Solid faces: the back faces are hidden, like a real object.
+   --light (0 to 1) is how much a face points at the light; main.js
+   updates it while the cube turns, so faces brighten and darken. */
 .cube-face {
+  --light: 0.5;
   position: absolute;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  border-radius: 3px;
   background: var(--cube-glass-bg);
-  border: 1.5px solid rgba(6, 182, 212, 0.3);
+  border: 1px solid rgba(6, 182, 212, calc(0.2 + var(--light) * 0.5));
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--cube-accent);
   font-size: 1rem;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  backface-visibility: visible;
-  transition: border-color 0.4s, background 0.4s, box-shadow 0.4s, transform 0.4s;
-  box-shadow: inset 0 0 12px rgba(6, 182, 212, 0.1);
+  backface-visibility: hidden;
+  transition: border-color 0.4s, background 0.4s, transform 0.4s;
+  box-shadow: inset 0 0 12px rgba(6, 182, 212, 0.15);
   transform: var(--face) translateZ(var(--cube-half));
+}
+
+/* Shading: faces turned away from the light get darker */
+.cube-face::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #02060d;
+  opacity: calc((1 - var(--light)) * 0.65);
+  pointer-events: none;
+}
+
+/* Shine: a soft reflection on faces that point at the light */
+.cube-face::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.35), transparent 55%);
+  opacity: calc(var(--light) * var(--light) * var(--light));
+  pointer-events: none;
+}
+
+.cube-face i {
+  position: relative;
+  z-index: 1;
+  opacity: calc(0.45 + var(--light) * 0.55);
 }
 
 /* Each face is turned to its side of the cube */
@@ -418,7 +449,7 @@ section,
 .face-bottom { --face: rotateX(-90deg); }
 
 
-/* Endless rotation; odd angles make the spin look less mechanical */
+/* Fallback spin (no JavaScript); odd angles make it look less mechanical */
 @keyframes rotateDataCube {
   0% {
     transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
@@ -448,7 +479,7 @@ section,
 
 .cube-scene:hover .cube-face {
   border-color: var(--cube-hover-accent);
-  background: rgba(79, 70, 229, 0.25);
+  background: rgba(30, 27, 75, 0.92); /* solid, so the back faces stay hidden */
   box-shadow: inset 0 0 20px rgba(79, 70, 229, 0.5);
   /* Slightly bigger cube on hover */
   transform: scale(1.1) var(--face) translateZ(calc(var(--cube-half) * 1.1));
@@ -464,73 +495,79 @@ section,
 
 /*--------------------------------------------------------------
   # 3.3 Navigation – desktop (1200px and wider, mobile menu is in 5.2)
+  A floating glass capsule. main.js adds a soft pill (.nav-indicator)
+  that sits behind the current page and slides to the link under
+  the mouse.
 --------------------------------------------------------------*/
 @media (min-width: 1200px) {
-  .navmenu {
-    padding: 0;
-  }
-
   .navmenu ul {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 2px;
     margin: 0;
-    padding: 0;
-    display: flex;
+    padding: 5px;
     list-style: none;
-    align-items: center;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.04);
   }
 
-  .navmenu li {
+  .navmenu a {
     position: relative;
-  }
-
-  .navmenu>ul>li {
-    white-space: nowrap;
-    padding: 15px 28px 15px 0;
-  }
-
-  .navmenu>ul>li:last-child {
-    padding-right: 0;
-  }
-
-  .navmenu a,
-  .navmenu a:focus {
-    color: var(--nav-color);
-    font-size: 15px;
-    padding: 0 2px;
+    z-index: 1; /* above the sliding pill */
+    display: block;
+    padding: 8px 18px;
+    border-radius: 50px;
     font-family: var(--nav-font);
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    font-size: 14px;
+    letter-spacing: 0.02em;
     white-space: nowrap;
-    transition: 0.3s;
-    position: relative;
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.3s;
   }
 
-  .navmenu>ul>li>a:before {
+  .navmenu a:hover,
+  .navmenu a:focus-visible,
+  .navmenu .active {
+    color: #fff;
+  }
+
+  /* Without JavaScript the current page still gets its pill */
+  .navmenu:not(.has-indicator) .active {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  /* The sliding pill (created by main.js) */
+  .nav-indicator {
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    left: 0;
+    width: 0;
+    border-radius: 50px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 4px 14px rgba(0, 0, 0, 0.25);
+    pointer-events: none;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), width 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s;
+  }
+
+  /* Small accent line under the pill */
+  .nav-indicator::after {
     content: "";
     position: absolute;
+    left: 50%;
+    bottom: -1px;
+    width: 18px;
     height: 2px;
-    bottom: -6px;
-    left: 0;
-    background-color: var(--nav-hover-color);
-    visibility: hidden;
-    width: 0px;
-    transition: all 0.3s ease-in-out 0s;
+    margin-left: -9px;
+    border-radius: 2px;
+    background: var(--nav-hover-color);
+    box-shadow: 0 0 8px var(--nav-hover-color);
   }
-
-  .navmenu a:hover:before,
-  .navmenu li:hover>a:before,
-  .navmenu .active:before {
-    visibility: visible;
-    width: 25px;
-  }
-
-  .navmenu li:hover>a,
-  .navmenu .active,
-  .navmenu .active:focus {
-    color: var(--nav-hover-color);
-  }
-
 }
 
 
@@ -3124,115 +3161,171 @@ a.contact-value:hover {
 }
 
 /*--------------------------------------------------------------
-  # 5.2 Navigation menu (hamburger + full-screen menu)
+  # 5.2 Navigation menu (round button + full-screen menu)
 --------------------------------------------------------------*/
 
 @media (max-width: 1199px) {
-  /* ── Open menu: full-screen dark overlay ───────────────────── */
-  .menu-open {
-    overflow: hidden;
-    /* Locks body scroll while menu is open */
-  }
-
-  .menu-open .navmenu {
-    position: fixed;
-    inset: 0;
-    /* Deep dark background — full screen */
-    background: #0a0f1a;
-    z-index: 9997;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* ── Open menu: centered column of links ───────────────────── */
-  .menu-open .navmenu ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* Separator lines handle spacing */
+  /* Round glass button with two lines; they turn into an × when the menu is open */
+  /* Sits at the right edge of the header, so the cube stays in the middle */
+  .menu-btn {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    translate: 0 -50%;
+    z-index: 9999;
+    width: 44px;
+    height: 44px;
     padding: 0;
-    margin: 0;
-    width: 100%;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: border-color 0.3s, background 0.3s;
   }
 
-  /* ── Individual nav items ───────────────────────────────────── */
-  .menu-open .navmenu ul li {
-    width: 100%;
-    text-align: center;
-    /* Thin separator line between items (matches the reference) */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  .menu-btn:hover {
+    border-color: rgba(255, 255, 255, 0.3);
   }
 
-  .menu-open .navmenu ul li:last-child {
-    border-bottom: none;
+  .menu-btn span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 18px;
+    height: 1.5px;
+    margin-left: -9px;
+    border-radius: 2px;
+    background: #fff;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), width 0.4s, margin 0.4s;
   }
 
-  /* ── Nav links ──────────────────────────────────────────────── */
-  .menu-open .navmenu a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* Center text horizontally */
-    padding: 22px 20px;
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 1.15rem;
-    font-weight: 500;
-    font-family: var(--nav-font, 'Poppins', sans-serif);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: color 0.2s ease, background 0.2s ease;
-    width: 100%;
+  .menu-btn span:first-child {
+    transform: translateY(-4px);
   }
 
-  /* Hover: accent color highlight */
-  .menu-open .navmenu a:hover,
-  .menu-open .navmenu .active {
-    color: var(--accent-color, #1387c1);
-    background: rgba(255, 255, 255, 0.03);
+  /* The bottom line is shorter, aligned to the right */
+  .menu-btn span:last-child {
+    width: 12px;
+    margin-left: -3px;
+    transform: translateY(4px);
   }
 
-  /* ── Open menu: close button (×) ───────────────────────────── */
-  /* Position the toggle button at the top of the overlay */
   .menu-open .menu-btn {
     position: fixed;
     top: 20px;
     right: 20px;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 32px;
-    z-index: 9999;
-    transition: color 0.2s, transform 0.2s;
+    translate: none;
+    background: rgba(255, 255, 255, 0.06);
   }
 
-  .menu-open .menu-btn:hover {
-    color: #fff;
-    transform: scale(1.1);
+  .menu-open .menu-btn span:first-child {
+    transform: rotate(45deg);
   }
 
-  /* ── Base mobile styles: hamburger button, hidden link list ── */
-  .menu-btn {
-    background: none;
-    border: 0;
-    padding: 0;
-    color: var(--nav-color);
-    font-size: 28px;
-    line-height: 0;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: color 0.3s;
-    z-index: 9999;
+  .menu-open .menu-btn span:last-child {
+    width: 18px;
+    margin-left: -9px;
+    transform: rotate(-45deg);
   }
 
+  /* Closed menu takes no room in the header, so the cube stays exactly in the middle */
   .navmenu {
-    padding: 0;
-    z-index: 9997;
+    display: contents;
   }
 
   .navmenu ul {
     display: none;
     list-style: none;
+  }
+
+  /* ── Open menu: blurred full-screen overlay ────────────────── */
+  .menu-open {
+    overflow: hidden; /* locks the page scroll */
+  }
+
+  .menu-open .navmenu {
+    position: fixed;
+    inset: 0;
+    z-index: 9997;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(8, 12, 20, 0.88);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    animation: menuFade 0.35s ease both;
+  }
+
+  /* Numbered links (01 Home, 02 About...), left-aligned */
+  .menu-open .navmenu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: min(100% - 48px, 360px);
+    margin: 0;
+    padding: 0;
+    counter-reset: nav;
+  }
+
+  .menu-open .navmenu li {
+    counter-increment: nav;
+    animation: menuItemIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .menu-open .navmenu li:nth-child(2) { animation-delay: 0.05s; }
+  .menu-open .navmenu li:nth-child(3) { animation-delay: 0.1s; }
+  .menu-open .navmenu li:nth-child(4) { animation-delay: 0.15s; }
+  .menu-open .navmenu li:nth-child(5) { animation-delay: 0.2s; }
+  .menu-open .navmenu li:nth-child(6) { animation-delay: 0.25s; }
+
+  .menu-open .navmenu a {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 12px 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    font-family: var(--heading-font);
+    font-size: 1.9rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: rgba(255, 255, 255, 0.45);
+    transition: color 0.3s, padding-left 0.3s;
+  }
+
+  .menu-open .navmenu a::before {
+    content: counter(nav, decimal-leading-zero);
+    font-family: var(--nav-font);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.3);
+    transition: color 0.3s;
+  }
+
+  .menu-open .navmenu a:hover,
+  .menu-open .navmenu .active {
+    color: #fff;
+    padding-left: 12px;
+  }
+
+  .menu-open .navmenu a:hover::before,
+  .menu-open .navmenu .active::before {
+    color: var(--nav-hover-color);
+  }
+}
+
+@keyframes menuFade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes menuItemIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
   }
 }
 

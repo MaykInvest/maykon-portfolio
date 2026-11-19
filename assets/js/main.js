@@ -22,18 +22,68 @@
   });
 
   /**
-   * Every page: mobile menu button (hamburger)
+   * Every page: mobile menu button. Opens/closes the full-screen menu
+   * (the two lines turn into an × with CSS). Escape also closes it.
    */
   const mobileNavToggleBtn = document.querySelector('.menu-btn');
 
-  mobileNavToggleBtn.addEventListener('click', () => {
-    const isOpen = document.body.classList.toggle('menu-open');
-    mobileNavToggleBtn.classList.toggle('bi-list');
-    mobileNavToggleBtn.classList.toggle('bi-x');
+  function setMenu(open) {
+    document.body.classList.toggle('menu-open', open);
     // Tell screen readers whether the menu is open
-    mobileNavToggleBtn.setAttribute('aria-expanded', isOpen);
-    mobileNavToggleBtn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    mobileNavToggleBtn.setAttribute('aria-expanded', open);
+    mobileNavToggleBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+
+  mobileNavToggleBtn.addEventListener('click', () => {
+    setMenu(!document.body.classList.contains('menu-open'));
   });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.body.classList.contains('menu-open')) setMenu(false);
+  });
+
+  /**
+   * Every page: desktop menu. A soft pill sits behind the current page's link
+   * and slides to the link under the mouse, then back when the mouse leaves.
+   */
+  const navList = document.querySelector('.navmenu ul');
+
+  if (navList) {
+    const indicator = document.createElement('span');
+    indicator.className = 'nav-indicator';
+    indicator.setAttribute('aria-hidden', 'true');
+    navList.appendChild(indicator);
+    navList.parentElement.classList.add('has-indicator');
+
+    const activeLink = navList.querySelector('.active');
+
+    function moveIndicator(link) {
+      if (!link) {
+        indicator.style.opacity = 0;
+        return;
+      }
+      const listBox = navList.getBoundingClientRect();
+      const linkBox = link.getBoundingClientRect();
+      indicator.style.opacity = 1;
+      indicator.style.width = `${linkBox.width}px`;
+      // clientLeft = the list's border: the pill is placed inside it
+      indicator.style.transform = `translateX(${linkBox.left - listBox.left - navList.clientLeft}px)`;
+    }
+
+    // First placement without the slide animation
+    indicator.style.transition = 'none';
+    moveIndicator(activeLink);
+    requestAnimationFrame(() => indicator.style.removeProperty('transition'));
+
+    navList.querySelectorAll('a').forEach(link => {
+      link.addEventListener('mouseenter', () => moveIndicator(link));
+      link.addEventListener('focus', () => moveIndicator(link));
+    });
+    navList.addEventListener('mouseleave', () => moveIndicator(activeLink));
+    // Fonts load late and the page can be resized: measure again
+    window.addEventListener('load', () => moveIndicator(activeLink));
+    window.addEventListener('resize', () => moveIndicator(activeLink));
+  }
 
   /**
    * Every page: animation on scroll (AOS).
@@ -70,25 +120,75 @@
   });
 
   /**
-   * Every page: 3D cube logo in the header turns to follow the mouse
+   * Every page: 3D cube logo.
+   * The cube tumbles around an axis that keeps drifting (three slow waves
+   * whose speeds never line up), so its path never repeats and, over time,
+   * every side comes to the front. A light stays still at the top-left:
+   * each face gets --light (0 to 1), brighter when it points at the light.
+   * On hover the spin speeds up gently.
    */
-  const cubeScene = document.querySelector('.cube-scene');
   const cube = document.querySelector('.cube');
 
-  if (cubeScene && cube) {
-    cubeScene.addEventListener('mousemove', (e) => {
-      const rect = cubeScene.getBoundingClientRect();
+  if (cube && window.DOMMatrix) {
+    // Direction each face points to before turning (x right, y down, z toward you)
+    const NORMALS = {
+      'face-front': [0, 0, 1], 'face-back': [0, 0, -1],
+      'face-right': [1, 0, 0], 'face-left': [-1, 0, 0],
+      'face-top': [0, -1, 0], 'face-bottom': [0, 1, 0]
+    };
+    const faces = [...cube.querySelectorAll('.cube-face')].map(face => ({
+      face,
+      normal: NORMALS[[...face.classList].find(c => NORMALS[c])]
+    }));
 
-      // Mouse position inside the logo, from -1 to 1
-      const x = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
-      const y = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+    // Light from the top-left, a bit in front of the cube
+    const L = [-0.45, -0.65, 0.6];
+    const len = Math.hypot(...L);
+    const light = L.map(v => v / len);
 
-      cube.style.transform = `rotateX(${-y * 25}deg) rotateY(${x * 25}deg)`;
-    });
+    const scene = cube.closest('.cube-scene');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let m = new DOMMatrix().rotate(-25, 35, 0); // start at a nice 3D angle
+    let t = 0, speed = 1, targetSpeed = 1, last = null;
 
-    cubeScene.addEventListener('mouseleave', () => {
-      cube.style.transform = 'rotateX(0deg) rotateY(0deg)';
-    });
+    scene.addEventListener('mouseenter', () => { targetSpeed = 3; });
+    scene.addEventListener('mouseleave', () => { targetSpeed = 1; });
+
+    function draw() {
+      cube.style.transform = m.toString();
+
+      faces.forEach(({ face, normal: [x, y, z] }) => {
+        // The face's direction after the cube's current turn
+        const nx = m.m11 * x + m.m21 * y + m.m31 * z;
+        const ny = m.m12 * x + m.m22 * y + m.m32 * z;
+        const nz = m.m13 * x + m.m23 * y + m.m33 * z;
+        const lit = Math.max(0, nx * light[0] + ny * light[1] + nz * light[2]);
+        face.style.setProperty('--light', lit.toFixed(3));
+      });
+    }
+
+    function frame(time) {
+      const dt = last === null ? 0 : Math.min((time - last) / 1000, 0.05);
+      last = time;
+      speed += (targetSpeed - speed) * Math.min(dt * 3, 1); // ease toward the hover speed
+      t += dt;
+
+      // Spin axis drifting slowly in every direction (never the same twice)
+      const ax = Math.sin(t * 0.37), ay = Math.cos(t * 0.23 + 1), az = Math.sin(t * 0.13 + 2) * 0.6;
+      if (Math.hypot(ax, ay, az) > 0.1) {
+        m = new DOMMatrix().rotateAxisAngle(ax, ay, az, 55 * speed * dt).multiply(m); // 55 degrees per second
+      }
+
+      draw();
+      requestAnimationFrame(frame);
+    }
+
+    cube.classList.add('js-driven');
+    if (reduceMotion) {
+      draw(); // still, but lit
+    } else {
+      requestAnimationFrame(frame);
+    }
   }
 
   /**
