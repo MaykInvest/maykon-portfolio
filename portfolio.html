@@ -182,32 +182,31 @@
               </div>
             </div>
 
-            <!-- ── Titanic Survival Prediction ── -->
-            <div class="project" data-category="ml" style="--accent-rgb: 56,189,248; --accent-light: #7dd3fc">
+            <!-- ── AI Dependency in Students ── -->
+            <div class="project" data-category="ml" style="--accent-rgb: 99,102,241; --accent-light: #a5b4fc">
               <div class="project-card">
 
                 <div class="project-content">
 
                   <div class="project-img">
-                    <div class="project-badge"><span class="dot"></span> ML · Classification
-                    </div>
-
-                    <a class="github-btn" href="https://github.com/MaykInvest/Titanic-analysis.git" target="_blank"
-                      rel="noopener" aria-label="View Titanic Survival Prediction on GitHub">
+                    <div class="project-badge"><span class="dot"></span> ML · Classification</div>
+                    <a class="github-btn" href="https://github.com/MaykInvest/AI_Dependency"
+                      target="_blank" rel="noopener" aria-label="View AI Dependency Classifier on GitHub">
                       <i class="bi bi-github"></i>
                       <span class="github-btn-text">GitHub</span>
                     </a>
 
                     <button type="button" class="preview-btn"
-                      aria-label="Open preview: Titanic ML project">
-                      <img src="assets/img/portfolio/Titanic.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Titanic ML project">
+                      aria-label="Open preview: AI Dependency Classifier project">
+                      <img src="assets/img/portfolio/AI_dependency.jpg" width="1000" height="800" loading="lazy" decoding="async"
+                        alt="AI Dependency Classifier project">
                     </button>
                   </div>
 
                   <div class="project-head">
-                    <div class="project-category">Titanic Survival Prediction</div>
+                    <div class="project-category">AI Dependency in Students</div>
                     <div class="project-title">
-                      <span>Titanic Classification Models</span>
+                      <span>Multi-class Classifier</span>
                       <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="bar-h"></span><span
                           class="bar-v"></span></button>
                     </div>
@@ -215,17 +214,14 @@
 
                   <div class="details">
                     <div class="details-inner">
-                      <p class="project-desc">A leakage-free classification pipeline on the classic Titanic passenger dataset,
-                        with feature engineering (title extraction, family grouping) and a Gradient Boosting model
-                        tuned with Bayesian search. 83% accuracy on unseen passengers (baseline 61.7%), explained
-                        with SHAP.</p>
-
+                      <p class="project-desc">Predicts students' AI dependency level (Low / Medium / High) from survey data on 15,000
+                        students. Six models are compared in a leakage-safe, cross-validated pipeline; the tuned
+                        Logistic Regression reached 0.66 F1, +0.40 over the baseline.</p>
                       <div class="tags">
-                        <span class="tag tag-cyan"><i class="bi bi-filetype-py me-1"></i>Python</span>
-                        <span class="tag tag-violet">SHAP</span>
-                        <span class="tag tag-teal">Feature
-                          Eng.</span>
-                        <span class="tag tag-emerald">Scikit-Learn</span>
+                        <span class="tag tag-violet"><i class="bi bi-filetype-py me-1"></i>Python</span>
+                        <span class="tag tag-blue">Scikit-Learn</span>
+                        <span class="tag tag-sky">Logistic Reg.</span>
+                        <span class="tag tag-purple">BayesSearchCV</span>
                       </div>
                     </div>
                   </div>
@@ -234,154 +230,12 @@
 
                   <div class="stats">
                     <div class="stat">
-                      <div class="stat-value" style="color:#38bdf8">83%</div>
-                      <div class="stat-label">Accuracy</div>
+                      <div class="stat-value">0.66</div>
+                      <div class="stat-label">F1 Score</div>
                     </div>
                     <div class="stat">
-                      <div class="stat-value">891</div>
-                      <div class="stat-label">Passengers</div>
-                    </div>
-                  </div>
-
-                  <div class="project-foot">
-                    <div class="project-meta">
-                      <span class="meta-item"> <i class="bi bi-git me-1"></i> main </span>
-                      <span class="meta-item"> <i class="bi bi-code-slash me-1"></i> Python </span>
-                      <span class="meta-item"> <i class="bi bi-journal-code me-1"></i> Jupyter
-                        Notebook </span>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-            <!-- ── House Prices Prediction ── -->
-            <div class="project" data-category="ml" style="--accent-rgb: 255,193,7; --accent-light: #ffc107">
-              <div class="project-card">
-
-                <div class="project-content">
-
-                  <div class="project-img">
-                    <div class="project-badge"><span class="dot"></span> ML · Regression</div>
-
-                    <a class="github-btn" href="https://github.com/MaykInvest/House_Prices_Prediction.git" target="_blank"
-                      rel="noopener" aria-label="View House Prices Prediction on GitHub">
-                      <i class="bi bi-github"></i>
-                      <span class="github-btn-text">GitHub</span>
-                    </a>
-
-                    <button type="button" class="preview-btn"
-                      aria-label="Open preview: House Prices Prediction project">
-                      <img src="assets/img/portfolio/House_prices_prediction.webp" width="1200" height="800" loading="lazy" decoding="async"
-                        alt="House Prices Prediction project">
-                    </button>
-                  </div>
-
-                  <div class="project-head">
-                    <div class="project-category">House Prices Prediction</div>
-                    <div class="project-title">
-                      <span>Regression Model Comparison</span>
-                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="bar-h"></span><span
-                          class="bar-v"></span></button>
-                    </div>
-                  </div>
-
-                  <div class="details">
-                    <div class="details-inner">
-                      <p class="project-desc">An end-to-end regression pipeline on 4,140 Seattle-area home sales, comparing
-                        Ridge, Random Forest, XGBoost and LightGBM with 5-fold cross-validation. The tuned LightGBM
-                        model cut the mean absolute error by 59% versus the baseline.</p>
-
-                      <div class="tags">
-                        <span class="tag tag-yellow">Python</span>
-                        <span class="tag tag-yellow">Scikit-Learn</span>
-                        <span class="tag tag-yellow">LightGBM</span>
-                        <span class="tag tag-yellow">XGBoost</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="divider"></div>
-
-                  <div class="stats">
-                    <div class="stat">
-                      <div class="stat-value">−59%</div>
-                      <div class="stat-label">Error vs Baseline</div>
-                    </div>
-                    <div class="stat">
-                      <div class="stat-value" style="color:#ffe082">4,140</div>
-                      <div class="stat-label">Home Sales</div>
-                    </div>
-                  </div>
-
-                  <div class="project-foot">
-                    <div class="project-meta">
-                      <span class="meta-item"> <i class="bi bi-git me-1"></i> main </span>
-                      <span class="meta-item"> <i class="bi bi-code-slash me-1"></i> Python </span>
-                      <span class="meta-item"> <i class="bi bi-journal-code me-1"></i> Jupyter
-                        Notebook </span>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-            <!-- ── Car Market Segmentation ── -->
-            <div class="project" data-category="ml" style="--accent-rgb: 236,72,153; --accent-light: #f472b6">
-              <div class="project-card">
-
-                <div class="project-content">
-
-                  <div class="project-img">
-                    <div class="project-badge"><span class="dot"></span> ML · Clustering</div>
-                    <a class="github-btn" href="https://github.com/MaykInvest/car_clustering_kmeans"
-                      target="_blank" rel="noopener" aria-label="View Car Market Segmentation on GitHub">
-                      <i class="bi bi-github"></i>
-                      <span class="github-btn-text">GitHub</span>
-                    </a>
-
-                    <button type="button" class="preview-btn"
-                      aria-label="Open preview: Car Market Segmentation project">
-                      <img src="assets/img/portfolio/Car_segmentation.svg" width="1200" height="800" loading="lazy" decoding="async"
-                        alt="Car Market Segmentation project">
-                    </button>
-                  </div>
-
-                  <div class="project-head">
-                    <div class="project-category">Car Market Segmentation</div>
-                    <div class="project-title">
-                      <span>Unsupervised K-Means</span>
-                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="bar-h"></span><span
-                          class="bar-v"></span></button>
-                    </div>
-                  </div>
-
-                  <div class="details">
-                    <div class="details-inner">
-                      <p class="project-desc">Groups 11,121 car models into natural market segments (Mainstream, Performance /
-                        Luxury and Older Models) with K-Means, choosing K by silhouette score. The model is served
-                        through a FastAPI endpoint.</p>
-                      <div class="tags">
-                        <span class="tag tag-pink"><i class="bi bi-filetype-py me-1"></i>Python</span>
-                        <span class="tag tag-emerald">Scikit-Learn</span>
-                        <span class="tag tag-sky">K-Means</span>
-                        <span class="tag tag-violet">FastAPI</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="divider"></div>
-
-                  <div class="stats">
-                    <div class="stat">
-                      <div class="stat-value">11K+</div>
-                      <div class="stat-label">Car Models</div>
-                    </div>
-                    <div class="stat">
-                      <div class="stat-value">K = 3</div>
-                      <div class="stat-label">Segments</div>
+                      <div class="stat-value">15K</div>
+                      <div class="stat-label">Students</div>
                     </div>
                   </div>
 
@@ -466,6 +320,74 @@
               </div>
             </div>
 
+            <!-- ── TechStore Sales Dashboard ── -->
+            <div class="project" data-category="bi" style="--accent-rgb: 16,185,129; --accent-light: #34d399">
+              <div class="project-card">
+
+                <div class="project-content">
+
+                  <div class="project-img">
+                    <div class="project-badge"><span class="dot"></span> BI · Dashboard</div>
+                    <a class="github-btn" href="https://github.com/MaykInvest/Hardware_Store_PowerBI_Project"
+                      target="_blank" rel="noopener" aria-label="View TechStore Power BI Dashboard on GitHub">
+                      <i class="bi bi-github"></i>
+                      <span class="github-btn-text">GitHub</span>
+                    </a>
+
+                    <button type="button" class="preview-btn"
+                      aria-label="Open preview: TechStore Power BI dashboard project">
+                      <img src="assets/img/portfolio/PowerBI_TechStore.jpg" width="979" height="555" loading="lazy" decoding="async"
+                        alt="TechStore Power BI dashboard project">
+                    </button>
+                  </div>
+
+                  <div class="project-head">
+                    <div class="project-category">TechStore Sales Dashboard</div>
+                    <div class="project-title">
+                      <span>Power BI Executive Report</span>
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="bar-h"></span><span
+                          class="bar-v"></span></button>
+                    </div>
+                  </div>
+
+                  <div class="details">
+                    <div class="details-inner">
+                      <p class="project-desc">An executive dashboard for a fictional Brazilian PC-hardware retailer. Star-schema model
+                        with a Calendar table and DAX measures for revenue, margin, return rate and customer
+                        satisfaction, each tracked against a target.</p>
+                      <div class="tags">
+                        <span class="tag tag-emerald"><i class="bi bi-bar-chart-fill me-1"></i>Power BI</span>
+                        <span class="tag tag-yellow">DAX</span>
+                        <span class="tag tag-sky">Star Schema</span>
+                        <span class="tag tag-violet">Power Query</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="divider"></div>
+
+                  <div class="stats">
+                    <div class="stat">
+                      <div class="stat-value">5,000</div>
+                      <div class="stat-label">Order Lines</div>
+                    </div>
+                    <div class="stat">
+                      <div class="stat-value">2022–24</div>
+                      <div class="stat-label">Sales Period</div>
+                    </div>
+                  </div>
+
+                  <div class="project-foot">
+                    <div class="project-meta">
+                      <span class="meta-item"> <i class="bi bi-git me-1"></i> main </span>
+                      <span class="meta-item"> <i class="bi bi-file-earmark-bar-graph me-1"></i> Power BI </span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
             <!-- ── Sentiment Analysis Model ── -->
             <div class="project" data-category="ai" style="--accent-rgb: 20,184,166; --accent-light: #2dd4bf">
               <div class="project-card">
@@ -519,6 +441,76 @@
                     <div class="stat">
                       <div class="stat-value">14.6K</div>
                       <div class="stat-label">Tweets</div>
+                    </div>
+                  </div>
+
+                  <div class="project-foot">
+                    <div class="project-meta">
+                      <span class="meta-item"> <i class="bi bi-git me-1"></i> main </span>
+                      <span class="meta-item"> <i class="bi bi-code-slash me-1"></i> Python </span>
+                      <span class="meta-item"> <i class="bi bi-journal-code me-1"></i> Jupyter
+                        Notebook </span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- ── Car Market Segmentation ── -->
+            <div class="project" data-category="ml" style="--accent-rgb: 236,72,153; --accent-light: #f472b6">
+              <div class="project-card">
+
+                <div class="project-content">
+
+                  <div class="project-img">
+                    <div class="project-badge"><span class="dot"></span> ML · Clustering</div>
+                    <a class="github-btn" href="https://github.com/MaykInvest/car_clustering_kmeans"
+                      target="_blank" rel="noopener" aria-label="View Car Market Segmentation on GitHub">
+                      <i class="bi bi-github"></i>
+                      <span class="github-btn-text">GitHub</span>
+                    </a>
+
+                    <button type="button" class="preview-btn"
+                      aria-label="Open preview: Car Market Segmentation project">
+                      <img src="assets/img/portfolio/Car_segmentation.svg" width="1200" height="800" loading="lazy" decoding="async"
+                        alt="Car Market Segmentation project">
+                    </button>
+                  </div>
+
+                  <div class="project-head">
+                    <div class="project-category">Car Market Segmentation</div>
+                    <div class="project-title">
+                      <span>Unsupervised K-Means</span>
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="bar-h"></span><span
+                          class="bar-v"></span></button>
+                    </div>
+                  </div>
+
+                  <div class="details">
+                    <div class="details-inner">
+                      <p class="project-desc">Groups 11,121 car models into natural market segments (Mainstream, Performance /
+                        Luxury and Older Models) with K-Means, choosing K by silhouette score. The model is served
+                        through a FastAPI endpoint.</p>
+                      <div class="tags">
+                        <span class="tag tag-pink"><i class="bi bi-filetype-py me-1"></i>Python</span>
+                        <span class="tag tag-emerald">Scikit-Learn</span>
+                        <span class="tag tag-sky">K-Means</span>
+                        <span class="tag tag-violet">FastAPI</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="divider"></div>
+
+                  <div class="stats">
+                    <div class="stat">
+                      <div class="stat-value">11K+</div>
+                      <div class="stat-label">Car Models</div>
+                    </div>
+                    <div class="stat">
+                      <div class="stat-value">K = 3</div>
+                      <div class="stat-label">Segments</div>
                     </div>
                   </div>
 
@@ -617,144 +609,6 @@
               </div>
             </div>
 
-            <!-- ── AI Dependency in Students ── -->
-            <div class="project" data-category="ml" style="--accent-rgb: 99,102,241; --accent-light: #a5b4fc">
-              <div class="project-card">
-
-                <div class="project-content">
-
-                  <div class="project-img">
-                    <div class="project-badge"><span class="dot"></span> ML · Classification</div>
-                    <a class="github-btn" href="https://github.com/MaykInvest/AI_Dependency"
-                      target="_blank" rel="noopener" aria-label="View AI Dependency Classifier on GitHub">
-                      <i class="bi bi-github"></i>
-                      <span class="github-btn-text">GitHub</span>
-                    </a>
-
-                    <button type="button" class="preview-btn"
-                      aria-label="Open preview: AI Dependency Classifier project">
-                      <img src="assets/img/portfolio/AI_dependency.jpg" width="1000" height="800" loading="lazy" decoding="async"
-                        alt="AI Dependency Classifier project">
-                    </button>
-                  </div>
-
-                  <div class="project-head">
-                    <div class="project-category">AI Dependency in Students</div>
-                    <div class="project-title">
-                      <span>Multi-class Classifier</span>
-                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="bar-h"></span><span
-                          class="bar-v"></span></button>
-                    </div>
-                  </div>
-
-                  <div class="details">
-                    <div class="details-inner">
-                      <p class="project-desc">Predicts students' AI dependency level (Low / Medium / High) from survey data on 15,000
-                        students. Six models are compared in a leakage-safe, cross-validated pipeline; the tuned
-                        Logistic Regression reached 0.66 F1, +0.40 over the baseline.</p>
-                      <div class="tags">
-                        <span class="tag tag-violet"><i class="bi bi-filetype-py me-1"></i>Python</span>
-                        <span class="tag tag-blue">Scikit-Learn</span>
-                        <span class="tag tag-sky">Logistic Reg.</span>
-                        <span class="tag tag-purple">BayesSearchCV</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="divider"></div>
-
-                  <div class="stats">
-                    <div class="stat">
-                      <div class="stat-value">66%</div>
-                      <div class="stat-label">Accuracy</div>
-                    </div>
-                    <div class="stat">
-                      <div class="stat-value">15K</div>
-                      <div class="stat-label">Students</div>
-                    </div>
-                  </div>
-
-                  <div class="project-foot">
-                    <div class="project-meta">
-                      <span class="meta-item"> <i class="bi bi-git me-1"></i> main </span>
-                      <span class="meta-item"> <i class="bi bi-code-slash me-1"></i> Python </span>
-                      <span class="meta-item"> <i class="bi bi-journal-code me-1"></i> Jupyter
-                        Notebook </span>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-            <!-- ── TechStore Sales Dashboard ── -->
-            <div class="project" data-category="bi" style="--accent-rgb: 16,185,129; --accent-light: #34d399">
-              <div class="project-card">
-
-                <div class="project-content">
-
-                  <div class="project-img">
-                    <div class="project-badge"><span class="dot"></span> BI · Dashboard</div>
-                    <a class="github-btn" href="https://github.com/MaykInvest/Hardware_Store_PowerBI_Project"
-                      target="_blank" rel="noopener" aria-label="View TechStore Power BI Dashboard on GitHub">
-                      <i class="bi bi-github"></i>
-                      <span class="github-btn-text">GitHub</span>
-                    </a>
-
-                    <button type="button" class="preview-btn"
-                      aria-label="Open preview: TechStore Power BI dashboard project">
-                      <img src="assets/img/portfolio/PowerBI_TechStore.jpg" width="979" height="555" loading="lazy" decoding="async"
-                        alt="TechStore Power BI dashboard project">
-                    </button>
-                  </div>
-
-                  <div class="project-head">
-                    <div class="project-category">TechStore Sales Dashboard</div>
-                    <div class="project-title">
-                      <span>Power BI Executive Report</span>
-                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="bar-h"></span><span
-                          class="bar-v"></span></button>
-                    </div>
-                  </div>
-
-                  <div class="details">
-                    <div class="details-inner">
-                      <p class="project-desc">An executive dashboard for a fictional Brazilian PC-hardware retailer. Star-schema model
-                        with a Calendar table and DAX measures for revenue, margin, return rate and customer
-                        satisfaction, each tracked against a target.</p>
-                      <div class="tags">
-                        <span class="tag tag-emerald"><i class="bi bi-bar-chart-fill me-1"></i>Power BI</span>
-                        <span class="tag tag-yellow">DAX</span>
-                        <span class="tag tag-sky">Star Schema</span>
-                        <span class="tag tag-violet">Power Query</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="divider"></div>
-
-                  <div class="stats">
-                    <div class="stat">
-                      <div class="stat-value">5,000</div>
-                      <div class="stat-label">Order Lines</div>
-                    </div>
-                    <div class="stat">
-                      <div class="stat-value">2022–24</div>
-                      <div class="stat-label">Sales Period</div>
-                    </div>
-                  </div>
-
-                  <div class="project-foot">
-                    <div class="project-meta">
-                      <span class="meta-item"> <i class="bi bi-git me-1"></i> main </span>
-                      <span class="meta-item"> <i class="bi bi-file-earmark-bar-graph me-1"></i> Power BI </span>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
             <!-- ── Amazon Best Sellers 2024 ── -->
             <div class="project" data-category="analysis" style="--accent-rgb: 244,63,94; --accent-light: #fb7185">
               <div class="project-card">
@@ -809,6 +663,152 @@
                     <div class="stat">
                       <div class="stat-value">r = 0.07</div>
                       <div class="stat-label">Rating vs Reviews</div>
+                    </div>
+                  </div>
+
+                  <div class="project-foot">
+                    <div class="project-meta">
+                      <span class="meta-item"> <i class="bi bi-git me-1"></i> main </span>
+                      <span class="meta-item"> <i class="bi bi-code-slash me-1"></i> Python </span>
+                      <span class="meta-item"> <i class="bi bi-journal-code me-1"></i> Jupyter
+                        Notebook </span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- ── House Prices Prediction ── -->
+            <div class="project" data-category="ml" style="--accent-rgb: 255,193,7; --accent-light: #ffc107">
+              <div class="project-card">
+
+                <div class="project-content">
+
+                  <div class="project-img">
+                    <div class="project-badge"><span class="dot"></span> ML · Regression</div>
+
+                    <a class="github-btn" href="https://github.com/MaykInvest/House_Prices_Prediction.git" target="_blank"
+                      rel="noopener" aria-label="View House Prices Prediction on GitHub">
+                      <i class="bi bi-github"></i>
+                      <span class="github-btn-text">GitHub</span>
+                    </a>
+
+                    <button type="button" class="preview-btn"
+                      aria-label="Open preview: House Prices Prediction project">
+                      <img src="assets/img/portfolio/House_prices_prediction.webp" width="1200" height="800" loading="lazy" decoding="async"
+                        alt="House Prices Prediction project">
+                    </button>
+                  </div>
+
+                  <div class="project-head">
+                    <div class="project-category">House Prices Prediction</div>
+                    <div class="project-title">
+                      <span>Regression Model Comparison</span>
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="bar-h"></span><span
+                          class="bar-v"></span></button>
+                    </div>
+                  </div>
+
+                  <div class="details">
+                    <div class="details-inner">
+                      <p class="project-desc">An end-to-end regression pipeline on 4,140 Seattle-area home sales, comparing
+                        Ridge, Random Forest, XGBoost and LightGBM with 5-fold cross-validation. The tuned LightGBM
+                        model cut the mean absolute error by 59% versus the baseline.</p>
+
+                      <div class="tags">
+                        <span class="tag tag-yellow">Python</span>
+                        <span class="tag tag-yellow">Scikit-Learn</span>
+                        <span class="tag tag-yellow">LightGBM</span>
+                        <span class="tag tag-yellow">XGBoost</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="divider"></div>
+
+                  <div class="stats">
+                    <div class="stat">
+                      <div class="stat-value">−59%</div>
+                      <div class="stat-label">Error vs Baseline</div>
+                    </div>
+                    <div class="stat">
+                      <div class="stat-value" style="color:#ffe082">4,140</div>
+                      <div class="stat-label">Home Sales</div>
+                    </div>
+                  </div>
+
+                  <div class="project-foot">
+                    <div class="project-meta">
+                      <span class="meta-item"> <i class="bi bi-git me-1"></i> main </span>
+                      <span class="meta-item"> <i class="bi bi-code-slash me-1"></i> Python </span>
+                      <span class="meta-item"> <i class="bi bi-journal-code me-1"></i> Jupyter
+                        Notebook </span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- ── Titanic Survival Prediction ── -->
+            <div class="project" data-category="ml" style="--accent-rgb: 56,189,248; --accent-light: #7dd3fc">
+              <div class="project-card">
+
+                <div class="project-content">
+
+                  <div class="project-img">
+                    <div class="project-badge"><span class="dot"></span> ML · Classification
+                    </div>
+
+                    <a class="github-btn" href="https://github.com/MaykInvest/Titanic-analysis.git" target="_blank"
+                      rel="noopener" aria-label="View Titanic Survival Prediction on GitHub">
+                      <i class="bi bi-github"></i>
+                      <span class="github-btn-text">GitHub</span>
+                    </a>
+
+                    <button type="button" class="preview-btn"
+                      aria-label="Open preview: Titanic ML project">
+                      <img src="assets/img/portfolio/Titanic.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Titanic ML project">
+                    </button>
+                  </div>
+
+                  <div class="project-head">
+                    <div class="project-category">Titanic Survival Prediction</div>
+                    <div class="project-title">
+                      <span>Titanic Classification Models</span>
+                      <button type="button" class="toggle-btn" aria-label="Toggle details" aria-expanded="false"><span class="bar-h"></span><span
+                          class="bar-v"></span></button>
+                    </div>
+                  </div>
+
+                  <div class="details">
+                    <div class="details-inner">
+                      <p class="project-desc">A leakage-free classification pipeline on the classic Titanic passenger dataset,
+                        with feature engineering (title extraction, family grouping) and a Gradient Boosting model
+                        tuned with Bayesian search. 83% accuracy on unseen passengers (baseline 61.7%), explained
+                        with SHAP.</p>
+
+                      <div class="tags">
+                        <span class="tag tag-cyan"><i class="bi bi-filetype-py me-1"></i>Python</span>
+                        <span class="tag tag-violet">SHAP</span>
+                        <span class="tag tag-teal">Feature
+                          Eng.</span>
+                        <span class="tag tag-emerald">Scikit-Learn</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="divider"></div>
+
+                  <div class="stats">
+                    <div class="stat">
+                      <div class="stat-value" style="color:#38bdf8">83%</div>
+                      <div class="stat-label">Accuracy</div>
+                    </div>
+                    <div class="stat">
+                      <div class="stat-value">891</div>
+                      <div class="stat-label">Passengers</div>
                     </div>
                   </div>
 

@@ -11,7 +11,7 @@
 
   2. BASE
      2.1  Reset
-     2.2  Page body & background glow
+     2.2  Page body & background (two-color gradient)
      2.3  Links & headings
      2.4  Sections & glass surfaces
      2.5  Section titles
@@ -90,11 +90,9 @@
   --neon-purple: #4f46e5;
 
   /* Glass effect */
-  --glass-bg: rgba(15, 23, 42, 0.6);
   --glass-border: rgba(255, 255, 255, 0.1);
 
   /* Motion */
-  --transition-smooth: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 
   /* 3D cube logo */
   --cube-size: 52px;
@@ -148,13 +146,13 @@ html:not(.aos-on) [data-aos] {
 
 
 /*--------------------------------------------------------------
-  # 2.2 Page body & background glow
+  # 2.2 Page body & background (two-color gradient)
 --------------------------------------------------------------*/
 /* Full-height column so the footer always sits at the bottom */
 body {
   color: var(--default-color);
   font-family: var(--default-font);
-  background-color: #0a1118;
+  background-color: #070b14;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -162,16 +160,15 @@ body {
   overflow-x: hidden;
 }
 
-/* Blue and pink glows in the corners, fixed behind everything */
+/* Two-color background: deep blue at the top-left fading into deep purple
+   at the bottom-right, fixed behind everything */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(79, 70, 229, 0.12) 0%, transparent 45%),
-    radial-gradient(circle at 80% 70%, rgba(219, 39, 119, 0.08) 0%, transparent 45%);
   z-index: -1;
   pointer-events: none;
+  background: linear-gradient(135deg, #0b1a3a 0%, #0a0f1f 50%, #24103d 100%);
 }
 
 .main {
@@ -1117,9 +1114,9 @@ section,
 
 /* Hover: the button turns white */
 .hero-btn:hover {
-  background: #f8fafc !important;
-  border-color: #f8fafc !important;
-  color: #0f172a !important;
+  background: #f8fafc;
+  border-color: #f8fafc;
+  color: #0f172a;
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
 }
 

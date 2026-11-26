@@ -1,6 +1,9 @@
 (function () {
   "use strict";
 
+  // People who turn animations off in their system settings
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   /**
    * Every page: once the page is scrolled down, darker header (.scrolled on <body>)
    * and the scroll-to-top button appears
@@ -147,7 +150,6 @@
     const light = L.map(v => v / len);
 
     const scene = cube.closest('.cube-scene');
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let m = new DOMMatrix().rotate(-25, 35, 0); // start at a nice 3D angle
     let t = 0, speed = 1, targetSpeed = 1, last = null;
 
@@ -252,8 +254,6 @@
    * (skipped when the system asks for reduced motion).
    */
   const skillCards = document.querySelectorAll('.skill-card');
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
   skillCards.forEach(card => {
     // Make the card reachable with Tab and announced as a button
     card.setAttribute('tabindex', '0');
