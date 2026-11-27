@@ -291,7 +291,8 @@ section,
 .header {
   color: var(--default-color);
   background-color: transparent;
-  padding: 15px 0;
+  /* Extra space on top: the spinning cube's corners and glow reach past its box */
+  padding: 27px 0 15px;
   transition: background-color 0.4s, border-color 0.4s, backdrop-filter 0.4s;
   z-index: 997;
   border-bottom: 1px solid transparent;
