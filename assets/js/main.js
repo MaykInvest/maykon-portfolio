@@ -46,6 +46,35 @@
   });
 
   /**
+   * Every page: page transitions. A click on a link to another page of the site
+   * first fades the page out (.page-leaving, see main.css 2.7), then opens it.
+   * Links that open a new tab, files (the PDF) and #anchors work as usual.
+   */
+  const LEAVE_TIME = 350; // same as the transition in main.css
+
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href]');
+    if (!link || reduceMotion || e.defaultPrevented || e.button !== 0 ||
+        e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || link.target === '_blank') return;
+
+    const url = new URL(link.href, location.href);
+    const isPage = url.pathname.endsWith('.html') || url.pathname.endsWith('/');
+    const samePage = url.pathname === location.pathname;
+    if (url.origin !== location.origin || !isPage || samePage) return;
+
+    e.preventDefault();
+    setMenu(false);
+    document.body.classList.add('page-leaving');
+    setTimeout(() => { location.href = url.href; }, LEAVE_TIME);
+  });
+
+  // Coming back with the browser's Back button can show the page as it was left
+  // (faded out): show it again
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted) document.body.classList.remove('page-leaving');
+  });
+
+  /**
    * Every page: desktop menu. A soft pill sits behind the current page's link
    * and slides to the link under the mouse, then back when the mouse leaves.
    */
