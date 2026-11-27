@@ -3199,7 +3199,7 @@ a.contact-value:hover {
     animation: menuFade 0.35s ease both;
   }
 
-  /* Numbered links (01 Home, 02 About...), left-aligned */
+  /* Big left-aligned links */
   .menu-open .navmenu ul {
     display: flex;
     flex-direction: column;
@@ -3207,11 +3207,9 @@ a.contact-value:hover {
     width: min(100% - 48px, 360px);
     margin: 0;
     padding: 0;
-    counter-reset: nav;
   }
 
   .menu-open .navmenu li {
-    counter-increment: nav;
     animation: menuItemIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
@@ -3222,9 +3220,7 @@ a.contact-value:hover {
   .menu-open .navmenu li:nth-child(6) { animation-delay: 0.25s; }
 
   .menu-open .navmenu a {
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
+    display: block;
     padding: 12px 4px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     font-family: var(--heading-font);
@@ -3235,25 +3231,10 @@ a.contact-value:hover {
     transition: color 0.3s, padding-left 0.3s;
   }
 
-  .menu-open .navmenu a::before {
-    content: counter(nav, decimal-leading-zero);
-    font-family: var(--nav-font);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    color: rgba(255, 255, 255, 0.3);
-    transition: color 0.3s;
-  }
-
   .menu-open .navmenu a:hover,
   .menu-open .navmenu .active {
     color: #fff;
     padding-left: 12px;
-  }
-
-  .menu-open .navmenu a:hover::before,
-  .menu-open .navmenu .active::before {
-    color: var(--nav-hover-color);
   }
 }
 
